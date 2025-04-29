@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "farmersmarket",
+	"version": "${version}",
+	"name": "Farmer's market",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Shadow Bryant0"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/farmersmarket/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.shadow.farmersmarket.FarmersMarket"
+		],
+		"client": [
+			"net.shadow.farmersmarket.FarmersMarketClient"
+		],
+		"fabric-datagen": [
+			"net.shadow.farmersmarket.FarmersMarketDataGenerator"
+		]
+	},
+	"mixins": [
+		"farmersmarket.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
