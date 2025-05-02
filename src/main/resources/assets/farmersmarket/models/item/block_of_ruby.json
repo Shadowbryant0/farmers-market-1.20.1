@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "item/generated",
   "textures": {
-    "all": "farmersmarket:block/block_of_ruby"
+    "layer0": "farmersmarket:item/block_of_ruby"
   }
 }
