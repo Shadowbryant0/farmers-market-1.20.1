@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "farmersmarket:item/block_of_ruby"
+    "all": "farmersmarket:block/block_of_ruby"
   }
 }
