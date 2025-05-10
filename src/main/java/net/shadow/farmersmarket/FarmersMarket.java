@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.item.ModItemGroups;
 import net.shadow.farmersmarket.item.ModItems;
+import net.shadow.farmersmarket.sound.ModSounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,5 +22,6 @@ public class FarmersMarket implements ModInitializer {
 
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
+		ModSounds.registerSounds();
 	}
 }

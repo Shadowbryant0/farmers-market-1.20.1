@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "farmersmarket:ruby"
+    }
+  },
+  "result": {
+    "item": "farmersmarket:block_of_ruby"
+  }
+}

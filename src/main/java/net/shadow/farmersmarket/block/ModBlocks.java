@@ -27,7 +27,7 @@ public class ModBlocks {
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(FarmersMarket.MOD_ID),
+        return Registry.register(Registries.ITEM, new Identifier(FarmersMarket.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
     }
 

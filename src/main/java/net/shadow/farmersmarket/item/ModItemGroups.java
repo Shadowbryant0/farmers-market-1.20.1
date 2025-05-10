@@ -11,12 +11,15 @@ import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.block.ModBlocks;
 
 public class ModItemGroups {
-    public static final ItemGroup RUBY_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(FarmersMarket.MOD_ID, "ruby"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.ruby"))
+    public static final ItemGroup FARMERS_MARKET = Registry.register(Registries.ITEM_GROUP, new Identifier(FarmersMarket.MOD_ID, "farmers_market"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.farmers_market"))
                     .icon(() -> new ItemStack(ModItems.RUBY)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.RAW_RUBY);
+                        entries.add(ModItems.MADE_TO_HATE_YOU_DISC);
+
+                        entries.add(ModItems.RAPIER);
 
                         entries.add(ModBlocks.BLOCK_OF_RUBY);
 
