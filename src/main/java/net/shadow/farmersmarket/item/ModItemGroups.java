@@ -19,7 +19,7 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_RUBY);
                         entries.add(ModItems.MADE_TO_HATE_YOU_DISC);
 
-                        entries.add(ModItems.RAPIER);
+                        entries.add(ModItems.VEINPIERCER);
 
                         entries.add(ModBlocks.BLOCK_OF_RUBY);
 

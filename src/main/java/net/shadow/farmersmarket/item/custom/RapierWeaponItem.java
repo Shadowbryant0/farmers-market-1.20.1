@@ -14,6 +14,7 @@ import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
 
 public class RapierWeaponItem extends Item {
+    private static final int COOLDOWN_TICKS = 100;
     public RapierWeaponItem(Settings settings) {
         super(settings.maxCount(1));
     }
@@ -40,11 +41,9 @@ public class RapierWeaponItem extends Item {
             user.velocityModified = true;
             user.setSwimming(false);
         }
-            if (user.isFallFlying()) {
-                user.getItemCooldownManager().set(ItemStack.class(RapierWeaponItem), 1000;
-            } else {
-                user.getItemCooldownManager().set(ItemStack.class(RapierWeaponItem), 200;
-            }
+            {
+                user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+             }
 
         return super.use(world, user, hand);
     }
