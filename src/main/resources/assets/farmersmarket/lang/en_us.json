@@ -5,5 +5,9 @@
   "item.farmersmarket.veinpeircer": "VeinPiercer",
   "block.farmersmarket.block_of_ruby": "Ruby Block",
 
+  "enchantment.farmersmarket.hunterslullabyenchantment": "Hunters Lullaby",
+  "enchantment.farmersmarket.freshfieldsenchantment": "Fresh Fields",
+
+
   "itemgroup.farmers_market": "FarmersMarket"
 }

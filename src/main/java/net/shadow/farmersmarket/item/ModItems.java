@@ -21,6 +21,9 @@ public class ModItems {
     public static final Item RAW_RUBY = registerItem("raw_ruby",
             new Item(new FabricItemSettings()));
 
+    public static final Item SILVER_FLESH = registerItem("silver_flesh",
+            new Item(new FabricItemSettings()));
+
     public static final Item VEINPIERCER = registerItem("veinpeircer",
             new RapierWeaponItem(new FabricItemSettings()));
 
