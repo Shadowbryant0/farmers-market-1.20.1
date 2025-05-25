@@ -5,7 +5,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
@@ -13,10 +17,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
 
-public class RapierWeaponItem extends Item {
+public class RapierWeaponItem extends SwordItem {
     private static final int COOLDOWN_TICKS = 100;
-    public RapierWeaponItem(Settings settings) {
-        super(settings.maxCount(1));
+
+
+    public RapierWeaponItem(Item.Settings settings) {
+        super(ToolMaterials.NETHERITE, 4, -2.4F, settings);
     }
 
     double boost = 4.0d;
@@ -46,5 +52,9 @@ public class RapierWeaponItem extends Item {
              }
 
         return super.use(world, user, hand);
+    }
+    @Override
+    public Text getName(ItemStack stack) {
+        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x550000 ));
     }
 }

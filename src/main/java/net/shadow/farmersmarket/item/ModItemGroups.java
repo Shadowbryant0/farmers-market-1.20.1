@@ -13,7 +13,7 @@ import net.shadow.farmersmarket.block.ModBlocks;
 public class ModItemGroups {
     public static final ItemGroup FARMERS_MARKET = Registry.register(Registries.ITEM_GROUP, new Identifier(FarmersMarket.MOD_ID, "farmers_market"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.farmers_market"))
-                    .icon(() -> new ItemStack(ModItems.RUBY)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.VEINPIERCER)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.RAW_RUBY);
