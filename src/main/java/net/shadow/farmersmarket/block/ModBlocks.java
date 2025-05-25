@@ -1,10 +1,9 @@
 package net.shadow.farmersmarket.block;
 
-import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -17,6 +16,9 @@ public class ModBlocks {
     public static final Block BLOCK_OF_RUBY = registerBlock("block_of_ruby",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
+    public static final Block THREAD_WEAVER = registerBlock(
+            "thread_weaver",
+            new Block(FabricBlockSettings.create().collidable(true).pistonBehavior(PistonBehavior.IGNORE).strength(2.0F, 3.0F).sounds((BlockSoundGroup.ANVIL))));
 
 
 
