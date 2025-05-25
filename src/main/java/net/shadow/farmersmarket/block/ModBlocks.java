@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CobwebBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -16,6 +17,11 @@ import net.shadow.farmersmarket.FarmersMarket;
 public class ModBlocks {
     public static final Block BLOCK_OF_RUBY = registerBlock("block_of_ruby",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+    public static final Block EFFECT_COBWEB = registerBlock("effect_cobweb",
+            new CustomCobwebBlock(FabricBlockSettings.copyOf(Blocks.COBWEB)));
+
+
 
 
 
