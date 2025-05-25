@@ -1,6 +1,7 @@
 package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.entity.decoration.painting.PaintingEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -10,7 +11,9 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.block.ModBlocks;
 
+
 public class ModItemGroups {
+
     public static final ItemGroup FARMERS_MARKET = Registry.register(Registries.ITEM_GROUP, new Identifier(FarmersMarket.MOD_ID, "farmers_market"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.farmers_market"))
                     .icon(() -> new ItemStack(ModItems.VEINPIERCER)).entries((displayContext, entries) -> {
@@ -21,6 +24,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.VEINPIERCER);
 
+                        entries.add(ModBlocks.THREAD_WEAVER);
                         entries.add(ModBlocks.BLOCK_OF_RUBY);
 
                     }).build());

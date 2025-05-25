@@ -1,7 +1,6 @@
 package net.shadow.farmersmarket.item.custom;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,7 +21,7 @@ public class RapierWeaponItem extends SwordItem {
 
 
     public RapierWeaponItem(Item.Settings settings) {
-        super(ToolMaterials.NETHERITE, 4, -2.4F, settings);
+        super(ToolMaterials.NETHERITE, 2, -2.2F, settings);
     }
 
     double boost = 4.0d;
