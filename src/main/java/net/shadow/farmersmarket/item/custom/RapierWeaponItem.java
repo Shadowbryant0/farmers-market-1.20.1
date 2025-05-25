@@ -22,7 +22,7 @@ public class RapierWeaponItem extends SwordItem {
 
 
     public RapierWeaponItem(Item.Settings settings) {
-        super(ToolMaterials.NETHERITE, 4, -2.4F, settings);
+        super(ToolMaterials.NETHERITE, 2, -2.2F, settings);
     }
 
     double boost = 4.0d;
