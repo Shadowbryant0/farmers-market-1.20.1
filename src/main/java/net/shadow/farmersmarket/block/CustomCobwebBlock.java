@@ -9,30 +9,50 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionUtil;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CustomCobwebBlock extends Block {
+
+    public static final List<Potion> EFFECT_POTIONS = Arrays.asList(
+            Potions.SLOWNESS,
+            Potions.WEAKNESS,
+            Potions.POISON,
+            Potions.REGENERATION,
+            Potions.HEALING,
+            Potions.TURTLE_MASTER,
+            Potions.SLOW_FALLING,
+            Potions.FIRE_RESISTANCE
+
+
+
+    );
+
     public CustomCobwebBlock(AbstractBlock.Settings settings) {
         super(settings);
     }
 
 
-    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        entity.slowMovement(state, new Vec3d(0.25, 0.05000000074505806, 0.25));
-        {
-            if (entity instanceof LivingEntity && entity.getType() != EntityType.CAVE_SPIDER && entity.getType() != EntityType.SPIDER) {
-                entity.slowMovement(state, new Vec3d(0.800000011920929, 0.75, 0.800000011920929));
-                double d = Math.abs(entity.getX() - entity.lastRenderX);
-                double e = Math.abs(entity.getZ() - entity.lastRenderZ);
-                if (d >= 0.003000000026077032 || e >= 0.003000000026077032) {
-                    ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 2));
-
+    public void onEntityCollision(World world, BlockPos pos, BlockState state, Entity entity) {
+        if (!world.isClient && entity instanceof LivingEntity living) {
+            for (Potion potion : EFFECT_POTIONS) {
+                for (StatusEffectInstance effect : potion.getEffects()) {
+                    living.addStatusEffect(new StatusEffectInstance(
+                            effect.getEffectType(),
+                            effect.getDuration(),
+                            effect.getAmplifier(),
+                            effect.isAmbient(),
+                            effect.shouldShowParticles()
+                    ));
                 }
             }
-
-
         }
     }
 }
