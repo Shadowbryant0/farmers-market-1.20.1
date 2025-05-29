@@ -33,13 +33,13 @@ public class RapierWeaponItem extends SwordItem {
             RegistryKey<DimensionType> the_nether = DimensionTypes.THE_NETHER;
                 user.setVelocity(
                         lookingDirection.x * boost,
-                        lookingDirection.y * boost * 0.6f,
+                        lookingDirection.y * boost * 0.4f,
                         lookingDirection.z * boost
                 );
 
                 user.setVelocity(
                         lookingDirection.x * boost / notRightDimensionDebuff,
-                        lookingDirection.y * boost * 0.6f/ notRightDimensionDebuff,
+                        lookingDirection.y * boost * 0.4f/ notRightDimensionDebuff,
                         lookingDirection.z * boost / notRightDimensionDebuff
                 );
 

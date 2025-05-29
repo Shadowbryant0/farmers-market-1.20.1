@@ -23,6 +23,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MADE_TO_HATE_YOU_DISC);
 
                         entries.add(ModItems.VEINPIERCER);
+                        entries.add(ModItems.BLOODHOUNDAXE);
 
                         entries.add(ModBlocks.POTION_WEB);
                         entries.add(ModBlocks.THREAD_WEAVER);

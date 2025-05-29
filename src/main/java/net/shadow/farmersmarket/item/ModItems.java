@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.item.custom.ExecutionersAxeClass;
 import net.shadow.farmersmarket.item.custom.RapierWeaponItem;
 import net.shadow.farmersmarket.sound.ModSounds;
 
@@ -25,6 +26,9 @@ public class ModItems {
 
     public static final Item VEINPIERCER = registerItem("veinpeircer",
             new RapierWeaponItem(new FabricItemSettings()));
+
+    public static final Item BLOODHOUNDAXE = registerItem("veinpeircer",
+            new ExecutionersAxeClass(new FabricItemSettings()));
 
     public static final Item MADE_TO_HATE_YOU_DISC = registerItem("made_to_hate_you_disc",
             new MusicDiscItem(7, ModSounds.MADE_TO_HATE_YOU, new FabricItemSettings().maxCount(1), 191));
