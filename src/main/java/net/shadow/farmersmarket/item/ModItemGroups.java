@@ -24,6 +24,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.VEINPIERCER);
 
+                        entries.add(ModBlocks.POTION_WEB);
                         entries.add(ModBlocks.THREAD_WEAVER);
                         entries.add(ModBlocks.BLOCK_OF_RUBY);
 
