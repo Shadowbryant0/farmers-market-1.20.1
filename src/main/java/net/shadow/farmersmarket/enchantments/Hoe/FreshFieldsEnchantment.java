@@ -1,9 +1,13 @@
 package net.shadow.farmersmarket.enchantments.Hoe;
 
+import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.HoeItem;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.*;
+import net.minecraft.server.world.ServerWorld;
 
 public class FreshFieldsEnchantment extends Enchantment {
     public FreshFieldsEnchantment() {
@@ -38,4 +42,16 @@ public class FreshFieldsEnchantment extends Enchantment {
     public boolean isAvailableForRandomSelection() {
         return false;
     }
+
+    @Override
+    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
+
+    }
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() instanceof ArmorItem;
+    }
+
+
+
 }
+
