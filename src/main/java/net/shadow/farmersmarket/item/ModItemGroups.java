@@ -21,9 +21,11 @@ public class ModItemGroups {
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.RAW_RUBY);
                         entries.add(ModItems.MADE_TO_HATE_YOU_DISC);
+                        entries.add(ModItems.SLIVER_FLESH);
 
                         entries.add(ModItems.VEINPIERCER);
                         entries.add(ModItems.BLOODHOUNDAXE);
+                        entries.add(ModItems.GREATSWORD);
 
                         entries.add(ModBlocks.POTION_WEB);
                         entries.add(ModBlocks.THREAD_WEAVER);
