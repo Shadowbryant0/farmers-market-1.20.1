@@ -23,7 +23,7 @@ public class ExecutionersAxeClass extends AxeItem {
         super(ToolMaterials.NETHERITE, 7, -3.0F, settings);
     }
 
-
+// right click pulls entity closer and applies weakness
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

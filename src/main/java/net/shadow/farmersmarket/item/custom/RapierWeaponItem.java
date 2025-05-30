@@ -23,7 +23,7 @@ public class RapierWeaponItem extends SwordItem {
     public RapierWeaponItem(Item.Settings settings) {
         super(ToolMaterials.NETHERITE, 2, -2.2F, settings);
     }
-
+// right click is medium dash that deals dmg
     double boost = 4.0d;
     double notRightDimensionDebuff = 1.0d;
     @Override
@@ -54,6 +54,6 @@ public class RapierWeaponItem extends SwordItem {
     }
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x550000 ));
+        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x8a0000 ));
     }
 }

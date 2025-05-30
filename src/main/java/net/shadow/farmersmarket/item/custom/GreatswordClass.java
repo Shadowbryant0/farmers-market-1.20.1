@@ -18,9 +18,9 @@ import net.minecraft.world.dimension.DimensionTypes;
 public class GreatswordClass extends SwordItem {
     private static final int COOLDOWN_TICKS = 200;
 
-
+//  right click is fast short dash
     public GreatswordClass(Item.Settings settings) {
-        super(ToolMaterials.NETHERITE, 9, -3.8F, settings);
+        super(ToolMaterials.NETHERITE, 8, -3.2F, settings);
     }
 
     double boost = 4.0d;
@@ -29,7 +29,7 @@ public class GreatswordClass extends SwordItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient){
             Vec3d lookingDirection = user.getRotationVec(1.0f);
-            RegistryKey<DimensionType> the_nether = DimensionTypes.THE_NETHER;
+            RegistryKey<DimensionType> overworld = DimensionTypes.OVERWORLD;
             user.setVelocity(
                     lookingDirection.x * boost,
                     lookingDirection.y * boost * 0.4f,
@@ -53,6 +53,6 @@ public class GreatswordClass extends SwordItem {
     }
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x550000 ));
+        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x4169e1 ));
     }
 }
