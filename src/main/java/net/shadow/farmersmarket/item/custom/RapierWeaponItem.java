@@ -23,7 +23,7 @@ public class RapierWeaponItem extends SwordItem {
     public RapierWeaponItem(Item.Settings settings) {
         super(ToolMaterials.NETHERITE, 2, -2.2F, settings);
     }
-// right click is medium dash that deals dmg
+// right click is medium dash that deals dmg and 0s your vel so it's like a stab
     double boost = 4.0d;
     double notRightDimensionDebuff = 1.0d;
     @Override

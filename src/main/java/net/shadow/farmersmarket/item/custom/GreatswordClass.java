@@ -18,7 +18,7 @@ import net.minecraft.world.dimension.DimensionTypes;
 public class GreatswordClass extends SwordItem {
     private static final int COOLDOWN_TICKS = 200;
 
-//  right click is fast short dash
+//  right click is fast short dash that slams into enemies (custom stun effect)
     public GreatswordClass(Item.Settings settings) {
         super(ToolMaterials.NETHERITE, 8, -3.2F, settings);
     }
