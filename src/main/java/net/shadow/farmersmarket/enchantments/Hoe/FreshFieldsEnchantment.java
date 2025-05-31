@@ -50,7 +50,8 @@ public class FreshFieldsEnchantment extends Enchantment {
     //.
 
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof ArmorItem;
+        return stack.getItem() instanceof HoeItem;
+
     }
 
 

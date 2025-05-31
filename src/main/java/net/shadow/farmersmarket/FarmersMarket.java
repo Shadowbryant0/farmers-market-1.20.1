@@ -27,6 +27,8 @@ public class FarmersMarket implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModSounds.registerSounds();
 
+
+
 		FarmersMarketEnchants.registerModEnchantments();
 
 	}

@@ -1,29 +1,38 @@
 package net.shadow.farmersmarket.event;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.CropBlock;
 import net.minecraft.block.Fertilizable;
+import net.minecraft.command.argument.serialize.FloatArgumentSerializer;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.ai.brain.task.BoneMealTask;
+import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.HoeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.WorldEvents;
+import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+
+import java.util.Properties;
 
 public class FarmersMarketEvents implements ModInitializer{
 
     @Override
     public void onInitialize() {
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
-            // Only on server side & main hand
-            if (hand != Hand.MAIN_HAND || world.isClient()) {
-                return ActionResult.PASS;
-            }
 
             ItemStack stack = player.getStackInHand(hand);
             if (!(stack.getItem() instanceof HoeItem)) {
@@ -36,13 +45,22 @@ public class FarmersMarketEvents implements ModInitializer{
             }
 
             BlockHitResult blockHit = (BlockHitResult) hitResult;
-            BlockPos placedPos = blockHit.getBlockPos().offset(blockHit.getSide());
+            BlockPos pos = blockHit.getBlockPos();
+            BlockState state = world.getBlockState(pos);
+            int age = state.get(CropBlock.AGE);
+            if (age != 0) {
 
-            BlockState blockState = world.getBlockState(placedPos);
-            Block block = blockState.getBlock();
 
-
-            return ActionResult.PASS;
+                return ActionResult.PASS;
+            }
+            Fertilizable fertilizable = (Fertilizable) state.getBlock();
+            if (fertilizable.isFertilizable(world, pos, state, world.isClient)) {
+                if (fertilizable.canGrow(world, world.random, pos, state)) {
+                    fertilizable.grow((ServerWorld)world, world.random, pos, state);
+                }
+            }
+            return ActionResult.SUCCESS;
         });
     }
+
 }
