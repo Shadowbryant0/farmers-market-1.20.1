@@ -14,20 +14,24 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
+import net.shadow.farmersmarket.item.ModItems;
+
+import java.util.Objects;
 
 public class GreatswordClass extends SwordItem {
     private static final int COOLDOWN_TICKS = 200;
 
-//  right click is fast short dash that slams into enemies (custom stun effect)
+    //  right click is fast short dash that slams into enemies (custom stun effect)
     public GreatswordClass(Item.Settings settings) {
         super(ToolMaterials.NETHERITE, 8, -3.2F, settings);
     }
 
     double boost = 4.0d;
     double notRightDimensionDebuff = 1.0d;
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (!world.isClient){
+        if (!world.isClient) {
             Vec3d lookingDirection = user.getRotationVec(1.0f);
             RegistryKey<DimensionType> overworld = DimensionTypes.OVERWORLD;
             user.setVelocity(
@@ -38,7 +42,7 @@ public class GreatswordClass extends SwordItem {
 
             user.setVelocity(
                     lookingDirection.x * boost / notRightDimensionDebuff,
-                    lookingDirection.y * boost * 0.4f/ notRightDimensionDebuff,
+                    lookingDirection.y * boost * 0.4f / notRightDimensionDebuff,
                     lookingDirection.z * boost / notRightDimensionDebuff
             );
 
@@ -51,8 +55,7 @@ public class GreatswordClass extends SwordItem {
 
         return super.use(world, user, hand);
     }
-    @Override
-    public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x4169e1 ));
-    }
+
+
 }
+

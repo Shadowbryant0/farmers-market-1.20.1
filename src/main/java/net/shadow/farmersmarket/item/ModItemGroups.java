@@ -26,6 +26,7 @@ public class ModItemGroups {
                         entries.add(ModItems.VEINPIERCER);
                         entries.add(ModItems.BLOODHOUNDAXE);
                         entries.add(ModItems.GREATSWORD);
+                        entries.add(ModItems.MAINSWORD);
 
                         entries.add(ModBlocks.POTION_WEB);
                         entries.add(ModBlocks.THREAD_WEAVER);
