@@ -2,11 +2,12 @@ package net.shadow.farmersmarket.enchantments.sword;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-
+import net.minecraft.entity.EntityGroup;
 public class HuntersLullabyEnchantment extends Enchantment {
     public HuntersLullabyEnchantment() {
         super(Rarity.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
@@ -37,17 +38,20 @@ public class HuntersLullabyEnchantment extends Enchantment {
         return false;
     }
 
+    @Override
+    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
+        if(!user.getWorld().isClient() && target instanceof LivingEntity livingEntity) {
 
-    public void onTargetDamaged(LivingEntity user, LivingEntity target, int level) {
-        if (!target.getWorld().isClient && user != null && target instanceof LivingEntity) {
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 100, 0));
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 80, 0));
+
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 100, 0));
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 80, 0));
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 80, 0));
         }
-        super.onTargetDamaged(user, target, level);
     }
 
-
-    public float getAttackDamage(int level, net.minecraft.entity.attribute.EntityAttribute attribute) {
-        return 1.5f * level; // small bonus damage
+    @Override
+    public float getAttackDamage(int level, EntityGroup group) {
+        return 1.0F + 0* 0.5F; // small bonus damage
     }
+
 }
