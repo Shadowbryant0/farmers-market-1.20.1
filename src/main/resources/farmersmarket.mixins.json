@@ -6,7 +6,8 @@
 		"ExampleMixin",
 		"ItemRendererAccessor",
 		"ItemRendererMixin",
-		"ModelLoaderMixin"
+		"ModelLoaderMixin",
+		"LivingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

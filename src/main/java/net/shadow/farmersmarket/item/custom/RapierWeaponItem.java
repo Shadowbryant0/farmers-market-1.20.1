@@ -25,22 +25,25 @@ public class RapierWeaponItem extends SwordItem {
     }
 // right click is medium dash that deals dmg and 0s your vel so it's like a stab
     double boost = 4.0d;
-    double notRightDimensionDebuff = 1.0d;
+    double notRightDimensionDebuff = 0.5d;
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient){
             Vec3d lookingDirection = user.getRotationVec(1.0f);
             RegistryKey<DimensionType> the_nether = DimensionTypes.THE_NETHER;
+
                 user.setVelocity(
                         lookingDirection.x * boost,
                         lookingDirection.y * boost * 0.4f,
                         lookingDirection.z * boost
                 );
 
+
+
                 user.setVelocity(
-                        lookingDirection.x * boost / notRightDimensionDebuff,
-                        lookingDirection.y * boost * 0.4f/ notRightDimensionDebuff,
-                        lookingDirection.z * boost / notRightDimensionDebuff
+                        lookingDirection.x * boost * notRightDimensionDebuff,
+                        lookingDirection.y * boost * 0.4f * notRightDimensionDebuff,
+                        lookingDirection.z * boost * notRightDimensionDebuff
                 );
 
             user.velocityModified = true;

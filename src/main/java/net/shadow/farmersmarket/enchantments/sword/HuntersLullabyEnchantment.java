@@ -51,7 +51,7 @@ public class HuntersLullabyEnchantment extends Enchantment {
 
     @Override
     public float getAttackDamage(int level, EntityGroup group) {
-        return 1.0F + 0* 0.5F; // small bonus damage
+        return 0.5F; // small bonus damage
     }
 
 }
