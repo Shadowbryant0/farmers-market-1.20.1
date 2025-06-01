@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -25,8 +26,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldEvents;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-
-import java.util.Properties;
 
 public class FarmersMarketEvents implements ModInitializer{
 
@@ -44,21 +43,19 @@ public class FarmersMarketEvents implements ModInitializer{
                 return ActionResult.PASS;
             }
 
-            BlockHitResult blockHit = (BlockHitResult) hitResult;
-            BlockPos pos = blockHit.getBlockPos();
+
+            BlockPos pos = hitResult.getBlockPos();
             BlockState state = world.getBlockState(pos);
             int age = state.get(CropBlock.AGE);
-            if (age != 0) {
+            if (age == 6) {
 
 
                 return ActionResult.PASS;
             }
             Fertilizable fertilizable = (Fertilizable) state.getBlock();
-            if (fertilizable.isFertilizable(world, pos, state, world.isClient)) {
-                if (fertilizable.canGrow(world, world.random, pos, state)) {
+
                     fertilizable.grow((ServerWorld)world, world.random, pos, state);
-                }
-            }
+
             return ActionResult.SUCCESS;
         });
     }

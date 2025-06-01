@@ -1,6 +1,7 @@
 package net.shadow.farmersmarket.item.custom;
 
 
+import net.minecraft.entity.mob.DrownedEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -45,6 +46,7 @@ public class RapierWeaponItem extends SwordItem {
                         lookingDirection.y * boost * 0.4f * notRightDimensionDebuff,
                         lookingDirection.z * boost * notRightDimensionDebuff
                 );
+
 
             user.velocityModified = true;
             user.setSwimming(false);
