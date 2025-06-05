@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:sculk_catalyst"
+  },
+  "base": {
+    "item": "farmersmarket:greatsword"
+  },
+  "result": {
+    "item": "farmersmarket:mainsword"
+  },
+  "template": {
+    "item": "minecraft:sculk_vein"
+  }
+}

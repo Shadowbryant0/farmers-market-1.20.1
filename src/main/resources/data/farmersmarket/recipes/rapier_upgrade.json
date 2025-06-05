@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:flint"
+  },
+  "base": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  },
+  "result": {
+    "item": "farmersmarket:rapier_upgrade"
+  },
+  "template": {
+    "item": "minecraft:bone_block"
+  }
+}

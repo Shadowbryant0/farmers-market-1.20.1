@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:soul_sand"
+  },
+  "base": {
+    "item": "farmersmarket:rapier"
+  },
+  "result": {
+    "item": "farmersmarket:veinpeircer"
+  },
+  "template": {
+    "item": "farmersmarket:corruptedflesh"
+  }
+}

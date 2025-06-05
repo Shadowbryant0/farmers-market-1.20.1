@@ -57,8 +57,5 @@ public class RapierWeaponItem extends SwordItem {
 
         return super.use(world, user, hand);
     }
-    @Override
-    public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x8a0000 ));
-    }
+
 }
