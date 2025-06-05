@@ -28,7 +28,8 @@ public abstract class PiglinBruteEntityMixin extends AbstractPiglinEntity {
 
         if (this.random.nextInt(16) == 0) {
             itemStack = new ItemStack(ModItems.BLOODHOUNDAXE);
-            instance.setEquipmentDropChance(EquipmentSlot.MAINHAND, 1.0f); // 100% drop chance
+            instance.setEquipmentDropChance(EquipmentSlot.MAINHAND, 2.0f);
+
         }
         original.call(instance, equipmentSlot, itemStack);
     }
