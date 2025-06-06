@@ -1,5 +1,6 @@
 package net.shadow.farmersmarket.item.custom;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,6 +11,7 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
@@ -25,17 +27,17 @@ public class ExecutionersAxeClass extends AxeItem {
 
 // right click pulls entity closer and applies weakness
 
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (!world.isClient){
-            user.isOnFire();
+     @Override
+    public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
 
-        }
+            entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
+            entity.velocityModified = true;
+
         {
             user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
         }
 
-        return super.use(world, user, hand);
+        return super.useOnEntity(stack, user, entity, hand);
     }
     @Override
     public Text getName(ItemStack stack) {

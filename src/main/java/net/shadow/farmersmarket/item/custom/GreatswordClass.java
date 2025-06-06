@@ -40,11 +40,7 @@ public class GreatswordClass extends SwordItem {
                     lookingDirection.z * boost
             );
 
-            user.setVelocity(
-                    lookingDirection.x * boost / notRightDimensionDebuff,
-                    lookingDirection.y * boost * 0.4f / notRightDimensionDebuff,
-                    lookingDirection.z * boost / notRightDimensionDebuff
-            );
+
 
             user.velocityModified = true;
             user.setSwimming(false);

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:soul_sand"
+    "item": "farmersmarket:corruptedflesh"
   },
   "base": {
     "item": "farmersmarket:rapier"
@@ -10,6 +10,6 @@
     "item": "farmersmarket:veinpeircer"
   },
   "template": {
-    "item": "farmersmarket:corruptedflesh"
+    "item": "minecraft:skeleton_skull"
   }
 }
