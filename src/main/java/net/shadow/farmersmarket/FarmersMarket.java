@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.shadow.farmersmarket.block.ModBlocks;
+import net.shadow.farmersmarket.effects.ModEffects;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.event.FarmersMarketEvents;
 import net.shadow.farmersmarket.item.ModItemGroups;
@@ -26,6 +27,7 @@ public class FarmersMarket implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
 		ModSounds.registerSounds();
+		//ModEffects.registerEffects();
 
 
 

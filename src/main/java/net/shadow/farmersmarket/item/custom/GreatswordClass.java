@@ -23,7 +23,7 @@ public class GreatswordClass extends SwordItem {
 
     //  right click is fast short dash that slams into enemies (custom stun effect)
     public GreatswordClass(Item.Settings settings) {
-        super(ToolMaterials.NETHERITE, 8, -3.2F, settings);
+        super(ToolMaterials.NETHERITE, 7, -3.3F, settings);
     }
 
     double boost = 4.0d;
