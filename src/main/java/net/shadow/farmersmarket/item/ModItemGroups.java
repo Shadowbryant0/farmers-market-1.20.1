@@ -18,9 +18,7 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.farmers_market"))
                     .icon(() -> new ItemStack(ModItems.VEINPIERCER)).entries((displayContext, entries) -> {
 
-                        entries.add(ModItems.RUBY);
-                        entries.add(ModItems.RAW_RUBY);
-                        entries.add(ModItems.MADE_TO_HATE_YOU_DISC);
+
                         entries.add(ModItems.SLIVER_FLESH);
                         entries.add(ModItems.RAPIER_UPGRADE);
                         entries.add(ModItems.RAPIER);
@@ -33,7 +31,7 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.POTION_WEB);
                         entries.add(ModBlocks.THREAD_WEAVER);
-                        entries.add(ModBlocks.BLOCK_OF_RUBY);
+
 
                     }).build());
     public static void registerItemGroups() {

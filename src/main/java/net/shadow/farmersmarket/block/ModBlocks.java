@@ -19,8 +19,6 @@ import net.shadow.farmersmarket.block.custom.ThreadWeaver;
 import org.jetbrains.annotations.Nullable;
 
 public class ModBlocks {
-    public static final Block BLOCK_OF_RUBY = registerBlock("block_of_ruby",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
     public static final Block THREAD_WEAVER = registerBlock(
             "thread_weaver",

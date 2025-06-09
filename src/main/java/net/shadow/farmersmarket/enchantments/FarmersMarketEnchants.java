@@ -5,6 +5,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.enchantments.Axe.Intoxication;
 import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
 import net.shadow.farmersmarket.enchantments.sword.HuntersLullabyEnchantment;
 
@@ -16,6 +17,9 @@ public class FarmersMarketEnchants {
 
     public static final Enchantment FreshFeildsEnchantment = register("freshfeildsenchantment",
             new FreshFieldsEnchantment());
+
+    public static final Enchantment Intoxication = register("intoxicationenchant",
+            new Intoxication());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

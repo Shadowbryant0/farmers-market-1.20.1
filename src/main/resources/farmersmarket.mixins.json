@@ -7,8 +7,6 @@
 		"ItemRendererAccessor",
 		"ItemRendererMixin",
 		"ModelLoaderMixin",
-		"LivingEntityMixin",
-
 		"PiglinBruteEntityMixin"
 	],
 	"injectors": {

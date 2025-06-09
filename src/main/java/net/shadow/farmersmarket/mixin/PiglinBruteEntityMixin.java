@@ -23,7 +23,7 @@ public abstract class PiglinBruteEntityMixin extends AbstractPiglinEntity {
     @WrapOperation(method = "initEquipment", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/PiglinBruteEntity;equipStack(Lnet/minecraft/entity/EquipmentSlot;Lnet/minecraft/item/ItemStack;)V"))
     private void farmersmarket$replaceBruteWeapon(PiglinBruteEntity instance, EquipmentSlot equipmentSlot, ItemStack itemStack, Operation<Void> original, Random random) {
 
-        if (this.random.nextInt(16) == 0) {
+        if (this.random.nextInt(8) == 0) {
             itemStack = new ItemStack(ModItems.BLOODHOUNDAXE);
             instance.setEquipmentDropChance(EquipmentSlot.MAINHAND, 1.0f); // 100% drop chance
         }

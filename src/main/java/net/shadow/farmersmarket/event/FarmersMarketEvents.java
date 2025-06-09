@@ -2,6 +2,7 @@ package net.shadow.farmersmarket.event;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.Event;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,6 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldEvents;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.ModItems;
 
 public class FarmersMarketEvents implements ModInitializer{
 
@@ -58,6 +60,7 @@ public class FarmersMarketEvents implements ModInitializer{
 
             return ActionResult.SUCCESS;
         });
+
     }
 
 }

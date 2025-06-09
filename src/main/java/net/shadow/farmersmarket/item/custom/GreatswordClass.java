@@ -1,11 +1,15 @@
 package net.shadow.farmersmarket.item.custom;
 
+import net.fabricmc.fabric.api.item.v1.FabricItem;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
+import net.minecraft.item.*;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
@@ -23,10 +27,11 @@ public class GreatswordClass extends SwordItem {
 
     //  right click is fast short dash that slams into enemies (custom stun effect)
     public GreatswordClass(Item.Settings settings) {
-        super(ToolMaterials.NETHERITE, 7, -3.3F, settings);
+        super(Greatmat.INSTANCE, 5, -3.4F, settings);
     }
 
-    double boost = 4.0d;
+    double boost = 2.0d;
+    double nerf = 0.5d;
     double notRightDimensionDebuff = 1.0d;
 
     @Override
@@ -35,10 +40,11 @@ public class GreatswordClass extends SwordItem {
             Vec3d lookingDirection = user.getRotationVec(1.0f);
             RegistryKey<DimensionType> overworld = DimensionTypes.OVERWORLD;
             user.setVelocity(
-                    lookingDirection.x * boost,
-                    lookingDirection.y * boost * 0.4f,
-                    lookingDirection.z * boost
+                    lookingDirection.x * boost * nerf,
+                    lookingDirection.y * boost,
+                    lookingDirection.z * boost * nerf
             );
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20, 1));
 
 
 
@@ -46,12 +52,48 @@ public class GreatswordClass extends SwordItem {
             user.setSwimming(false);
         }
         {
-            user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+            user.getItemCooldownManager().set(ModItems.GREATSWORD, COOLDOWN_TICKS);
+            user.getItemCooldownManager().set(ModItems.MAINSWORD, COOLDOWN_TICKS);
         }
+
 
         return super.use(world, user, hand);
     }
+    public boolean isCritical(LivingEntity user) {
+        return (user.getVelocity().getY() + 0.0784000015258789) <= 0;
+    }
+    public boolean CoolingDown(PlayerEntity user) {
+            return (user.getItemCooldownManager().isCoolingDown(this));
+        }
+    public boolean Crouch(PlayerEntity user) {
+        return (user.isSneaking());
+    }
 
 
+
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (isCritical(attacker) && CoolingDown((PlayerEntity) attacker)) {
+            if (!Crouch((PlayerEntity) attacker)) {
+                attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 20, 1));
+                attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20, 1));
+                attacker.setVelocity(
+                        0,
+                        1.5,
+                        0
+                );
+            } else {
+                attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 20, 1));
+                attacker.setVelocity(
+                        0,
+                        0,
+                        0
+                );
+            }
+            attacker.velocityModified = true;
+        }
+        return super.postHit(stack, target, attacker);
+    }
 }
 

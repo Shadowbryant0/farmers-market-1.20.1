@@ -5,6 +5,7 @@
   "item.farmersmarket.veinpeircer": "VeinPiercer",
   "item.farmersmarket.greatsword": "Greatsword",
   "item.farmersmarket.rapier": "Rapier",
+  "item.farmersmarket.rapier_upgrade": "Rapier Upgrade Template",
   "item.farmersmarket.mainsword": "REQUIEM",
   "item.farmersmarket.sliver_flesh": "Sliver of flesh",
   "item.farmersmarket.corruptedflesh": "Corrupted flesh",
@@ -14,6 +15,7 @@
 
   "enchantment.farmersmarket.hunterslullabyenchantment": "Hunters Lullaby",
   "enchantment.farmersmarket.freshfieldsenchantment": "Fresh Fields",
+  "enchantment.farmersmarket.intoxicationenchant": "Intoxication",
 
 
   "itemgroup.farmers_market": "FarmersMarket"

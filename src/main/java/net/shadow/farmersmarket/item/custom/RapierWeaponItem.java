@@ -16,16 +16,17 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
+import net.shadow.farmersmarket.item.ModItems;
 
 public class RapierWeaponItem extends SwordItem {
     private static final int COOLDOWN_TICKS = 100;
 
 
-    public RapierWeaponItem(Item.Settings settings) {
-        super(ToolMaterials.NETHERITE, 2, -2.2F, settings);
+    public RapierWeaponItem(Settings settings) {
+        super(RapierMat.INSTANCE, 2, -2.3F, settings);
     }
 // right click is medium dash that deals dmg and 0s your vel so it's like a stab
-    double boost = 4.0d;
+    double boost = 3.5d;
     double notRightDimensionDebuff = 0.5d;
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -52,7 +53,8 @@ public class RapierWeaponItem extends SwordItem {
             user.setSwimming(false);
         }
             {
-                user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+                user.getItemCooldownManager().set(ModItems.RAPIER, COOLDOWN_TICKS);
+                user.getItemCooldownManager().set(ModItems.VEINPIERCER, COOLDOWN_TICKS);
              }
 
         return super.use(world, user, hand);

@@ -13,11 +13,7 @@ import net.shadow.farmersmarket.sound.ModSounds;
 
 public class ModItems {
 
-    public static final Item RUBY = registerItem("ruby",
-            new Item(new FabricItemSettings()));
 
-    public static final Item RAW_RUBY = registerItem("raw_ruby",
-            new Item(new FabricItemSettings()));
 
     public static final Item SLIVER_FLESH = registerItem("sliver_flesh",
             new Item(new FabricItemSettings()));
@@ -44,8 +40,6 @@ public class ModItems {
             new MainswordClass(new FabricItemSettings()));
 
 
-    public static final Item MADE_TO_HATE_YOU_DISC = registerItem("made_to_hate_you_disc",
-            new MusicDiscItem(7, ModSounds.MADE_TO_HATE_YOU, new FabricItemSettings().maxCount(1), 191));
 
 
 
