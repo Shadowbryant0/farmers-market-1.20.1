@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:amethyst_block"
+    "item": "minecraft:lapis_block"
   },
   "base": {
     "item": "farmersmarket:greatsword"
   },
   "result": {
-    "item": "farmersmarket:mainsword"
+    "item": "farmersmarket:altsword"
   },
   "template": {
-    "item": "minecraft:echo_shard"
+    "item": "minecraft:diamond"
   }
 }

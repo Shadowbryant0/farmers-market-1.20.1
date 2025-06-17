@@ -43,8 +43,8 @@ public class HuntersLullabyEnchantment extends Enchantment {
         if(!user.getWorld().isClient() && target instanceof LivingEntity livingEntity) {
 
 
-            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 100, 0));
             livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 80, 0));
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 20, 0));
 
         }
     }

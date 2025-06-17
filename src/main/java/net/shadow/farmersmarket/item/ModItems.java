@@ -25,19 +25,30 @@ public class ModItems {
             new Item(new FabricItemSettings()));
 
     public static final Item VEINPIERCER = registerItem("veinpeircer",
-            new Veinpiercer(new FabricItemSettings()));
+            new Veinpiercer(new FabricItemSettings().fireproof()));
 
     public static final Item RAPIER = registerItem("rapier",
-            new RapierWeaponItem(new FabricItemSettings()));
+            new RapierWeaponItem(new FabricItemSettings().fireproof()));
 
     public static final Item BLOODHOUNDAXE = registerItem("bloodhoundaxe",
-            new ExecutionersAxeClass(new FabricItemSettings()));
+            new ExecutionersAxeClass(new FabricItemSettings().fireproof()));
 
     public static final Item GREATSWORD = registerItem("greatsword",
-            new GreatswordClass(new FabricItemSettings()));
+            new GreatswordClass(new FabricItemSettings().fireproof()));
 
     public static final Item MAINSWORD = registerItem("mainsword",
-            new MainswordClass(new FabricItemSettings()));
+            new MainswordClass(new FabricItemSettings().fireproof()));
+    public static final Item ALTSWORD = registerItem("altsword",
+            new GreatswordClass(new FabricItemSettings().fireproof()));
+    public static final Item ARBALESTDESCENDANT = registerItem("arbalestdescendant",
+            new ArbalestDescend(new FabricItemSettings().maxCount(1)));
+
+    public static final Item HEXSPADE = registerItem("hexspade",
+            new AceofSpadesClass(new FabricItemSettings().fireproof()));
+
+    public static final Item CRACKED_TOTEM = registerItem("cracked_totem",
+            new CrackedTotem(new FabricItemSettings().maxCount(1)));
+
 
 
 

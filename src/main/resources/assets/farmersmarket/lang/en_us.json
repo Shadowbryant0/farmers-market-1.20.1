@@ -4,19 +4,28 @@
   "item.farmersmarket.made_to_hate_you_disc": "Made to hate you - Longestsoloever ft. Gianni Matragrano",
   "item.farmersmarket.veinpeircer": "VeinPiercer",
   "item.farmersmarket.greatsword": "Greatsword",
+  "item.farmersmarket.altsword": "Greatsword",
   "item.farmersmarket.rapier": "Rapier",
   "item.farmersmarket.rapier_upgrade": "Rapier Upgrade Template",
   "item.farmersmarket.mainsword": "REQUIEM",
   "item.farmersmarket.sliver_flesh": "Sliver of flesh",
   "item.farmersmarket.corruptedflesh": "Corrupted flesh",
   "item.farmersmarket.bloodhoundaxe": "BloodHound Axe",
+  "item.farmersmarket.craked_totem": "Cracked Totem",
+  "item.farmersmarket.hexspade": "HexSpade",
+
 
   "block.farmersmarket.block_of_ruby": "Ruby Block",
 
   "enchantment.farmersmarket.hunterslullabyenchantment": "Hunters Lullaby",
   "enchantment.farmersmarket.freshfieldsenchantment": "Fresh Fields",
   "enchantment.farmersmarket.intoxicationenchant": "Intoxication",
+  "enchantment.farmersmarket.hunterslullabyenchantment.disc": "Inflicting hit gives weakness and darkness",
+  "enchantment.farmersmarket.freshfieldsenchantment.disc": "Fresh Fields",
+  "enchantment.farmersmarket.intoxicationenchant.disc": "Inflicting a hit gives hunger",
 
 
-  "itemgroup.farmers_market": "FarmersMarket"
+
+  "itemgroup.farmers_market": "FarmersMarket",
+  "itemgroup.farmers_cosmetics": "FarmersMarket Cosmetic upgrades"
 }

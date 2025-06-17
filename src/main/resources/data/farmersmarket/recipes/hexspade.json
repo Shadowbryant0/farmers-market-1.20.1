@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " 01",
+    "gt0",
+    "1g "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:gold_block"
+    },
+
+    "1": {
+      "item": "minecraft:emerald_block"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "t": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "farmersmarket:hexspade"
+  }
+}

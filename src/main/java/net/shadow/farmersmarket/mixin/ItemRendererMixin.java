@@ -37,6 +37,13 @@ public abstract class ItemRendererMixin {
         return value;
     }
     @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
+    public BakedModel useAltGreatModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        if (stack.isOf(ModItems.ALTSWORD) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "altsword_3d", "inventory"));
+        }
+        return value;
+    }
+    @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
     public BakedModel useMainModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         if (stack.isOf(ModItems.MAINSWORD) && renderMode != ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "mainsword_3d", "inventory"));
@@ -47,6 +54,20 @@ public abstract class ItemRendererMixin {
     public BakedModel userapierModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         if (stack.isOf(ModItems.RAPIER) && renderMode != ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "rapier_3d", "inventory"));
+        }
+        return value;
+    }
+    @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
+    public BakedModel usetotemModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        if (stack.isOf(ModItems.CRACKED_TOTEM) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "cracked_totem_3d", "inventory"));
+        }
+        return value;
+    }
+    @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
+    public BakedModel useHexModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        if (stack.isOf(ModItems.HEXSPADE) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "hexspade_3d", "inventory"));
         }
         return value;
     }
