@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.enchantments.Axe.Intoxication;
 import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
+import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
 import net.shadow.farmersmarket.enchantments.sword.HuntersLullabyEnchantment;
 
 public class FarmersMarketEnchants {
@@ -20,6 +21,8 @@ public class FarmersMarketEnchants {
 
     public static final Enchantment Intoxication = register("intoxicationenchant",
             new Intoxication());
+    public static final Enchantment Forging = register("forging",
+            new Forging());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

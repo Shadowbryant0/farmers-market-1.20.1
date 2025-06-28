@@ -11,6 +11,8 @@ import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.*;
 import net.shadow.farmersmarket.sound.ModSounds;
 
+import static net.minecraft.item.ToolMaterials.IRON;
+
 public class ModItems {
 
 
@@ -48,6 +50,9 @@ public class ModItems {
 
     public static final Item CRACKED_TOTEM = registerItem("cracked_totem",
             new CrackedTotem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item TYRENT = registerItem("tyrent",
+            new FarmerScytheItem(new FabricItemSettings().maxCount(1)));
 
 
 

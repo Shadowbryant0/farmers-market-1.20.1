@@ -29,7 +29,7 @@ public class RapierWeaponItem extends SwordItem {
         super(RapierMat.INSTANCE, 2, -2.3F, settings);
     }
 // right click is medium dash that deals dmg and 0s your vel so it's like a stab
-    double boost = 3.5d;
+    double boost = 1.8d;
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

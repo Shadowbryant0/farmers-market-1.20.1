@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:altsword"
+  },
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "result": {
+    "item": "farmersmarket:altsword"
+  },
+  "template": {
+    "item": "minecraft:diamond"
+  }
+}
