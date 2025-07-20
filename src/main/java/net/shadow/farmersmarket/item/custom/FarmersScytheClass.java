@@ -30,41 +30,10 @@ public class FarmersScytheClass  extends MiningToolItem {
 
 
     public FarmersScytheClass(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        super(attackDamage, attackSpeed, material,BlockTags.HOE_MINEABLE, settings);
+        super(attackDamage, attackSpeed, material,BlockTags.CROPS, settings);
     }
 
-    public static void register() {
-        PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
-            if (!(world instanceof ServerWorld serverWorld)) return;
 
-            ItemStack tool = player.getMainHandStack();
-
-
-
-                Direction facing = player.getHorizontalFacing(); // To determine orientation
-                boolean isVertical = player.getPitch() < -60 || player.getPitch() > 60;
-
-                for (int dx = -1; dx <= 1; dx++) {
-                    for (int dy = -1; dy <= 1; dy++) {
-                        for (int dz = -1; dz <= 1; dz++) {
-
-                            if (!(dx == 0 && dy == 0 && dz == 0)) {
-                                BlockPos newPos = pos.add(dx, dy, dz);
-                                BlockState targetState = world.getBlockState(newPos);
-
-
-                                if (targetState.isOf(Blocks.NETHERRACK)) continue;
-
-                                if (tool.isSuitableFor(targetState)) {
-                                    serverWorld.breakBlock(newPos, true, player);
-                                }
-                            }
-                        }
-                    }
-                }
-
-        });
-    }
 }
 
 

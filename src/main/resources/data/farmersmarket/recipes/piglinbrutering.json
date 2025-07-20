@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "#": {
+      "item": "minecraft:golden_axe"
+    },
+    "Q": {
+      "item": "minecraft:blackstone"
+    },
+    "S": {
+      "item": "minecraft:gold_ingot"
+    },
+    "X": {
+      "item": "farmersmarket:goldenring"
+    }
+  },
+  "pattern": [
+    "S#S",
+    "QXQ",
+    "SQS"
+  ],
+  "result": {
+    "item": "farmersmarket:brutering"
+  },
+  "show_notification": true
+}

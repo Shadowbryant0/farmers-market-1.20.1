@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "farmersmarket",
-	"version": "1.0.51",
+	"version": "1.0.7",
 	"name": "Farmer's market",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
@@ -11,7 +11,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "MIT",
+	"license": "ARR",
 	"icon": "assets/farmersmarket/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -24,6 +24,7 @@
 		"fabric-datagen": [
 			"net.shadow.farmersmarket.FarmersMarketDataGenerator"
 		]
+
 	},
 	"mixins": [
 		"farmersmarket.mixins.json"
@@ -36,5 +37,10 @@
 	},
 	"suggests": {
 		"another-mod": "*"
+	},
+	"custom": {
+		"cardinal-components": [
+			"farmersmarket:rapierdamage"
+		]
 	}
 }

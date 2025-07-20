@@ -11,9 +11,17 @@
   "item.farmersmarket.sliver_flesh": "Sliver of flesh",
   "item.farmersmarket.corruptedflesh": "Corrupted flesh",
   "item.farmersmarket.bloodhoundaxe": "BloodHound Axe",
-  "item.farmersmarket.craked_totem": "Cracked Totem",
+  "item.farmersmarket.cracked_totem": "Cracked Totem",
   "item.farmersmarket.hexspade": "HexSpade",
+  "item.farmersmarket.gayscythe": "Farmer's Scythe",
 
+  "item.farmersmarket.humanpendent": "Human Tooth Necklace",
+  "item.farmersmarket.rabbitpendent": "Lucky Rabbit necklace",
+  "item.farmersmarket.goatpendent": "Mountain Goat Necklace",
+
+  "item.farmersmarket.goldenring": "Golden Ring",
+  "item.farmersmarket.brutering": "Piglin Enforcer Ring",
+  "item.farmersmarket.turtlering": "Blessed Turtle Ring",
 
   "block.farmersmarket.block_of_ruby": "Ruby Block",
 

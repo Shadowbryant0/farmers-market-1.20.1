@@ -3,12 +3,11 @@ package net.shadow.farmersmarket.item.custom;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.shadow.farmersmarket.item.ModItems;
+import net.shadow.farmersmarket.item.materials.BloodMat;
 
 public class ExecutionersAxeClass extends AxeItem {
     private static final int COOLDOWN_TICKS = 100;

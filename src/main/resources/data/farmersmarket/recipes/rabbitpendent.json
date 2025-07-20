@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "c": {
+      "item": "minecraft:carrot"
+    },
+    "H": {
+      "item": "minecraft:rabbit_foot"
+    }
+  },
+  "pattern": [
+    "S S",
+    "cSc",
+    " H "
+  ],
+  "result": {
+    "item": "farmersmarket:rabbitpendent"
+  },
+  "show_notification": true
+}

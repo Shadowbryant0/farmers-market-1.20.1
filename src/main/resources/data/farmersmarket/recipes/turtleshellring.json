@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "#": {
+      "item": "minecraft:turtle_helmet"
+    },
+    "Q": {
+      "item": "minecraft:scute"
+    },
+    "X": {
+      "item": "farmersmarket:goldenring"
+    }
+  },
+  "pattern": [
+    "Q#Q",
+    "QXQ",
+    "QQQ"
+  ],
+  "result": {
+    "item": "farmersmarket:turtlering"
+  },
+  "show_notification": true
+}

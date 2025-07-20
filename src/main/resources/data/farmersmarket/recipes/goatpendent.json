@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "H": {
+      "item": "minecraft:goat_horn"
+    },
+    "s": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "S S",
+    "sSs",
+    "sHs"
+  ],
+  "result": {
+    "item": "farmersmarket:goatpendent"
+  },
+  "show_notification": true
+}

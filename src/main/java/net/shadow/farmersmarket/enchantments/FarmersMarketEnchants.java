@@ -5,7 +5,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.enchantments.Axe.Devouring;
 import net.shadow.farmersmarket.enchantments.Axe.Intoxication;
+import net.shadow.farmersmarket.enchantments.sword.Starvation;
 import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
 import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
 import net.shadow.farmersmarket.enchantments.sword.HuntersLullabyEnchantment;
@@ -23,6 +25,10 @@ public class FarmersMarketEnchants {
             new Intoxication());
     public static final Enchantment Forging = register("forging",
             new Forging());
+    public static final Enchantment Starvation = register("starvation",
+            new Starvation());
+    public static final Enchantment Devouring = register("devouring",
+            new Devouring());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

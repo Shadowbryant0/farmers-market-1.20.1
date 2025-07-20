@@ -1,5 +1,6 @@
 package net.shadow.farmersmarket.block;
 
+import dev.onyxstudios.cca.internal.base.ComponentRegistrationInitializer;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

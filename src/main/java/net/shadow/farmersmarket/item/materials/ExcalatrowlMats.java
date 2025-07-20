@@ -1,4 +1,4 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.materials;
 
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;

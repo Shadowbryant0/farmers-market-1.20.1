@@ -26,7 +26,15 @@ public class ModItemGroups {
                         entries.add(ModItems.GREATSWORD);
                         //entries.add(ModItems.ARBALESTDESCENDANT);
                         entries.add(ModItems.HEXSPADE);
-
+                        entries.add(ModItems.GAYSCYTHE);
+                        entries.add(ModItems.RABBITPENDENT);
+                        entries.add(ModItems.GOATPENDENT);
+                        entries.add(ModItems.TURTLERING);
+                        entries.add(ModItems.HUMANPENDENT);
+                        entries.add(ModItems.BRUTERING);
+                        entries.add(ModItems.GOLDENRING);
+                        //entries.add(ModItems.TYRANT);
+                        // TYRENT IS DEV TEST ITEM
                         entries.add(ModItems.CRACKED_TOTEM);
 
                         //entries.add(ModBlocks.POTION_WEB);

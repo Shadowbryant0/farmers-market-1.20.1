@@ -5,12 +5,14 @@
   "mixins": [
     "EnchantmentHelperMixin",
     "ExampleMixin",
+    "ForgingSpeedMixin",
     "GreatBreakMobMixin",
     "GreatBreakPlayerMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "ModelLoaderMixin",
-    "PiglinBruteEntityMixin"
+    "PiglinBruteEntityMixin",
+    "StarvationMixin"
   ],
   "injectors": {
     "defaultRequire": 1

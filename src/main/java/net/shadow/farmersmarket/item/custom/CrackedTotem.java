@@ -13,7 +13,8 @@ public class CrackedTotem  extends Item {
     public CrackedTotem(Settings settings) {
         super(settings);
     }
-    private static final int COOLDOWN_TICKS = 600;
+    private static final int COOLDOWN_TICKS = 450;
+    private static final int EARLY_USE_CD = 350;
 
     //hi dinooo >:3
         //you thought you would find smth here
@@ -49,6 +50,30 @@ public class CrackedTotem  extends Item {
             }
 
             return TypedActionResult.consume(itemStack);
+        }
+        if (user.getHealth() <=14) {
+                if (!user.getAbilities().creativeMode) {
+                    itemStack.decrement(1);
+                }
+                user.removeStatusEffectInternal(StatusEffects.POISON);
+                user.removeStatusEffectInternal(StatusEffects.WEAKNESS);
+                user.removeStatusEffectInternal(StatusEffects.DARKNESS);
+                user.removeStatusEffectInternal(StatusEffects.SLOWNESS);
+                user.removeStatusEffectInternal(StatusEffects.BLINDNESS);
+                user.removeStatusEffectInternal(StatusEffects.LEVITATION);
+                user.removeStatusEffectInternal(StatusEffects.WITHER);
+                user.removeStatusEffectInternal(StatusEffects.GLOWING);
+                user.removeStatusEffectInternal(StatusEffects.NAUSEA);
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 80, 1));
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 500, 0));
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 500, 0));
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 280, 1));
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 0));
+                {
+                    user.getItemCooldownManager().set(this, EARLY_USE_CD);
+                }
+
+                return TypedActionResult.consume(itemStack);
 
 
         }

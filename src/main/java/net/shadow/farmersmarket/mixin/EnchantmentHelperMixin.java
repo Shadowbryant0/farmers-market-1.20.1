@@ -5,7 +5,10 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.SwordItem;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.custom.ExecutionersAxeClass;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,9 +29,16 @@ public class EnchantmentHelperMixin {
 
     @WrapOperation(method = "getPossibleEntries", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/EnchantmentTarget;isAcceptableItem(Lnet/minecraft/item/Item;)Z"))
     private static boolean FarmersMarket$letTheEnchantDecide(EnchantmentTarget enchantmentTarget, Item item, Operation<Boolean> original) {
-        if (storedEnchantment == FarmersMarketEnchants.Intoxication) {
-            return item instanceof ExecutionersAxeClass;
+        if (storedEnchantment == FarmersMarketEnchants.Forging) {
+            return item instanceof PickaxeItem;
+        }
+        if (storedEnchantment == FarmersMarketEnchants.Starvation) {
+            return item instanceof SwordItem;
+        }
+        if (storedEnchantment == FarmersMarketEnchants.Devouring) {
+            return item instanceof AxeItem;
         }
         return original.call(enchantmentTarget, item);
     }
+
 }

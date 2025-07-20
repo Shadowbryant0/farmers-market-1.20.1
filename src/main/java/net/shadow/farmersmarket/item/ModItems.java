@@ -1,6 +1,7 @@
 package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.GoatHornItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.MusicDiscItem;
 import net.minecraft.item.SmithingTemplateItem;
@@ -9,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.*;
+import net.shadow.farmersmarket.item.trinkets.*;
 import net.shadow.farmersmarket.sound.ModSounds;
 
 import static net.minecraft.item.ToolMaterials.IRON;
@@ -51,7 +53,20 @@ public class ModItems {
     public static final Item CRACKED_TOTEM = registerItem("cracked_totem",
             new CrackedTotem(new FabricItemSettings().maxCount(1)));
 
-    public static final Item TYRENT = registerItem("tyrent",
+    public static final Item GOATPENDENT = registerItem("goatpendent",
+            new goatHornPendent(new FabricItemSettings().maxCount(1)));
+    public static final Item HUMANPENDENT = registerItem("humanpendent",
+            new HumanToothNecklace(new FabricItemSettings().maxCount(1)));
+    public static final Item RABBITPENDENT = registerItem("rabbitpendent",
+            new rabbitsfootPendent(new FabricItemSettings().maxCount(1)));
+    public static final Item TURTLERING = registerItem("turtlering",
+            new turtleShellRing(new FabricItemSettings().maxCount(1)));
+    public static final Item BRUTERING = registerItem("brutering",
+            new piglinBruteRing(new FabricItemSettings().maxCount(1)));
+    public static final Item GOLDENRING = registerItem("goldenring",
+            new goldenRing(new FabricItemSettings().maxCount(1)));
+
+    public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));
 
 

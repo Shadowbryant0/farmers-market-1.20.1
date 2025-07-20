@@ -1,10 +1,10 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.materials;
 
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class RapierMat implements ToolMaterial {
+public class Greatmat implements ToolMaterial {
     // Your IDE should override the interface's methods for you, or at least shout at you to do so.
 
     @Override
@@ -30,7 +30,7 @@ public class RapierMat implements ToolMaterial {
     }
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.IRON_INGOT);
+        return Ingredient.ofItems(Items.DIAMOND);
     }
-    public static final RapierMat INSTANCE = new RapierMat();
+    public static final Greatmat INSTANCE = new Greatmat();
 }

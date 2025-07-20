@@ -7,6 +7,7 @@ import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.effects.ModEffects;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.event.FarmersMarketEvents;
+import net.shadow.farmersmarket.event.ScytheHarvestEvent;
 import net.shadow.farmersmarket.item.ModItemGroups;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.sound.ModSounds;
@@ -28,7 +29,7 @@ public class FarmersMarket implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModSounds.registerSounds();
 		//ModEffects.registerEffects();
-
+		ScytheHarvestEvent.register();
 
 
 		FarmersMarketEnchants.registerModEnchantments();

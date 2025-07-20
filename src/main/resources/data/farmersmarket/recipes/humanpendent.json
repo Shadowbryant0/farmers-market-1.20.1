@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "B": {
+      "item": "minecraft:bone_block"
+    }
+  },
+  "pattern": [
+    "S S",
+    "BSB",
+    "BBB"
+  ],
+  "result": {
+    "item": "farmersmarket:humanpendent"
+  },
+  "show_notification": true
+}

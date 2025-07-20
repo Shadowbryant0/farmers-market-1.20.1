@@ -31,5 +31,5 @@
       "farmersmarket:cobweb"
     ]
   },
-  "sends_telemetry_event": false
+  "show_notification": true
 }
