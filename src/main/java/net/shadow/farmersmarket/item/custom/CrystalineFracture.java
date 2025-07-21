@@ -14,6 +14,7 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
@@ -55,13 +56,15 @@ public class CrystalineFracture extends RangedWeaponItem implements Vanishable {
     private static final float DEFAULT_SPEED = 30f;
 
 
+    public static final Predicate<ItemStack> OFFHAND = (stack) -> stack.isOf(ModItems.SHARDS);
 
     public Predicate<ItemStack> getHeldProjectiles() {
-        return CROSSBOW_HELD_PROJECTILES;
+        return OFFHAND;
     }
+    public static final Predicate<ItemStack> SHARDS = (stack) -> stack.isOf(ModItems.SHARDS);
 
     public Predicate<ItemStack> getProjectiles() {
-        return BOW_PROJECTILES;
+        return SHARDS;
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
