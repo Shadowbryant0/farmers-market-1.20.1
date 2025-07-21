@@ -65,6 +65,7 @@ class ShockwaveMixin {
                 }
                 ci.cancel();
             }
+            ci.cancel();
 
         }
     }
