@@ -10,6 +10,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.shadow.farmersmarket.item.ModItems;
 import net.minecraft.util.math.random.Random;
@@ -85,6 +87,7 @@ public class Devouring extends Enchantment {
             }
         }
     }
+
 
 
 

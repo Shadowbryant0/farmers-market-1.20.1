@@ -27,10 +27,14 @@
 
   "enchantment.farmersmarket.hunterslullabyenchantment": "Hunters Lullaby",
   "enchantment.farmersmarket.freshfieldsenchantment": "Fresh Fields",
-  "enchantment.farmersmarket.intoxicationenchant": "Intoxication",
+  "enchantment.farmersmarket.starvation": "Starvation",
+  "enchantment.farmersmarket.devouring": "Devouring",
+  "enchantment.farmersmarket.shockwaveenchant": "Shockwave",
   "enchantment.farmersmarket.hunterslullabyenchantment.disc": "Inflicting hit gives weakness and darkness",
   "enchantment.farmersmarket.freshfieldsenchantment.disc": "Fresh Fields",
-  "enchantment.farmersmarket.intoxicationenchant.disc": "Inflicting a hit gives hunger",
+  "enchantment.farmersmarket.devouring.disc": "Dealing hits Refills your hunger",
+  "enchantment.farmersmarket.starvation.disc": "The less hunger you have, the more damage you do",
+  "enchantment.farmersmarket.shockwaveenchant.disc": "Launch yourself away using a arrow, or a firework",
 
 
 

@@ -53,3 +53,27 @@ class StarvationMixin {
     }
            // beserk - enchancement by MoriyaShiine
 }
+@Mixin(LivingEntity.class)
+class StarvationKillMixin {
+
+ @Inject(method = "onDeath", at = @At("HEAD"))
+private void onDeathInject(DamageSource source, CallbackInfo ci) {
+    if (!(source.getAttacker() instanceof LivingEntity attacker)) return;
+
+
+    ItemStack weapon = attacker.getMainHandStack();
+    if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Starvation, weapon) > 0) {
+        World world = attacker.getWorld();
+        if (!world.isClient) {
+            if (attacker instanceof PlayerEntity player){
+                player.getHungerManager().add(8, .2f);
+            } else {
+                attacker.heal(6);
+            }
+
+
+
+      }
+    }
+    }
+}

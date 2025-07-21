@@ -1,19 +1,22 @@
-package net.shadow.farmersmarket.enchantments.sword;
+package net.shadow.farmersmarket.enchantments.Crossbow;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
+import net.minecraft.loot.function.LootingEnchantLootFunction;
 
-public class Starvation extends Enchantment{
-    public Starvation() {
-        super(Enchantment.Rarity.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+public class ShockwaveEnchant extends Enchantment {
+
+
+
+
+    public ShockwaveEnchant() {
+        super (Rarity.RARE, EnchantmentTarget.CROSSBOW, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -44,9 +47,5 @@ public class Starvation extends Enchantment{
 
 
 
-    public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof SwordItem;
-
-    }
 
 }

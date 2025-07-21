@@ -12,7 +12,9 @@
     "ItemRendererMixin",
     "ModelLoaderMixin",
     "PiglinBruteEntityMixin",
-    "StarvationMixin"
+    "StarvationKillMixin",
+    "StarvationMixin",
+    "Crossbow.ShockwaveMixin"
   ],
   "injectors": {
     "defaultRequire": 1
