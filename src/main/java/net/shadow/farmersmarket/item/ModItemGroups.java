@@ -33,7 +33,9 @@ public class ModItemGroups {
                         entries.add(ModItems.HUMANPENDENT);
                         entries.add(ModItems.BRUTERING);
                         entries.add(ModItems.GOLDENRING);
-                        //entries.add(ModItems.TYRANT);
+                        entries.add(ModItems.FRACTURE);
+                        entries.add(ModItems.SHARDS);
+                        //entries.add(ModItems.TYRENT);
                         // TYRENT IS DEV TEST ITEM
                         entries.add(ModItems.CRACKED_TOTEM);
 

@@ -28,6 +28,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -35,24 +36,24 @@ import org.joml.Vector3f;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
+public class CrystalineFracture extends RangedWeaponItem implements Vanishable {
 
 
-    public ArbalestDescend(Settings settings) {
+    public CrystalineFracture(Settings settings) {
         super(settings);
 
     }
 
     private static final String CHARGED_KEY = "Charged";
     private static final String CHARGED_PROJECTILES_KEY = "ChargedProjectiles";
-    private static final int DEFAULT_PULL_TIME = 25;
+    private static final int DEFAULT_PULL_TIME = 1;
     public static final int RANGE = 8;
     private boolean charged = false;
     private boolean loaded = false;
     private static final float field_30867 = 0.2F;
     private static final float field_30868 = 0.5F;
-    private static final float DEFAULT_SPEED = 3.15F;
-    private static final float FIREWORK_ROCKET_SPEED = 1.6F;
+    private static final float DEFAULT_SPEED = 30f;
+
 
 
     public Predicate<ItemStack> getHeldProjectiles() {
@@ -110,7 +111,7 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
             }
 
             if (itemStack.isEmpty() && bl) {
-                itemStack = new ItemStack(Items.ARROW);
+                itemStack = new ItemStack(ModItems.SHARDS);
                 itemStack2 = itemStack.copy();
             }
 
@@ -126,7 +127,7 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
         if (projectile.isEmpty()) {
             return false;
         } else {
-            boolean bl = creative && projectile.getItem() instanceof ArrowItem;
+            boolean bl = creative && projectile.getItem() instanceof CrystalineShardItem;
             ItemStack itemStack;
             if (!bl && !creative && !simulated) {
                 itemStack = projectile.split(1);
@@ -152,8 +153,8 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
         nbtCompound.putBoolean("Charged", charged);
     }
 
-    private static void putProjectile(ItemStack crossbow, ItemStack projectile) {
-        NbtCompound nbtCompound = crossbow.getOrCreateNbt();
+    private static void putProjectile(ItemStack crystaline, ItemStack projectile) {
+        NbtCompound nbtCompound = crystaline.getOrCreateNbt();
         NbtList nbtList;
         if (nbtCompound.contains("ChargedProjectiles", 9)) {
             nbtList = nbtCompound.getList("ChargedProjectiles", 10);
@@ -200,14 +201,13 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
     private static void shoot(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, ItemStack projectile, float soundPitch, boolean creative, float speed, float divergence, float simulated) {
         if (!world.isClient) {
             boolean bl = projectile.isOf(Items.FIREWORK_ROCKET);
-            ProjectileEntity projectileEntity;
-            if (bl) {
-                projectileEntity = new FireworkRocketEntity(world, projectile, shooter, shooter.getX(), shooter.getEyeY() - (double)0.15F, shooter.getZ(), true);
-            } else {
-                projectileEntity = createArrow(world, shooter, crossbow, projectile);
+            PersistentProjectileEntity projectileEntity;
+
+
+                projectileEntity = createShard(world, shooter, crossbow, projectile);
                 if (creative || simulated != 0.0F) {
-                    ((PersistentProjectileEntity)projectileEntity).pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-                }
+                    projectileEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+
             }
 
             if (shooter instanceof CrossbowUser) {
@@ -223,23 +223,17 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
 
             crossbow.damage(bl ? 3 : 1, shooter, (e) -> e.sendToolBreakStatus(hand));
             world.spawnEntity(projectileEntity);
-            world.playSound((PlayerEntity)null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ITEM_CROSSBOW_SHOOT, SoundCategory.PLAYERS, 1.0F, soundPitch);
+            world.playSound((PlayerEntity)null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, SoundCategory.PLAYERS, 1.0F, soundPitch);
         }
     }
 
-    private static PersistentProjectileEntity createArrow(World world, LivingEntity entity, ItemStack crossbow, ItemStack arrow) {
-        ArrowItem arrowItem = (ArrowItem)(arrow.getItem() instanceof ArrowItem ? arrow.getItem() : Items.ARROW);
-        PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, arrow, entity);
+    private static PersistentProjectileEntity createShard(World world, LivingEntity entity, ItemStack crossbow, ItemStack ammo) {
+        CrystalineShardItem shardItem = (CrystalineShardItem)(ammo.getItem() instanceof CrystalineShardItem ? ammo.getItem() : ModItems.SHARDS);
+        PersistentProjectileEntity persistentProjectileEntity = shardItem.createShard(world, ammo, entity);
         if (entity instanceof PlayerEntity) {
             persistentProjectileEntity.setCritical(true);
         }
 
-        persistentProjectileEntity.setSound(SoundEvents.ITEM_CROSSBOW_HIT);
-        persistentProjectileEntity.setShotFromCrossbow(true);
-        int i = EnchantmentHelper.getLevel(Enchantments.PIERCING, crossbow);
-        if (i > 0) {
-            persistentProjectileEntity.setPierceLevel((byte)i);
-        }
 
         return persistentProjectileEntity;
     }
@@ -276,14 +270,6 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
     }
 
     private static void postShoot(World world, LivingEntity entity, ItemStack stack) {
-        if (entity instanceof ServerPlayerEntity serverPlayerEntity) {
-            if (!world.isClient) {
-                Criteria.SHOT_CROSSBOW.trigger(serverPlayerEntity, stack);
-            }
-
-            serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
-        }
-
         clearProjectiles(stack);
     }
 
@@ -292,7 +278,7 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
             int i = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
             SoundEvent soundEvent = this.getQuickChargeSound(i);
             SoundEvent soundEvent2 = i == 0 ? SoundEvents.ITEM_CROSSBOW_LOADING_MIDDLE : null;
-            float f = (float)(stack.getMaxUseTime() - remainingUseTicks) / (float)getPullTime(stack);
+            float f = (float)(stack.getMaxUseTime() - remainingUseTicks);
             if (f < 0.2F) {
                 this.charged = false;
                 this.loaded = false;
@@ -312,13 +298,10 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
     }
 
     public int getMaxUseTime(ItemStack stack) {
-        return getPullTime(stack) + 3;
+        return 1;
     }
 
-    public static int getPullTime(ItemStack stack) {
-        int i = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
-        return i == 0 ? 50 : 25 - 5 * i;
-    }
+
 
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.CROSSBOW;
@@ -342,7 +325,7 @@ public class ArbalestDescend extends RangedWeaponItem implements Vanishable {
     }
 
     private static float getPullProgress(int useTicks, ItemStack stack) {
-        float f = (float)useTicks / (float)getPullTime(stack);
+        float f = (float)useTicks;
         if (f > 1.0F) {
             f = 1.0F;
         }

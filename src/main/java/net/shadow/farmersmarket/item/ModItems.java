@@ -1,19 +1,13 @@
 package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.GoatHornItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.MusicDiscItem;
-import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.*;
 import net.shadow.farmersmarket.item.trinkets.*;
-import net.shadow.farmersmarket.sound.ModSounds;
-
-import static net.minecraft.item.ToolMaterials.IRON;
 
 public class ModItems {
 
@@ -45,7 +39,7 @@ public class ModItems {
     public static final Item ALTSWORD = registerItem("altsword",
             new GreatswordClass(new FabricItemSettings().fireproof()));
     public static final Item ARBALESTDESCENDANT = registerItem("arbalestdescendant",
-            new ArbalestDescend(new FabricItemSettings().maxCount(1)));
+            new CrystalineFracture(new FabricItemSettings().maxCount(1)));
 
     public static final Item HEXSPADE = registerItem("hexspade",
             new AceofSpadesClass(new FabricItemSettings().fireproof()));
@@ -65,9 +59,13 @@ public class ModItems {
             new piglinBruteRing(new FabricItemSettings().maxCount(1)));
     public static final Item GOLDENRING = registerItem("goldenring",
             new goldenRing(new FabricItemSettings().maxCount(1)));
+    public static final Item SHARDS = registerItem("shards",
+            new CrystalineShardItem(new FabricItemSettings().maxCount(16)));
 
     public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));
+    public static final Item FRACTURE = registerItem("fracture",
+            new CrystalineFracture(new FabricItemSettings().maxCount(1)));
 
 
 

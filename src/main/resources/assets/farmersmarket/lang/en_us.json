@@ -1,7 +1,7 @@
 {
   "item.farmersmarket.ruby": "Ruby",
   "item.farmersmarket.raw_ruby": "raw Ruby",
-  "item.farmersmarket.made_to_hate_you_disc": "Made to hate you - Longestsoloever ft. Gianni Matragrano",
+  "item.farmersmarket.made_to_hate_you_desc": "Made to hate you - Longestsoloever ft. Gianni Matragrano",
   "item.farmersmarket.veinpeircer": "VeinPiercer",
   "item.farmersmarket.greatsword": "Greatsword",
   "item.farmersmarket.altsword": "Greatsword",
@@ -30,11 +30,11 @@
   "enchantment.farmersmarket.starvation": "Starvation",
   "enchantment.farmersmarket.devouring": "Devouring",
   "enchantment.farmersmarket.shockwaveenchant": "Shockwave",
-  "enchantment.farmersmarket.hunterslullabyenchantment.disc": "Inflicting hit gives weakness and darkness",
-  "enchantment.farmersmarket.freshfieldsenchantment.disc": "Fresh Fields",
-  "enchantment.farmersmarket.devouring.disc": "Dealing hits Refills your hunger",
-  "enchantment.farmersmarket.starvation.disc": "The less hunger you have, the more damage you do",
-  "enchantment.farmersmarket.shockwaveenchant.disc": "Launch yourself away using a arrow, or a firework",
+  "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives weakness and darkness",
+  "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
+  "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
+  "enchantment.farmersmarket.starvation.desc": "The less hunger you have, the more damage you do",
+  "enchantment.farmersmarket.shockwaveenchant.desc": "Launch yourself away using a arrow, or a firework",
 
 
 
