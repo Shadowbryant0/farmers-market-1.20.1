@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "farmersmarket",
-	"version": "1.0.8",
+	"version": "1.0.81",
 	"name": "Farmer's market",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
