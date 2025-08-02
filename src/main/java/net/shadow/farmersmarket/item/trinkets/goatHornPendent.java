@@ -3,6 +3,7 @@ package net.shadow.farmersmarket.item.trinkets;
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
+import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;

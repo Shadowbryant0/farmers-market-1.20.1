@@ -1,6 +1,13 @@
 package net.shadow.farmersmarket.item.custom;
 
 
+import com.google.common.collect.ImmutableMultimap;
+import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,45 +21,34 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.materials.RapierMat;
+import com.google.common.collect.Multimap;
+
+
+import java.util.UUID;
 
 public class RapierWeaponItem extends SwordItem {
-    private static final int COOLDOWN_TICKS = 120;
 
-
+    protected static final UUID ATTACK_REACH_MODIFIER_ID = UUID.fromString("76a8dee3-3e7e-4e11-ba46-a19b0c724567");
+    protected static final UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
     public RapierWeaponItem(Settings settings) {
-        super(RapierMat.INSTANCE, 2, -2.3F, settings);
+        super(RapierMat.INSTANCE, 6, -2.3F, settings);
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", -2.3, Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", 6, Operation.ADDITION));
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)1F, Operation.ADDITION));
+        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", (double)-0.5F, Operation.ADDITION));
+        this.attributeModifiers = builder.build();
     }
-// right click is medium dash that deals dmg and 0s your vel so it's like a stab
-    double boost = 2d;
 
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (!world.isClient){
-            Box box = user.getBoundingBox();
-            user.getWorld().getOtherEntities(user, box);
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 120, 1));
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 0));
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 100, 0));
-            Vec3d lookingDirection = user.getRotationVec(1.0f);
-
-                user.setVelocity(
-                        lookingDirection.x * boost,
-                        lookingDirection.y * boost * 0.3f,
-                        lookingDirection.z * boost
-                );
+    public float getAttackDamage() {
+        return 6F;
+    }
 
 
 
-
-            user.velocityModified = true;
-            user.setSwimming(false);
-        }
-            {
-                user.getItemCooldownManager().set(ModItems.RAPIER, COOLDOWN_TICKS);
-                user.getItemCooldownManager().set(ModItems.VEINPIERCER, COOLDOWN_TICKS);
-             }
-
-        return super.use(world, user, hand);
+    public com.google.common.collect.Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
     }
 
 }

@@ -1,19 +1,19 @@
-package net.shadow.farmersmarket.enchantments.sword;
+package net.shadow.farmersmarket.enchantments.Axe;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.Entity;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.ModItems;
 
 public class Starvation extends Enchantment{
     public Starvation() {
-        super(Enchantment.Rarity.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.RARE, EnchantmentTarget.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -38,14 +38,16 @@ public class Starvation extends Enchantment{
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return true;
+        return false;
+    }
+
+    protected boolean canAccept(Enchantment other) {
+        return super.canAccept(other) && other != FarmersMarketEnchants.Devouring;
     }
 
 
-
-
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof SwordItem;
+        return stack.getItem() instanceof AxeItem;
 
     }
 

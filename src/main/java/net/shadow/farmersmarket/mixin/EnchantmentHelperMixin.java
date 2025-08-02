@@ -5,12 +5,11 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.custom.ExecutionersAxeClass;
+import net.shadow.farmersmarket.item.custom.Fbook;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -32,12 +31,7 @@ public class EnchantmentHelperMixin {
         if (storedEnchantment == FarmersMarketEnchants.Forging) {
             return item instanceof PickaxeItem;
         }
-        if (storedEnchantment == FarmersMarketEnchants.Starvation) {
-            return item instanceof SwordItem;
-        }
-        if (storedEnchantment == FarmersMarketEnchants.Devouring) {
-            return item instanceof AxeItem;
-        }
+
         return original.call(enchantmentTarget, item);
     }
 

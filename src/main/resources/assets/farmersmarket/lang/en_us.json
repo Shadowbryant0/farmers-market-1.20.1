@@ -14,6 +14,7 @@
   "item.farmersmarket.cracked_totem": "Cracked Totem",
   "item.farmersmarket.hexspade": "HexSpade",
   "item.farmersmarket.gayscythe": "Farmer's Scythe",
+  "item.farmersmarket.fbook": "Flesh Bound Book",
 
   "item.farmersmarket.humanpendent": "Human Tooth Necklace",
   "item.farmersmarket.rabbitpendent": "Lucky Rabbit necklace",
@@ -30,11 +31,13 @@
   "enchantment.farmersmarket.starvation": "Starvation",
   "enchantment.farmersmarket.devouring": "Devouring",
   "enchantment.farmersmarket.shockwaveenchant": "Shockwave",
-  "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives weakness and darkness",
+  "enchantment.farmersmarket.primaldesires": "Primal desires",
+  "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives Slowness and Mining fatigue",
   "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
   "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
   "enchantment.farmersmarket.starvation.desc": "The less hunger you have, the more damage you do",
   "enchantment.farmersmarket.shockwaveenchant.desc": "Launch yourself away using a arrow, or a firework",
+  "enchantment.farmersmarket.primaldesires.desc": "Give into the hunt and rip into your prey, gives chance for strength and speed, but also a chance for blindness and weakness",
 
 
 

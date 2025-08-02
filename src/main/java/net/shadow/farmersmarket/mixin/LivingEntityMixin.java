@@ -20,27 +20,27 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//@Mixin(LivingEntity.class)
-//public abstract class LivingEntityMixin {
+@Mixin(LivingEntity.class)
+class SliverOfFleshMixin {
 
-   // @Inject(method = "onDeath", at = @At("HEAD"))
-    //private void onDeathInject(DamageSource source, CallbackInfo ci) {
-    //    if (!(source.getAttacker() instanceof PlayerEntity attacker)) return;
-    //    if (!(((Object) this) instanceof Entity victim)) return;
+    @Inject(method = "onDeath", at = @At("HEAD"))
+    private void onDeathInject(DamageSource source, CallbackInfo ci) {
+        if (!(source.getAttacker() instanceof PlayerEntity attacker)) return;
+        if (!(((Object) this) instanceof PlayerEntity victim)) return;
 
-    //    ItemStack weapon = attacker.getMainHandStack();
-    //    if (EnchantmentHelper.getLevel(FarmersMarketEnchants.HuntersLullabyEnchantment, weapon) > 0) {
-    //        World world = attacker.getWorld();
-    //        if (!world.isClient) {
+        ItemStack weapon = attacker.getMainHandStack();
+        if (EnchantmentHelper.getLevel(FarmersMarketEnchants.HuntersLullabyEnchantment, weapon) > 0 || EnchantmentHelper.getLevel(FarmersMarketEnchants.PrimalDesires, weapon) > 0) {
+            World world = attacker.getWorld();
+            if (!world.isClient) {
                 // Drop Silver Flesh
-      //          ItemStack sliverFlesh = new ItemStack(ModItems.SLIVER_FLESH);
-      //          Vec3d pos = attacker.getPos();
+                ItemStack sliverFlesh = new ItemStack(ModItems.SLIVER_FLESH);
+                Vec3d pos = victim.getPos();
 
-       //         world.spawnEntity(new ItemEntity(world, pos.x, pos.y, pos.z, sliverFlesh));
-      //      }
-      //  }
-   // }
-//}
+                world.spawnEntity(new ItemEntity(world, pos.x, pos.y, pos.z, sliverFlesh));
+            }
+        }
+    }
+}
 @Mixin(LivingEntity.class)
 class StarvationMixin {
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)

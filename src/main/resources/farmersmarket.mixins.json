@@ -3,6 +3,7 @@
   "package": "net.shadow.farmersmarket.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AnvilBookMixin",
     "EnchantmentHelperMixin",
     "ExampleMixin",
     "ForgingSpeedMixin",
@@ -12,6 +13,7 @@
     "ItemRendererMixin",
     "ModelLoaderMixin",
     "PiglinBruteEntityMixin",
+    "SliverOfFleshMixin",
     "StarvationKillMixin",
     "StarvationMixin",
     "Crossbow.ShockwaveMixin"

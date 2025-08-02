@@ -21,7 +21,10 @@ public class ModItems {
 
     public static final Item RAPIER_UPGRADE = registerItem("rapier_upgrade",
             new Item(new FabricItemSettings()));
-
+    public static final Item GRIEF = registerItem("grief",
+            new Grief(new FabricItemSettings()));
+    public static final Item RAINMAKER = registerItem("rainmaker",
+            new Rainmaker(new FabricItemSettings()));
     public static final Item VEINPIERCER = registerItem("veinpeircer",
             new Veinpiercer(new FabricItemSettings().fireproof()));
 
@@ -61,6 +64,8 @@ public class ModItems {
             new goldenRing(new FabricItemSettings().maxCount(1)));
     public static final Item SHARDS = registerItem("shards",
             new CrystalineShardItem(new FabricItemSettings().maxCount(16)));
+    public static final Item FBOOK = registerItem("fbook",
+            new Fbook(new FabricItemSettings().maxCount(1)));
 
     public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));

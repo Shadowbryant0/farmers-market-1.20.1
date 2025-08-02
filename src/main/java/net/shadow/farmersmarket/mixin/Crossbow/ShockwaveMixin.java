@@ -36,9 +36,9 @@ class ShockwaveMixin {
                 Vec3d lookingDirection = shooter.getRotationVec(1.0f);
 
                 shooter.addVelocity(
-                        lookingDirection.x * -boost * 0.9f,
+                        lookingDirection.x * -boost * 1f,
                         lookingDirection.y * -boost * 1.2f,
-                        lookingDirection.z * -boost * 0.9f
+                        lookingDirection.z * -boost * 1f
                 );
                     shooter.damage(shooter.getDamageSources().flyIntoWall(),2);
 
@@ -57,9 +57,9 @@ class ShockwaveMixin {
                 Vec3d lookingDirection = shooter.getRotationVec(1.0f);
 
                 shooter.addVelocity(
-                        lookingDirection.x * -boost * 1.5f,
+                        lookingDirection.x * -boost * 2.2f,
                         lookingDirection.y * -boost * 2.5f,
-                        lookingDirection.z * -boost * 1.5f
+                        lookingDirection.z * -boost * 2.2f
                 );
 
 
@@ -70,7 +70,7 @@ class ShockwaveMixin {
                     player.getItemCooldownManager().set(crossbow.getItem(), 40);
                 }
                 ci.cancel();
-                shooter.damage(shooter.getDamageSources().flyIntoWall(),6);
+                shooter.damage(shooter.getDamageSources().flyIntoWall(),4);
             }
 
 

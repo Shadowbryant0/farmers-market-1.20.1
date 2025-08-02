@@ -33,7 +33,7 @@ public class HuntersLullabyEnchantment extends Enchantment {
 
     @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return false;
+        return true;
     }
 
     @Override
@@ -46,8 +46,9 @@ public class HuntersLullabyEnchantment extends Enchantment {
         if(!user.getWorld().isClient() && target instanceof LivingEntity livingEntity) {
 
 
-            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 80, 0));
-            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 20, 0));
+
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, 0));
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 0));
 
         }
     }

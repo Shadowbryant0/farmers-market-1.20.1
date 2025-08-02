@@ -20,6 +20,12 @@ repositories {
 		name = "TerraformersMC"
 		url = "https://maven.terraformersmc.com/"
 	}
+	maven {
+		url "https://maven.jamieswhiteshirt.com/libs-release"
+		content {
+			includeGroup "com.jamieswhiteshirt"
+		}
+	}
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -77,6 +83,9 @@ dependencies {
 		include "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
 		include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
+
+		include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${reach_version}")
+
 }
 
 
