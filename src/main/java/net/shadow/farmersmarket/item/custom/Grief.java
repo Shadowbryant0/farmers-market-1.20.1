@@ -18,8 +18,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class Grief extends Item {
-    private static final int FULL_CHARGE_TICKS = 30; // 2 seconds
-    private static final int COOLDOWN_TICKS = 240;
+    private static final int FULL_CHARGE_TICKS = 60; // 2 seconds
+    private static final int COOLDOWN_TICKS = 1200;
 
     public Grief(Settings settings) {
         super(settings);
@@ -48,11 +48,36 @@ public class Grief extends Item {
         int usedTicks = this.getMaxUseTime(stack) - remainingUseTicks;
 
         if (!world.isClient && user instanceof ServerPlayerEntity serverPlayer) {
-            if(!(serverPlayer.getAttacker() instanceof LivingEntity)){
 
 
 
                 if (usedTicks >= FULL_CHARGE_TICKS && serverPlayer.experienceLevel >= 0) {
+                    if(serverPlayer.getAttacker() instanceof PlayerEntity){
+                        {
+                            serverPlayer.damage(serverPlayer.getDamageSources().wither(),10);
+                        }
+                    }else if(serverPlayer.experienceLevel >= 5) {
+                        serverPlayer.addExperienceLevels(-5);
+                    } else if(serverPlayer.experienceLevel >= 4) {
+                        serverPlayer.addExperienceLevels(-4);
+                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),2);
+
+                    } else if(serverPlayer.experienceLevel >= 3) {
+                        serverPlayer.addExperienceLevels(-3);
+                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),4);
+
+                    } else if(serverPlayer.experienceLevel >= 2) {
+                        serverPlayer.addExperienceLevels(-2);
+                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),6);
+
+                    } else if(serverPlayer.experienceLevel >= 1) {
+                        serverPlayer.addExperienceLevels(-1);
+                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),7);
+
+                    } else
+                    {
+                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),8);
+                    }
 
                     user.getWorld().spawnEntity(new EvokerFangsEntity(user.getWorld(), user.getBlockPos().toCenterPos().getX(), user.getBlockPos().getY(), user.getBlockPos().toCenterPos().getZ(), 0, 0, user));
                     user.getWorld().spawnEntity(new EvokerFangsEntity(user.getWorld(), user.getBlockPos().toCenterPos().getX()-1, user.getBlockPos().getY(), user.getBlockPos().toCenterPos().getZ()+1, 0, 5, user));
@@ -89,31 +114,10 @@ public class Grief extends Item {
                             serverPlayer.getYaw(),
                             serverPlayer.getPitch());
                     }
-                    if(serverPlayer.experienceLevel >= 5) {
-                        serverPlayer.addExperienceLevels(-5);
-                    } else if(serverPlayer.experienceLevel >= 4) {
-                        serverPlayer.addExperienceLevels(-4);
-                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),2);
 
-                    } else if(serverPlayer.experienceLevel >= 3) {
-                        serverPlayer.addExperienceLevels(-3);
-                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),4);
-
-                    } else if(serverPlayer.experienceLevel >= 2) {
-                        serverPlayer.addExperienceLevels(-2);
-                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),6);
-
-                    } else if(serverPlayer.experienceLevel >= 1) {
-                        serverPlayer.addExperienceLevels(-1);
-                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),7);
-
-                    } else
-                    {
-                        serverPlayer.damage(serverPlayer.getDamageSources().wither(),8);
-                    }
 
                 }
             }
         }
-    }
+
 }

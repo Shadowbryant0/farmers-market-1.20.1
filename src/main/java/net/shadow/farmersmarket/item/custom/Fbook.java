@@ -54,24 +54,32 @@ public class Fbook extends BookItem {
         } else {
             ItemStack itemStack = slot.getStack();
             if (itemStack.getItem() instanceof AxeItem) {
-                if (itemStack.isEnchantable()) {
+
                     if (EnchantmentHelper.getLevel(FarmersMarketEnchants.PrimalDesires, itemStack) == 0) {
                         this.playInsertSound(player);
-                        itemStack.addEnchantment(FarmersMarketEnchants.Devouring, 1);
+                        int b = player.getRandom().nextInt(2);
+                        if (b == 1) {
+                            itemStack.addEnchantment(FarmersMarketEnchants.Starvation, 1);
+                        }
+                        if (b == 0){
+                            itemStack.addEnchantment(FarmersMarketEnchants.JagerderSchuldigen, 1);
+                        }
+
+                        stack.decrement(1);
                         player.damage(player.getDamageSources().wither(),6);
                     }
-                }
+
             }
             if (itemStack.getItem() instanceof SwordItem) {
-                if (itemStack.isEnchantable()) {
+
                     if (EnchantmentHelper.getLevel(FarmersMarketEnchants.HuntersLullabyEnchantment, itemStack) == 0) {
                         this.playInsertSound(player);
-                        itemStack.addEnchantment(FarmersMarketEnchants.Starvation, 1);
+                        itemStack.addEnchantment(FarmersMarketEnchants.Devouring, 1);
                         stack.decrement(1);
                         player.damage(player.getDamageSources().wither(),6);
                     }
                 }
-            }
+
 
             return true;
         }

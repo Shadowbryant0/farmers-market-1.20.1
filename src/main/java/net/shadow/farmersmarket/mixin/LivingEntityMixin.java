@@ -5,8 +5,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 import net.minecraft.util.math.Vec3d;
@@ -77,3 +79,47 @@ private void onDeathInject(DamageSource source, CallbackInfo ci) {
     }
     }
 }
+
+@Mixin(LivingEntity.class)
+class JagerDamageMixin {
+    @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)
+    private float FarmersMarket$Starvation(float value, DamageSource source) {
+
+        if (source.getSource() instanceof LivingEntity living && !living.getWorld().isClient) {
+            return value + FarmersmarketUtil.JagerDamage(living, living.getMainHandStack());
+        }
+        return value;
+    }
+    // beserk - enchancement by MoriyaShiine
+}
+@Mixin(LivingEntity.class)
+class JagerKillMixin {
+
+    @Inject(method = "onDeath", at = @At("HEAD"))
+    private void onDeathInject(DamageSource source, CallbackInfo ci) {
+        if (!(source.getAttacker() instanceof PlayerEntity attacker)) return;
+        if (!(((Object) this) instanceof LivingEntity victim)) return;
+
+        ItemStack weapon = attacker.getMainHandStack();
+        if (EnchantmentHelper.getLevel(FarmersMarketEnchants.JagerderSchuldigen, weapon) > 0 || EnchantmentHelper.getLevel(FarmersMarketEnchants.PrimalDesires, weapon) > 0) {
+            World world = attacker.getWorld();
+            if(victim instanceof PlayerEntity){
+            if (!world.isClient) {
+                // Drop Cracked Skull
+                ItemStack crackedSkull = new ItemStack(ModItems.CRACKED_SKULL);
+                Vec3d pos = victim.getPos();
+
+                world.spawnEntity(new ItemEntity(world, pos.x, pos.y, pos.z, crackedSkull));
+            }} else if (victim instanceof WitherSkeletonEntity){
+                if (attacker.getRandom().nextInt(12) == 10){
+                if (!world.isClient) {
+                    // Drop Cracked Skull
+                    ItemStack crackedSkull = new ItemStack(Items.WITHER_SKELETON_SKULL);
+                    Vec3d pos = victim.getPos();
+
+                    world.spawnEntity(new ItemEntity(world, pos.x, pos.y, pos.z, crackedSkull));
+                }}
+
+        }
+    }
+}}

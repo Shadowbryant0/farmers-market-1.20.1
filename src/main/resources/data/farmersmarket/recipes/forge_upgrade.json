@@ -7,7 +7,7 @@
     "item": "minecraft:netherite_upgrade_smithing_template"
   },
   "result": {
-    "item": "farmersmarket:rapier_upgrade"
+    "item": "farmersmarket:forge_upgrade"
   },
   "template": {
     "item": "minecraft:bone_block"

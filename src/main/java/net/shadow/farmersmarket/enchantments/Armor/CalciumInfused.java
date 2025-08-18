@@ -1,21 +1,28 @@
-package net.shadow.farmersmarket.enchantments.Axe;
+package net.shadow.farmersmarket.enchantments.Armor;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.enchantment.ProtectionEnchantment;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.ModItems;
 
-public class Starvation extends Enchantment{
-    public Starvation() {
-        super(Rarity.RARE, EnchantmentTarget.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+public class CalciumInfused extends Enchantment {
+
+    public CalciumInfused() {
+        super(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET});
     }
 
+
+
+    public int getProtectionAmount(int level, DamageSource source) {
+            return 2;
+    }
     @Override
     public int getMinPower(int level) {
         return 10 + 10 * level;
@@ -38,17 +45,17 @@ public class Starvation extends Enchantment{
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return false;
+        return true;
     }
 
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != FarmersMarketEnchants.Devouring && other != FarmersMarketEnchants.JagerderSchuldigen;
+        return super.canAccept(other) && other != Enchantments.PROTECTION && other != Enchantments.FIRE_PROTECTION && other != Enchantments.BLAST_PROTECTION && other != Enchantments.PROJECTILE_PROTECTION;
     }
 
 
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof AxeItem;
+        return stack.getItem() instanceof ArmorItem;
 
     }
-
 }
+

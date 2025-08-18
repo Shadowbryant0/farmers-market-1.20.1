@@ -2,6 +2,7 @@ package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.SkullItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -15,16 +16,17 @@ public class ModItems {
 
     public static final Item SLIVER_FLESH = registerItem("sliver_flesh",
             new Item(new FabricItemSettings()));
+    public static final Item CRACKED_SKULL = registerItem("cracked_skull",
+            new Item(new FabricItemSettings()));
 
     public static final Item CORRUPTEDFLESH = registerItem("corruptedflesh",
             new Item(new FabricItemSettings()));
 
-    public static final Item RAPIER_UPGRADE = registerItem("rapier_upgrade",
+    public static final Item FORGE_UPGRADE = registerItem("forge_upgrade",
             new Item(new FabricItemSettings()));
     public static final Item GRIEF = registerItem("grief",
             new Grief(new FabricItemSettings()));
-    public static final Item RAINMAKER = registerItem("rainmaker",
-            new Rainmaker(new FabricItemSettings()));
+
     public static final Item VEINPIERCER = registerItem("veinpeircer",
             new Veinpiercer(new FabricItemSettings().fireproof()));
 
@@ -41,8 +43,7 @@ public class ModItems {
             new MainswordClass(new FabricItemSettings().fireproof()));
     public static final Item ALTSWORD = registerItem("altsword",
             new GreatswordClass(new FabricItemSettings().fireproof()));
-    public static final Item ARBALESTDESCENDANT = registerItem("arbalestdescendant",
-            new CrystalineFracture(new FabricItemSettings().maxCount(1)));
+
 
     public static final Item HEXSPADE = registerItem("hexspade",
             new AceofSpadesClass(new FabricItemSettings().fireproof()));
@@ -62,15 +63,15 @@ public class ModItems {
             new piglinBruteRing(new FabricItemSettings().maxCount(1)));
     public static final Item GOLDENRING = registerItem("goldenring",
             new goldenRing(new FabricItemSettings().maxCount(1)));
-    public static final Item SHARDS = registerItem("shards",
-            new CrystalineShardItem(new FabricItemSettings().maxCount(16)));
+
     public static final Item FBOOK = registerItem("fbook",
             new Fbook(new FabricItemSettings().maxCount(1)));
+    public static final Item CSBOOK = registerItem("csbook",
+            new CSbook(new FabricItemSettings().maxCount(1)));
 
     public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));
-    public static final Item FRACTURE = registerItem("fracture",
-            new CrystalineFracture(new FabricItemSettings().maxCount(1)));
+
 
 
 

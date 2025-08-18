@@ -1,12 +1,11 @@
 {
   "item.farmersmarket.ruby": "Ruby",
   "item.farmersmarket.raw_ruby": "raw Ruby",
-  "item.farmersmarket.made_to_hate_you_desc": "Made to hate you - Longestsoloever ft. Gianni Matragrano",
   "item.farmersmarket.veinpeircer": "VeinPiercer",
   "item.farmersmarket.greatsword": "Greatsword",
   "item.farmersmarket.altsword": "Greatsword",
   "item.farmersmarket.rapier": "Rapier",
-  "item.farmersmarket.rapier_upgrade": "Rapier Upgrade Template",
+  "item.farmersmarket.forge_upgrade": "Forge Template",
   "item.farmersmarket.mainsword": "REQUIEM",
   "item.farmersmarket.sliver_flesh": "Sliver of flesh",
   "item.farmersmarket.corruptedflesh": "Corrupted flesh",
@@ -15,6 +14,9 @@
   "item.farmersmarket.hexspade": "HexSpade",
   "item.farmersmarket.gayscythe": "Farmer's Scythe",
   "item.farmersmarket.fbook": "Flesh Bound Book",
+  "item.farmersmarket.csbook": "Skull Encrusted, Flesh Bound Book",
+
+  "item.farmersmarket.cracked_skull": "CrackedSkull",
 
   "item.farmersmarket.humanpendent": "Human Tooth Necklace",
   "item.farmersmarket.rabbitpendent": "Lucky Rabbit necklace",
@@ -32,15 +34,21 @@
   "enchantment.farmersmarket.devouring": "Devouring",
   "enchantment.farmersmarket.shockwaveenchant": "Shockwave",
   "enchantment.farmersmarket.primaldesires": "Primal desires",
+  "enchantment.farmersmarket.calciuminfused": "Calcium Infused",
+  "enchantment.farmersmarket.jagerderschuldigen": "Jagerderschuldigen",
   "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives Slowness and Mining fatigue",
   "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
   "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
   "enchantment.farmersmarket.starvation.desc": "The less hunger you have, the more damage you do",
   "enchantment.farmersmarket.shockwaveenchant.desc": "Launch yourself away using a arrow, or a firework",
   "enchantment.farmersmarket.primaldesires.desc": "Give into the hunt and rip into your prey, gives chance for strength and speed, but also a chance for blindness and weakness",
-
+  "enchantment.farmersmarket.calciuminfused.desc": "Prot 1 for stuff like Fire Protection, to allow generalization, not for Protection, only stuff like feather fall, projectile protection, etc",
+  "enchantment.farmersmarket.jagerderschuldigen.desc": "Conditional sharpness, after loosing a set amount of health, you gain sharpness",
 
 
   "itemgroup.farmers_market": "FarmersMarket",
-  "itemgroup.farmers_cosmetics": "FarmersMarket Cosmetic upgrades"
+  "itemgroup.farmers_cosmetics": "FarmersMarket Cosmetic upgrades",
+
+  "farmersmarket.midnightconfig.calciumenabled":"Calcium Enchant Enabled?",
+  "farmersmarket.midnightconfig.title":"Farmers Market Config"
 }

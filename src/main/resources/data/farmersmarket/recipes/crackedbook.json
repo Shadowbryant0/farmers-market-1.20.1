@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:bone"
+  },
+  "base": {
+    "item": "farmersmarket:fbook"
+  },
+  "result": {
+    "item": "farmersmarket:csbook"
+  },
+  "template": {
+    "item": "farmersmarket:cracked_skull"
+  }
+}

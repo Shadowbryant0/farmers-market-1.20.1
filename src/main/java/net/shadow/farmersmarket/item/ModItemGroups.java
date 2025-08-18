@@ -20,7 +20,7 @@ public class ModItemGroups {
 
 
                         //entries.add(ModItems.SLIVER_FLESH);
-                        entries.add(ModItems.RAPIER_UPGRADE);
+                        entries.add(ModItems.FORGE_UPGRADE);
                         entries.add(ModItems.RAPIER);
                         entries.add(ModItems.BLOODHOUNDAXE);
                         entries.add(ModItems.GREATSWORD);
@@ -35,9 +35,12 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLDENRING);
                         entries.add(ModItems.SLIVER_FLESH);
                         entries.add(ModItems.FBOOK);
+                        entries.add(ModItems.CSBOOK);
+                        entries.add(ModItems.CRACKED_SKULL);
                         //entries.add(ModItems.TYRENT);
                         // TYRENT IS DEV TEST ITEM
                         entries.add(ModItems.CRACKED_TOTEM);
+                        entries.add(ModItems.GRIEF);
 
                         //entries.add(ModBlocks.POTION_WEB);
                         //.add(ModBlocks.THREAD_WEAVER);

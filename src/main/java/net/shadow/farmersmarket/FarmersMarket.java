@@ -1,8 +1,10 @@
 package net.shadow.farmersmarket;
 
+import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.effects.ModEffects;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
@@ -30,7 +32,7 @@ public class FarmersMarket implements ModInitializer {
 		ModSounds.registerSounds();
 		//ModEffects.registerEffects();
 		ScytheHarvestEvent.register();
-
+		MidnightConfig.init("farmersmarket", ModConfigs.class);
 
 		FarmersMarketEnchants.registerModEnchantments();
 

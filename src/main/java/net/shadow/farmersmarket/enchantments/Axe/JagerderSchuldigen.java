@@ -2,18 +2,16 @@ package net.shadow.farmersmarket.enchantments.Axe;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AxeItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.ModItems;
 
-public class Starvation extends Enchantment{
-    public Starvation() {
-        super(Rarity.RARE, EnchantmentTarget.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+public class JagerderSchuldigen extends Enchantment{
+
+    public JagerderSchuldigen() {
+        super(Enchantment.Rarity.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -42,7 +40,7 @@ public class Starvation extends Enchantment{
     }
 
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != FarmersMarketEnchants.Devouring && other != FarmersMarketEnchants.JagerderSchuldigen;
+        return super.canAccept(other) && other != FarmersMarketEnchants.Devouring && other != FarmersMarketEnchants.Starvation;
     }
 
 

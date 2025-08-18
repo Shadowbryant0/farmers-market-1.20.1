@@ -28,8 +28,14 @@ public class EnchantmentHelperMixin {
 
     @WrapOperation(method = "getPossibleEntries", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/EnchantmentTarget;isAcceptableItem(Lnet/minecraft/item/Item;)Z"))
     private static boolean FarmersMarket$letTheEnchantDecide(EnchantmentTarget enchantmentTarget, Item item, Operation<Boolean> original) {
-        if (storedEnchantment == FarmersMarketEnchants.Forging) {
-            return item instanceof PickaxeItem;
+        //if (storedEnchantment == FarmersMarketEnchants.Forging) {
+        //    return item instanceof PickaxeItem;
+        //}
+        if (storedEnchantment == FarmersMarketEnchants.PrimalDesires) {
+                return item instanceof AxeItem;
+            }
+        if (storedEnchantment == FarmersMarketEnchants.HuntersLullabyEnchantment) {
+                    return item instanceof SwordItem;
         }
 
         return original.call(enchantmentTarget, item);

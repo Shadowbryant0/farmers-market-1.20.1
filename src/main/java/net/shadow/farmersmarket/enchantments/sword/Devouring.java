@@ -43,7 +43,7 @@ public class Devouring extends Enchantment {
     }
 
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != FarmersMarketEnchants.Starvation;
+        return super.canAccept(other) && other != FarmersMarketEnchants.Starvation && other != FarmersMarketEnchants.JagerderSchuldigen;
     }
 @Override
     public boolean isAcceptableItem(ItemStack stack) {

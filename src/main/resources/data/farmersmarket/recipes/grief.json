@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "minecraft:netherite_sword"
+    "item": "minecraft:nether_star"
   },
   "result": {
-    "item": "farmersmarket:greatsword"
+    "item": "farmersmarket:grief"
   },
   "template": {
     "item": "farmersmarket:forge_upgrade"

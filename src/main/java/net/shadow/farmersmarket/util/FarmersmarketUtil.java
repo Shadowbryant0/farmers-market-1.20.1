@@ -57,5 +57,21 @@ public class FarmersmarketUtil {
         return 0;
         }
     // beserk - enchancement by MoriyaShiine
+
+    public static float JagerDamage(LivingEntity living, ItemStack stack) {
+
+        if (living != null && hasEnchantment(FarmersMarketEnchants.JagerderSchuldigen, stack)) {
+
+            float health = living.getMaxHealth() - 8;
+
+            if (health > living.getHealth()) {
+
+                return 6;
+            }
+            return 0;
+        }
+        return 0;
+    }
+    // beserk - enchancement by MoriyaShiine
 }
 

@@ -5,6 +5,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.enchantments.Armor.CalciumInfused;
+import net.shadow.farmersmarket.enchantments.Axe.JagerderSchuldigen;
 import net.shadow.farmersmarket.enchantments.Axe.PrimalDesires;
 import net.shadow.farmersmarket.enchantments.Axe.Starvation;
 import net.shadow.farmersmarket.enchantments.sword.Devouring;
@@ -23,8 +25,8 @@ public class FarmersMarketEnchants {
             new FreshFieldsEnchantment());
 
 
-    public static final Enchantment Forging = register("forging",
-            new Forging());
+    //public static final Enchantment Forging = register("forging",
+    //        new Forging());
     public static final Enchantment Starvation = register("starvation",
             new Starvation());
     public static final Enchantment Devouring = register("devouring",
@@ -33,6 +35,10 @@ public class FarmersMarketEnchants {
             new ShockwaveEnchant());
     public static final Enchantment PrimalDesires = register("primaldesires",
             new PrimalDesires());
+    public static final Enchantment JagerderSchuldigen = register("jagerderschuldigen",
+            new JagerderSchuldigen());
+    public static final Enchantment CalciumInfused = register("calciuminfused",
+            new CalciumInfused());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {
