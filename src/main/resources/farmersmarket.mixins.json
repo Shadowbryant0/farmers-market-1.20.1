@@ -11,11 +11,10 @@
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "JagerDamageMixin",
-    "JagerKillMixin",
     "ModelLoaderMixin",
     "PiglinBruteEntityMixin",
-    "SliverOfFleshMixin",
-    "StarvationKillMixin",
+    "PlayerDropsMixin",
+    "StarvationkilMixin",
     "StarvationMixin",
     "Crossbow.ShockwaveMixin"
   ],
