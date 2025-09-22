@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LCL",
+    "SsS",
+    "LSL"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "S": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:tide"
+  }
+}

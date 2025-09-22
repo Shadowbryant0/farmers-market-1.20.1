@@ -87,6 +87,9 @@ public class ModItems {
     public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));
 
+    public static final Item TIDE = registerItem("tide",
+            new Tide(new FabricItemSettings().maxCount(1).fireproof()));
+
 
 
 

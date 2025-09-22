@@ -10,8 +10,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
 
-public class Rainmaker extends Item {
-    public Rainmaker(Settings settings) {
+public class Tide extends Item {
+    public Tide(Settings settings) {
         super(settings);
     }
 

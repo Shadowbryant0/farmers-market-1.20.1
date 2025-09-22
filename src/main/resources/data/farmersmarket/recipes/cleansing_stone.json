@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "s s",
+    " s ",
+    "s s"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stone"
+    },
+    "c": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "o": {
+      "item": "minecraft:oak_planks"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:cleansing_stone",
+    "count": 2
+  }
+}
