@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "farmersmarket:egg_embryo"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    },
+    {
+      "item": "farmersmarket:egg_shards"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dragon_egg"
+  }
+}

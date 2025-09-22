@@ -1,11 +1,9 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterials;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.shadow.farmersmarket.item.ModItems;
 
 public class MainswordClass  extends GreatswordClass {
     public MainswordClass(Item.Settings settings) {

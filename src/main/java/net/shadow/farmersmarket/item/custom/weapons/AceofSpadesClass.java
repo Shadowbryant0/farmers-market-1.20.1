@@ -1,7 +1,7 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.EvokerFangsEntity;
+import net.minecraft.entity.mob.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;

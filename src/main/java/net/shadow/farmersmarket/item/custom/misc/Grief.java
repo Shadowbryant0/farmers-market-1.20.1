@@ -1,7 +1,5 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.custom.misc;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.EvokerFangsEntity;
 import net.minecraft.entity.player.PlayerEntity;

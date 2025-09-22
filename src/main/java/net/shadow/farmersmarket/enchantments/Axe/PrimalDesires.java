@@ -54,11 +54,13 @@ public class PrimalDesires extends Enchantment{
                 case 19, 20->{
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 100, 0));
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 80, 0));
+                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 60, 1));
                     break;
                 }
                 case 14, 15, 16, 17, 18 -> {
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 80, 0));
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 0));
+                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 40, 0));
                     break;
                 }
                 case 10, 11, 12, 13 -> {
@@ -66,9 +68,10 @@ public class PrimalDesires extends Enchantment{
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 40, 0));
                     break;
                 }
-                case 1, 2, 3 -> {
+                case 1, 2 -> {
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 0));
                     user.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 60, 0));
+                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, 0));
                     break;
                 }
                 default -> {

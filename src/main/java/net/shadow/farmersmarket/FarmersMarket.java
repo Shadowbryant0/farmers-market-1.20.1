@@ -13,6 +13,8 @@ import net.shadow.farmersmarket.event.ScytheHarvestEvent;
 import net.shadow.farmersmarket.item.ModItemGroups;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.sound.ModSounds;
+import net.shadow.farmersmarket.util.FarmersmarketUtil;
+import net.shadow.farmersmarket.util.ModLootTableModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +28,7 @@ public class FarmersMarket implements ModInitializer {
 
 		LOGGER.info("Hello NERDS! <3");
 		ModItems.registerModItems();
-
+		ModLootTableModifiers.modifyLootTables();
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
 		ModSounds.registerSounds();

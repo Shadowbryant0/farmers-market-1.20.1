@@ -2,13 +2,14 @@ package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.SkullItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
-import net.shadow.farmersmarket.item.custom.*;
+import net.shadow.farmersmarket.item.custom.misc.*;
+import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.trinkets.*;
+import net.shadow.farmersmarket.item.trinkets.endstuff.Ender_Crown;
 
 public class ModItems {
 
@@ -25,7 +26,7 @@ public class ModItems {
     public static final Item FORGE_UPGRADE = registerItem("forge_upgrade",
             new Item(new FabricItemSettings()));
     public static final Item GRIEF = registerItem("grief",
-            new Grief(new FabricItemSettings()));
+            new Grief(new FabricItemSettings().maxCount(1).fireproof()));
 
     public static final Item VEINPIERCER = registerItem("veinpeircer",
             new Veinpiercer(new FabricItemSettings().fireproof()));
@@ -63,11 +64,25 @@ public class ModItems {
             new piglinBruteRing(new FabricItemSettings().maxCount(1)));
     public static final Item GOLDENRING = registerItem("goldenring",
             new goldenRing(new FabricItemSettings().maxCount(1)));
+    public static final Item ENDER_CROWN = registerItem("ender_crown",
+            new Ender_Crown(new FabricItemSettings().maxCount(1).fireproof()));
 
     public static final Item FBOOK = registerItem("fbook",
             new Fbook(new FabricItemSettings().maxCount(1)));
     public static final Item CSBOOK = registerItem("csbook",
             new CSbook(new FabricItemSettings().maxCount(1)));
+    public static final Item CLEANSING_STONE = registerItem("cleansing_stone",
+            new Cleansing_Stone(new FabricItemSettings().maxCount(1)));
+
+    public static final Item CRACKED_EGG = registerItem("cracked_egg",
+            new Cracked_egg(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_BUNDLE = registerItem("egg_bundle",
+            new Item(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_EMBRYO = registerItem("egg_embryo",
+            new Item(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_SHARDS = registerItem("egg_shards",
+            new Item(new FabricItemSettings().maxCount(8).fireproof()));
+
 
     public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));

@@ -1,35 +1,13 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.custom.misc;
 
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.gui.screen.ingame.AnvilScreen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.screen.AnvilScreenHandler;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.ModItems;
-import org.jetbrains.annotations.Nullable;
-
-import java.security.PublicKey;
-import java.util.List;
 
 public class Fbook extends BookItem {
 

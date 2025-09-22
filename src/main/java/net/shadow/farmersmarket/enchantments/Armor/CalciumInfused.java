@@ -45,6 +45,10 @@ public class CalciumInfused extends Enchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
+        return false;
+    }
+
+    public boolean isCursed() {
         return true;
     }
 

@@ -1,4 +1,4 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.custom.misc;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;

@@ -1,18 +1,11 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.custom.weapons;
 
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.materials.Greatmat;
 
 public class GreatswordClass extends SwordItem {

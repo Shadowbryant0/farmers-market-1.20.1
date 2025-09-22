@@ -41,7 +41,13 @@ public class ModItemGroups {
                         // TYRENT IS DEV TEST ITEM
                         entries.add(ModItems.CRACKED_TOTEM);
                         entries.add(ModItems.GRIEF);
+                        entries.add(ModItems.ENDER_CROWN);
+                        entries.add(ModItems.CLEANSING_STONE);
 
+                        entries.add(ModItems.CRACKED_EGG);
+                        entries.add(ModItems.EGG_EMBRYO);
+                        entries.add(ModItems.EGG_BUNDLE);
+                        entries.add(ModItems.EGG_SHARDS);
                         //entries.add(ModBlocks.POTION_WEB);
                         //.add(ModBlocks.THREAD_WEAVER);
 

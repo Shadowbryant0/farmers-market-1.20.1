@@ -34,6 +34,10 @@ public class JagerderSchuldigen extends Enchantment{
         return false;
     }
 
+    public boolean isCursed() {
+        return true;
+    }
+
     @Override
     public boolean isAvailableForRandomSelection() {
         return false;

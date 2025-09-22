@@ -42,6 +42,10 @@ public class Devouring extends Enchantment {
         return false;
     }
 
+    public boolean isCursed() {
+        return true;
+    }
+
     protected boolean canAccept(Enchantment other) {
         return super.canAccept(other) && other != FarmersMarketEnchants.Starvation && other != FarmersMarketEnchants.JagerderSchuldigen;
     }

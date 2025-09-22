@@ -1,4 +1,4 @@
-package net.shadow.farmersmarket.item.custom;
+package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.MiningToolItem;

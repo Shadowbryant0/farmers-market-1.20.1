@@ -60,12 +60,12 @@ class PlayerDropsMixin {
 System.out.println("Player killed");
                 // Drop Silver Flesh
                 ItemStack sliverFlesh = new ItemStack(Items.DIAMOND_BLOCK);
-                Vec3d pos = victim.getPos();
+                Vec3d pos = attacker.getPos();
 
                 world.spawnEntity(new ItemEntity(world, pos.x, pos.y, pos.z, sliverFlesh));
 
             } else {
-
+                System.out.println("Entity killed");
 
                 // Drop Cracked Skull
                 ItemStack crackedSkull = new ItemStack(ModItems.SLIVER_FLESH);

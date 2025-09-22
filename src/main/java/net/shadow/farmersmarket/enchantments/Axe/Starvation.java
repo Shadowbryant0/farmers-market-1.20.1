@@ -31,6 +31,10 @@ public class Starvation extends Enchantment{
         return false; // only from special loot tables
     }
 
+    public boolean isCursed() {
+        return true;
+    }
+
     @Override
     public boolean isAvailableForEnchantedBookOffer() {
         return false;
