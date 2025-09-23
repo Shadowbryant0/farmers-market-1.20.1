@@ -49,6 +49,9 @@ public class ModItems {
     public static final Item HEXSPADE = registerItem("hexspade",
             new AceofSpadesClass(new FabricItemSettings().fireproof()));
 
+    public static final Item CLEAVER = registerItem("cleaver",
+            new ButcheringCleaver(new FabricItemSettings().fireproof()));
+
     public static final Item CRACKED_TOTEM = registerItem("cracked_totem",
             new CrackedTotem(new FabricItemSettings().maxCount(1)));
 
