@@ -64,65 +64,40 @@ public class Cleansing_Stone extends Item{
                         Enchantment enchantment = (Enchantment) entry.getKey();
 
 
-                        itemStack.decrement(1);
-                        stack.decrement(1);
-                        slot.insertStack(newstack, 1);
-                        newstack.addEnchantment(enchantment, (Integer) entry.getValue());
-                        player.heal(5);
-                        player.sendMessage(Text.literal("You feel relief wash over you."), true);
-                        {
-                            player.getItemCooldownManager().set(this, COOLDOWN_TICKS);
-                        }
-                            return true;
+    itemStack.decrement(1);
+    stack.decrement(1);
+    slot.insertStack(newstack, 1);
+    newstack.addEnchantment(enchantment, (Integer) entry.getValue());
+    player.heal(5);
+    player.sendMessage(Text.literal("You feel relief wash over you."), true);
+                        this.playInsertSound(player);
+                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 0));
+    {
+        player.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+    }
+    return true;
 
 
 
                     }
+                if(!itemStack.isEnchantable()){
+                    itemStack.decrement(1);
+                    stack.decrement(1);
+                    slot.insertStack(newstack, 1);
+                    this.playInsertSound(player);
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 0));
+                    return true;
+                }
 
-                    return false;
-//
-//                if (EnchantmentHelper.getLevel(Enchantments.BINDING_CURSE, itemStack) > 0) {
-//                        this.playInsertSound(player);
-//                    itemStack.removeSubNbt("Enchantments");
-//                        stack.decrement(1);
-//                        player.heal(3);
-//                } else
-//                if (EnchantmentHelper.getLevel(Enchantments.VANISHING_CURSE, itemStack) > 0) {
-//                    this.playInsertSound(player);
-//                    itemStack.addEnchantment(FarmersMarketEnchants.CalciumInfused, 1);
-//                    stack.decrement(1);
-//                    player.damage(player.getDamageSources().wither(), 10);
-//                } else
-//                if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Starvation, itemStack) > 0) {
-//                    this.playInsertSound(player);
-//                    itemStack.addEnchantment(FarmersMarketEnchants.CalciumInfused, 1);
-//                    stack.decrement(1);
-//                    player.damage(player.getDamageSources().wither(), 10);
-//                } else
-//                if (EnchantmentHelper.getLevel(FarmersMarketEnchants.JagerderSchuldigen, itemStack) != 0) {
-//                    this.playInsertSound(player);
-//                    itemStack.addEnchantment(FarmersMarketEnchants.Devouring, 1);
-//                    stack.decrement(1);
-//                    player.damage(player.getDamageSources().wither(), 10);
-//                } else
-//            if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Devouring, itemStack) > 0) {
-//                this.playInsertSound(player);
-//                itemStack.addEnchantment(FarmersMarketEnchants.Starvation, 1);
-//                stack.decrement(1);
-//                player.damage(player.getDamageSources().wither(), 10);
-//            }
-//
-//
-//
-//
-//            return true;
+
+
                 }
             }
         return false;
     }
 
     private void playInsertSound(Entity entity) {
-        entity.playSound(SoundEvents.ENTITY_SKELETON_CONVERTED_TO_STRAY, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
+        entity.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, 60F, 1.1F + entity.getWorld().getRandom().nextFloat() * 0.4F);
     }
 
 }

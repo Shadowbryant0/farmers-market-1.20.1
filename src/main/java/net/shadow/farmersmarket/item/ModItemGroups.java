@@ -43,6 +43,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GRIEF);
                         entries.add(ModItems.ENDER_CROWN);
                         entries.add(ModItems.CLEANSING_STONE);
+                        entries.add(ModItems.TIDE);
 
                         entries.add(ModItems.CRACKED_EGG);
                         entries.add(ModItems.EGG_EMBRYO);

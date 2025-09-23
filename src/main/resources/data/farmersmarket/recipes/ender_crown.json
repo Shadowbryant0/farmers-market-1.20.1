@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " e ",
+    "sbs",
+    "bcb"
+  ],
+  "key": {
+    "s": {
+      "item": "farmersmarket:egg_shards"
+    },
+    "e": {
+      "item": "farmersmarket:egg_embryo"
+    },
+    "b": {
+      "item": "minecraft:end_stone_bricks"
+    },
+    "c": {
+      "item": "minecraft:chorus_fruit"
+    }
+
+
+
+  },
+  "result": {
+    "item": "minecraft:cobweb"
+  }
+}
