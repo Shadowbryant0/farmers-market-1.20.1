@@ -3,6 +3,7 @@ package net.shadow.farmersmarket.item.custom.weapons;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -15,7 +16,6 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.item.materials.CleaverMat;
-
 import java.util.UUID;
 
 public class ButcheringCleaver extends SwordItem {
@@ -32,8 +32,11 @@ public class ButcheringCleaver extends SwordItem {
         builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", (double)-0.25F, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
-    double boost = 4.0d;
-    private static final int COOLDOWN_TICKS = 240;
+    public com.google.common.collect.Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
+    }
+    double boost = 1.5;
+    private static final int COOLDOWN_TICKS = 24;
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient){
             Vec3d lookingDirection = user.getRotationVec(1.0f);
@@ -49,8 +52,9 @@ public class ButcheringCleaver extends SwordItem {
 
             user.velocityModified = true;
             user.setSwimming(false);
+
         }
 
-        return null;
+        return super.use(world, user, hand);
     }
 }
