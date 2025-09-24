@@ -4,9 +4,11 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -41,14 +43,27 @@ public class ButcheringCleaver extends SwordItem {
         if (!world.isClient){
             Vec3d lookingDirection = user.getRotationVec(1.0f);
 
-            user.setVelocity(
-                    lookingDirection.x * boost,
-                    lookingDirection.y * boost * 0.6f,
-                    lookingDirection.z * boost
-            );
-            {
-                user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+            if(!user.isSneaking()) {
+                user.setVelocity(
+                        lookingDirection.x * boost,
+                        lookingDirection.y * boost * 0.6f,
+                        lookingDirection.z * boost
+                );
+                {
+                    user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+                }
             }
+            if(user.isSneaking()) {
+                user.setVelocity(
+                        lookingDirection.x * -boost,
+                        lookingDirection.y * -boost * 0.8f,
+                        lookingDirection.z * -boost
+                );
+                {
+                    user.getItemCooldownManager().set(this, 58);
+                }
+            }
+
 
             user.velocityModified = true;
             user.setSwimming(false);
@@ -56,5 +71,25 @@ public class ButcheringCleaver extends SwordItem {
         }
 
         return super.use(world, user, hand);
+    }
+
+    public boolean isCritical(LivingEntity user) {
+        return (user.getVelocity().getY()) <= 0;
+    }
+
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if(attacker instanceof PlayerEntity player){
+            if (isCritical(attacker) && player.getItemCooldownManager().isCoolingDown(this)) {
+                target.damage(target.getDamageSources().mobAttack(attacker), 10);
+                return super.postHit(stack, target, attacker);
+            }
+        }
+        if (isCritical(attacker)) {
+            target.damage(target.getDamageSources().magic(), 3);
+            return super.postHit(stack, target, attacker);
+        }
+        return super.postHit(stack, target, attacker);
     }
 }
