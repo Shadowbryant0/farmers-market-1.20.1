@@ -91,6 +91,8 @@ dependencies {
 
 		include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${reach_version}")
 
+	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.5.0")))
+
 }
 
 
