@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_egg_bundle": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
             "items": [
-              "farmersmarket:egg_shards"
+              "minecraft:dragon_egg"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "has_egg_bundle",
+      "has_egg",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:ender_crown"
+      "farmersmarket:crackedegg"
     ]
   },
   "show_notification": true

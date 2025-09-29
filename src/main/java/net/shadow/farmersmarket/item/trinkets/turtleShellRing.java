@@ -18,11 +18,11 @@ public class turtleShellRing extends TrinketItem {
 
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
-        // -30% speed
-        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:speed", -0.3, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        // -20% attack speed
-        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:attackspeed", -0.2, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        // +10% Armor
+        // -20% speed
+        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:speed", -0.2, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        // -15% attack speed
+        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:attackspeed", -0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        // +20% Armor
         modifiers.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid, "farmersmarket:armor", 0.2, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         // +10% Armor Toughness
         modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid, "farmersmarket:toughness", 1.0, EntityAttributeModifier.Operation.ADDITION));

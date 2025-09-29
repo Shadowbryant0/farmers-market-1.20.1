@@ -5,14 +5,15 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.enchantments.Armor.Leggings.LavaWader;
 import net.shadow.farmersmarket.enchantments.Armor.CalciumInfused;
 import net.shadow.farmersmarket.enchantments.Axe.JagerderSchuldigen;
 import net.shadow.farmersmarket.enchantments.Axe.PrimalDesires;
 import net.shadow.farmersmarket.enchantments.Axe.Starvation;
+import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
 import net.shadow.farmersmarket.enchantments.sword.Devouring;
 import net.shadow.farmersmarket.enchantments.Crossbow.ShockwaveEnchant;
 import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
-import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
 import net.shadow.farmersmarket.enchantments.sword.HuntersLullabyEnchantment;
 
 public class FarmersMarketEnchants {
@@ -25,8 +26,8 @@ public class FarmersMarketEnchants {
             new FreshFieldsEnchantment());
 
 
-    //public static final Enchantment Forging = register("forging",
-    //        new Forging());
+    public static final Enchantment Forging = register("forging",
+            new Forging());
     public static final Enchantment Starvation = register("starvation",
             new Starvation());
     public static final Enchantment Devouring = register("devouring",
@@ -39,6 +40,8 @@ public class FarmersMarketEnchants {
             new JagerderSchuldigen());
     public static final Enchantment CalciumInfused = register("calciuminfused",
             new CalciumInfused());
+    public static final Enchantment LavaWader = register("lavawader",
+            new LavaWader());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

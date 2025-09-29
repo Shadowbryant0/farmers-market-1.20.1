@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "farmersmarket:ender_crown"
+  },
+  "result": "farmersmarket:crown_parts"
+}

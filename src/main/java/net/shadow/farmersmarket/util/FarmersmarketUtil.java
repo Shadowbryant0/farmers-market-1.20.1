@@ -3,6 +3,7 @@ package net.shadow.farmersmarket.util;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -74,4 +75,6 @@ public class FarmersmarketUtil {
     }
     // beserk - enchancement by MoriyaShiine
 }
+
+
 

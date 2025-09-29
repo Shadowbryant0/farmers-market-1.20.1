@@ -20,7 +20,9 @@ public class goldenRing extends TrinketItem {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         // +10% luck
         modifiers.put(EntityAttributes.GENERIC_LUCK, new EntityAttributeModifier(uuid, "farmersmarket:luck", 0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-       return modifiers;
+        // +15% Knockback Resistance
+        modifiers.put(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, new EntityAttributeModifier(uuid, "farmersmarket:knockback_resistance", 0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        return modifiers;
 
     }
 

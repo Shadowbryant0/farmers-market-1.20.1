@@ -32,10 +32,10 @@ public class HumanToothNecklace extends TrinketItem {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         // -10% luck
         modifiers.put(EntityAttributes.GENERIC_LUCK, new EntityAttributeModifier(uuid, "farmersmarket:luck", -0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        // -15% toughness
-        modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid, "farmersmarket:armor_toughness", -0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        // +10% attack speed
-        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:attackspeed", 0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        // -10% toughness
+        modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid, "farmersmarket:armor_toughness", -0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        // +15% attack speed
+        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:attackspeed", 0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;
 
     }

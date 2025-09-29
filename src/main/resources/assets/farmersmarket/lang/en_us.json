@@ -5,6 +5,7 @@
   "item.farmersmarket.greatsword": "Greatsword",
   "item.farmersmarket.altsword": "Greatsword",
   "item.farmersmarket.rapier": "Rapier",
+  "item.farmersmarket.cleaver": "Butchering Cleaver",
   "item.farmersmarket.forge_upgrade": "Forge Template",
   "item.farmersmarket.mainsword": "REQUIEM",
   "item.farmersmarket.sliver_flesh": "Sliver of flesh",
@@ -26,6 +27,18 @@
   "item.farmersmarket.brutering": "Piglin Enforcer Ring",
   "item.farmersmarket.turtlering": "Blessed Turtle Ring",
 
+  "item.farmersmarket.ender_crown": "End King's Crown",
+  "item.farmersmarket.crown_parts": "Crumbling Crown",
+  "item.farmersmarket.cracked_egg": "Cracked Dragon Egg",
+  "item.farmersmarket.egg_embryo": "Ender Dragon's Embryo",
+  "item.farmersmarket.egg_bundle": "Bundle of Egg shards",
+  "item.farmersmarket.egg_bundle2": "Bundle of Egg shards",
+  "item.farmersmarket.egg_bundle3": "Bundle of Egg shards",
+  "item.farmersmarket.egg_shards": "Shards of the Dragon Egg",
+
+  "item.farmersmarket.tide": "Stormy Wind Chimes",
+  "item.farmersmarket.cleansing_stone": "Restoring Whetstone",
+
   "block.farmersmarket.block_of_ruby": "Ruby Block",
 
   "enchantment.farmersmarket.hunterslullabyenchantment": "Hunters Lullaby",
@@ -36,6 +49,8 @@
   "enchantment.farmersmarket.primaldesires": "Primal desires",
   "enchantment.farmersmarket.calciuminfused": "Calcium Infused",
   "enchantment.farmersmarket.jagerderschuldigen": "Jagerderschuldigen",
+  "enchantment.farmersmarket.lavawader": "Lava Wader",
+  "enchantment.farmersmarket.forging": "Forging",
   "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives Slowness and Mining fatigue",
   "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
   "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
@@ -44,7 +59,8 @@
   "enchantment.farmersmarket.primaldesires.desc": "Give into the hunt and rip into your prey, gives chance for strength and speed, but also a chance for blindness and weakness",
   "enchantment.farmersmarket.calciuminfused.desc": "Prot 1 for stuff like Fire Protection, to allow generalization, not for Protection, only stuff like feather fall, projectile protection, etc",
   "enchantment.farmersmarket.jagerderschuldigen.desc": "Conditional sharpness, after loosing a set amount of health, you gain sharpness",
-
+  "enchantment.farmersmarket.lavawader.desc": "Gain fire damage reduction, and move Faster through lava",
+  "enchantment.farmersmarket.forging.disc": "All items with a blast furnace recipe automatically get smelted :D",
 
   "itemgroup.farmers_market": "FarmersMarket",
   "itemgroup.farmers_cosmetics": "FarmersMarket Cosmetic upgrades",

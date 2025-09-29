@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.AnvilScreenHandler;
+import net.minecraft.screen.GrindstoneScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -54,14 +55,14 @@ public class Cleansing_Stone extends Item{
                     ItemStack newstack = itemStack.copyWithCount(itemStack.getCount());
 
 
-                    Map<Enchantment, Integer> map = (Map) EnchantmentHelper.get(itemStack).entrySet().stream().filter((entry) -> !((Enchantment) entry.getKey()).isCursed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-                    EnchantmentHelper.set(map, newstack);
+                Map<Enchantment, Integer> map = (Map) EnchantmentHelper.get(itemStack).entrySet().stream().filter((entry) -> !((Enchantment) entry.getKey()).isCursed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                EnchantmentHelper.set(map, newstack);
                     newstack.setRepairCost(0);
 
 
 
-                    for (Map.Entry<Enchantment, Integer> entry : map.entrySet()) {
-                        Enchantment enchantment = (Enchantment) entry.getKey();
+                for(Map.Entry<Enchantment, Integer> entry : map.entrySet()) {
+                    Enchantment enchantment = (Enchantment)entry.getKey();
 
 
     itemStack.decrement(1);

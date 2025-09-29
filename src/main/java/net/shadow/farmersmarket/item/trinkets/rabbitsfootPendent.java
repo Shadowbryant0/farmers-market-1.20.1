@@ -20,8 +20,8 @@ public class rabbitsfootPendent extends TrinketItem {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         // +25% luck
         modifiers.put(EntityAttributes.GENERIC_LUCK, new EntityAttributeModifier(uuid, "farmersmarket:luck", 0.25, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        // -20% damage
-        modifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(uuid, "farmersmarket:attackdamage", -0.2, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        // -15% damage
+        modifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(uuid, "farmersmarket:attackdamage", -0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         // +25% speed
         modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:movementspeed", 0.25, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;

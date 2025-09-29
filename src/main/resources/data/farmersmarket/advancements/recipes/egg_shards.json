@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "egg_shards": {
+    "has_egg_shards": {
       "conditions": {
         "items": [
           {

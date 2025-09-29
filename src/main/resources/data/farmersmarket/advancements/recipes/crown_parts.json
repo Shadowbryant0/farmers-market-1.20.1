@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_egg_bundle": {
+    "has_crown": {
       "conditions": {
         "items": [
           {
             "items": [
-              "farmersmarket:egg_shards"
+              "farmersmarket:ender_crown"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersmarket:ender_crown"
+        "recipe": "farmersmarket:dismantle_crown"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_egg_bundle",
+      "has_crown",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:ender_crown"
+      "farmersmarket:dismantle_crown"
     ]
   },
   "show_notification": true

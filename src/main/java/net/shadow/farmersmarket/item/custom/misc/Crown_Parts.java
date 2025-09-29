@@ -1,23 +1,15 @@
 package net.shadow.farmersmarket.item.custom.misc;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.shadow.farmersmarket.item.ModItems;
 
-import java.util.Map;
-import java.util.stream.Collectors;
-
-public class Cracked_egg extends Item {
-    public Cracked_egg(Settings settings) {
+public class Crown_Parts extends Item {
+    public Crown_Parts(Settings settings) {
         super(settings);
     }
 
@@ -43,7 +35,7 @@ public class Cracked_egg extends Item {
 //
 //
 //            ItemStack newstack = new ItemStack(ModItems.EGG_EMBRYO);
-//            ItemStack eggbundle = new ItemStack(ModItems.EGG_BUNDLE);
+//            ItemStack eggbundle = new ItemStack(ModItems.EGG_BUNDLE2);
 //
 //
 //
@@ -57,7 +49,7 @@ public class Cracked_egg extends Item {
 //
 //
 //
-//                player.sendMessage(Text.literal("You feel a cold breeze rush out of the egg. what have you done"), true);
+//                player.sendMessage(Text.literal("You feel the crown crumble apart"), true);
 //
 //                return true;
 //

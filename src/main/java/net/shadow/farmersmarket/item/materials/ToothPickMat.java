@@ -4,7 +4,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class CleaverMat implements ToolMaterial {
+public class ToothPickMat implements ToolMaterial {
     // Your IDE should override the interface's methods for you, or at least shout at you to do so.
 
     @Override
@@ -22,7 +22,7 @@ public class CleaverMat implements ToolMaterial {
     }
     @Override
     public int getMiningLevel() {
-        return 3;
+        return 4;
     }
     @Override
     public int getEnchantability() {
@@ -32,5 +32,5 @@ public class CleaverMat implements ToolMaterial {
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(Items.BONE_BLOCK);
     }
-    public static final CleaverMat INSTANCE = new CleaverMat();
+    public static final ToothPickMat INSTANCE = new ToothPickMat();
 }

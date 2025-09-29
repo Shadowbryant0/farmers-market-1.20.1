@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_egg_bundle": {
+    "has_copper": {
       "conditions": {
         "items": [
           {
             "items": [
-              "farmersmarket:egg_shards"
+              "minecraft:raw_copper_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersmarket:ender_crown"
+        "recipe": "farmersmarket:forging_copper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_egg_bundle",
+      "has_copper",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:ender_crown"
+      "farmersmarket:forging_copper"
     ]
   },
   "show_notification": true

@@ -3,7 +3,10 @@ package net.shadow.farmersmarket.enchantments.Pickaxe;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 
 public class Forging extends Enchantment {
@@ -37,5 +40,18 @@ public class Forging extends Enchantment {
     public boolean isAvailableForRandomSelection() {
         return true;
     }
+
+    public boolean isCursed() {
+        return true;
+    }
+
+    public float getAttackDamage(int level, EntityGroup group) {
+
+            return 3F;
+    }
+    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
+    target.setFireTicks(200);
+    }
+
 
 }

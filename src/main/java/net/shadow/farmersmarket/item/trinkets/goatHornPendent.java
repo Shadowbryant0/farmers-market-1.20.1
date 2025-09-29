@@ -21,10 +21,10 @@ public class goatHornPendent extends TrinketItem {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         // -10% luck
         modifiers.put(EntityAttributes.GENERIC_LUCK, new EntityAttributeModifier(uuid, "farmersmarket:luck", -0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        // -15% attack speed
-        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:attackspeed", -0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        // +10% attack damage
-        modifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(uuid, "farmersmarket:attackdmg", 0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        // -10% attack speed
+        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "farmersmarket:attackspeed", -0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        // +15% attack damage
+        modifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(uuid, "farmersmarket:attackdmg", 0.15, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;
 
     }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "crying": {
+    "has_crying": {
       "conditions": {
         "items": [
           {

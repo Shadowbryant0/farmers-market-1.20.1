@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "s s",
-    " s ",
-    "s s"
+    "scs",
+    "ooo",
+    "   "
   ],
   "key": {
     "s": {
@@ -22,6 +22,6 @@
   },
   "result": {
     "item": "farmersmarket:cleansing_stone",
-    "count": 2
+    "count": 1
   }
 }

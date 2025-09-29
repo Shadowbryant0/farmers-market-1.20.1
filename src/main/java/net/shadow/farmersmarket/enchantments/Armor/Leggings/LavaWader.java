@@ -1,27 +1,29 @@
-package net.shadow.farmersmarket.enchantments.Armor;
+package net.shadow.farmersmarket.enchantments.Armor.Leggings;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.enchantment.ProtectionEnchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
-import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 
-public class CalciumInfused extends Enchantment {
+public class LavaWader extends Enchantment {
 
-    public CalciumInfused() {
-        super(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR, new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET});
+    public LavaWader() {
+        super(Rarity.RARE, EnchantmentTarget.ARMOR_LEGS, new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET});
     }
 
 
 
     public int getProtectionAmount(int level, DamageSource source) {
-            return 2;
+
+        if (source.isIn(DamageTypeTags.IS_FIRE)) {
+            return 17;
+        }
+        else
+        {return 0;}
     }
     @Override
     public int getMinPower(int level) {
@@ -53,7 +55,7 @@ public class CalciumInfused extends Enchantment {
     }
 
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != Enchantments.PROTECTION;
+        return super.canAccept(other) && other != Enchantments.PROTECTION && other != Enchantments.FIRE_PROTECTION && other != Enchantments.BLAST_PROTECTION && other != Enchantments.PROJECTILE_PROTECTION;
     }
 
 
