@@ -41,22 +41,31 @@ public class AceofSpadesClass  extends ShovelItem {
             if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Syphon, stack) == 0) {
                 return super.use(world, user, hand);
             } else {
-
+                if(!user.isSneaking()) {
                     if (getCharge(stack) >= HALF_CHARGE) {
                         int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
                         int heal = (int) (50);
                         charge = Math.min(charge - heal, MAX_CHARGE);
                         stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
                         {
-                            user.getItemCooldownManager().set(this, (COOLDOWN_TICKS/2));
+                            user.getItemCooldownManager().set(this, (COOLDOWN_TICKS / 2));
                         }
                         user.heal(5);
                         return super.use(world, user, hand);
 
                     }
+                }
+                if(user.isSneaking()){
+                    if (getCharge(stack) >= MAX_CHARGE) {
+                        if (user.experienceLevel >= 4) {
+                                user.addExperienceLevels(-4);
+                                stack.setDamage(stack.getDamage() - 100);
+                                stack.getOrCreateNbt().putInt(CHARGE_KEY, 0);
+                        }
+                    }
+                }
 
-
-                    return super.use(world, user, hand);
+                return super.use(world, user, hand);
 
             }
         }
