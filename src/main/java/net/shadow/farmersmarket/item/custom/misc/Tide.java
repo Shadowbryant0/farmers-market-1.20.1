@@ -2,12 +2,16 @@ package net.shadow.farmersmarket.item.custom.misc;
 
 
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -42,7 +46,7 @@ BlockPos Pos = context.getBlockPos();
             serverWorld.setWeather(0, 12000, true, true); // Rain for 5 minutes
             if (player != null) {
                 player.sendMessage(Text.literal("Let it Storm."), true);
-                player.addExperienceLevels(1);
+                player.getWorld().spawnEntity(new LightningEntity(EntityType.LIGHTNING_BOLT, serverWorld));
                 {
                     player.getItemCooldownManager().set(this, COOLDOWN_TICKS);
                 }
@@ -53,4 +57,8 @@ BlockPos Pos = context.getBlockPos();
 
         return ActionResult.PASS;
     }
+    private void playInsertSound(Entity entity) {
+        entity.playSound(SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, 3F, 1F + entity.getWorld().getRandom().nextFloat() * 0.4F);
+    }
+
 }

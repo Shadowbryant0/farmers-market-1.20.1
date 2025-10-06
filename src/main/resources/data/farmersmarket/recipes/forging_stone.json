@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 30,
+  "experience": 0.3,
+  "group": "forging",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
+  "result": "minecraft:smooth_stone"
+}

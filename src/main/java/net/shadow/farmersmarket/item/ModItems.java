@@ -9,6 +9,7 @@ import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.trinkets.*;
+import net.shadow.farmersmarket.item.trinkets.endstuff.Ender_Crown;
 
 public class ModItems {
 
@@ -47,9 +48,13 @@ public class ModItems {
 
     public static final Item HEXSPADE = registerItem("hexspade",
             new AceofSpadesClass(new FabricItemSettings().fireproof()));
+    public static final Item BOOP = registerItem("boop",
+            new BoopStick(new FabricItemSettings().fireproof()));
 
     public static final Item TOOTHPICK = registerItem("toothpick",
             new ToothPickItem(new FabricItemSettings().fireproof()));
+    public static final Item BROADAXE = registerItem("broadaxe",
+            new BroadAxe(new FabricItemSettings().fireproof()));
 
     public static final Item CRACKED_TOTEM = registerItem("cracked_totem",
             new CrackedTotem(new FabricItemSettings().maxCount(1)));
@@ -68,8 +73,8 @@ public class ModItems {
             new goldenRing(new FabricItemSettings().maxCount(1)));
     public static final Item STANCE = registerItem("stance",
             new Stance(new FabricItemSettings().maxCount(1)));
-//    public static final Item ENDER_CROWN = registerItem("ender_crown",
-//            new Ender_Crown(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item ENDER_CROWN = registerItem("ender_crown",
+            new Ender_Crown(new FabricItemSettings().maxCount(1).fireproof()));
 
     public static final Item FBOOK = registerItem("fbook",
             new Fbook(new FabricItemSettings().maxCount(1)));
@@ -78,27 +83,27 @@ public class ModItems {
     public static final Item CLEANSING_STONE = registerItem("cleansing_stone",
             new Cleansing_Stone(new FabricItemSettings().maxCount(1)));
 
-//    public static final Item CRACKED_EGG = registerItem("cracked_egg",
-//            new Cracked_egg(new FabricItemSettings().maxCount(1).fireproof()));
-//    public static final Item EGG_BUNDLE = registerItem("egg_bundle",
-//            new Item(new FabricItemSettings().maxCount(1).fireproof()));
-//    public static final Item EGG_BUNDLE3 = registerItem("egg_bundle3",
-//            new Item(new FabricItemSettings().maxCount(1).fireproof()));
-//    public static final Item EGG_BUNDLE2 = registerItem("egg_bundle2",
-//            new Item(new FabricItemSettings().maxCount(1).fireproof()));
-//    public static final Item EGG_EMBRYO = registerItem("egg_embryo",
-//            new Item(new FabricItemSettings().maxCount(1).fireproof()));
-//    public static final Item EGG_SHARDS = registerItem("egg_shards",
-//            new Item(new FabricItemSettings().maxCount(8).fireproof()));
-//    public static final Item CROWN_PARTS = registerItem("crown_parts",
-//            new Crown_Parts(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item CRACKED_EGG = registerItem("cracked_egg",
+            new Cracked_egg(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_BUNDLE = registerItem("egg_bundle",
+            new Item(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_BUNDLE3 = registerItem("egg_bundle3",
+            new Item(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_BUNDLE2 = registerItem("egg_bundle2",
+            new Item(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_EMBRYO = registerItem("egg_embryo",
+            new Item(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item EGG_SHARDS = registerItem("egg_shards",
+            new Item(new FabricItemSettings().maxCount(8).fireproof()));
+    public static final Item CROWN_PARTS = registerItem("crown_parts",
+            new Crown_Parts(new FabricItemSettings().maxCount(1).fireproof()));
 
 
     public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));
-//
-//    public static final Item TIDE = registerItem("tide",
-//            new Tide(new FabricItemSettings().maxCount(1).fireproof()));
+
+    public static final Item TIDE = registerItem("tide",
+            new Tide(new FabricItemSettings().maxCount(1).fireproof()));
 
 
 

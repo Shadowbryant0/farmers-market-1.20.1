@@ -16,6 +16,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.item.materials.ToothPickMat;
+import net.shadow.farmersmarket.util.FarmersmarketUtil;
+
 import java.util.UUID;
 
 public class ToothPickItem extends PickaxeItem {
@@ -24,11 +26,11 @@ public class ToothPickItem extends PickaxeItem {
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     public ToothPickItem(Settings settings) {
-        super(ToothPickMat.INSTANCE, 2, -1.9f, settings);
+        super(ToothPickMat.INSTANCE, 3, -1.7f, settings);
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", -1.9F, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", 5, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-.5F, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-.25F, EntityAttributeModifier.Operation.ADDITION));
         builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", (double)-0.25F, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
@@ -47,6 +49,9 @@ public class ToothPickItem extends PickaxeItem {
                         lookingDirection.y * boost * 0.6f,
                         lookingDirection.z * boost
                 );
+                if(user.isFallFlying()) {
+                    user.getItemCooldownManager().set(this, COOLDOWN_TICKS*2);
+                }
                 {
                     user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
                 }
@@ -58,7 +63,7 @@ public class ToothPickItem extends PickaxeItem {
                         lookingDirection.z * -boost
                 );
                 {
-                    user.getItemCooldownManager().set(this, 58);
+                    user.getItemCooldownManager().set(this, COOLDOWN_TICKS*2);
                 }
             }
 
@@ -71,23 +76,18 @@ public class ToothPickItem extends PickaxeItem {
         return super.use(world, user, hand);
     }
 
-    public boolean isCritical(LivingEntity user) {
-        return (user.getVelocity().getY()) <= 0;
-    }
+
 
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if(attacker instanceof PlayerEntity player){
-            if (isCritical(attacker) && player.getItemCooldownManager().isCoolingDown(this)) {
+            if (FarmersmarketUtil.isCritical(attacker) && player.getItemCooldownManager().isCoolingDown(this)) {
                 target.damage(target.getDamageSources().mobAttack(attacker), 10);
                 return super.postHit(stack, target, attacker);
             }
         }
-        if (isCritical(attacker)) {
-            target.damage(target.getDamageSources().magic(), 3);
-            return super.postHit(stack, target, attacker);
-        }
+
         return super.postHit(stack, target, attacker);
     }
 }

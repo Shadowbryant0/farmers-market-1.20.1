@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 40,
+  "experience": 0.2,
+  "group": "forging",
+  "ingredient": {
+    "item": "minecraft:sand"
+  },
+  "result": "minecraft:glass"
+}

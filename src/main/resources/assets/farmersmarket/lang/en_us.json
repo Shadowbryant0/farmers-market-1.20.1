@@ -51,6 +51,7 @@
   "enchantment.farmersmarket.jagerderschuldigen": "Jagerderschuldigen",
   "enchantment.farmersmarket.lavawader": "Lava Wader",
   "enchantment.farmersmarket.forging": "Forging",
+  "enchantment.farmersmarket.syphon": "§eSyphon",
   "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives Slowness and Mining fatigue",
   "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
   "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
@@ -60,7 +61,8 @@
   "enchantment.farmersmarket.calciuminfused.desc": "Prot 1 for stuff like Fire Protection, to allow generalization, not for Protection, only stuff like feather fall, projectile protection, etc",
   "enchantment.farmersmarket.jagerderschuldigen.desc": "Conditional sharpness, after loosing a set amount of health, you gain sharpness",
   "enchantment.farmersmarket.lavawader.desc": "Gain fire damage reduction, and move Faster through lava",
-  "enchantment.farmersmarket.forging.disc": "All items with a blast furnace recipe automatically get smelted :D",
+  "enchantment.farmersmarket.forging.desc": "All items with a blast furnace recipe automatically get smelted :D",
+  "enchantment.farmersmarket.syphon.desc": "Changes right click of the HexSpade to instead use 'Charge' to heal yourself",
 
   "itemgroup.farmers_market": "FarmersMarket",
   "itemgroup.farmers_cosmetics": "FarmersMarket Cosmetic upgrades",

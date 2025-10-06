@@ -19,12 +19,11 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.RAPIER)).entries((displayContext, entries) -> {
 
 
-                        //entries.add(ModItems.SLIVER_FLESH);
+
                         entries.add(ModItems.FORGE_UPGRADE);
                         entries.add(ModItems.RAPIER);
                         entries.add(ModItems.BLOODHOUNDAXE);
                         entries.add(ModItems.GREATSWORD);
-                        //entries.add(ModItems.ARBALESTDESCENDANT);
                         entries.add(ModItems.HEXSPADE);
                         //entries.add(ModItems.TOOTHPICK);
                         entries.add(ModItems.GAYSCYTHE);
@@ -43,17 +42,17 @@ public class ModItemGroups {
                         // TYRENT IS DEV TEST ITEM
                         entries.add(ModItems.CRACKED_TOTEM);
                         entries.add(ModItems.CLEANSING_STONE);
-                        //entries.add(ModItems.TIDE);
+                        entries.add(ModItems.TIDE);
                         entries.add(ModItems.GRIEF);
 
-//                        entries.add(ModItems.ENDER_CROWN);
-//                        entries.add(ModItems.CRACKED_EGG);
-//                        entries.add(ModItems.EGG_EMBRYO);
-//                        entries.add(ModItems.EGG_BUNDLE);
-//                        entries.add(ModItems.EGG_SHARDS);
-//                        entries.add(ModItems.EGG_BUNDLE2);
-//                        entries.add(ModItems.EGG_BUNDLE3);
-//                        entries.add(ModItems.CROWN_PARTS);
+                        entries.add(ModItems.ENDER_CROWN);
+                        entries.add(ModItems.CRACKED_EGG);
+                        entries.add(ModItems.EGG_EMBRYO);
+                        entries.add(ModItems.EGG_SHARDS);
+                        entries.add(ModItems.EGG_BUNDLE);
+                        entries.add(ModItems.EGG_BUNDLE2);
+                        entries.add(ModItems.EGG_BUNDLE3);
+                        entries.add(ModItems.CROWN_PARTS);
 
                         //entries.add(ModBlocks.POTION_WEB);
                         //.add(ModBlocks.THREAD_WEAVER);

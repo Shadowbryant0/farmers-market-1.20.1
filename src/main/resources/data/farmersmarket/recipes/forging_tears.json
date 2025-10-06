@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 3000,
+  "experience": 100,
+  "group": "forging",
+  "ingredient": {
+    "item": "minecraft:obsidian"
+  },
+  "result": "minecraft:crying_obsidian"
+}

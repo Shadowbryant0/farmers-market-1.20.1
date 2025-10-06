@@ -11,6 +11,7 @@ import net.shadow.farmersmarket.enchantments.Axe.JagerderSchuldigen;
 import net.shadow.farmersmarket.enchantments.Axe.PrimalDesires;
 import net.shadow.farmersmarket.enchantments.Axe.Starvation;
 import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
+import net.shadow.farmersmarket.enchantments.Shovel.Syphon;
 import net.shadow.farmersmarket.enchantments.sword.Devouring;
 import net.shadow.farmersmarket.enchantments.Crossbow.ShockwaveEnchant;
 import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
@@ -28,6 +29,8 @@ public class FarmersMarketEnchants {
 
     public static final Enchantment Forging = register("forging",
             new Forging());
+    public static final Enchantment Syphon = register("syphon",
+            new Syphon());
     public static final Enchantment Starvation = register("starvation",
             new Starvation());
     public static final Enchantment Devouring = register("devouring",

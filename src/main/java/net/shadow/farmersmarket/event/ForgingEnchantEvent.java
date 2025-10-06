@@ -9,7 +9,9 @@ import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.BlastingRecipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.DynamicRegistryManager;
@@ -31,7 +33,8 @@ public class ForgingEnchantEvent {
             ItemStack tool = player.getMainHandStack();
             if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Forging, tool) <= 0) return true;
             if (!tool.isSuitableFor(state)) return true;
-            if (player.getAbilities().creativeMode)return true;
+            if (player.getAbilities().creativeMode && !player.isSneaking())return true;
+            if (!player.getAbilities().creativeMode && player.isSneaking())return true;
             // If you want Silk Touch to skip smelting, uncomment:
             // if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, tool) > 0) return true;
 
@@ -50,7 +53,8 @@ public class ForgingEnchantEvent {
 
             for (ItemStack drop : originalDrops) {
                 if (drop.isEmpty()) continue;
-
+                Item result = null;
+                float xp = 0f;
                 // Try to find a BLASTING recipe for ONE of this item
                 ItemStack one = drop.copy();
                 one.setCount(1);
@@ -72,6 +76,7 @@ public class ForgingEnchantEvent {
                         totalXp += recipe.getExperience() * drop.getCount();
                         continue;
                     }
+
                 }
 
                 // No blasting recipe -> keep original drop
@@ -80,6 +85,7 @@ public class ForgingEnchantEvent {
 
             // Spawn our items and XP
             for (ItemStack out : finalDrops) {
+
                 if (out.isEmpty()) continue;
                 ItemEntity entity = new ItemEntity(serverWorld,
                         pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,

@@ -33,38 +33,37 @@ public class Cracked_egg extends Item {
         return 0;
     }
 
-//    public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
-//
-//
-//        if (clickType != ClickType.RIGHT) {
-//            return false;
-//        } else {
-//            ItemStack itemStack = slot.getStack();
-//
-//
-//            ItemStack newstack = new ItemStack(ModItems.EGG_EMBRYO);
-//            ItemStack eggbundle = new ItemStack(ModItems.EGG_BUNDLE);
-//
-//
-//
-//            if(itemStack.isEmpty()) {
-//
-//
-//                stack.decrement(1);
-//                player.giveItemStack(eggbundle);
-//
-//                slot.insertStack(newstack, 1);
-//
-//
-//
-//                player.sendMessage(Text.literal("You feel a cold breeze rush out of the egg. what have you done"), true);
-//
-//                return true;
-//
-//            }
-//            return true;
-//        }
-//
-//    }
+    public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
+
+
+        if (clickType != ClickType.RIGHT) {
+            return false;
+        } else {
+            ItemStack itemStack = slot.getStack();
+
+
+            ItemStack newstack = new ItemStack(ModItems.EGG_EMBRYO);
+            ItemStack eggbundle = new ItemStack(ModItems.EGG_BUNDLE);
+
+
+
+            if(itemStack.isEmpty()) {
+
+
+                stack.decrement(1);
+                player.giveItemStack(eggbundle);
+
+                slot.insertStack(newstack, 1);
+
+
+                player.sendMessage(Text.literal("You feel a cold breeze rush out of the egg. what have you done"), true);
+
+                return true;
+
+            }
+            return true;
+        }
+
+    }
 }
 

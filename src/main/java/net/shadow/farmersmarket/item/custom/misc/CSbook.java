@@ -59,6 +59,12 @@ public class CSbook extends BookItem {
                 stack.decrement(1);
                 itemStack.decrement(1);
 
+            }else if (itemStack.isOf(ModItems.HEXSPADE)) {
+                itemStack.addEnchantment(FarmersMarketEnchants.Syphon, 1);
+                player.damage(player.getDamageSources().wither(), 10);
+                stack.decrement(1);
+
+
             }
 
             return true;

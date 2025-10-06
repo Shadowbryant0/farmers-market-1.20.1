@@ -1,8 +1,11 @@
 package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -23,6 +26,7 @@ public class ExecutionersAxeClass extends AxeItem {
 if (!user.getItemCooldownManager().isCoolingDown(this)) {
     entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
     entity.velocityModified = true;
+    entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 1));
 
     {
         user.getItemCooldownManager().set(this, COOLDOWN_TICKS);

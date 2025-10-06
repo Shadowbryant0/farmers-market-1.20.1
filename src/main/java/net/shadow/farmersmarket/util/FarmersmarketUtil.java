@@ -17,6 +17,7 @@ import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 
 public class FarmersmarketUtil {
 
+
     public static boolean hasEnchantment(Enchantment enchantment, ItemStack stack) {
         System.out.println("enchant detected");
         return EnchantmentHelper.getLevel(enchantment, stack) > 0;
@@ -74,6 +75,9 @@ public class FarmersmarketUtil {
         return 0;
     }
     // beserk - enchancement by MoriyaShiine
+    public static boolean isCritical(LivingEntity user) {
+        return (user.getVelocity().getY()) <= 0;
+    }
 }
 
 
