@@ -11,7 +11,6 @@
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "JagerDamageMixin",
-    "LavaWader",
     "ModelLoaderMixin",
     "PiglinBruteEntityMixin",
     "PlayerDropsMixin",
