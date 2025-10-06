@@ -182,13 +182,13 @@ public class AceofSpadesClass  extends ShovelItem {
     }
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        return true;
+        return getCharge(stack) > 0;
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
         int charge = getCharge(stack);
-        return Math.round((float) charge / MAX_CHARGE * 13); // full bar = max charge
+        return Math.round((float) charge / MAX_CHARGE * 10); // full bar = max charge
     }
 
     @Override
