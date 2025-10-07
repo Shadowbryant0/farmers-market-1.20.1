@@ -34,7 +34,11 @@ public class ModItemGroups {
                         entries.add(ModItems.TURTLERING);
                         entries.add(ModItems.BRUTERING);
                         entries.add(ModItems.GOLDENRING);
+
                         entries.add(ModItems.SLIVER_FLESH);
+                        entries.add(ModItems.STEW);
+                        entries.add(ModItems.FLESH_STEW);
+
                         entries.add(ModItems.FBOOK);
                         entries.add(ModItems.CRACKED_SKULL);
                         entries.add(ModItems.CSBOOK);

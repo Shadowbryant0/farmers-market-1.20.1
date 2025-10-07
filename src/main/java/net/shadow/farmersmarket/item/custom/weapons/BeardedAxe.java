@@ -1,13 +1,11 @@
 package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -17,19 +15,18 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.item.materials.BroadMat;
-import net.shadow.farmersmarket.item.materials.ExcalatrowlMats;
+import net.shadow.farmersmarket.item.materials.BeardedMat;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.List;
 
-public class BroadAxe extends AxeItem {
+public class BeardedAxe extends AxeItem {
     private static final String CHARGE_KEY = "charge";
     private static final int MAX_CHARGE = 100;
 
 
-    public BroadAxe(Settings settings) {
-        super(BroadMat.INSTANCE, 3, -2.5F, settings);
+    public BeardedAxe(Settings settings) {
+        super(BeardedMat.INSTANCE, 3, -2.5F, settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -127,9 +124,10 @@ if(FarmersmarketUtil.isCritical(target)){
     public int getItemBarColor(ItemStack stack) {
         // Glows between gold → magenta → red as it fills
         float ratio = (float) getCharge(stack) / MAX_CHARGE;
-        int red = (int) (255 * ratio);
-        int blue = (int) (255 * (1 - ratio));
-        return (red << 16) | (0x00 << 8) | blue; // RGB mix
+        int red = (int) (108);
+        int blue = (int) (170);
+        int green = (int) (59);
+        return (red << 16)| (green << 8) | blue; // RGB mix
     }
     private int getCharge(ItemStack stack) {
         return stack.getOrCreateNbt().getInt(CHARGE_KEY);

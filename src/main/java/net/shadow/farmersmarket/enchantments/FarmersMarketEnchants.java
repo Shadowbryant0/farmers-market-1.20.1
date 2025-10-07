@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.enchantments.Armor.Leggings.LavaWader;
 import net.shadow.farmersmarket.enchantments.Armor.CalciumInfused;
+import net.shadow.farmersmarket.enchantments.Axe.Inferno;
 import net.shadow.farmersmarket.enchantments.Axe.JagerderSchuldigen;
 import net.shadow.farmersmarket.enchantments.Axe.PrimalDesires;
 import net.shadow.farmersmarket.enchantments.Axe.Starvation;
@@ -16,6 +17,8 @@ import net.shadow.farmersmarket.enchantments.sword.Devouring;
 import net.shadow.farmersmarket.enchantments.Crossbow.ShockwaveEnchant;
 import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
 import net.shadow.farmersmarket.enchantments.sword.HuntersLullabyEnchantment;
+import net.shadow.farmersmarket.enchantments.sword.Riposte;
+import net.shadow.farmersmarket.enchantments.sword.Shout;
 
 public class FarmersMarketEnchants {
 
@@ -29,8 +32,16 @@ public class FarmersMarketEnchants {
 
     public static final Enchantment Forging = register("forging",
             new Forging());
+
     public static final Enchantment Syphon = register("syphon",
             new Syphon());
+    public static final Enchantment Riposte = register("riposte",
+            new Riposte());
+    public static final Enchantment Shout = register("shout",
+            new Shout());
+    public static final Enchantment Inferno = register("inferno",
+            new Inferno());
+
     public static final Enchantment Starvation = register("starvation",
             new Starvation());
     public static final Enchantment Devouring = register("devouring",

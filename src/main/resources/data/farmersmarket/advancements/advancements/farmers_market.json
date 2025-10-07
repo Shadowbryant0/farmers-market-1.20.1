@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "farmersmarket:sliver_flesh"
+    },
+    "title": "Farmer's Market",
+    "description": "Kill a Player",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/crimson_stem.png"
+  },
+  "criteria": {
+    "criteria": {
+      "killed_something": {
+        "conditions": {
+          "entity": {
+            "type": "minecraft:player"
+          }
+        },
+        "trigger": "minecraft:player_killed_entity"
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class BroadMat implements ToolMaterial {
+public class BeardedMat implements ToolMaterial {
     // Your IDE should override the interface's methods for you, or at least shout at you to do so.
 
     @Override
@@ -32,5 +32,5 @@ public class BroadMat implements ToolMaterial {
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(Items.BONE_BLOCK);
     }
-    public static final BroadMat INSTANCE = new BroadMat();
+    public static final BeardedMat INSTANCE = new BeardedMat();
 }

@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "farmersmarket:sliver_flesh"
+    },
+    "title": "Unholy Meal",
+    "description": "Consume Your First scrap of Player Flesh!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "farmersmarket:farmers_market",
+  "criteria": {
+    "eat_flesh": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "farmersmarket:sliver_flesh"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flesh": {
+    "has_bowl": {
       "conditions": {
         "items": [
           {
             "items": [
-              "farmersmarket:sliver_flesh"
+              "minecraft:bowl"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersmarket:fbook"
+        "recipe": "farmersmarket:stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flesh",
+      "has_bowl",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:fbook",
-      "farmersmarket:flesh_stew"
+      "farmersmarket:stew"
     ]
   },
   "show_notification": true

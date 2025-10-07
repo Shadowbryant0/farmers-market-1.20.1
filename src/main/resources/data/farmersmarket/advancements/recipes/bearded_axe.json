@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flesh": {
+    "has_head": {
       "conditions": {
         "items": [
           {
             "items": [
-              "farmersmarket:sliver_flesh"
+              "farmersmarket:axe_head"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersmarket:fbook"
+        "recipe": "farmersmarket:bearded_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flesh",
+      "has_head",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:fbook",
-      "farmersmarket:flesh_stew"
+      "farmersmarket:bearded_axe"
     ]
   },
   "show_notification": true

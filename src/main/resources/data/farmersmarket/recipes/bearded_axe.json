@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:axe_head"
+  },
+  "base": {
+    "item": "minecraft:netherite_axe"
+  },
+  "result": {
+    "item": "farmersmarket:bearded_axe"
+  },
+  "template": {
+    "item": "farmersmarket:forge_upgrade"
+  }
+}

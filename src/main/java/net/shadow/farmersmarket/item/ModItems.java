@@ -2,6 +2,7 @@ package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.StewItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -16,7 +17,12 @@ public class ModItems {
 
 
     public static final Item SLIVER_FLESH = registerItem("sliver_flesh",
-            new Item(new FabricItemSettings()));
+            new Item(new FabricItemSettings().food(ModFoodComponents.FLESH)));
+    public static final Item STEW = registerItem("stew",
+            new StewItem(new FabricItemSettings().food(ModFoodComponents.STEW).maxCount(1)));
+    public static final Item FLESH_STEW = registerItem("flesh_stew",
+
+            new StewItem(new FabricItemSettings().food(ModFoodComponents.STEW_FLESH).maxCount(1)));
     public static final Item CRACKED_SKULL = registerItem("cracked_skull",
             new Item(new FabricItemSettings()));
 
@@ -36,6 +42,8 @@ public class ModItems {
 
     public static final Item BLOODHOUNDAXE = registerItem("bloodhoundaxe",
             new ExecutionersAxeClass(new FabricItemSettings().fireproof()));
+    public static final Item BEARDED_AXE = registerItem("bearded_axe",
+            new BeardedAxe(new FabricItemSettings().fireproof()));
 
     public static final Item GREATSWORD = registerItem("greatsword",
             new GreatswordClass(new FabricItemSettings().fireproof()));
@@ -48,13 +56,12 @@ public class ModItems {
 
     public static final Item HEXSPADE = registerItem("hexspade",
             new AceofSpadesClass(new FabricItemSettings().fireproof()));
+
     public static final Item BOOP = registerItem("boop",
             new BoopStick(new FabricItemSettings().fireproof()));
 
     public static final Item TOOTHPICK = registerItem("toothpick",
             new ToothPickItem(new FabricItemSettings().fireproof()));
-    public static final Item BROADAXE = registerItem("broadaxe",
-            new BroadAxe(new FabricItemSettings().fireproof()));
 
     public static final Item CRACKED_TOTEM = registerItem("cracked_totem",
             new CrackedTotem(new FabricItemSettings().maxCount(1)));
@@ -97,6 +104,9 @@ public class ModItems {
             new Item(new FabricItemSettings().maxCount(8).fireproof()));
     public static final Item CROWN_PARTS = registerItem("crown_parts",
             new Crown_Parts(new FabricItemSettings().maxCount(1).fireproof()));
+
+    public static final Item AXE_HEAD = registerItem("axe_head",
+            new Item(new FabricItemSettings().maxCount(16).fireproof()));
 
 
     public static final Item GAYSCYTHE = registerItem("gayscythe",

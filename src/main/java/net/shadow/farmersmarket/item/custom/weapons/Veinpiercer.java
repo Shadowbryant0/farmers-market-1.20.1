@@ -12,4 +12,12 @@ public class Veinpiercer extends RapierWeaponItem{
     public Text getName(ItemStack stack) {
         return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0x8a0000 ));
     }
+    @Override
+    public int getItemBarColor(ItemStack stack) {
+        // Glows between gold → magenta → red as it fills
+        int red = (int) (227);
+        int blue = (int) (218);
+        int green = (int) (201);
+        return (red << 16) | (green << 8) | blue; // RGB mix
+    }
 }
