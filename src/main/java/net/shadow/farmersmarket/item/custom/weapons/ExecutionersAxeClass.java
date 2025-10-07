@@ -76,8 +76,8 @@ public class ExecutionersAxeClass extends AxeItem {
                         ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME,
                                 user.getX(), user.getY() + 1.0, user.getZ(),
                                 1, 0.0, 0.0, 0.0, 0.0);
-                    }
-                        {
+
+
                             user.getItemCooldownManager().set(this, (COOLDOWN_TICKS * 2));
                         }
                     return super.use(world, user, hand);
@@ -125,6 +125,14 @@ public class ExecutionersAxeClass extends AxeItem {
                     }
 
                 }
+            }
+        }else {
+            entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
+            entity.velocityModified = true;
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 0));
+
+            {
+                user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
             }
         }
 

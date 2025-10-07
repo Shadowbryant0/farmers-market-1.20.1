@@ -16,6 +16,8 @@
   "item.farmersmarket.gayscythe": "Farmer's Scythe",
   "item.farmersmarket.fbook": "Flesh Bound Book",
   "item.farmersmarket.csbook": "Skull Encrusted, Flesh Bound Book",
+  "item.farmersmarket.stew": "nether fungus stew",
+  "item.farmersmarket.flesh_stew": "Suspicious nether fungus stew",
 
   "item.farmersmarket.cracked_skull": "CrackedSkull",
   "item.farmersmarket.grief": "Grief",
@@ -52,6 +54,9 @@
   "enchantment.farmersmarket.lavawader": "Lava Wader",
   "enchantment.farmersmarket.forging": "Forging",
   "enchantment.farmersmarket.syphon": "§eSyphon",
+  "enchantment.farmersmarket.riposte": "Riposte",
+  "enchantment.farmersmarket.shout": "Shout",
+  "enchantment.farmersmarket.inferno": "Inferno",
   "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives Slowness and Mining fatigue",
   "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
   "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
@@ -63,6 +68,9 @@
   "enchantment.farmersmarket.lavawader.desc": "Gain fire damage reduction, and move Faster through lava",
   "enchantment.farmersmarket.forging.desc": "All items with a blast furnace recipe automatically get smelted :D",
   "enchantment.farmersmarket.syphon.desc": "Changes right click of the HexSpade to instead use 'Charge' to heal yourself",
+  "enchantment.farmersmarket.riposte.desc": "Exchanges the Strong dash for a Shorter dash costing half of the charge",
+  "enchantment.farmersmarket.shout.desc": "Embrase the rage, overcharging your sword, changing the strengthening into an AOE debuff, while buffing you",
+  "enchantment.farmersmarket.inferno.desc": "Change the Empowered pull for a wide AOE fire burst to make your enemies turn into ash",
 
   "itemgroup.farmers_market": "FarmersMarket",
   "itemgroup.farmers_cosmetics": "FarmersMarket Cosmetic upgrades",
