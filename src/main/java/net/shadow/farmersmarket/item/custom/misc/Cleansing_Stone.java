@@ -72,10 +72,9 @@ public class Cleansing_Stone extends Item{
     player.heal(5);
     player.sendMessage(Text.literal("You feel relief wash over you."), true);
                         this.playInsertSound(player);
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 0));
-    {
+                        {
         player.getItemCooldownManager().set(this, COOLDOWN_TICKS);
-    }
+                        }
     return true;
 
 
@@ -86,7 +85,6 @@ public class Cleansing_Stone extends Item{
                     stack.decrement(1);
                     slot.insertStack(newstack, 1);
                     this.playInsertSound(player);
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 0));
                     return true;
                 }
 

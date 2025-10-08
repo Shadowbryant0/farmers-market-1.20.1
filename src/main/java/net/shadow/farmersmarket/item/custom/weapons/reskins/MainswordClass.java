@@ -1,9 +1,10 @@
-package net.shadow.farmersmarket.item.custom.weapons;
+package net.shadow.farmersmarket.item.custom.weapons.reskins;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.shadow.farmersmarket.item.custom.weapons.GreatswordClass;
 
 public class MainswordClass  extends GreatswordClass {
     public MainswordClass(Item.Settings settings) {

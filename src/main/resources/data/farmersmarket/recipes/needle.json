@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:cold_steel"
+  },
+  "base": {
+    "item": "farmersmarket:rapier"
+  },
+  "result": {
+    "item": "farmersmarket:needle"
+  },
+  "template": {
+    "item": "minecraft:cobweb"
+  }
+}

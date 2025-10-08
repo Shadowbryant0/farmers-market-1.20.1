@@ -1,10 +1,11 @@
-package net.shadow.farmersmarket.item.custom.weapons;
+package net.shadow.farmersmarket.item.custom.weapons.reskins;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.shadow.farmersmarket.item.custom.weapons.RapierWeaponItem;
 
-public class Veinpiercer extends RapierWeaponItem{
+public class Veinpiercer extends RapierWeaponItem {
     public Veinpiercer(Settings settings) {
         super(settings);
     }

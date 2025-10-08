@@ -7,10 +7,8 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.enchantments.Armor.Leggings.LavaWader;
 import net.shadow.farmersmarket.enchantments.Armor.CalciumInfused;
-import net.shadow.farmersmarket.enchantments.Axe.Inferno;
-import net.shadow.farmersmarket.enchantments.Axe.JagerderSchuldigen;
-import net.shadow.farmersmarket.enchantments.Axe.PrimalDesires;
-import net.shadow.farmersmarket.enchantments.Axe.Starvation;
+import net.shadow.farmersmarket.enchantments.Axe.*;
+import net.shadow.farmersmarket.enchantments.Hoe.Rusted;
 import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
 import net.shadow.farmersmarket.enchantments.Shovel.Syphon;
 import net.shadow.farmersmarket.enchantments.sword.Devouring;
@@ -41,6 +39,10 @@ public class FarmersMarketEnchants {
             new Shout());
     public static final Enchantment Inferno = register("inferno",
             new Inferno());
+    public static final Enchantment Sharpen = register("sharpen",
+            new Sharpen());
+    public static final Enchantment Rusted = register("rusted",
+            new Rusted());
 
     public static final Enchantment Starvation = register("starvation",
             new Starvation());

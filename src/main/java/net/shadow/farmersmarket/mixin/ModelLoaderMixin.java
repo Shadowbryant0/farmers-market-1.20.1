@@ -32,6 +32,8 @@ public abstract class ModelLoaderMixin {
     this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "cracked_totem_3d", "inventory"));
     this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "hexspade_3d", "inventory"));
     this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "gayscythe_3d", "inventory"));
+    this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "rustedsickle_3d", "inventory"));
+    this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "needle_3d", "inventory"));
     }
 
 }

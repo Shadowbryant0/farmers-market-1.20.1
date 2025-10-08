@@ -1,5 +1,6 @@
 package net.shadow.farmersmarket.item.custom.weapons;
 
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -7,14 +8,18 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.predicate.entity.DamageSourcePredicate;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.materials.BeardedMat;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
@@ -23,7 +28,7 @@ import java.util.List;
 public class BeardedAxe extends AxeItem {
     private static final String CHARGE_KEY = "charge";
     private static final int MAX_CHARGE = 100;
-
+    private static final int FULL_CHARGE_TICKS = 60; // 2 seconds
 
     public BeardedAxe(Settings settings) {
         super(BeardedMat.INSTANCE, 3, -2.5F, settings);
@@ -32,6 +37,7 @@ public class BeardedAxe extends AxeItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
             ItemStack stack = user.getStackInHand(hand);
+            if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Sharpen, stack) == 0){
             if(getCharge(stack) < MAX_CHARGE){
                 return super.use(world, user, hand);
             }else{
@@ -61,12 +67,38 @@ public class BeardedAxe extends AxeItem {
 
                 user.velocityModified = true;
             user.setSwimming(false);
-        }
+
+
+            }
+            } else
+            {
+                user.setCurrentHand(hand); // Begin charging
+                return TypedActionResult.consume(user.getStackInHand(hand));
+            }
         }
         return super.use(world, user, hand);
     }
 
-    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.CROSSBOW;
+    }
+    public int getMaxUseTime(ItemStack stack) {
+        return 80;
+    }
+    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+        int usedTicks = this.getMaxUseTime(stack) - remainingUseTicks;
+
+        if (!world.isClient) {
+            if (usedTicks >= FULL_CHARGE_TICKS ) {
+                stack.getOrCreateNbt().putInt(CHARGE_KEY, 100);
+                this.playInsertSound(world, user);
+            }
+        }
+    }
+
+
+
+                @Override
     public boolean postHit(net.minecraft.item.ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = attacker.getWorld();
         Vec3d lookingDirection = attacker.getRotationVec(1.0f);
@@ -98,15 +130,29 @@ public class BeardedAxe extends AxeItem {
                 attacker.getX(), attacker.getY() + 1.0, attacker.getZ(),
                 1, 0.0, 0.0, 0.0, 0.0);
     }
+        if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Sharpen, stack) == 0){
         if (!attacker.getWorld().isClient) {
             int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
             int gain = (int) (20);
             charge = Math.min(charge + gain, MAX_CHARGE);
             stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+            stack.damage(1, attacker, e -> {});
+        }
+        }else{
+            int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
+            int damage = (int) (10);
+            if(charge-damage >=0) {
+                charge = Math.min(charge - damage, MAX_CHARGE);
+                stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+
+                stack.damage(5, attacker, e -> {});
+            }else {
+                stack.damage(1, attacker, e -> {});
+            }
         }
     // Regular axe damage
 
-        stack.damage(1, attacker, e -> {});
+
 if(FarmersmarketUtil.isCritical(target)){
     target.damage(target.getDamageSources().mobAttack(attacker), 10);
 }
@@ -134,5 +180,9 @@ if(FarmersmarketUtil.isCritical(target)){
     }
     private int getCharge(ItemStack stack) {
         return stack.getOrCreateNbt().getInt(CHARGE_KEY);
+    }
+    private void playInsertSound(World world, LivingEntity user) {
+        world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                SoundEvents.BLOCK_ANVIL_FALL, SoundCategory.PLAYERS, 1.0f, 0.8f);
     }
 }

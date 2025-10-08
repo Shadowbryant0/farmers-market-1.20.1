@@ -1,19 +1,30 @@
 {
-  "item.farmersmarket.ruby": "Ruby",
-  "item.farmersmarket.raw_ruby": "raw Ruby",
+  "item.farmersmarket.rapier": "Rapier",
+
+  "item.farmersmarket.corruptedflesh": "Corrupted flesh",
   "item.farmersmarket.veinpeircer": "VeinPiercer",
+  "item.farmersmarket.needle": "Silken Needle",
+
+
   "item.farmersmarket.greatsword": "Greatsword",
   "item.farmersmarket.altsword": "Greatsword",
-  "item.farmersmarket.rapier": "Rapier",
-  "item.farmersmarket.cleaver": "Butchering Cleaver",
-  "item.farmersmarket.forge_upgrade": "Forge Template",
+
   "item.farmersmarket.mainsword": "REQUIEM",
-  "item.farmersmarket.sliver_flesh": "Sliver of flesh",
-  "item.farmersmarket.corruptedflesh": "Corrupted flesh",
+
   "item.farmersmarket.bloodhoundaxe": "BloodHound Axe",
-  "item.farmersmarket.cracked_totem": "Cracked Totem",
+
   "item.farmersmarket.hexspade": "HexSpade",
+
+  "item.farmersmarket.sickle": "Sickle",
+
+
   "item.farmersmarket.gayscythe": "Farmer's Scythe",
+
+  "item.farmersmarket.forge_upgrade": "Forge Template",
+
+  "item.farmersmarket.cracked_totem": "Cracked Totem",
+
+  "item.farmersmarket.sliver_flesh": "Sliver of flesh",
   "item.farmersmarket.fbook": "Flesh Bound Book",
   "item.farmersmarket.csbook": "Skull Encrusted, Flesh Bound Book",
   "item.farmersmarket.stew": "nether fungus stew",

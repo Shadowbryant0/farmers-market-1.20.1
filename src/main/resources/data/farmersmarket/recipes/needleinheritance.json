@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:needle"
+  },
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "result": {
+    "item": "farmersmarket:needle"
+  },
+  "template": {
+    "item": "farmersmarket:cold_steel"
+  }
+}

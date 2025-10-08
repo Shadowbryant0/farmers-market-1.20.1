@@ -25,6 +25,7 @@ public class ModItemGroups {
                         entries.add(ModItems.BLOODHOUNDAXE);
                         entries.add(ModItems.GREATSWORD);
                         entries.add(ModItems.HEXSPADE);
+                        entries.add(ModItems.RUSTEDSICKLE);
                         //entries.add(ModItems.TOOTHPICK);
                         entries.add(ModItems.GAYSCYTHE);
 
@@ -73,6 +74,10 @@ public class ModItemGroups {
                         entries.add(ModItems.CORRUPTEDFLESH);
 
                         entries.add(ModItems.VEINPIERCER);
+
+                        entries.add(ModItems.COLD_STEEL);
+                        entries.add(ModItems.NEEDLE);
+
                         entries.add(ModItems.ALTSWORD);
                         entries.add(ModItems.MAINSWORD);
 

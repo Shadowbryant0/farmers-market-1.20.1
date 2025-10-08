@@ -127,6 +127,10 @@ public class ExecutionersAxeClass extends AxeItem {
                 }
             }
         }else {
+            if (!user.getItemCooldownManager().isCoolingDown(this)) {
+            if(getCharge(stack) >= MAX_CHARGE){
+                if(user.isSneaking()){
+            entity.setOnFireFor(2);
             entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
             entity.velocityModified = true;
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 0));
@@ -134,6 +138,18 @@ public class ExecutionersAxeClass extends AxeItem {
             {
                 user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
             }
+            }
+            }else {
+                entity.setOnFireFor(2);
+                entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
+                entity.velocityModified = true;
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 0));
+
+                {
+                    user.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+                }
+            }}
+
         }
 
         return super.useOnEntity(stack, user, entity, hand);
@@ -174,10 +190,17 @@ public class ExecutionersAxeClass extends AxeItem {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        int red = (int) (200);
-        int blue = (int) (200);
-        int green = (int) (200);
+        if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Inferno, stack) == 0) {
+            int red = (int) (200);
+            int blue = (int) (200);
+            int green = (int) (200);
             return (red << 16) | (green << 8) | blue; // RGB mix
+        }else{
+            int red = (int) (255);
+            int blue = (int) (0);
+            int green = (int) (102);
+            return (red << 16) | (green << 8) | blue; // RGB mix
+        }
     }
 
 

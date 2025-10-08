@@ -45,6 +45,12 @@ public abstract class ItemRendererMixin {
         if (stack.isOf(ModItems.GAYSCYTHE) && renderMode != ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "gayscythe_3d", "inventory"));
         }
+        if (stack.isOf(ModItems.RUSTEDSICKLE) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "rustedsickle_3d", "inventory"));
+        }
+        if (stack.isOf(ModItems.NEEDLE) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "needle_3d", "inventory"));
+        }
         return value;
     }
 }

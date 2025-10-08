@@ -13,6 +13,7 @@ import net.minecraft.util.ClickType;
 import net.shadow.farmersmarket.ModConfigs;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
+import net.shadow.farmersmarket.item.custom.weapons.BeardedAxe;
 import net.shadow.farmersmarket.item.custom.weapons.ExecutionersAxeClass;
 import net.shadow.farmersmarket.item.custom.weapons.GreatswordClass;
 import net.shadow.farmersmarket.item.custom.weapons.RapierWeaponItem;
@@ -43,7 +44,7 @@ public class CSbook extends BookItem {
             if (itemStack.getItem() instanceof ArmorItem) {
 
                     if (ModConfigs.calciumenabled) {
-                        if (EnchantmentHelper.getLevel(Enchantments.PROTECTION, itemStack) == 0 && EnchantmentHelper.getLevel(FarmersMarketEnchants.CalciumInfused, stack) == 0) {
+                        if (EnchantmentHelper.getLevel(Enchantments.PROTECTION, itemStack) == 0 && EnchantmentHelper.getLevel(FarmersMarketEnchants.CalciumInfused, itemStack) == 0) {
                             this.playInsertSound(player);
                             itemStack.addEnchantment(FarmersMarketEnchants.CalciumInfused, 1);
                             stack.decrement(1);
@@ -63,21 +64,21 @@ public class CSbook extends BookItem {
                 itemStack.decrement(1);
 
             }else if (itemStack.isOf(ModItems.HEXSPADE)) {
-                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Syphon, stack) == 0) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Syphon, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Syphon, 1);
                     player.damage(player.getDamageSources().wither(), 10);
                     stack.decrement(1);
                 }
 
             }else if (itemStack.getItem() instanceof RapierWeaponItem) {
-                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Riposte, stack) == 0) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Riposte, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Riposte, 1);
                     player.damage(player.getDamageSources().wither(), 10);
                     stack.decrement(1);
                 }
 
             }else if (itemStack.getItem() instanceof GreatswordClass) {
-                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Shout, stack) == 0) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Shout, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Shout, 1);
                     player.damage(player.getDamageSources().wither(), 10);
                     stack.decrement(1);
@@ -85,8 +86,16 @@ public class CSbook extends BookItem {
 
 
             }else if (itemStack.getItem() instanceof ExecutionersAxeClass) {
-                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Inferno, stack) == 0) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Inferno, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Inferno, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
+
+
+            }else if (itemStack.getItem() instanceof BeardedAxe) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Sharpen, itemStack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.Sharpen, 1);
                     player.damage(player.getDamageSources().wither(), 10);
                     stack.decrement(1);
                 }
