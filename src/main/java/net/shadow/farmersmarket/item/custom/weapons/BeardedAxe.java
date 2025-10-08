@@ -53,10 +53,13 @@ public class BeardedAxe extends AxeItem {
                 entity.addVelocity(0,1,0);
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 10, 0)); // optional visual feedback
             }
+                world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                        SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 2.0f, 1.0f);
 
 
 
-            user.velocityModified = true;
+
+                user.velocityModified = true;
             user.setSwimming(false);
         }
         }

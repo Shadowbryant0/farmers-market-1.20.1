@@ -41,7 +41,7 @@ public class Fbook extends BookItem {
             Item item = itemStack.getItem();
             if (itemStack.getItem() instanceof AxeItem) {
 
-                    if (EnchantmentHelper.getLevel(FarmersMarketEnchants.PrimalDesires, itemStack) == 0) {
+                    if (EnchantmentHelper.getLevel(FarmersMarketEnchants.PrimalDesires, itemStack) == 0 && EnchantmentHelper.getLevel(FarmersMarketEnchants.Starvation, itemStack) == 0 && EnchantmentHelper.getLevel(FarmersMarketEnchants.JagerderSchuldigen, itemStack) == 0) {
                         this.playInsertSound(player);
                         int b = player.getRandom().nextInt(2);
                         if (b == 1) {
@@ -58,7 +58,7 @@ public class Fbook extends BookItem {
             }
             if (itemStack.getItem() instanceof SwordItem) {
 
-                if (EnchantmentHelper.getLevel(FarmersMarketEnchants.HuntersLullabyEnchantment, itemStack) == 0) {
+                if (EnchantmentHelper.getLevel(FarmersMarketEnchants.HuntersLullabyEnchantment, itemStack) == 0 && EnchantmentHelper.getLevel(FarmersMarketEnchants.Devouring, itemStack) == 0) {
                     this.playInsertSound(player);
                     itemStack.addEnchantment(FarmersMarketEnchants.Devouring, 1);
                     stack.decrement(1);
@@ -81,12 +81,12 @@ public class Fbook extends BookItem {
 //            }
             if (itemStack.getItem() instanceof PickaxeItem || itemStack.getItem() instanceof ShovelItem) {
 
-                //if (EnchantmentHelper.getLevel(FarmersMarketEnchants.HuntersLullabyEnchantment, itemStack) == 0) {
+                if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Forging, itemStack) == 0) {
                     this.playInsertSound(player);
                     itemStack.addEnchantment(FarmersMarketEnchants.Forging, 1);
                     stack.decrement(1);
                     player.damage(player.getDamageSources().wither(),6);
-                //}
+                }
             }
             if (itemStack.isOf(Items.STICK)) {
 

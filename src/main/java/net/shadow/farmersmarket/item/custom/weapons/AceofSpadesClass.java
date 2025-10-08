@@ -50,6 +50,7 @@ public class AceofSpadesClass  extends ShovelItem {
                         {
                             user.getItemCooldownManager().set(this, (COOLDOWN_TICKS / 2));
                         }
+                        this.playInsertSound(world, user);
                         user.heal(5);
                         return super.use(world, user, hand);
 
@@ -205,5 +206,9 @@ public class AceofSpadesClass  extends ShovelItem {
     }
     public Text getName(ItemStack stack) {
         return Text.translatable(this.getTranslationKey(stack)).setStyle(Style.EMPTY.withColor(0xFFD700 ));
+    }
+    private void playInsertSound(World world, LivingEntity user) {
+        world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                SoundEvents.ITEM_TOTEM_USE, SoundCategory.PLAYERS, 0.5f, 1.0f);
     }
 }

@@ -8,6 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -26,7 +28,7 @@ public class Grief extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         user.setCurrentHand(hand); // Begin charging
-
+        this.playInsertSound(world, user);
 
         return TypedActionResult.consume(user.getStackInHand(hand));
     }
@@ -117,5 +119,8 @@ public class Grief extends Item {
                 }
             }
         }
-
+    private void playInsertSound(World world, LivingEntity user) {
+        world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                SoundEvents.BLOCK_BEACON_AMBIENT, SoundCategory.PLAYERS, 3.0f, 1.0f);
+    }
 }

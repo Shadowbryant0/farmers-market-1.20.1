@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -45,6 +46,7 @@ BlockPos Pos = context.getBlockPos();
 //            }
             serverWorld.setWeather(0, 12000, true, true); // Rain for 5 minutes
             if (player != null) {
+                this.playInsertSound(world, player);
                 player.sendMessage(Text.literal("Let it Storm."), true);
                 player.getWorld().spawnEntity(new LightningEntity(EntityType.LIGHTNING_BOLT, serverWorld));
                 {
@@ -57,8 +59,9 @@ BlockPos Pos = context.getBlockPos();
 
         return ActionResult.PASS;
     }
-    private void playInsertSound(Entity entity) {
-        entity.playSound(SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, 3F, 1F + entity.getWorld().getRandom().nextFloat() * 0.4F);
+    private void playInsertSound(World world, LivingEntity user) {
+        world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.PLAYERS, 3.0f, 1.0f);
     }
 
 }

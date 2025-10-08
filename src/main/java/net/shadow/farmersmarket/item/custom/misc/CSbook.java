@@ -43,7 +43,7 @@ public class CSbook extends BookItem {
             if (itemStack.getItem() instanceof ArmorItem) {
 
                     if (ModConfigs.calciumenabled) {
-                        if (EnchantmentHelper.getLevel(Enchantments.PROTECTION, itemStack) == 0) {
+                        if (EnchantmentHelper.getLevel(Enchantments.PROTECTION, itemStack) == 0 && EnchantmentHelper.getLevel(FarmersMarketEnchants.CalciumInfused, stack) == 0) {
                             this.playInsertSound(player);
                             itemStack.addEnchantment(FarmersMarketEnchants.CalciumInfused, 1);
                             stack.decrement(1);
@@ -63,27 +63,33 @@ public class CSbook extends BookItem {
                 itemStack.decrement(1);
 
             }else if (itemStack.isOf(ModItems.HEXSPADE)) {
-                itemStack.addEnchantment(FarmersMarketEnchants.Syphon, 1);
-                player.damage(player.getDamageSources().wither(), 10);
-                stack.decrement(1);
-
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Syphon, stack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.Syphon, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
 
             }else if (itemStack.getItem() instanceof RapierWeaponItem) {
-                itemStack.addEnchantment(FarmersMarketEnchants.Riposte, 1);
-                player.damage(player.getDamageSources().wither(), 10);
-                stack.decrement(1);
-
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Riposte, stack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.Riposte, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
 
             }else if (itemStack.getItem() instanceof GreatswordClass) {
-                itemStack.addEnchantment(FarmersMarketEnchants.Shout, 1);
-                player.damage(player.getDamageSources().wither(), 10);
-                stack.decrement(1);
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Shout, stack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.Shout, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
 
 
             }else if (itemStack.getItem() instanceof ExecutionersAxeClass) {
-                itemStack.addEnchantment(FarmersMarketEnchants.Inferno, 1);
-                player.damage(player.getDamageSources().wither(), 10);
-                stack.decrement(1);
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Inferno, stack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.Inferno, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
 
 
             }
