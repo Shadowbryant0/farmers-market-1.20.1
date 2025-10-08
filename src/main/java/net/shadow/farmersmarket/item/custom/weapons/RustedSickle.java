@@ -22,6 +22,7 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.materials.BloodMat;
+import net.shadow.farmersmarket.item.materials.SickleMat;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class RustedSickle extends HoeItem {
     final double RANGE = 20;
     final float BASE_DAMAGE = 10;
     public RustedSickle(Item.Settings settings) {
-        super(BloodMat.INSTANCE, 5, -3.1F, settings);
+        super(SickleMat.INSTANCE, 1, -2.4F, settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -78,8 +79,8 @@ public class RustedSickle extends HoeItem {
             }
 
             if (directTarget != null) {
-                directTarget.damage(serverWorld.getDamageSources().sonicBoom(user), BASE_DAMAGE);
-                directTarget.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 160, 1));
+                directTarget.damage(serverWorld.getDamageSources().mobAttack(user), BASE_DAMAGE);
+                directTarget.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 140, 2));
                 //impact = directTarget.getPos();
             }
             return super.use(world, user, hand);
@@ -109,7 +110,7 @@ public class RustedSickle extends HoeItem {
 
                     for (LivingEntity entity : nearby) {
                         entity.damage(entity.getDamageSources().mobAttack(user), sweepDamage);
-                        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 160, 0));
+                        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 160, 1));
 
                     }
 

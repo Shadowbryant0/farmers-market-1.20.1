@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "iii",
+    "isi",
+    "iii"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:iron_ingot"
+    },
+    "i": {
+      "item": "minecraft:blue_ice"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:cold_steel"
+  }
+}

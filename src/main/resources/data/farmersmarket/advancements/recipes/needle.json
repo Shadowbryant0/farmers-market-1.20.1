@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_template": {
+    "has_cold_steel": {
       "conditions": {
         "items": [
           {
             "items": [
-              "farmersmarket:forge_upgrade"
+              "farmersmarket:cold_steel"
             ]
           }
         ]
@@ -15,23 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersmarket:greatsword"
+        "recipe": "farmersmarket:needle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_template",
+      "has_cold_steel",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:greatsword",
-      "farmersmarket:altsword",
-      "farmersmarket:rapier",
-      "farmersmarket:sickle"
+      "farmersmarket:needle"
     ]
   },
   "show_notification": true

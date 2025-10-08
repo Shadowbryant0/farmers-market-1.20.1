@@ -3,6 +3,8 @@
 
   "item.farmersmarket.corruptedflesh": "Corrupted flesh",
   "item.farmersmarket.veinpeircer": "VeinPiercer",
+
+  "item.farmersmarket.cold_steel": "Cold Steel",
   "item.farmersmarket.needle": "Silken Needle",
 
 
@@ -16,6 +18,9 @@
   "item.farmersmarket.hexspade": "HexSpade",
 
   "item.farmersmarket.rustedsickle": "Sickle",
+
+  "item.farmersmarket.bearded_axe": "Crystaline Axe",
+  "item.farmersmarket.axe_head": "Ancient Axe Head",
 
 
   "item.farmersmarket.gayscythe": "Farmer's Scythe",
@@ -68,6 +73,8 @@
   "enchantment.farmersmarket.riposte": "Riposte",
   "enchantment.farmersmarket.shout": "Shout",
   "enchantment.farmersmarket.inferno": "Inferno",
+  "enchantment.farmersmarket.rusted": "Rusted",
+  "enchantment.farmersmarket.sharpen": "§5Sharpen",
   "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives Slowness and Mining fatigue",
   "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
   "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
@@ -78,13 +85,14 @@
   "enchantment.farmersmarket.jagerderschuldigen.desc": "Conditional sharpness, after loosing a set amount of health, you gain sharpness",
   "enchantment.farmersmarket.lavawader.desc": "Gain fire damage reduction, and move Faster through lava",
   "enchantment.farmersmarket.forging.desc": "All items with a blast furnace recipe automatically get smelted :D",
-  "enchantment.farmersmarket.syphon.desc": "Changes right click of the HexSpade to instead use 'Charge' to heal yourself",
+  "enchantment.farmersmarket.syphon.desc": "§eChanges right click of the HexSpade to instead use 'Charge' to heal yourself",
   "enchantment.farmersmarket.riposte.desc": "Exchanges the Strong dash for a Shorter dash costing half of the charge",
   "enchantment.farmersmarket.shout.desc": "Embrase the rage, overcharging your sword, changing the strengthening into an AOE debuff, while buffing you",
   "enchantment.farmersmarket.inferno.desc": "Change the Empowered pull for a wide AOE fire burst to make your enemies turn into ash",
-
-  "itemgroup.farmers_market": "FarmersMarket",
-  "itemgroup.farmers_cosmetics": "FarmersMarket Cosmetic upgrades",
+  "enchantment.farmersmarket.rusted.desc": "Propel the rust as a single hitscan projectile instead of the AOE",
+  "enchantment.farmersmarket.sharpen.desc": "§5Exchange your Aoe for extra damage, make sure to resharpen it!",
+  "itemgroup.farmers_market": "Farmer's Market",
+  "itemgroup.farmers_cosmetics": "Farmer's Market Cosmetic upgrades",
 
   "farmersmarket.midnightconfig.calciumenabled":"Calcium Enchant Enabled?",
   "farmersmarket.midnightconfig.title":"Farmers Market Config"
