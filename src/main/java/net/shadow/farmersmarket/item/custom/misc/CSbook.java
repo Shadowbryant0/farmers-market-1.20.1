@@ -13,10 +13,7 @@ import net.minecraft.util.ClickType;
 import net.shadow.farmersmarket.ModConfigs;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
-import net.shadow.farmersmarket.item.custom.weapons.BeardedAxe;
-import net.shadow.farmersmarket.item.custom.weapons.ExecutionersAxeClass;
-import net.shadow.farmersmarket.item.custom.weapons.GreatswordClass;
-import net.shadow.farmersmarket.item.custom.weapons.RapierWeaponItem;
+import net.shadow.farmersmarket.item.custom.weapons.*;
 
 public class CSbook extends BookItem {
 
@@ -96,6 +93,14 @@ public class CSbook extends BookItem {
             }else if (itemStack.getItem() instanceof BeardedAxe) {
                 if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Sharpen, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Sharpen, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
+
+
+            }else if (itemStack.getItem() instanceof RustedSickle) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Rusted, itemStack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.Rusted, 1);
                     player.damage(player.getDamageSources().wither(), 10);
                     stack.decrement(1);
                 }
