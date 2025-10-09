@@ -5,6 +5,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.enchantments.Armor.Elytra.Bracing;
 import net.shadow.farmersmarket.enchantments.Armor.Leggings.LavaWader;
 import net.shadow.farmersmarket.enchantments.Armor.CalciumInfused;
 import net.shadow.farmersmarket.enchantments.Axe.*;
@@ -56,6 +57,8 @@ public class FarmersMarketEnchants {
             new JagerderSchuldigen());
     public static final Enchantment CalciumInfused = register("calciuminfused",
             new CalciumInfused());
+    public static final Enchantment Bracing = register("bracing",
+            new Bracing());
     public static final Enchantment LavaWader = register("lavawader",
             new LavaWader());
 

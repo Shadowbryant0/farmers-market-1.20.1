@@ -75,6 +75,7 @@
   "enchantment.farmersmarket.inferno": "Inferno",
   "enchantment.farmersmarket.rusted": "Rusted",
   "enchantment.farmersmarket.sharpen": "§5Sharpen",
+  "enchantment.farmersmarket.bracing": "Bracing",
   "enchantment.farmersmarket.hunterslullabyenchantment.desc": "Inflicting hit gives Slowness and Mining fatigue",
   "enchantment.farmersmarket.freshfieldsenchantment.desc": "Fresh Fields",
   "enchantment.farmersmarket.devouring.desc": "Dealing hits Refills your hunger",
@@ -91,6 +92,7 @@
   "enchantment.farmersmarket.inferno.desc": "Change the Empowered pull for a wide AOE fire burst to make your enemies turn into ash",
   "enchantment.farmersmarket.rusted.desc": "Propel the rust as a single hitscan projectile instead of the AOE",
   "enchantment.farmersmarket.sharpen.desc": "§5Exchange your Aoe for extra damage, make sure to resharpen it!",
+  "enchantment.farmersmarket.bracing.desc": "Take less damage from Colliding with walls stalagmites and the ground",
   "itemgroup.farmers_market": "Farmer's Market",
   "itemgroup.farmers_cosmetics": "Farmer's Market Cosmetic upgrades",
 

@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "farmersmarket",
-	"version": "1.02.12",
+	"version": "1.02.13",
 	"name": "Farmer's market",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Farmers Market is a small pvp orented content mod which adds four weapons to add some variaty to combat, the greatsword, the rapier, the bloodhound axe, and the hexspade, intended to be used with enchancements, but are all suitable for vanilla non the less with small changes to their stats and included right clicks to influcnce the flow of battle.",
 	"authors": [
 		"Shadow Bryant0"
 	],

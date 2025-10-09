@@ -144,11 +144,10 @@ public class BeardedAxe extends AxeItem {
             if(charge-damage >=0) {
                 charge = Math.min(charge - damage, MAX_CHARGE);
                 stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
-
-                stack.damage(5, attacker, e -> {});
-            }else {
-                stack.damage(1, attacker, e -> {});
+                target.damage(target.getDamageSources().mobAttack(attacker), 5);
             }
+
+
         }
     // Regular axe damage
 

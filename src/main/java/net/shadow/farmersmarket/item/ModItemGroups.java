@@ -26,6 +26,8 @@ public class ModItemGroups {
                         entries.add(ModItems.GREATSWORD);
                         entries.add(ModItems.HEXSPADE);
                         entries.add(ModItems.RUSTEDSICKLE);
+                        entries.add(ModItems.AXE_HEAD);
+                        entries.add(ModItems.BEARDED_AXE);
                         //entries.add(ModItems.TOOTHPICK);
                         entries.add(ModItems.GAYSCYTHE);
 
