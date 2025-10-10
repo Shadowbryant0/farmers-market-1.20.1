@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
+import net.shadow.farmersmarket.item.custom.weapons.reskins.DevilSkin;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.MainswordClass;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.NeedleSkin;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.Veinpiercer;
@@ -33,6 +34,8 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item COLD_STEEL = registerItem("cold_steel",
             new Item(new FabricItemSettings()));
+    public static final Item REFINED_HELL_STEEL = registerItem("hell_steel",
+            new Item(new FabricItemSettings()));
 
     public static final Item FORGE_UPGRADE = registerItem("forge_upgrade",
             new Item(new FabricItemSettings()));
@@ -53,6 +56,9 @@ public class ModItems {
 
     public static final Item BLOODHOUNDAXE = registerItem("bloodhoundaxe",
             new ExecutionersAxeClass(new FabricItemSettings().fireproof()));
+    public static final Item DEVIL_AXE = registerItem("devil_axe",
+            new DevilSkin(new FabricItemSettings().fireproof()));
+
     public static final Item BEARDED_AXE = registerItem("bearded_axe",
             new BeardedAxe(new FabricItemSettings().fireproof()));
 

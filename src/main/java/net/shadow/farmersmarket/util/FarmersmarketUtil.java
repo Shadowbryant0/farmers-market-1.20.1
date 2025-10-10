@@ -3,7 +3,6 @@ package net.shadow.farmersmarket.util;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -12,10 +11,20 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 
 
-
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 
+import java.util.List;
+
 public class FarmersmarketUtil {
+
+
 
 
     public static boolean hasEnchantment(Enchantment enchantment, ItemStack stack) {
@@ -77,6 +86,73 @@ public class FarmersmarketUtil {
     // beserk - enchancement by MoriyaShiine
     public static boolean isCritical(LivingEntity user) {
         return (user.getVelocity().getY()) <= 0;
+    }
+
+    public static void sweepingEdge(LivingEntity target, LivingEntity attacker, float damage, boolean knockback){
+        World world = attacker.getWorld();
+        final double SWEEP_RANGE = 1;
+        final float SWEEP_DAMAGE = 3;
+        final double AOE_RADIUS = .5;
+        Vec3d origin = attacker.getEyePos();
+        Vec3d look   = attacker.getRotationVector().normalize();
+        Vec3d end    = origin.add(look.multiply(SWEEP_RANGE));
+        if (!world.isClient && attacker.isOnGround()) {
+            if (!(world instanceof ServerWorld serverWorld)) {
+                return;
+            }
+
+
+            var hit = target.getPos();
+            var host = attacker.getPos();
+
+            serverWorld.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
+                    SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 3.0f, 1.0f);
+            int particleCount = (int) (SWEEP_RANGE * 2.5);
+            for (int i = 0; i < particleCount; i++) {
+                double t = i / 2.5;
+                Vec3d pos = origin.add(look.multiply(t));
+                serverWorld.spawnParticles(ParticleTypes.SWEEP_ATTACK, pos.x, pos.y-1, pos.z, 1, 0, 0, 0, 0);
+            }
+            LivingEntity directTarget = null;
+            List<LivingEntity> potential = serverWorld.getEntitiesByClass(
+                    LivingEntity.class,
+                    new Box(origin, end).expand(1.0),
+                    e -> e != attacker && e.isAlive()
+            );
+            double minDist = Double.MAX_VALUE;
+            for (LivingEntity e : potential) {
+                double d = origin.distanceTo(e.getPos());
+                if (d < minDist && d <= SWEEP_RANGE) {
+                    minDist = d;
+                    directTarget = e;
+                }
+            }
+
+            List<LivingEntity> nearby = serverWorld.getEntitiesByClass(
+                    LivingEntity.class,
+                    new Box(hit.subtract(AOE_RADIUS, AOE_RADIUS, AOE_RADIUS),
+                            hit.add(AOE_RADIUS, AOE_RADIUS, AOE_RADIUS)),
+                    e -> e != attacker && e.isAlive()
+            );
+
+            for (LivingEntity sweeped : nearby) {
+                sweeped.damage(serverWorld.getDamageSources().mobAttack(attacker), damage);
+                if(knockback){
+                    Vec3d push = sweeped.getPos().subtract(host).normalize().multiply(0.5);
+                    Vec3d push2 = target.getPos().subtract(host).normalize().multiply(0.2);
+                    target.addVelocity(push2.x, 0.1, push2.z);
+                    sweeped.addVelocity(push.x, 0.1, push.z);
+                    sweeped.velocityModified = true;
+                    target.velocityModified = true;
+                }else {
+                    Vec3d push = sweeped.getPos().subtract(host).normalize().multiply(0.2);
+
+                    sweeped.addVelocity(push.x, 0.1, push.z);
+                    sweeped.velocityModified = true;
+                }
+
+            }
+        }
     }
 }
 

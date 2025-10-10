@@ -80,6 +80,9 @@ public class ModItemGroups {
                         entries.add(ModItems.COLD_STEEL);
                         entries.add(ModItems.NEEDLE);
 
+                        entries.add(ModItems.REFINED_HELL_STEEL);
+                        entries.add(ModItems.DEVIL_AXE);
+
                         entries.add(ModItems.ALTSWORD);
                         entries.add(ModItems.MAINSWORD);
 

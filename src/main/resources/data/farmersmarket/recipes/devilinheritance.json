@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:devil_axe"
+  },
+  "base": {
+    "item": "minecraft:diamond_axe"
+  },
+  "result": {
+    "item": "farmersmarket:devil_axe"
+  },
+  "template": {
+    "item": "farmersmarket:hell_steel"
+  }
+}

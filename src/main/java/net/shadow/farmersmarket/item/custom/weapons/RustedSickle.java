@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.materials.BloodMat;
 import net.shadow.farmersmarket.item.materials.SickleMat;
+import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.List;
 
@@ -32,6 +33,9 @@ public class RustedSickle extends HoeItem {
 
     final double RANGE = 20;
     final float BASE_DAMAGE = 10;
+
+    final float SWEEP_DAMAGE = 3;
+
     public RustedSickle(Item.Settings settings) {
         super(SickleMat.INSTANCE, 1, -2.4F, settings);
     }
@@ -130,7 +134,7 @@ public class RustedSickle extends HoeItem {
     }
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        World world = attacker.getWorld();
+
         if (!attacker.getWorld().isClient) {
             int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
             int gain = (int) (20);
@@ -138,34 +142,7 @@ public class RustedSickle extends HoeItem {
             stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
 
         }
-        if (!world.isClient && attacker.isOnGround()) {
-            Vec3d attackerPos = attacker.getPos();
-
-            // Sweep radius (like Sweeping Edge)
-            double radius = 2.5;
-            Box box = new Box(
-                    attackerPos.x - radius, attackerPos.y - 1.0, attackerPos.z - radius,
-                    attackerPos.x + radius, attackerPos.y + 1.0, attackerPos.z + radius
-            );
-
-            List<LivingEntity> nearby = world.getEntitiesByClass(LivingEntity.class, box,
-                    e -> e != attacker && e != target && e.isAlive());
-
-            // Sweep damage ~ half base damage
-            float sweepDamage = 4.0f;
-
-            for (LivingEntity entity : nearby) {
-                entity.damage(entity.getDamageSources().mobAttack(attacker), sweepDamage);
-            }
-
-            // Play sweep sound and particles
-            world.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
-                    SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0f, 1.0f);
-
-            ((ServerWorld) world).spawnParticles(ParticleTypes.SWEEP_ATTACK,
-                    attacker.getX(), attacker.getY() + 1.0, attacker.getZ(),
-                    1, 0.0, 0.0, 0.0, 0.0);
-        }
+        FarmersmarketUtil.sweepingEdge(target, attacker, SWEEP_DAMAGE, false);
         return super.postHit(stack, target, attacker);
     }
     @Override

@@ -54,6 +54,9 @@ public abstract class ItemRendererMixin {
         if (stack.isOf(ModItems.BEARDED_AXE) && renderMode != ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "bearded_axe_3d", "inventory"));
         }
+        if (stack.isOf(ModItems.DEVIL_AXE) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "devil_axe_3d", "inventory"));
+        }
         return value;
     }
 }

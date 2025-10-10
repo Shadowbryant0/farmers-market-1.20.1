@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "mim",
+    "isi",
+    "mim"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:iron_ingot"
+    },
+    "i": {
+      "item": "minecraft:lava_bucket"
+    },
+    "m": {
+      "item": "minecraft:magma_cream"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:hell_steel"
+  }
+}
