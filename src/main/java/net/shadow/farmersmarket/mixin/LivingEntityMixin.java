@@ -196,6 +196,7 @@ class StarvationkilMixin {
 //        // Skip vanilla lava branch by returning false for this check.
 //        return false;
 //    }
+//
 //    @Unique
 //    private static void runLavaDepthStrider(LivingEntity self, Vec3d movementInput, double d, boolean bl) {
 //        int level = EnchantmentHelper.getEquipmentLevel(FarmersMarketEnchants.LavaWader, self);
@@ -241,3 +242,71 @@ class StarvationkilMixin {
 //    }
 //
 //}
+@Mixin(LivingEntity.class)
+abstract class LavaWader {
+
+    @Shadow
+    protected abstract boolean shouldSwimInFluids();
+
+    // Using Inject to intercept the method and modify behavior
+    @Inject(
+            method = "travel(Lnet/minecraft/util/math/Vec3d;)V",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;isInLava()Z"),
+            cancellable = true
+    )
+    private void replaceLavaBlockWithDepthStrider(Vec3d movementInput, CallbackInfo ci) {
+        // Get the current LivingEntity instance (self)
+        LivingEntity self = (LivingEntity) (Object) this;
+
+        // Check if we should run LavaWader logic
+        boolean inLava = self.isInLava();
+        boolean shouldRun = inLava && this.shouldSwimInFluids();
+
+        // Skip if no LavaWader enchantment is present or we shouldn't run
+        if (LavaWaderCheck.getLavaWader(self) == 0 || !shouldRun) {
+            return;
+        }
+
+        // Apply LavaWader logic
+        runLavaDepthStrider(self, movementInput);
+
+        // Cancel the default lava behavior (vanilla)
+        ci.cancel();
+    }
+
+    @Unique
+    private static void runLavaDepthStrider(LivingEntity self, Vec3d movementInput) {
+        int level = EnchantmentHelper.getEquipmentLevel(FarmersMarketEnchants.LavaWader, self);
+        level = MathHelper.clamp(level, 0, 1); // Ensure level is between 0 and 1
+
+        // Base lava uses 0.02F acceleration; scale it up with level
+        float accel = 0.02F + 0.08F * level;
+
+        // Damping (drag): interpolate between vanilla values and more fluid-like behavior
+        float horizDamp = MathHelper.lerp(level / 1.1F, 0.5F, 0.91F);
+        float vertDamp = MathHelper.lerp(level / 1.1F, 0.8F, 0.98F);
+
+        // Apply player velocity with boosted acceleration
+        self.updateVelocity(accel, movementInput);
+        self.move(MovementType.SELF, self.getVelocity());
+
+        // Handle submerged case with damping
+        if (self.getFluidHeight(FluidTags.LAVA) <= self.getSwimHeight()) {
+            self.setVelocity(self.getVelocity().multiply(horizDamp, vertDamp, horizDamp));
+        } else {
+            float fullDamp = MathHelper.lerp(level / 3.0F, 0.5F, 0.9F);
+            self.setVelocity(self.getVelocity().multiply(fullDamp, vertDamp, fullDamp));
+        }
+
+        // Gravity compensation
+        if (!self.hasNoGravity()) {
+            self.addVelocity(0, -0.08, 0); // Small gravity compensation
+        }
+
+        // Step-up assist for ledges
+        Vec3d v = self.getVelocity();
+        if (self.horizontalCollision && self.doesNotCollide(v.x, v.y + 0.6 - self.getY(), v.z)) {
+            self.setVelocity(v.x, 0.3, v.z); // Adjust y velocity for ledge climbing
+        }
+    }
+}

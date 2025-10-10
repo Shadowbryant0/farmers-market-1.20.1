@@ -66,19 +66,19 @@ public class Fbook extends BookItem {
                 }
             }
 
-//            if (EnchantmentTarget.ARMOR_FEET.isAcceptableItem(item)) {
-//
-//
-//
-//
-//                    this.playInsertSound(player);
-//                    itemStack.addEnchantment(FarmersMarketEnchants.LavaWader, 1);
-//
-//                    stack.decrement(1);
-//
-//                    player.damage(player.getDamageSources().wither(),8);
-//
-//            }
+            if (EnchantmentTarget.ARMOR_FEET.isAcceptableItem(item)) {
+
+
+
+
+                    this.playInsertSound(player);
+                    itemStack.addEnchantment(FarmersMarketEnchants.LavaWader, 1);
+
+                    stack.decrement(1);
+
+                    player.damage(player.getDamageSources().wither(),8);
+
+            }
             if (itemStack.getItem() instanceof PickaxeItem || itemStack.getItem() instanceof ShovelItem) {
 
                 if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Forging, itemStack) == 0) {
