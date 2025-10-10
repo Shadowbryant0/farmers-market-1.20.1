@@ -300,7 +300,7 @@ abstract class LavaWader {
 
         // Gravity compensation
         if (!self.hasNoGravity()) {
-            self.addVelocity(0, -0.08, 0); // Small gravity compensation
+            self.addVelocity(0, -0.005, 0); // Small gravity compensation
         }
 
         // Step-up assist for ledges
