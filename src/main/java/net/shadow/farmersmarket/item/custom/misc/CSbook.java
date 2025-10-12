@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.ItemTags;
@@ -20,6 +21,8 @@ import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.util.FarmersMarketItemTags;
+
+import java.util.Objects;
 
 public class CSbook extends BookItem {
 
@@ -115,6 +118,14 @@ public class CSbook extends BookItem {
             }else if (itemStack.getItem() instanceof ElytraItem || itemStack.isIn(FarmersMarketItemTags.BRACE_EXCEPTION_1)) {
                 if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Bracing, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Bracing, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
+
+
+            }else if (itemStack.getItem() instanceof WyrmSpear) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.WyrmStride, itemStack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.WyrmStride, 1);
                     player.damage(player.getDamageSources().wither(), 10);
                     stack.decrement(1);
                 }

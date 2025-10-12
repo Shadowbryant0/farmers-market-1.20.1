@@ -1,16 +1,12 @@
 package net.shadow.farmersmarket.mixin;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.tag.FluidTags;
@@ -21,13 +17,12 @@ import net.minecraft.util.math.Vec3d;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
-import net.shadow.farmersmarket.util.LavaWaderCheck;
+import net.shadow.farmersmarket.util.FMEnchantCheck;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 class PlayerDropsMixin {
@@ -263,7 +258,7 @@ abstract class LavaWader {
         boolean shouldRun = inLava && this.shouldSwimInFluids();
 
         // Skip if no LavaWader enchantment is present or we shouldn't run
-        if (LavaWaderCheck.getLavaWader(self) == 0 || !shouldRun) {
+        if (FMEnchantCheck.getLavaWader(self) == 0 || !shouldRun) {
             return;
         }
 

@@ -1,0 +1,24 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:hexspade"
+    },
+    "title": "Transmuted Spade",
+    "description": "Harness a totem of undying to craft a HexSpade",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "farmersmarket:advancements/farmers_market",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:hexspade"
+      }
+
+
+    }
+  }
+}

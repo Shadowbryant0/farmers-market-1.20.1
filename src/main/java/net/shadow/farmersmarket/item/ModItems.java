@@ -25,8 +25,8 @@ public class ModItems {
     public static final Item STEW = registerItem("stew",
             new StewItem(new FabricItemSettings().food(ModFoodComponents.STEW).maxCount(1)));
     public static final Item FLESH_STEW = registerItem("flesh_stew",
-
             new StewItem(new FabricItemSettings().food(ModFoodComponents.STEW_FLESH).maxCount(1)));
+
     public static final Item CRACKED_SKULL = registerItem("cracked_skull",
             new Item(new FabricItemSettings()));
 
@@ -42,7 +42,7 @@ public class ModItems {
     public static final Item GRIEF = registerItem("grief",
             new Grief(new FabricItemSettings().maxCount(1).fireproof()));
 
-    public static final Item VEINPIERCER = registerItem("veinpeircer",
+    public static final Item VEINPIERCER = registerItem("veinpiercer",
             new Veinpiercer(new FabricItemSettings().fireproof()));
 
     public static final Item NEEDLE = registerItem("needle",
@@ -61,6 +61,9 @@ public class ModItems {
 
     public static final Item BEARDED_AXE = registerItem("bearded_axe",
             new BeardedAxe(new FabricItemSettings().fireproof()));
+
+    public static final Item WYRM_SPEAR = registerItem("wyrm_spear",
+            new WyrmSpear(new FabricItemSettings().fireproof()));
 
     public static final Item GREATSWORD = registerItem("greatsword",
             new GreatswordClass(new FabricItemSettings().fireproof()));

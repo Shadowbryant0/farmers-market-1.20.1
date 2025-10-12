@@ -1,0 +1,24 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:csbook"
+    },
+    "title": "give your book a 'spine",
+    "description": "renforce a book's spine with a player's skull, now right click it onto stuff",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "farmersmarket:advancements/obtain_skull",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:csbook"
+      }
+
+
+    }
+  }
+}

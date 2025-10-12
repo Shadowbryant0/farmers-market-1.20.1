@@ -1,0 +1,25 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:devil_axe"
+    },
+    "title": "A Tool of Pure Power",
+    "description": "Transmute a BloodHound axe into a Demon's axe",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false
+
+  },
+  "parent": "farmersmarket:advancements/obtain_brute_axe",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:devil_axe"
+      }
+
+
+    }
+  }
+}

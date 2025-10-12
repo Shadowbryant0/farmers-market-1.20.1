@@ -1,0 +1,33 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:cracked_skull"
+    },
+    "title": "Got any ibuprofen?",
+    "description": "Loot a player's cracked skull",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "farmersmarket:advancements/farmers_market",
+  "criteria": {
+    "obtain_skull": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersmarket:cracked_skull"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_skull"
+    ]
+  ]
+}

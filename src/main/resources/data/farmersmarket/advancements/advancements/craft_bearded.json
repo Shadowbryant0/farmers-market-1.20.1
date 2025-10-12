@@ -1,0 +1,25 @@
+{
+
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:bearded_axe"
+    },
+    "title": "An ancient blade",
+    "description": "Make a bearded axe",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "farmersmarket:advancements/obtain_axe_head",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:bearded_axe"
+      }
+
+
+    }
+  }
+}

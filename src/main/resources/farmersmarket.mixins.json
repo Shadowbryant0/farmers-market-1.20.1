@@ -5,6 +5,7 @@
   "mixins": [
     "EnchantmentHelperMixin",
     "ExampleMixin",
+    "FireRenderMixin",
     "ForgingSpeedMixin",
     "GreatBreakMobMixin",
     "GreatBreakPlayerMixin",

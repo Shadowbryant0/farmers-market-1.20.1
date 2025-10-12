@@ -43,6 +43,8 @@ private static final Identifier PLAYER_DROPS_ID =
 
     private static final Identifier SUS_SAND_ID =
             new Identifier("minecraft", "archaeology/trail_ruins_rare");
+    private static final Identifier BAS_TRES_ID =
+            new Identifier("minecraft", "chests/bastion_treasure");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, lootTableSource) -> {
@@ -73,7 +75,16 @@ if(PLAYER_DROPS_ID.equals(id)) {
 
                 tableBuilder.pool(poolBuilder.build());
             }
+            if(BAS_TRES_ID.equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+
+                        .with(ItemEntry.builder(ModItems.WYRM_SPEAR).conditionally(RandomChanceLootCondition.builder(.05f)));
+
+                tableBuilder.pool(poolBuilder.build());
+            }
         });
+
         LootTableEvents.REPLACE.register(((resourceManager, lootManager, id, original, source) -> {
             if(SUS_SAND_ID.equals(id)){
                 ArrayList<LootPoolEntry> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
@@ -82,7 +93,7 @@ if(PLAYER_DROPS_ID.equals(id)) {
                 LootPool.Builder pool = LootPool.builder().with(entries);
                 return LootTable.builder().pool(pool).build();
             }
-return null;
+            return null;
         }
         ));
     }

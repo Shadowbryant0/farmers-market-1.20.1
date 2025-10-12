@@ -1,0 +1,33 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:sliver_flesh"
+    },
+    "title": "A morsel of meat",
+    "description": "Loot player flesh",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "farmersmarket:advancements/farmers_market",
+  "criteria": {
+    "obtain_flesh": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersmarket:sliver_flesh"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_flesh"
+    ]
+  ]
+}

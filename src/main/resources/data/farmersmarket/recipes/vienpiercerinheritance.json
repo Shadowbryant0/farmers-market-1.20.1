@@ -1,13 +1,13 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "farmersmarket:veinpeircer"
+    "item": "farmersmarket:veinpiercer"
   },
   "base": {
     "item": "minecraft:iron_sword"
   },
   "result": {
-    "item": "farmersmarket:veinpeircer"
+    "item": "farmersmarket:veinpiercer"
   },
   "template": {
     "item": "minecraft:iron_ingot"

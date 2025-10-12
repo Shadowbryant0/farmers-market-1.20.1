@@ -1,0 +1,24 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:rapier"
+    },
+    "title": "A Fine blade",
+    "description": "Make a rapier",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "farmersmarket:advancements/craft_forge",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:rapier"
+      }
+
+
+    }
+  }
+}

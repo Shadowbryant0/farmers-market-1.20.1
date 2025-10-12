@@ -37,7 +37,7 @@ public class Shout extends Enchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return true;
+        return false;
     }
 
     public boolean isCursed() {

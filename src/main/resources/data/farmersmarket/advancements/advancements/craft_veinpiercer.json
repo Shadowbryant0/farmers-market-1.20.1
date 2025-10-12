@@ -1,0 +1,25 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:veinpiercer"
+    },
+    "title": "A Vicious Blade",
+    "description": "Replicate the Soul Smith's blade",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false
+
+  },
+  "parent": "farmersmarket:advancements/craft_rapier",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:veinpiercer"
+      }
+
+
+    }
+  }
+}

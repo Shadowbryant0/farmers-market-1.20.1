@@ -1,13 +1,13 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "farmersmarket:sickle"
+    "item": "farmersmarket:rustedsickle"
   },
   "base": {
     "item": "minecraft:diamond_hoe"
   },
   "result": {
-    "item": "farmersmarket:sickle"
+    "item": "farmersmarket:rustedsickle"
   },
   "template": {
     "item": "minecraft:iron_ingot"

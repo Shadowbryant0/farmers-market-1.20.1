@@ -1,0 +1,33 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:axe_head"
+    },
+    "title": "Ancient Relic",
+    "description": "Recover an ancient axe head from a trail ruins",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "farmersmarket:advancements/farmers_market",
+  "criteria": {
+    "obtain_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersmarket:axe_head"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_axe"
+    ]
+  ]
+}

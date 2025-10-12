@@ -1,5 +1,7 @@
 {
+
   "display": {
+    "hidden": true,
     "icon": {
       "item": "farmersmarket:sliver_flesh"
     },
@@ -7,12 +9,12 @@
     "description": "Consume Your First scrap of Player Flesh!",
     "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true
+    "announce_to_chat": false
   },
-  "parent": "farmersmarket:farmers_market",
+  "parent": "farmersmarket:advancements/obtain_flesh",
   "criteria": {
     "eat_flesh": {
-      "trigger": "minecraft:using_item",
+      "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
           "items": [

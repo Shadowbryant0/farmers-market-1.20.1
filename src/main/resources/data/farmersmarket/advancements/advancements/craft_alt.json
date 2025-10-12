@@ -1,0 +1,25 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:altsword"
+    },
+    "title": "A Cosmetic Upgrade",
+    "description": "Bejewel a greatsword",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false
+
+  },
+  "parent": "farmersmarket:advancements/craft_great",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:altsword"
+      }
+
+
+    }
+  }
+}

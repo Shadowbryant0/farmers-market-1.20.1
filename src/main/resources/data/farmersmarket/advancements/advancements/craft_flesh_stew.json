@@ -1,0 +1,25 @@
+{
+
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:flesh_stew"
+    },
+    "title": "Warming meal",
+    "description": "Make a stew to share with your friends!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "farmersmarket:advancements/consume_flesh",
+  "criteria": {
+    "eat_flesh": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:flesh_stew"
+      }
+
+
+    }
+  }
+}

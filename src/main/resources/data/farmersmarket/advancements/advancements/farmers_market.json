@@ -1,25 +1,33 @@
+
 {
+  "criteria": {
+    "killed_player": {
+      "conditions": {
+        "entity": {
+        "type": "minecraft:player"
+      }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
   "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/crimson_nylium.png",
+    "description":
+      "Hunt a player"
+    ,
+    "frame": "task",
+    "hidden": false,
     "icon": {
       "item": "farmersmarket:sliver_flesh"
     },
-    "title": "Farmer's Market",
-    "description": "Kill a Player",
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "background": "minecraft:textures/block/crimson_stem.png"
+    "show_toast": false,
+    "title": "Farmer's Market"
   },
-  "criteria": {
-    "criteria": {
-      "killed_something": {
-        "conditions": {
-          "entity": {
-            "type": "minecraft:player"
-          }
-        },
-        "trigger": "minecraft:player_killed_entity"
-      }
-    }
-  }
+  "requirements": [
+    [
+      "killed_player"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

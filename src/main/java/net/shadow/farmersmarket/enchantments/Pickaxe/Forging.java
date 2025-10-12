@@ -8,6 +8,9 @@ import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.ShovelItem;
+import net.shadow.farmersmarket.item.custom.weapons.RustedSickle;
 
 public class Forging extends Enchantment {
 
@@ -38,7 +41,7 @@ public class Forging extends Enchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return true;
+        return false;
     }
 
     public boolean isCursed() {
@@ -51,6 +54,10 @@ public class Forging extends Enchantment {
     }
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
     target.setFireTicks(200);
+    }
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() instanceof PickaxeItem ||stack.getItem() instanceof ShovelItem;
+
     }
 
 

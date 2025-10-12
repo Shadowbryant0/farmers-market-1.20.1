@@ -18,6 +18,7 @@ import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
 import net.shadow.farmersmarket.enchantments.sword.HuntersLullabyEnchantment;
 import net.shadow.farmersmarket.enchantments.sword.Riposte;
 import net.shadow.farmersmarket.enchantments.sword.Shout;
+import net.shadow.farmersmarket.enchantments.unique.WyrmsStride;
 
 public class FarmersMarketEnchants {
 
@@ -61,6 +62,9 @@ public class FarmersMarketEnchants {
             new Bracing());
     public static final Enchantment LavaWader = register("lavawader",
             new LavaWader());
+
+    public static final Enchantment WyrmStride = register("wyrmstride",
+            new WyrmsStride());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

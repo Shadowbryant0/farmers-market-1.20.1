@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "farmersmarket:item/veinpeircer"
+    "layer0": "farmersmarket:item/veinpiercer"
   }
 }

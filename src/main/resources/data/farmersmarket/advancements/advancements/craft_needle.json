@@ -1,0 +1,25 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:needle"
+    },
+    "title": "A Silk bound tool",
+    "description": "Replicate Hornet's Needle",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false
+
+  },
+  "parent": "farmersmarket:advancements/craft_rapier",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:needle"
+      }
+
+
+    }
+  }
+}

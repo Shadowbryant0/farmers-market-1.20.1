@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "egg_embryo": {
+    "has_egg_embryo": {
       "conditions": {
         "items": [
           {

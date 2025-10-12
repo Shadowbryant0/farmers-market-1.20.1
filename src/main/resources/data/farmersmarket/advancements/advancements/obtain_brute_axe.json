@@ -1,0 +1,33 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:bloodhoundaxe"
+    },
+    "title": "General's Blade",
+    "description": "Loot a certain Axe from a piglin brute",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "farmersmarket:advancements/farmers_market",
+  "criteria": {
+    "obtain_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersmarket:bloodhoundaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_axe"
+    ]
+  ]
+}

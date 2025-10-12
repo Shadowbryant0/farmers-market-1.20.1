@@ -1,0 +1,24 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:rustedsickle"
+    },
+    "title": "A true tool",
+    "description": "Make a Sickle",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "farmersmarket:advancements/craft_forge",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:rustedsickle"
+      }
+
+
+    }
+  }
+}
