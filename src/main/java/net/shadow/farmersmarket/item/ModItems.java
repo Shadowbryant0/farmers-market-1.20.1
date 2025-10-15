@@ -21,7 +21,7 @@ public class ModItems {
 
 
     public static final Item FIRE_STARTER = registerItem("fire_starter",
-            new Fire_Starter(new FabricItemSettings()));
+            new Fire_Starter(new FabricItemSettings().maxCount(16)));
 
     public static final Item SLIVER_FLESH = registerItem("sliver_flesh",
             new Item(new FabricItemSettings().food(ModFoodComponents.FLESH)));

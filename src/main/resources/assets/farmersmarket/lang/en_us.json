@@ -40,6 +40,8 @@
   "item.farmersmarket.csbook": "Skull Encrusted, Flesh Bound Book",
   "item.farmersmarket.stew": "nether fungus stew",
   "item.farmersmarket.flesh_stew": "Suspicious nether fungus stew",
+  "item.farmersmarket.fire_starter": "Homemade Fire Starter",
+  "tooltip.farmersmarket.fire_starter.tooltip": "Don't try at home kids!",
 
   "item.farmersmarket.cracked_skull": "CrackedSkull",
   "item.farmersmarket.grief": "Grief",
