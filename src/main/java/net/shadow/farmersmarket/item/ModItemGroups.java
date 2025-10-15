@@ -18,7 +18,7 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.farmers_market"))
                     .icon(() -> new ItemStack(ModItems.RAPIER)).entries((displayContext, entries) -> {
 
-
+                        entries.add(ModItems.FIRE_STARTER);
 
                         entries.add(ModItems.FORGE_UPGRADE);
                         entries.add(ModItems.RAPIER);
@@ -28,6 +28,7 @@ public class ModItemGroups {
                         entries.add(ModItems.RUSTEDSICKLE);
                         entries.add(ModItems.AXE_HEAD);
                         entries.add(ModItems.BEARDED_AXE);
+                        entries.add(ModItems.WYRM_SPEAR);
                         //entries.add(ModItems.TOOTHPICK);
                         entries.add(ModItems.GAYSCYTHE);
 

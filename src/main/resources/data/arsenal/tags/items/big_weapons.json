@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "farmersmarket:greatsword",
+    "farmersmarket:altsword",
+    "farmersmarket:mainsword",
+    "farmersmarket:devil_axe",
+    "farmersmarket:bearded_axe",
+    "farmersmarket:rustedsickle",
+    "farmersmarket:bloodhoundaxe",
+    "farmersmarket:wyrm_spear"
+  ]
+}

@@ -1,6 +1,7 @@
 package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.FireChargeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.StewItem;
 import net.minecraft.registry.Registries;
@@ -19,6 +20,8 @@ import net.shadow.farmersmarket.item.trinkets.endstuff.Ender_Crown;
 public class ModItems {
 
 
+    public static final Item FIRE_STARTER = registerItem("fire_starter",
+            new Fire_Starter(new FabricItemSettings()));
 
     public static final Item SLIVER_FLESH = registerItem("sliver_flesh",
             new Item(new FabricItemSettings().food(ModFoodComponents.FLESH)));

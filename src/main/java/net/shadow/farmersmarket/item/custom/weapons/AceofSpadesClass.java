@@ -37,7 +37,6 @@ public class AceofSpadesClass  extends ShovelItem {
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-
         if (!world.isClient) {
             ItemStack stack = user.getStackInHand(hand);
             if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Syphon, stack) == 0) {

@@ -252,7 +252,6 @@ abstract class LavaWader {
     private void replaceLavaBlockWithDepthStrider(Vec3d movementInput, CallbackInfo ci) {
         // Get the current LivingEntity instance (self)
         LivingEntity self = (LivingEntity) (Object) this;
-
         // Check if we should run LavaWader logic
         boolean inLava = self.isInLava();
         boolean shouldRun = inLava && this.shouldSwimInFluids();

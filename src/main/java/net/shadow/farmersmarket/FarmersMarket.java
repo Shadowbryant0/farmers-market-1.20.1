@@ -3,6 +3,7 @@ package net.shadow.farmersmarket;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.event.ForgingEnchantEvent;
@@ -33,6 +34,7 @@ public class FarmersMarket implements ModInitializer {
 		MidnightConfig.init("farmersmarket", ModConfigs.class);
 		ForgingEnchantEvent.register();
 		FarmersMarketEnchants.registerModEnchantments();
+		FuelRegistry.INSTANCE.add(ModItems.FIRE_STARTER, 7200);
 
 	}
 }
