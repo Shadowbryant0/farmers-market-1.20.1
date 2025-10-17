@@ -270,15 +270,15 @@ abstract class LavaWader {
 
     @Unique
     private static void runLavaDepthStrider(LivingEntity self, Vec3d movementInput) {
-        int level = EnchantmentHelper.getEquipmentLevel(FarmersMarketEnchants.LavaWader, self);
-        level = MathHelper.clamp(level, 0, 1); // Ensure level is between 0 and 1
+        int level = FMEnchantCheck.getLavaWaderCollective(self);
+        level = MathHelper.clamp(level, 0, 2); // Ensure level is between 0 and 2
 
         // Base lava uses 0.02F acceleration; scale it up with level
         float accel = 0.02F + 0.08F * level;
 
         // Damping (drag): interpolate between vanilla values and more fluid-like behavior
         float horizDamp = MathHelper.lerp(level / 1.1F, 0.5F, 0.91F);
-        float vertDamp = MathHelper.lerp(level / 1.1F, 0.8F, 0.98F);
+        float vertDamp = MathHelper.lerp(1 / 1.1F, 0.8F, 0.98F);
 
         // Apply player velocity with boosted acceleration
         self.updateVelocity(accel, movementInput);

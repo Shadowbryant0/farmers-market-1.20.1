@@ -20,6 +20,9 @@ public class ModItemGroups {
 
                         entries.add(ModItems.FIRE_STARTER);
 
+                        entries.add(ModItems.STEW);
+                        entries.add(ModItems.FLESH_STEW);
+
                         entries.add(ModItems.FORGE_UPGRADE);
                         entries.add(ModItems.RAPIER);
                         entries.add(ModItems.BLOODHOUNDAXE);
@@ -40,10 +43,8 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLDENRING);
 
                         entries.add(ModItems.SLIVER_FLESH);
-                        entries.add(ModItems.STEW);
-                        entries.add(ModItems.FLESH_STEW);
-
                         entries.add(ModItems.FBOOK);
+
                         entries.add(ModItems.CRACKED_SKULL);
                         entries.add(ModItems.CSBOOK);
                         //entries.add(ModItems.TYRENT);
@@ -80,6 +81,10 @@ public class ModItemGroups {
 
                         entries.add(ModItems.COLD_STEEL);
                         entries.add(ModItems.NEEDLE);
+
+
+                        entries.add(ModItems.VAMPIRE_TEARS);
+                        entries.add(ModItems.DAGRIONSKIN);
 
                         entries.add(ModItems.REFINED_HELL_STEEL);
                         entries.add(ModItems.DEVIL_AXE);

@@ -10,10 +10,7 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
-import net.shadow.farmersmarket.item.custom.weapons.reskins.DevilSkin;
-import net.shadow.farmersmarket.item.custom.weapons.reskins.MainswordClass;
-import net.shadow.farmersmarket.item.custom.weapons.reskins.NeedleSkin;
-import net.shadow.farmersmarket.item.custom.weapons.reskins.Veinpiercer;
+import net.shadow.farmersmarket.item.custom.weapons.reskins.*;
 import net.shadow.farmersmarket.item.trinkets.*;
 import net.shadow.farmersmarket.item.trinkets.endstuff.Ender_Crown;
 
@@ -37,6 +34,8 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item COLD_STEEL = registerItem("cold_steel",
             new Item(new FabricItemSettings()));
+    public static final Item VAMPIRE_TEARS = registerItem("vampire_tear",
+            new Item(new FabricItemSettings()));
     public static final Item REFINED_HELL_STEEL = registerItem("hell_steel",
             new Item(new FabricItemSettings()));
 
@@ -50,6 +49,8 @@ public class ModItems {
 
     public static final Item NEEDLE = registerItem("needle",
             new NeedleSkin(new FabricItemSettings().fireproof()));
+    public static final Item DAGRIONSKIN = registerItem("scarlet_rapier",
+            new DagrionRapier(new FabricItemSettings().fireproof()));
 
     public static final Item RAPIER = registerItem("rapier",
             new RapierWeaponItem(new FabricItemSettings().fireproof()));

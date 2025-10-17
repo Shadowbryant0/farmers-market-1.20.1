@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:vampire_tear"
+  },
+  "base": {
+    "item": "farmersmarket:rapier"
+  },
+  "result": {
+    "item": "farmersmarket:scarlet_rapier"
+  },
+  "template": {
+    "item": "minecraft:redstone_block"
+  }
+}

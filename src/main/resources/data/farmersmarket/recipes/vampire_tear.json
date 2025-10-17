@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aia",
+    "isi",
+    "aia"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:ghast_tear"
+    },
+    "i": {
+      "item": "minecraft:amethyst_cluster"
+    },
+    "a": {
+      "item": "minecraft:redstone"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:vampire_tear"
+  }
+}

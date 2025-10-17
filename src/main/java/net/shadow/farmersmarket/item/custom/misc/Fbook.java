@@ -66,7 +66,7 @@ public class Fbook extends BookItem {
                 }
             }
 
-            if (EnchantmentTarget.ARMOR_FEET.isAcceptableItem(item)) {
+            if (EnchantmentTarget.ARMOR_FEET.isAcceptableItem(item)||EnchantmentTarget.ARMOR_CHEST.isAcceptableItem(item)) {
 
 
 
