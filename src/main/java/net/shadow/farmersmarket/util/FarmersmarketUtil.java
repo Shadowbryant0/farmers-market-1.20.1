@@ -1,6 +1,9 @@
 package net.shadow.farmersmarket.util;
 
 
+import dev.emi.trinkets.api.SlotReference;
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -15,12 +18,15 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Pair;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.trinkets.piglinBruteRing;
 
 import java.util.List;
+import java.util.Optional;
 
 public class FarmersmarketUtil {
 
@@ -154,6 +160,22 @@ public class FarmersmarketUtil {
             }
         }
     }
+    public static ItemStack getTrinket(LivingEntity livingEntity) {
+        Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(livingEntity);
+        if (component.isPresent()) {
+            for (Pair<SlotReference, ItemStack> pair : component.get().getAllEquipped()) {
+                if (pair.getRight().getItem() instanceof piglinBruteRing) {
+                    return pair.getRight();
+                }
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+    //code from rat's mischief
+    //by doctorrat/ratmaid
+    //sourced by kirro
+    //on the rattiest gang discord server
+     //thanks!
 }
 
 

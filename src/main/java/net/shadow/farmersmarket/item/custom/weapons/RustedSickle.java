@@ -1,6 +1,10 @@
 package net.shadow.farmersmarket.item.custom.weapons;
 
+import dev.emi.trinkets.TrinketSlot;
+import dev.emi.trinkets.api.TrinketEnums;
+import dev.emi.trinkets.api.TrinketInventory;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -134,7 +138,7 @@ public class RustedSickle extends HoeItem {
     }
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-
+        stack.getHolder();
         if (!attacker.getWorld().isClient) {
             int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
             int gain = (int) (20);
