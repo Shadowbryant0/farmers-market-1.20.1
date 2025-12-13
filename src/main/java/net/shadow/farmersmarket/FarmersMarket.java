@@ -4,6 +4,11 @@ import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.entity.attribute.ClampedEntityAttribute;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.event.ForgingEnchantEvent;
@@ -19,7 +24,14 @@ public class FarmersMarket implements ModInitializer {
 	public static final String MOD_ID = "farmersmarket";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String MOD_ID2 = "farmersmarket";
 
+    public static final EntityAttribute ENDERMAN = make("enderman", 0.0, 0, 1);
+
+
+    private static EntityAttribute make(final String name, final double base, final double min, final double max) {
+        return new ClampedEntityAttribute("attribute.name.generic." + MOD_ID2 + '.' + name, base, min, max).setTracked(true);
+    }
 	@Override
 	public void onInitialize() {
 
@@ -35,6 +47,8 @@ public class FarmersMarket implements ModInitializer {
 		ForgingEnchantEvent.register();
 		FarmersMarketEnchants.registerModEnchantments();
 		FuelRegistry.INSTANCE.add(ModItems.FIRE_STARTER, 7200);
+
+        Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "enderman"), ENDERMAN);
 
 	}
 }

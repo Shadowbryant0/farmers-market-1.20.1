@@ -21,6 +21,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.components.Weapons.GreatSwordChargeComponent;
 import net.shadow.farmersmarket.item.materials.Greatmat;
 
 import java.util.List;
@@ -28,16 +29,10 @@ import java.util.Objects;
 
 public class GreatswordClass extends SwordItem {
     private static final int COOLDOWN_TICKS = 200;
-    private static final String CHARGE_KEY = "charge";
-    private static final int MAX_CHARGE = 100;
-    private static final int OVER_CHARGE = 150;
     //  right click is fast short dash that slams into enemies (custom stun effect)
     public GreatswordClass(Item.Settings settings) {
         super(Greatmat.INSTANCE, 3, -2.6F, settings);
     }
-
-
-
 
 
     private static final float ATTACKSPEED = 3.15F;
@@ -47,21 +42,19 @@ public class GreatswordClass extends SwordItem {
         ItemStack stack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
         if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Shout, stack) == 0) {
-            if(getCharge(stack) >= MAX_CHARGE) {
+            if(GreatSwordChargeComponent.GREAT>= GreatSwordChargeComponent.TWO_THREE_GREAT) {
 
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 60, 2));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 100, 0));
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, 0);
+                GreatSwordChargeComponent.UseGREAT();
             }
             return TypedActionResult.consume(stack);
         }else{
             if (!world.isClient) {
-                if (getCharge(stack) >= MAX_CHARGE) {
+                if (GreatSwordChargeComponent.GREAT>= GreatSwordChargeComponent.MAX_GREAT) {
 
                     Vec3d attackerPos = user.getPos();
-                    int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                    charge = Math.min(charge - MAX_CHARGE, OVER_CHARGE);
-                    stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+                    GreatSwordChargeComponent.UseAltGREAT();
                     // Sweep radius (like Sweeping Edge)
                     double radius = 2.5;
                     Box box = new Box(
@@ -123,21 +116,9 @@ public class GreatswordClass extends SwordItem {
 
 
         if (!attacker.getWorld().isClient) {
-            if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Shout, stack) == 0) {
 
-                int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                int gain = (int) (10);
-                charge = Math.min(charge + gain, MAX_CHARGE);
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+                GreatSwordChargeComponent.IncrementCharge();
                 return super.postHit(stack, target, attacker);
-            }else {
-                int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                int gain = (int) (10);
-                charge = Math.min(charge + gain, OVER_CHARGE);
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
-                return super.postHit(stack, target, attacker);
-
-            }
 
         }
         return super.postHit(stack, target, attacker);
@@ -147,17 +128,14 @@ public class GreatswordClass extends SwordItem {
     // === Durability bar as charge indicator ===
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        return getCharge(stack) > 0;
+        return true;
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        int charge = getCharge(stack);
-        if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Shout, stack) == 0) {
-            return Math.round((float) charge / MAX_CHARGE * 13); // full bar = max charge
-        }else {
-            return Math.round((float) charge / OVER_CHARGE * 13); // full bar = max charge
-        }
+
+            return Math.round((float) GreatSwordChargeComponent.GREAT / GreatSwordChargeComponent.MAX_GREAT * 13); // full bar = max charge
+
     }
 
     @Override
@@ -175,9 +153,6 @@ public class GreatswordClass extends SwordItem {
         }
     }
 
-    private int getCharge(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt(CHARGE_KEY);
-    }
 
 
 }

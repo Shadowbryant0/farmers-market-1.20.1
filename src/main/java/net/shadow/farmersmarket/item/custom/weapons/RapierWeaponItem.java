@@ -30,6 +30,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.components.Weapons.RapierChargeComponent;
 import net.shadow.farmersmarket.item.materials.RapierMat;
 import com.google.common.collect.Multimap;
 
@@ -38,9 +39,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class RapierWeaponItem extends SwordItem {
-    private static final String CHARGE_KEY = "charge";
-    private static final int MAX_CHARGE = 100;
-    private static final int HALF_CHARGE = 50;
 
     final double RANGE = 9;
     final double MINI_RANGE = 7;
@@ -72,8 +70,8 @@ public class RapierWeaponItem extends SwordItem {
                 if (!(world instanceof ServerWorld serverWorld)) {
                     return super.use(world, user, hand);
                 }
-                if (getCharge(stack) >= MAX_CHARGE) {
-                    stack.getOrCreateNbt().putInt(CHARGE_KEY, 0);
+                if (RapierChargeComponent.RAPIER >= RapierChargeComponent.MAX_RAPIER) {
+                    RapierChargeComponent.UseRapier();
                     user.setVelocity(
                             lookingDirection.x * boost,
                             lookingDirection.y * boost * 0.6f,
@@ -122,11 +120,8 @@ public class RapierWeaponItem extends SwordItem {
                 if (!(world instanceof ServerWorld serverWorld)) {
                     return super.use(world, user, hand);
                 }
-                    if (getCharge(stack) >= HALF_CHARGE) {
-                        int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                        int dash = (int) (50);
-                        charge = Math.min(charge - dash, MAX_CHARGE);
-                        stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+                    if (RapierChargeComponent.RAPIER >= RapierChargeComponent.HALF_RAPIER) {
+                        RapierChargeComponent.UseAltRapier();
                         user.setVelocity(
                                    (lookingDirection.x * boost *.75),
                                 (lookingDirection.y * boost *.75) * 0.6f,
@@ -190,10 +185,7 @@ public class RapierWeaponItem extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = attacker.getWorld();
         if (!attacker.getWorld().isClient) {
-            int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-            int gain = (int) (15);
-            charge = Math.min(charge + gain, MAX_CHARGE);
-            stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+            RapierChargeComponent.IncrementCharge();
 
         }
         return super.postHit(stack, target, attacker);
@@ -204,26 +196,20 @@ public class RapierWeaponItem extends SwordItem {
     }
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        return getCharge(stack) > 0;
+        return true;
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        int charge = getCharge(stack);
-        return Math.round((float) charge / MAX_CHARGE * 13); // full bar = max charge
+        return Math.round((float) RapierChargeComponent.RAPIER / RapierChargeComponent.MAX_RAPIER * 13); // full bar = max charge
     }
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        // Glows between gold → magenta → red as it fills
-        float ratio = (float) getCharge(stack) / MAX_CHARGE;
         int red = (int) (200);
         int blue = (int) (200);
         int green = (int) (200);
         return (red << 16) | (green << 8) | blue; // RGB mix
-    }
-    private int getCharge(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt(CHARGE_KEY);
     }
 
 }

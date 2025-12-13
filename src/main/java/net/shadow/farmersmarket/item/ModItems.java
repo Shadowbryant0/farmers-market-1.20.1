@@ -1,6 +1,7 @@
 package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.loader.FabricLoader;
 import net.minecraft.item.FireChargeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.StewItem;
@@ -13,6 +14,7 @@ import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.*;
 import net.shadow.farmersmarket.item.trinkets.*;
 import net.shadow.farmersmarket.item.trinkets.endstuff.Ender_Crown;
+import net.shadow.farmersmarket.mixin.GreatBreakMobMixin;
 
 public class ModItems {
 
@@ -78,6 +80,8 @@ public class ModItems {
             new GreatswordClass(new FabricItemSettings().fireproof()));
 
 
+    public static final Item PIRATESABER = registerItem("piratesaber",
+            new PirateSaber(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item HEXSPADE = registerItem("hexspade",
             new AceofSpadesClass(new FabricItemSettings().fireproof()));
 
@@ -90,11 +94,11 @@ public class ModItems {
     public static final Item CRACKED_TOTEM = registerItem("cracked_totem",
             new CrackedTotem(new FabricItemSettings().maxCount(1)));
 
-    public static final Item GOATPENDENT = registerItem("goatpendent",
+    public static final Item GOATPENDENT = registerItem("goatpendant",
             new goatHornPendent(new FabricItemSettings().maxCount(1)));
-    public static final Item HUMANPENDENT = registerItem("humanpendent",
+    public static final Item HUMANPENDENT = registerItem("humanpendant",
             new HumanToothNecklace(new FabricItemSettings().maxCount(1)));
-    public static final Item RABBITPENDENT = registerItem("rabbitpendent",
+    public static final Item RABBITPENDENT = registerItem("rabbitpendant",
             new rabbitsfootPendent(new FabricItemSettings().maxCount(1)));
     public static final Item TURTLERING = registerItem("turtlering",
             new turtleShellRing(new FabricItemSettings().maxCount(1)));
@@ -102,10 +106,14 @@ public class ModItems {
             new piglinBruteRing(new FabricItemSettings().maxCount(1)));
     public static final Item GOLDENRING = registerItem("goldenring",
             new goldenRing(new FabricItemSettings().maxCount(1)));
+    public static final Item PHANTOMRING = registerItem("phantomring",
+            new PhantomRingTrinket(new FabricItemSettings().maxCount(1)));
     public static final Item STANCE = registerItem("stance",
             new Stance(new FabricItemSettings().maxCount(1)));
     public static final Item ENDER_CROWN = registerItem("ender_crown",
             new Ender_Crown(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item ENDERMAN_PENDENT= registerItem("enderman_pendant",
+            new EnderManPendent(new FabricItemSettings().maxCount(1).fireproof()));
 
     public static final Item FBOOK = registerItem("fbook",
             new Fbook(new FabricItemSettings().maxCount(1)));
@@ -140,9 +148,8 @@ public class ModItems {
             new Tide(new FabricItemSettings().maxCount(1).fireproof()));
 
 
-
-
-
+    public static final Item TEST = registerItem("test",
+            new TestingBow(new FabricItemSettings().maxCount(1).fireproof()));
 
 
 

@@ -14,6 +14,7 @@
     "JagerDamageMixin",
     "LavaWader",
     "ModelLoaderMixin",
+    "ParryDamagePlayerMixin",
     "PiglinBruteEntityMixin",
     "PlayerDropsMixin",
     "StarvationkilMixin",
@@ -24,5 +25,6 @@
     "defaultRequire": 1
   },
   "client": [
-	]
+    "PhantomRingMixin"
+  ]
 }

@@ -48,9 +48,9 @@
 
   "item.farmersmarket.cracked_skull": "CrackedSkull",
   "item.farmersmarket.grief": "Grief",
-  "item.farmersmarket.humanpendent": "Human Tooth Necklace",
-  "item.farmersmarket.rabbitpendent": "Lucky Rabbit necklace",
-  "item.farmersmarket.goatpendent": "Mountain Goat Necklace",
+  "item.farmersmarket.humanpendant": "Human Tooth Necklace",
+  "item.farmersmarket.rabbitpendant": "Lucky Rabbit necklace",
+  "item.farmersmarket.goatpendant": "Mountain Goat Necklace",
 
   "item.farmersmarket.goldenring": "Golden Ring",
   "item.farmersmarket.brutering": "Piglin Enforcer Ring",
@@ -110,5 +110,7 @@
   "itemgroup.farmers_cosmetics": "Farmer's Market Cosmetic upgrades",
 
   "farmersmarket.midnightconfig.calciumenabled":"Calcium Enchant Enabled?",
-  "farmersmarket.midnightconfig.title":"Farmers Market Config"
+  "farmersmarket.midnightconfig.title":"Farmers Market Config",
+
+  "attribute.name.generic.farmersmarket.enderman":"Hydrophobic"
 }

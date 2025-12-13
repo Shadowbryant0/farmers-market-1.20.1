@@ -1,8 +1,9 @@
 {
   "replace": false,
   "values": [
-    "farmersmarket:rabbitpendent",
-    "farmersmarket:goatpendent",
-    "farmersmarket:humanpendent"
+    "farmersmarket:rabbitpendant",
+    "farmersmarket:goatpendant",
+    "farmersmarket:humanpendant",
+    "farmersmarket:enderman_pendant"
   ]
 }

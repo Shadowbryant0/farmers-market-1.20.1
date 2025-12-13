@@ -34,6 +34,8 @@ public class ModItemGroups {
                         entries.add(ModItems.WYRM_SPEAR);
                         //entries.add(ModItems.TOOTHPICK);
                         entries.add(ModItems.GAYSCYTHE);
+                        //entries.add(ModItems.PIRATESABER);
+                        entries.add(ModItems.TEST);
 
                         entries.add(ModItems.RABBITPENDENT);
                         entries.add(ModItems.GOATPENDENT);
@@ -41,6 +43,8 @@ public class ModItemGroups {
                         entries.add(ModItems.TURTLERING);
                         entries.add(ModItems.BRUTERING);
                         entries.add(ModItems.GOLDENRING);
+                        entries.add(ModItems.PHANTOMRING);
+                        entries.add(ModItems.ENDERMAN_PENDENT);
 
                         entries.add(ModItems.SLIVER_FLESH);
                         entries.add(ModItems.FBOOK);

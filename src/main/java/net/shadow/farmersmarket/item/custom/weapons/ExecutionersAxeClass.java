@@ -20,20 +20,18 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.components.Weapons.BloodHoundChargeComponent;
 import net.shadow.farmersmarket.item.materials.BloodMat;
 
 import java.util.List;
 
 public class ExecutionersAxeClass extends AxeItem {
-    private static final int COOLDOWN_TICKS = 100;
-    private static final String CHARGE_KEY = "charge";
-    private static final int MAX_CHARGE = 100;
-    private static final int QUARTER_CHARGE = 25;
 
     public ExecutionersAxeClass(Item.Settings settings) {
         super(BloodMat.INSTANCE, 5, -3.1F, settings);
     }
 
+    private static final int COOLDOWN_TICKS = 100;
 // right click pulls entity closer and applies weakness
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -44,8 +42,8 @@ public class ExecutionersAxeClass extends AxeItem {
                 return super.use(world, user, hand);
             } else {
 
-                    if (getCharge(stack) >= MAX_CHARGE) {
-                        stack.getOrCreateNbt().putInt(CHARGE_KEY, 0);
+                    if (BloodHoundChargeComponent.BLOOD >= BloodHoundChargeComponent.MAX_BLOOD) {
+                        BloodHoundChargeComponent.UseAltBLOOD();
                         // Sweep radius (like Sweeping Edge)
                         Vec3d attackerPos = user.getPos();
                         double radius = 7.5;
@@ -98,11 +96,8 @@ public class ExecutionersAxeClass extends AxeItem {
             World world = user.getWorld();
             if (!world.isClient) {
                 if (!user.getItemCooldownManager().isCoolingDown(this)) {
-                    if (getCharge(stack) >= QUARTER_CHARGE) {
-                        int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                        int Quarter = (int) (25);
-                        charge = Math.min(charge - Quarter, MAX_CHARGE);
-                        stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+                    if (BloodHoundChargeComponent.BLOOD>= BloodHoundChargeComponent.QUARTER_BLOOD) {
+                        BloodHoundChargeComponent.UseBLOOD();
 
 
                         entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
@@ -128,7 +123,7 @@ public class ExecutionersAxeClass extends AxeItem {
             }
         }else {
             if (!user.getItemCooldownManager().isCoolingDown(this)) {
-            if(getCharge(stack) >= MAX_CHARGE){
+            if(BloodHoundChargeComponent.BLOOD>= BloodHoundChargeComponent.MAX_BLOOD){
                 if(user.isSneaking()){
             entity.setOnFireFor(2);
             entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
@@ -162,10 +157,7 @@ public class ExecutionersAxeClass extends AxeItem {
 
 
         if (!attacker.getWorld().isClient) {
-                int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                int gain = (int) (10);
-                charge = Math.min(charge + gain, MAX_CHARGE);
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+            BloodHoundChargeComponent.IncrementCharge();
                 return super.postHit(stack, target, attacker);
 
         }
@@ -178,13 +170,12 @@ public class ExecutionersAxeClass extends AxeItem {
     // === Durability bar as charge indicator ===
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        return getCharge(stack) > 0;
+        return true;
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        int charge = getCharge(stack);
-            return Math.round((float) charge / MAX_CHARGE * 13); // full bar = max charge
+            return Math.round((float) BloodHoundChargeComponent.BLOOD / BloodHoundChargeComponent.MAX_BLOOD * 13); // full bar = max charge
 
     }
 
@@ -204,7 +195,4 @@ public class ExecutionersAxeClass extends AxeItem {
     }
 
 
-    private int getCharge(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt(CHARGE_KEY);
-    }
 }

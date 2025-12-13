@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "farmersmarket:item/humanpendentv2"
+    "layer0": "farmersmarket:item/goatpendant"
   }
 }
