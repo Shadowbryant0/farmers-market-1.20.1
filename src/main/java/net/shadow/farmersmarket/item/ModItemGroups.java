@@ -45,6 +45,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLDENRING);
                         entries.add(ModItems.PHANTOMRING);
                         entries.add(ModItems.ENDERMAN_PENDENT);
+                        entries.add(ModItems.BLAZEIDOL);
 
                         entries.add(ModItems.SLIVER_FLESH);
                         entries.add(ModItems.FBOOK);

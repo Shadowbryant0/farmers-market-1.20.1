@@ -7,7 +7,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.item.components.Weapons.BowChargeComponent;
+import net.shadow.farmersmarket.components.Weapons.BowChargeComponent;
 import net.shadow.farmersmarket.item.materials.Greatmat;
 
 public class TestingBow extends SwordItem {

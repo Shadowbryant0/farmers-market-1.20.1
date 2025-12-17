@@ -1,4 +1,4 @@
-package net.shadow.farmersmarket.item.trinkets;
+package net.shadow.farmersmarket.item.trinkets.endstuff;
 
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;

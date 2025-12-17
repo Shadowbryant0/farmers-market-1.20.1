@@ -5,9 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.custom.weapons.ExecutionersAxeClass;
+import net.shadow.farmersmarket.item.custom.weapons.ExecutionersAxeItem;
 
-public class DevilSkin extends ExecutionersAxeClass {
+public class DevilSkin extends ExecutionersAxeItem {
     public DevilSkin(Settings settings) {
         super(settings);
     }

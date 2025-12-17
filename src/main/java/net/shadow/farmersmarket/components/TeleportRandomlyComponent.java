@@ -1,15 +1,12 @@
-package net.shadow.farmersmarket.item.components;
+package net.shadow.farmersmarket.components;
 
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.shadow.farmersmarket.FarmersMarket;
-import net.shadow.farmersmarket.item.trinkets.EnderManPendent;
+import net.shadow.farmersmarket.item.trinkets.endstuff.EnderManPendent;
 
 public class TeleportRandomlyComponent implements Component, CommonTickingComponent, AutoSyncedComponent {
     public final PlayerEntity player;
@@ -37,7 +34,7 @@ public static boolean enderman = false;
             if(!(player.getAbilities().invulnerable)) {
                 if (player.isWet()) {
                     this.teleportRandomly();
-                    player.damage(player.getDamageSources().drown(), 1);
+                    RainDamageComponent.RainCounter(1);
                 }
             }
         }

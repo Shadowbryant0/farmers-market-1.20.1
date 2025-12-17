@@ -5,8 +5,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.shadow.farmersmarket.item.custom.weapons.RapierWeaponItem;
-import net.shadow.farmersmarket.item.custom.weapons.RustedSickle;
+import net.shadow.farmersmarket.item.custom.weapons.RustedSickleItem;
 
 public class Rusted extends Enchantment {
 
@@ -49,7 +48,7 @@ public class Rusted extends Enchantment {
             return 1F;
     }
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof RustedSickle;
+        return stack.getItem() instanceof RustedSickleItem;
 
     }
 }

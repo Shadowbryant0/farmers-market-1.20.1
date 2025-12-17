@@ -7,7 +7,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -19,15 +18,15 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.components.Weapons.BloodHoundChargeComponent;
 import net.shadow.farmersmarket.item.materials.BloodMat;
 
 import java.util.List;
 
-public class ExecutionersAxeClass extends AxeItem {
+public class ExecutionersAxeItem extends AxeItem {
 
-    public ExecutionersAxeClass(Item.Settings settings) {
+    public ExecutionersAxeItem(Item.Settings settings) {
         super(BloodMat.INSTANCE, 5, -3.1F, settings);
     }
 
@@ -42,8 +41,8 @@ public class ExecutionersAxeClass extends AxeItem {
                 return super.use(world, user, hand);
             } else {
 
-                    if (BloodHoundChargeComponent.BLOOD >= BloodHoundChargeComponent.MAX_BLOOD) {
-                        BloodHoundChargeComponent.UseAltBLOOD();
+                    if (WeaponChargeComponent.BLOOD >= WeaponChargeComponent.MAX_BLOOD) {
+                        WeaponChargeComponent.UseBLOOD(100);
                         // Sweep radius (like Sweeping Edge)
                         Vec3d attackerPos = user.getPos();
                         double radius = 7.5;
@@ -96,8 +95,8 @@ public class ExecutionersAxeClass extends AxeItem {
             World world = user.getWorld();
             if (!world.isClient) {
                 if (!user.getItemCooldownManager().isCoolingDown(this)) {
-                    if (BloodHoundChargeComponent.BLOOD>= BloodHoundChargeComponent.QUARTER_BLOOD) {
-                        BloodHoundChargeComponent.UseBLOOD();
+                    if (WeaponChargeComponent.BLOOD>= WeaponChargeComponent.QUARTER_BLOOD) {
+                        WeaponChargeComponent.UseBLOOD(25);
 
 
                         entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
@@ -123,7 +122,7 @@ public class ExecutionersAxeClass extends AxeItem {
             }
         }else {
             if (!user.getItemCooldownManager().isCoolingDown(this)) {
-            if(BloodHoundChargeComponent.BLOOD>= BloodHoundChargeComponent.MAX_BLOOD){
+            if(WeaponChargeComponent.BLOOD>= WeaponChargeComponent.MAX_BLOOD){
                 if(user.isSneaking()){
             entity.setOnFireFor(2);
             entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
@@ -157,7 +156,7 @@ public class ExecutionersAxeClass extends AxeItem {
 
 
         if (!attacker.getWorld().isClient) {
-            BloodHoundChargeComponent.IncrementCharge();
+            WeaponChargeComponent.IncrementBLOOD(10);
                 return super.postHit(stack, target, attacker);
 
         }
@@ -175,7 +174,7 @@ public class ExecutionersAxeClass extends AxeItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-            return Math.round((float) BloodHoundChargeComponent.BLOOD / BloodHoundChargeComponent.MAX_BLOOD * 13); // full bar = max charge
+            return Math.round((float) WeaponChargeComponent.BLOOD / WeaponChargeComponent.MAX_BLOOD * 13); // full bar = max charge
 
     }
 

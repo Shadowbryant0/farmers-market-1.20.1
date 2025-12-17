@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "farmersmarket:blaze_idol"
+    }
+  ],
+  "result": {
+    "item": "farmersmarket:egg_shards"
+  }
+}

@@ -2,13 +2,11 @@ package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -18,19 +16,17 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.components.Weapons.GreatSwordChargeComponent;
 import net.shadow.farmersmarket.item.materials.Greatmat;
 
 import java.util.List;
-import java.util.Objects;
 
-public class GreatswordClass extends SwordItem {
+public class GreatswordItem extends SwordItem {
     private static final int COOLDOWN_TICKS = 200;
     //  right click is fast short dash that slams into enemies (custom stun effect)
-    public GreatswordClass(Item.Settings settings) {
+    public GreatswordItem(Item.Settings settings) {
         super(Greatmat.INSTANCE, 3, -2.6F, settings);
     }
 
@@ -42,19 +38,19 @@ public class GreatswordClass extends SwordItem {
         ItemStack stack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
         if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Shout, stack) == 0) {
-            if(GreatSwordChargeComponent.GREAT>= GreatSwordChargeComponent.TWO_THREE_GREAT) {
+            if(WeaponChargeComponent.GREAT>= WeaponChargeComponent.TWO_THREE_GREAT) {
 
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 60, 2));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 100, 0));
-                GreatSwordChargeComponent.UseGREAT();
+                WeaponChargeComponent.UseGREAT(100);
             }
             return TypedActionResult.consume(stack);
         }else{
             if (!world.isClient) {
-                if (GreatSwordChargeComponent.GREAT>= GreatSwordChargeComponent.MAX_GREAT) {
+                if (WeaponChargeComponent.GREAT>= WeaponChargeComponent.MAX_GREAT) {
 
                     Vec3d attackerPos = user.getPos();
-                    GreatSwordChargeComponent.UseAltGREAT();
+                    WeaponChargeComponent.UseGREAT(150);
                     // Sweep radius (like Sweeping Edge)
                     double radius = 2.5;
                     Box box = new Box(
@@ -117,7 +113,7 @@ public class GreatswordClass extends SwordItem {
 
         if (!attacker.getWorld().isClient) {
 
-                GreatSwordChargeComponent.IncrementCharge();
+                WeaponChargeComponent.IncrementGREAT(13);
                 return super.postHit(stack, target, attacker);
 
         }
@@ -134,7 +130,7 @@ public class GreatswordClass extends SwordItem {
     @Override
     public int getItemBarStep(ItemStack stack) {
 
-            return Math.round((float) GreatSwordChargeComponent.GREAT / GreatSwordChargeComponent.MAX_GREAT * 13); // full bar = max charge
+            return Math.round((float) WeaponChargeComponent.GREAT / WeaponChargeComponent.MAX_GREAT * 13); // full bar = max charge
 
     }
 

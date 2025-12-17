@@ -1,6 +1,5 @@
 package net.shadow.farmersmarket.enchantments.Pickaxe;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -10,7 +9,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
-import net.shadow.farmersmarket.item.custom.weapons.RustedSickle;
 
 public class Forging extends Enchantment {
 

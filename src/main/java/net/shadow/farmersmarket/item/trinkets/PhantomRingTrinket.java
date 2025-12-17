@@ -11,6 +11,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Pair;
+import net.shadow.farmersmarket.FarmersMarket;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -33,6 +34,7 @@ public class PhantomRingTrinket extends TrinketItem {
         modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid, "farmersmarket:toughness", 0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         // -10% luck
         modifiers.put(EntityAttributes.GENERIC_LUCK, new EntityAttributeModifier(uuid, "farmersmarket:luck", -0.2, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        modifiers.put(FarmersMarket.PHANTOM, new EntityAttributeModifier(uuid, "farmersmarket:enderman", 1, EntityAttributeModifier.Operation.ADDITION));
         return modifiers;
 
     }

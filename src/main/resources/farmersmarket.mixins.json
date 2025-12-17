@@ -3,6 +3,9 @@
   "package": "net.shadow.farmersmarket.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AdaptAttackMixin",
+    "AdaptPlayerMixin",
+    "DamagePlayerMixin",
     "EnchantmentHelperMixin",
     "ExampleMixin",
     "FireRenderMixin",
@@ -14,11 +17,11 @@
     "JagerDamageMixin",
     "LavaWader",
     "ModelLoaderMixin",
-    "ParryDamagePlayerMixin",
     "PiglinBruteEntityMixin",
     "PlayerDropsMixin",
     "StarvationkilMixin",
     "StarvationMixin",
+    "SweepingEdgeMixinMixin",
     "Crossbow.ShockwaveMixin"
   ],
   "injectors": {

@@ -1,17 +1,18 @@
 package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.shadow.farmersmarket.item.materials.ExcalatrowlMats;
 
-public class BoopStick extends SwordItem {
+public class BoopStick extends AxeItem {
     public BoopStick(Settings settings) {
         super(ExcalatrowlMats.INSTANCE, 3, -2.5F, settings);
     }
 
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         stack.decrement(1);

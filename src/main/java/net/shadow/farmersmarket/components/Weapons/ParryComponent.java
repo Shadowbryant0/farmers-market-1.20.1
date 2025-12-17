@@ -1,4 +1,4 @@
-package net.shadow.farmersmarket.item.components.Weapons;
+package net.shadow.farmersmarket.components.Weapons;
 
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;

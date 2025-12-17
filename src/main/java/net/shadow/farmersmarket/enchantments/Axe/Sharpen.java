@@ -2,13 +2,10 @@ package net.shadow.farmersmarket.enchantments.Axe;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.shadow.farmersmarket.item.custom.weapons.BeardedAxe;
-import net.shadow.farmersmarket.item.custom.weapons.ExecutionersAxeClass;
+import net.shadow.farmersmarket.item.custom.weapons.BeardedAxeItem;
 
 public class Sharpen extends Enchantment {
 
@@ -51,7 +48,7 @@ public class Sharpen extends Enchantment {
             return 2F;
     }
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof BeardedAxe;
+        return stack.getItem() instanceof BeardedAxeItem;
 
     }
 

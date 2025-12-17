@@ -4,9 +4,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.shadow.farmersmarket.item.custom.weapons.GreatswordClass;
+import net.shadow.farmersmarket.item.custom.weapons.GreatswordItem;
 
-public class MainswordClass  extends GreatswordClass {
+public class MainswordClass  extends GreatswordItem {
     public MainswordClass(Item.Settings settings) {
         super(settings);
     }

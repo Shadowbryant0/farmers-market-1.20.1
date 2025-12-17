@@ -1,4 +1,4 @@
-package net.shadow.farmersmarket.item.components.Weapons;
+package net.shadow.farmersmarket.components.Weapons;
 
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
@@ -13,9 +13,8 @@ public ItemStack stack;
     public BowChargeComponent(PlayerEntity player) {
         this.player = player;
     }
-    public static int CHARGE = 0;
-    public static int MAX_CHARGE = 100;
-    static int charge = 0;
+    public static int RELOAD = 0;
+    public static int MAX_RELOAD = 100;
     static int arrow = 0;
     public static int ARROW = 0;
 
@@ -24,25 +23,25 @@ public ItemStack stack;
 
     @Override
     public void readFromNbt(NbtCompound nbtCompound) {
-        CHARGE = nbtCompound.getInt("charge");
+        RELOAD = nbtCompound.getInt("reload");
         ARROW = nbtCompound.getInt("arrows");
     }
 
     @Override
     public void writeToNbt(NbtCompound nbtCompound) {
-        nbtCompound.putInt("charge", CHARGE);
+        nbtCompound.putInt("reload", RELOAD);
         nbtCompound.putInt("arrows", ARROW);
     }
 
     @Override
     public void tick() {
 
-        if(CHARGE >= MAX_CHARGE) {
-            CHARGE = Math.min(CHARGE - 100, 100);
+        if(RELOAD >= MAX_RELOAD) {
+            RELOAD = Math.min(RELOAD - 100, 100);
             ARROW = Math.min(ARROW + 1, ARROW_MAX);
 
         }else {
-            CHARGE++;
+            RELOAD++;
         }
 
     }
@@ -50,8 +49,8 @@ public ItemStack stack;
         ARROW = Math.min(ARROW - 1, ARROW_MAX);
     }
 
-    private static int getCharge() {
-        return charge;
+    private static int getRELOAD() {
+        return RELOAD;
     }
     public static int getItemBarStep() {
         return Math.round((float) arrow / ARROW_MAX * 13); // full bar = max charge

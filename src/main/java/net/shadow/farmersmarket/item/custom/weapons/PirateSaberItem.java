@@ -6,13 +6,13 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.item.components.Weapons.ParryComponent;
+import net.shadow.farmersmarket.components.Weapons.ParryComponent;
 import net.shadow.farmersmarket.item.materials.SaberMat;
 
-public class PirateSaber extends SwordItem {
+public class PirateSaberItem extends SwordItem {
 
     private static final int COOLDOWN_TICKS = 40;
-    public PirateSaber(Settings settings) {
+    public PirateSaberItem(Settings settings) {
 
         super(SaberMat.INSTANCE, 2, -2.3F, settings);
     }

@@ -1,8 +1,6 @@
 package net.shadow.farmersmarket.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.loader.FabricLoader;
-import net.minecraft.item.FireChargeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.StewItem;
 import net.minecraft.registry.Registries;
@@ -13,8 +11,9 @@ import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.*;
 import net.shadow.farmersmarket.item.trinkets.*;
+import net.shadow.farmersmarket.item.trinkets.endstuff.BlazeIdolTrinket;
+import net.shadow.farmersmarket.item.trinkets.endstuff.EnderManPendent;
 import net.shadow.farmersmarket.item.trinkets.endstuff.Ender_Crown;
-import net.shadow.farmersmarket.mixin.GreatBreakMobMixin;
 
 public class ModItems {
 
@@ -58,32 +57,32 @@ public class ModItems {
             new RapierWeaponItem(new FabricItemSettings().fireproof()));
 
     public static final Item RUSTEDSICKLE = registerItem("rustedsickle",
-            new RustedSickle(new FabricItemSettings().fireproof()));
+            new RustedSickleItem(new FabricItemSettings().fireproof()));
 
     public static final Item BLOODHOUNDAXE = registerItem("bloodhoundaxe",
-            new ExecutionersAxeClass(new FabricItemSettings().fireproof()));
+            new ExecutionersAxeItem(new FabricItemSettings().fireproof()));
     public static final Item DEVIL_AXE = registerItem("devil_axe",
             new DevilSkin(new FabricItemSettings().fireproof()));
 
     public static final Item BEARDED_AXE = registerItem("bearded_axe",
-            new BeardedAxe(new FabricItemSettings().fireproof()));
+            new BeardedAxeItem(new FabricItemSettings().fireproof()));
 
     public static final Item WYRM_SPEAR = registerItem("wyrm_spear",
-            new WyrmSpear(new FabricItemSettings().fireproof()));
+            new WyrmSpearItem(new FabricItemSettings().fireproof()));
 
     public static final Item GREATSWORD = registerItem("greatsword",
-            new GreatswordClass(new FabricItemSettings().fireproof()));
+            new GreatswordItem(new FabricItemSettings().fireproof()));
 
     public static final Item MAINSWORD = registerItem("mainsword",
             new MainswordClass(new FabricItemSettings().fireproof()));
     public static final Item ALTSWORD = registerItem("altsword",
-            new GreatswordClass(new FabricItemSettings().fireproof()));
+            new GreatswordItem(new FabricItemSettings().fireproof()));
 
 
     public static final Item PIRATESABER = registerItem("piratesaber",
-            new PirateSaber(new FabricItemSettings().maxCount(1).fireproof()));
+            new PirateSaberItem(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item HEXSPADE = registerItem("hexspade",
-            new AceofSpadesClass(new FabricItemSettings().fireproof()));
+            new AceofSpadesItem(new FabricItemSettings().fireproof()));
 
     public static final Item BOOP = registerItem("boop",
             new BoopStick(new FabricItemSettings().fireproof()));
@@ -114,6 +113,8 @@ public class ModItems {
             new Ender_Crown(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item ENDERMAN_PENDENT= registerItem("enderman_pendant",
             new EnderManPendent(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item BLAZEIDOL= registerItem("blaze_idol",
+            new BlazeIdolTrinket(new FabricItemSettings().maxCount(1).fireproof()));
 
     public static final Item FBOOK = registerItem("fbook",
             new Fbook(new FabricItemSettings().maxCount(1)));

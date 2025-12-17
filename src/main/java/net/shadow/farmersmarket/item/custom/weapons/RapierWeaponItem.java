@@ -20,8 +20,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.HitResult;
@@ -29,8 +27,8 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.components.Weapons.RapierChargeComponent;
 import net.shadow.farmersmarket.item.materials.RapierMat;
 import com.google.common.collect.Multimap;
 
@@ -70,8 +68,8 @@ public class RapierWeaponItem extends SwordItem {
                 if (!(world instanceof ServerWorld serverWorld)) {
                     return super.use(world, user, hand);
                 }
-                if (RapierChargeComponent.RAPIER >= RapierChargeComponent.MAX_RAPIER) {
-                    RapierChargeComponent.UseRapier();
+                if (WeaponChargeComponent.RAPIER >= WeaponChargeComponent.MAX_RAPIER) {
+                    WeaponChargeComponent.UseRapier(100);
                     user.setVelocity(
                             lookingDirection.x * boost,
                             lookingDirection.y * boost * 0.6f,
@@ -120,8 +118,8 @@ public class RapierWeaponItem extends SwordItem {
                 if (!(world instanceof ServerWorld serverWorld)) {
                     return super.use(world, user, hand);
                 }
-                    if (RapierChargeComponent.RAPIER >= RapierChargeComponent.HALF_RAPIER) {
-                        RapierChargeComponent.UseAltRapier();
+                    if (WeaponChargeComponent.RAPIER >= WeaponChargeComponent.HALF_RAPIER) {
+                        WeaponChargeComponent.UseRapier(50);
                         user.setVelocity(
                                    (lookingDirection.x * boost *.75),
                                 (lookingDirection.y * boost *.75) * 0.6f,
@@ -185,7 +183,7 @@ public class RapierWeaponItem extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = attacker.getWorld();
         if (!attacker.getWorld().isClient) {
-            RapierChargeComponent.IncrementCharge();
+            WeaponChargeComponent.IncrementRapier(10);
 
         }
         return super.postHit(stack, target, attacker);
@@ -201,7 +199,7 @@ public class RapierWeaponItem extends SwordItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        return Math.round((float) RapierChargeComponent.RAPIER / RapierChargeComponent.MAX_RAPIER * 13); // full bar = max charge
+        return Math.round((float) WeaponChargeComponent.RAPIER / WeaponChargeComponent.MAX_RAPIER * 13); // full bar = max charge
     }
 
     @Override

@@ -1,18 +1,12 @@
 package net.shadow.farmersmarket.item.custom.weapons;
 
-import dev.emi.trinkets.TrinketSlot;
-import dev.emi.trinkets.api.TrinketEnums;
-import dev.emi.trinkets.api.TrinketInventory;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -24,23 +18,21 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.materials.BloodMat;
+import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingHoeItem;
 import net.shadow.farmersmarket.item.materials.SickleMat;
-import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.List;
 
-public class RustedSickle extends HoeItem {
-    private static final String CHARGE_KEY = "charge";
-    private static final int MAX_CHARGE = 100;
+public class RustedSickleItem extends SweepingHoeItem {
 
     final double RANGE = 20;
     final float BASE_DAMAGE = 10;
 
     final float SWEEP_DAMAGE = 3;
 
-    public RustedSickle(Item.Settings settings) {
+    public RustedSickleItem(Item.Settings settings) {
         super(SickleMat.INSTANCE, 1, -2.4F, settings);
     }
 
@@ -51,11 +43,8 @@ public class RustedSickle extends HoeItem {
         ItemStack stack = user.getStackInHand(hand);
         if (EnchantmentHelper.getEquipmentLevel(FarmersMarketEnchants.Rusted, user) > 0) {
             if (!(world instanceof ServerWorld serverWorld)) return super.use(world, user, hand);
-            if(getCharge(stack) >= MAX_CHARGE- (MAX_CHARGE/2)) {
-                int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                int rust = (int) (MAX_CHARGE/2);
-                charge = Math.min(charge - rust, MAX_CHARGE);
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+            if(WeaponChargeComponent.SICKLE>= WeaponChargeComponent.HALF_SICKLE) {
+                WeaponChargeComponent.UseSICKLE(50);
             var hit = world.raycast(new RaycastContext(
                     origin, end,
                     RaycastContext.ShapeType.COLLIDER,
@@ -96,13 +85,9 @@ public class RustedSickle extends HoeItem {
         }
         else {
             if (!world.isClient) {
-                if (getCharge(stack) >= (MAX_CHARGE / 2)) {
+                if (WeaponChargeComponent.SICKLE>= WeaponChargeComponent.HALF_SICKLE) {
                     Vec3d attackerPos = user.getPos();
-
-                    int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                    int rust = (int) (MAX_CHARGE / 2);
-                    charge = Math.min(charge - rust, MAX_CHARGE);
-                    stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+                    WeaponChargeComponent.UseSICKLE(50);
                     // Sweep radius (like Sweeping Edge)
                     double radius = 2.5;
                     Box box = new Box(
@@ -138,39 +123,30 @@ public class RustedSickle extends HoeItem {
     }
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.getHolder();
         if (!attacker.getWorld().isClient) {
-            int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-            int gain = (int) (20);
-            charge = Math.min(charge + gain, MAX_CHARGE);
-            stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+            WeaponChargeComponent.IncrementSICKLE(10);
 
         }
-        FarmersmarketUtil.sweepingEdge(target, attacker, SWEEP_DAMAGE, false);
+
         return super.postHit(stack, target, attacker);
     }
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        return getCharge(stack) > 0;
+        return true;
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        int charge = getCharge(stack);
-        return Math.round((float) charge / MAX_CHARGE * 13); // full bar = max charge
+        return Math.round((float) WeaponChargeComponent.SICKLE / WeaponChargeComponent.MAX_SICKLE * 13); // full bar = max charge
     }
 
     @Override
     public int getItemBarColor(ItemStack stack) {
         // Glows between gold → magenta → red as it fills
-        float ratio = (float) getCharge(stack) / MAX_CHARGE;
         int red = (int) (183);
         int blue = (int) (14);
         int green = (int) (65);
         return (red << 16) | (green << 8) | blue; // RGB mix
-    }
-    private int getCharge(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt(CHARGE_KEY);
     }
 
 }

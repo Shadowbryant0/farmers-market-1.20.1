@@ -7,8 +7,7 @@ import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.shadow.farmersmarket.item.custom.weapons.ExecutionersAxeClass;
-import net.shadow.farmersmarket.item.custom.weapons.RapierWeaponItem;
+import net.shadow.farmersmarket.item.custom.weapons.ExecutionersAxeItem;
 
 public class Inferno extends Enchantment {
 
@@ -51,7 +50,7 @@ public class Inferno extends Enchantment {
             return 1F;
     }
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof ExecutionersAxeClass;
+        return stack.getItem() instanceof ExecutionersAxeItem;
 
     }
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {

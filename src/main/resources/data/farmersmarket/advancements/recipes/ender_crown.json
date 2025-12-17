@@ -28,7 +28,9 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:ender_crown"
+      "farmersmarket:ender_crown",
+      "farmersmarket:enderman_pendant",
+      "farmersmarket:blaze_idol"
     ]
   },
   "show_notification": true

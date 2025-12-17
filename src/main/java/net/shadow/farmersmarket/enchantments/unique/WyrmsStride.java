@@ -2,11 +2,9 @@ package net.shadow.farmersmarket.enchantments.unique;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.shadow.farmersmarket.item.custom.weapons.RustedSickle;
-import net.shadow.farmersmarket.item.custom.weapons.WyrmSpear;
+import net.shadow.farmersmarket.item.custom.weapons.WyrmSpearItem;
 
 public class WyrmsStride extends Enchantment {
 
@@ -46,7 +44,7 @@ public class WyrmsStride extends Enchantment {
 
 
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof WyrmSpear;
+        return stack.getItem() instanceof WyrmSpearItem;
 
     }
 }

@@ -2,6 +2,7 @@ package net.shadow.farmersmarket.item.custom.weapons;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
@@ -10,20 +11,14 @@ import net.minecraft.entity.MovementType;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Vanishable;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -34,29 +29,34 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingItem;
 import net.shadow.farmersmarket.util.FMEnchantCheck;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.List;
+import java.util.UUID;
 
-public class WyrmSpear extends Item implements Vanishable {
+public class WyrmSpearItem extends SweepingItem {
 
     private static final int COOLDOWN_TICKS = 40;
-    private static final String CHARGE_KEY = "charge";
-    private static final int MAX_CHARGE = 100;
         public static final float ATTACK_DAMAGE = 8.0F;
 
     final float SWEEP_DAMAGE = 4;
     final double RANGE = 20;
     final float BASE_DAMAGE = 2;
+
+    protected static final UUID ATTACK_REACH_MODIFIER_ID = UUID.fromString("76a8dee3-3e7e-4e11-ba46-a19b0c724567");
+    protected static final UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
         private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
-        public WyrmSpear(Item.Settings settings) {
+        public WyrmSpearItem(Item.Settings settings) {
             super(settings);
             ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
             builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", (double)8.0F, EntityAttributeModifier.Operation.ADDITION));
             builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)-2.9F, EntityAttributeModifier.Operation.ADDITION));
+            builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)1F, EntityAttributeModifier.Operation.ADDITION));
             this.attributeModifiers = builder.build();
         }
 
@@ -81,7 +81,7 @@ public class WyrmSpear extends Item implements Vanishable {
                 int i = this.getMaxUseTime(stack) - remainingUseTicks;
                 if (i >= 10) {
 
-                    if (playerEntity.getFireTicks() >0 || playerEntity.isInLava()) {
+                    if (WeaponChargeComponent.FIRE>0) {
 
 
                             float f = playerEntity.getYaw();
@@ -119,7 +119,8 @@ public class WyrmSpear extends Item implements Vanishable {
             ItemStack itemStack = user.getStackInHand(hand);
             int j = FMEnchantCheck.getWyrmStride(itemStack);
             if (j > 0) {
-            if ((user.isOnFire()) || user.isInLava()) {
+
+            if (WeaponChargeComponent.FIRE>0) {
                 user.setCurrentHand(hand);
                 return TypedActionResult.consume(itemStack);
             } else {
@@ -132,11 +133,8 @@ public class WyrmSpear extends Item implements Vanishable {
                 ItemStack stack = user.getStackInHand(hand);
                 if (EnchantmentHelper.getEquipmentLevel(FarmersMarketEnchants.WyrmStride, user) == 0) {
                     if (!(world instanceof ServerWorld serverWorld)) return super.use(world, user, hand);
-                    if(getCharge(stack) >= (MAX_CHARGE/5)) {
-                        int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-                        int rust = (int) (MAX_CHARGE/5);
-                        charge = Math.min(charge - rust, MAX_CHARGE);
-                        stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+                    if(WeaponChargeComponent.WYRM>=WeaponChargeComponent.FIFTH_WYRM) {
+                        WeaponChargeComponent.UseWYRM(20);
                         var hit = world.raycast(new RaycastContext(
                                 origin, end,
                                 RaycastContext.ShapeType.COLLIDER,
@@ -203,45 +201,39 @@ public class WyrmSpear extends Item implements Vanishable {
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if(FMEnchantCheck.getWyrmStride(stack)>0){
-            if(getCharge(stack)==MAX_CHARGE){
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, 0);
+            if(WeaponChargeComponent.WYRM>=WeaponChargeComponent.MAX_WYRM){
+                WeaponChargeComponent.UseWYRM(100);
                 target.setOnFireFor(10);
             }
 
         }
 
         if (!attacker.getWorld().isClient) {
-            int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-            int gain = (int) (10);
-            charge = Math.min(charge + gain, MAX_CHARGE);
-            stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+            WeaponChargeComponent.IncrementWYRM(10);
 
         }
-        FarmersmarketUtil.sweepingEdge(target, attacker, SWEEP_DAMAGE, false);
         return super.postHit(stack, target, attacker);
     }
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        return getCharge(stack) > 0;
+        return true;
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        int charge = getCharge(stack);
-        return Math.round((float) charge / MAX_CHARGE * 13); // full bar = max charge
+            if(WeaponChargeComponent.FIRE>0){
+                return Math.round((float) WeaponChargeComponent.FIRE / 200 * 13); // full bar = max charge
+            }
+        return Math.round((float) WeaponChargeComponent.WYRM / WeaponChargeComponent.MAX_WYRM * 13); // full bar = max charge
     }
 
     @Override
     public int getItemBarColor(ItemStack stack) {
         // Glows between gold → magenta → red as it fills
-        float ratio = (float) getCharge(stack) / MAX_CHARGE;
         int red = (int) (255);
         int blue = (int) (0);
         int green = (int) (32);
         return (red << 16) | (green << 8) | blue; // RGB mix
-    }
-    private int getCharge(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt(CHARGE_KEY);
     }
 
     @Override

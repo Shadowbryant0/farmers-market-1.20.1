@@ -28,7 +28,9 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:egg_shards"
+      "farmersmarket:egg_shards",
+      "farmersmarket:egg_shards1",
+      "farmersmarket:enderman_to_shards"
     ]
   },
   "show_notification": true

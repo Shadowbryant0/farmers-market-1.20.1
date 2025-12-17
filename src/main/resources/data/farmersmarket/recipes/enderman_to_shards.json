@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "farmersmarket:enderman_pendant"
+    }
+  ],
+  "result": {
+    "item": "farmersmarket:egg_shards2"
+  }
+}

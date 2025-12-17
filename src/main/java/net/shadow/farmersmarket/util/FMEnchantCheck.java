@@ -10,6 +10,9 @@ public class FMEnchantCheck extends EnchantmentHelper {
     public static int getLavaWader(LivingEntity entity) {
         return getEquipmentLevel(FarmersMarketEnchants.LavaWader, entity);
     }
+    public static int getAdapting(LivingEntity entity) {
+        return getLevel(FarmersMarketEnchants.ADAPTABILITY, entity.getEquippedStack(EquipmentSlot.HEAD));
+    }
     public static int getWyrmStride(ItemStack itemStack) {
         return getLevel(FarmersMarketEnchants.WyrmStride, itemStack);
     }

@@ -71,12 +71,24 @@ public class Fbook extends BookItem {
 
 
 
-                    this.playInsertSound(player);
-                    itemStack.addEnchantment(FarmersMarketEnchants.LavaWader, 1);
+                this.playInsertSound(player);
+                itemStack.addEnchantment(FarmersMarketEnchants.LavaWader, 1);
 
-                    stack.decrement(1);
+                stack.decrement(1);
 
-                    player.damage(player.getDamageSources().wither(),8);
+                player.damage(player.getDamageSources().wither(),8);
+
+            }if (EnchantmentTarget.ARMOR_HEAD.isAcceptableItem(item)){
+
+
+
+
+                this.playInsertSound(player);
+                itemStack.addEnchantment(FarmersMarketEnchants.ADAPTABILITY, 1);
+
+                stack.decrement(1);
+
+                player.damage(player.getDamageSources().wither(),8);
 
             }
             if (itemStack.getItem() instanceof PickaxeItem || itemStack.getItem() instanceof ShovelItem) {

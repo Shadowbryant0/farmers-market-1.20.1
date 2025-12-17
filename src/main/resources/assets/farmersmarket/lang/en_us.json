@@ -65,6 +65,10 @@
   "item.farmersmarket.egg_bundle3": "Bundle of Egg shards",
   "item.farmersmarket.egg_shards": "Shards of the Dragon Egg",
 
+  "item.farmersmarket.enderman_pendant": "Eye of Ender, Bound By Fate",
+  "item.farmersmarket.phantomring": "Phantom Shrouding Ring",
+  "item.farmersmarket.blaze_idol": "Idol of the Blaze King",
+
   "item.farmersmarket.tide": "Stormy Wind Chimes",
   "item.farmersmarket.cleansing_stone": "Restoring Whetstone",
 
@@ -112,5 +116,7 @@
   "farmersmarket.midnightconfig.calciumenabled":"Calcium Enchant Enabled?",
   "farmersmarket.midnightconfig.title":"Farmers Market Config",
 
-  "attribute.name.generic.farmersmarket.enderman":"Hydrophobic"
+  "attribute.name.generic.farmersmarket.enderman":"Hydrophobic",
+  "attribute.name.generic.farmersmarket.blaze":"Blaze Born",
+  "attribute.name.generic.farmersmarket.phantom":"Shroud"
 }

@@ -5,12 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.predicate.entity.DamageSourcePredicate;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -19,29 +14,29 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingAxeItem;
 import net.shadow.farmersmarket.item.materials.BeardedMat;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.List;
 
-public class BeardedAxe extends AxeItem {
-    private static final String CHARGE_KEY = "charge";
-    private static final int MAX_CHARGE = 100;
+public class BeardedAxeItem extends SweepingAxeItem {
     private static final int FULL_CHARGE_TICKS = 60; // 2 seconds
 
-    public BeardedAxe(Settings settings) {
-        super(BeardedMat.INSTANCE, 5, -2.5F, settings);
+    public BeardedAxeItem(Settings settings) {
+        super(BeardedMat.INSTANCE, 5, -3F, settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
             ItemStack stack = user.getStackInHand(hand);
             if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Sharpen, stack) == 0){
-            if(getCharge(stack) < MAX_CHARGE){
+            if(WeaponChargeComponent.BEARDED < WeaponChargeComponent.MAX_BEARDED){
                 return super.use(world, user, hand);
             }else{
-            stack.getOrCreateNbt().putInt(CHARGE_KEY, 0);
+                WeaponChargeComponent.UseBEARDED(100);
             Vec3d attackerPos = user.getPos();
 
             // Sweep radius (like Sweeping Edge)
@@ -90,7 +85,7 @@ public class BeardedAxe extends AxeItem {
 
         if (!world.isClient) {
             if (usedTicks >= FULL_CHARGE_TICKS ) {
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, 100);
+                WeaponChargeComponent.IncrementBEARDED(100);
                 this.playInsertSound(world, user);
             }
         }
@@ -101,22 +96,17 @@ public class BeardedAxe extends AxeItem {
     final float SWEEP_DAMAGE = 5;
                 @Override
     public boolean postHit(net.minecraft.item.ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                    FarmersmarketUtil.sweepingEdge(target, attacker, SWEEP_DAMAGE, false);
+
         if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Sharpen, stack) == 0){
         if (!attacker.getWorld().isClient) {
-            int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-            int gain = (int) (20);
-            charge = Math.min(charge + gain, MAX_CHARGE);
-            stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
+            WeaponChargeComponent.IncrementBEARDED(10);
             stack.damage(1, attacker, e -> {});
         }
         }else{
-            int charge = stack.getOrCreateNbt().getInt(CHARGE_KEY);
-            int damage = (int) (10);
-            if(charge-damage >=0) {
-                charge = Math.min(charge - damage, MAX_CHARGE);
-                stack.getOrCreateNbt().putInt(CHARGE_KEY, charge);
-                target.damage(target.getDamageSources().mobAttack(attacker), 5);
+
+            if((WeaponChargeComponent.BEARDED - 10)<=0) {
+                WeaponChargeComponent.UseBEARDED(10);
+                target.damage(target.getDamageSources().playerAttack((PlayerEntity) attacker), 5);
             }
 
 
@@ -131,26 +121,20 @@ if(FarmersmarketUtil.isCritical(target)){
 }
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        return getCharge(stack) > 0;
+        return true;
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        int charge = getCharge(stack);
-        return Math.round((float) charge / MAX_CHARGE * 13); // full bar = max charge
+        return Math.round((float) WeaponChargeComponent.BEARDED / WeaponChargeComponent.MAX_BEARDED * 13); // full bar = max charge
     }
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        // Glows between gold → magenta → red as it fills
-        float ratio = (float) getCharge(stack) / MAX_CHARGE;
         int red = (int) (108);
         int blue = (int) (170);
         int green = (int) (59);
         return (red << 16)| (green << 8) | blue; // RGB mix
-    }
-    private int getCharge(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt(CHARGE_KEY);
     }
     private void playInsertSound(World world, LivingEntity user) {
         world.playSound(null, user.getX(), user.getY(), user.getZ(),

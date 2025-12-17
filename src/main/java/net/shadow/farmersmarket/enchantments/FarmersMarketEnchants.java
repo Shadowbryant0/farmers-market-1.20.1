@@ -65,6 +65,8 @@ public class FarmersMarketEnchants {
 
     public static final Enchantment WyrmStride = register("wyrmstride",
             new WyrmsStride());
+    public static final Enchantment ADAPTABILITY = register("adaptability",
+            new WyrmsStride());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

@@ -5,8 +5,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.shadow.farmersmarket.item.custom.weapons.GreatswordClass;
-import net.shadow.farmersmarket.item.custom.weapons.RapierWeaponItem;
+import net.shadow.farmersmarket.item.custom.weapons.GreatswordItem;
 
 public class Shout extends Enchantment {
 
@@ -49,7 +48,7 @@ public class Shout extends Enchantment {
             return 1.5F;
     }
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof GreatswordClass;
+        return stack.getItem() instanceof GreatswordItem;
 
     }
 }

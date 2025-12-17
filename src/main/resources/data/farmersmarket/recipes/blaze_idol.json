@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "P": {
+      "item": "minecraft:blaze_powder"
+    },
+    "C": {
+      "item": "farmersmarket:egg_shards"
+    },
+    "B": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "PCP",
+    "BCB",
+    "BBB"
+  ],
+  "result": {
+    "item": "farmersmarket:blaze_idol"
+  },
+  "show_notification": true
+}

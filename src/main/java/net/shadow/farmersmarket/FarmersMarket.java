@@ -26,7 +26,9 @@ public class FarmersMarket implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static final String MOD_ID2 = "farmersmarket";
 
-    public static final EntityAttribute ENDERMAN = make("enderman", 0.0, 0, 1);
+    public static final EntityAttribute ENDERMAN = make("enderman", 0.0, 0, 4);
+    public static final EntityAttribute BLAZE = make("blaze", 0.0, 0, 4);
+    public static final EntityAttribute PHANTOM = make("phantom", 0.0, 0, 4);
 
 
     private static EntityAttribute make(final String name, final double base, final double min, final double max) {
@@ -49,6 +51,8 @@ public class FarmersMarket implements ModInitializer {
 		FuelRegistry.INSTANCE.add(ModItems.FIRE_STARTER, 7200);
 
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "enderman"), ENDERMAN);
+        Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "blaze"), BLAZE);
+        Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "phantom"), PHANTOM);
 
 	}
 }
