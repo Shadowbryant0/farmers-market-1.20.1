@@ -91,7 +91,7 @@ public class FarmersmarketUtil {
     }
     // beserk - enchancement by MoriyaShiine
     public static boolean isCritical(LivingEntity user) {
-        return (user.getVelocity().getY()) <= 0;
+        return (user.getVelocity().getY()) < 0;
     }
 
 //    public static void sweepingEdge(LivingEntity target, LivingEntity attacker, float damage, boolean knockback){

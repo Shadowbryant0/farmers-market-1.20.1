@@ -32,7 +32,7 @@ public static boolean enderman = false;
     public void tick() {
         if(EnderManPendent.isWearingTrinket(player)) {
             if(!(player.getAbilities().invulnerable)) {
-                if (player.isWet()) {
+                if (player.isWet()) {//if wearing the trinket, and is not invincible, AND in water, you tp randomly
                     this.teleportRandomly();
                     RainDamageComponent.RainCounter(1);
                 }
@@ -45,7 +45,7 @@ public static boolean enderman = false;
             return false;
         }
         double d = player.getX() + (player.getRandom().nextDouble() - 0.5) * 8.0;
-        double e = player.getY();
+        double e = player.getY(); // set so you don't go into - 100 below bedrock
         double f = player.getZ() + (player.getRandom().nextDouble() - 0.5) * 8.0;
         player.teleport(d, e, f);
         return true;

@@ -38,10 +38,8 @@ public static int BLAZE = 0;
             if(player.isWet()){
                 RainDamageComponent.RainCounter(1);
             }
-            if(player.getFireTicks() >0|| player.isInLava()) {
-                if(FIRE<=19) {
-                    FIRE++;
-                }
+            if(player.isOnFire()|| player.isInLava()) {
+                FIRE = Math.min(FIRE +1, FIRE_MAX);
             }else {
                 FIRE = Math.max(FIRE - 1, 0);
             }

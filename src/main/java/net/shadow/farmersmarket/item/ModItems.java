@@ -53,6 +53,8 @@ public class ModItems {
     public static final Item DAGRIONSKIN = registerItem("scarlet_rapier",
             new DagrionRapier(new FabricItemSettings().fireproof()));
 
+    public static final Item CHARGE_ALL = registerItem("chargeall",
+            new MaxCharge(new FabricItemSettings().fireproof().maxCount(1)));
     public static final Item RAPIER = registerItem("rapier",
             new RapierWeaponItem(new FabricItemSettings().fireproof()));
 

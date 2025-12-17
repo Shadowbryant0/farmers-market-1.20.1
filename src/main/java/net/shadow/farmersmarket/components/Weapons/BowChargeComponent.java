@@ -46,12 +46,9 @@ public ItemStack stack;
 
     }
     public static void minusArrow(){
-        ARROW = Math.min(ARROW - 1, ARROW_MAX);
+        ARROW = Math.max(ARROW - 1, 0);
     }
 
-    private static int getRELOAD() {
-        return RELOAD;
-    }
     public static int getItemBarStep() {
         return Math.round((float) arrow / ARROW_MAX * 13); // full bar = max charge
     }

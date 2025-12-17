@@ -47,11 +47,11 @@ public class BeardedAxeItem extends SweepingAxeItem {
             );
 
             List<LivingEntity> nearby = world.getEntitiesByClass(LivingEntity.class, box,
-                    e -> e != user);
+                    e -> e != user);// excludes the user
 
             for (LivingEntity entity : nearby) {
-                entity.velocityModified = true;
-                entity.addVelocity(0,1,0);
+                entity.velocityModified = true; // targets other players
+                entity.addVelocity(0,1,0);// uppies
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 10, 0)); // optional visual feedback
             }
                 world.playSound(null, user.getX(), user.getY(), user.getZ(),
@@ -114,11 +114,11 @@ public class BeardedAxeItem extends SweepingAxeItem {
     // Regular axe damage
 
 
-if(FarmersmarketUtil.isCritical(target)){
-    target.damage(target.getDamageSources().mobAttack(attacker), 10);
-}
+            if(FarmersmarketUtil.isCritical(target)){
+                target.damage(target.getDamageSources().mobAttack(attacker), 10); // falling enemies take more damage
+            }
         return super.postHit(stack, target, attacker);
-}
+    }
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
         return true;

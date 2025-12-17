@@ -27,7 +27,7 @@ import java.util.List;
 
 public class RustedSickleItem extends SweepingHoeItem {
 
-    final double RANGE = 20;
+    final double RANGE = 10;
     final float BASE_DAMAGE = 10;
 
     final float SWEEP_DAMAGE = 3;

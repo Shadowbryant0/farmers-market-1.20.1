@@ -34,13 +34,13 @@ public ItemStack stack;
     @Override
     public void tick() {
         if(player.isWet()){
-            if(RAIN>=RAIN_MAX){
-                RAIN = Math.max(RAIN - RAIN_MAX, 0);
+            if(RAIN>=RAIN_MAX){//when RAIN == 100
+                RAIN = Math.max(RAIN - RAIN_MAX, 0);// it goes back down to 0
 
-                DROWN = Math.min(DROWN + 1, DROWN_MAX);
+                DROWN = Math.min(DROWN + 1, DROWN_MAX);// and DROWN gets a +1
             }
 
-            player.damage(player.getDamageSources().drown(), (DROWN));
+            player.damage(player.getDamageSources().drown(), (DROWN));// for every stack of DROWN, you take damage in water
             return;
         }
 
@@ -48,6 +48,7 @@ public ItemStack stack;
             RAIN--;
 
         }
+        //to remove drown, you need to be OUT of water, taking the pendant off does NOTHING
         if(RAIN==0 && DROWN>0) {
             RAIN = RAIN_MAX;
             DROWN = Math.max(DROWN - 1, 0);
@@ -57,7 +58,7 @@ public ItemStack stack;
 
     public static void RainCounter(int value) {
 
-        RAIN = Math.min(RAIN + value, RAIN_MAX);
+        RAIN = Math.min(RAIN + value, RAIN_MAX);//when you are wearing blaze or enderman, and in water/rain, this increases every tick (20 a second)
         return;
     }
 

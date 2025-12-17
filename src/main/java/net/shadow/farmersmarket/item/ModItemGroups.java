@@ -97,6 +97,8 @@ public class ModItemGroups {
                         entries.add(ModItems.ALTSWORD);
                         entries.add(ModItems.MAINSWORD);
 
+                        entries.add(ModItems.CHARGE_ALL);
+
 
 
                     }).build());

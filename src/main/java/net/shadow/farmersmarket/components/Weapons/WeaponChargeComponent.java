@@ -98,6 +98,15 @@ public ItemStack stack;
         BEARDED = Math.min(BEARDED - value, MAX_BEARDED);
     }
 
+    public static void ChargeAll() {
+        WYRM = MAX_WYRM;
+        SPADE = MAX_SPADE;
+        SICKLE = MAX_SICKLE;
+        RAPIER = MAX_RAPIER;
+        GREAT = MAX_GREAT;
+        BLOOD = MAX_BLOOD;
+        BEARDED = MAX_BEARDED;
+    }
     public static void IncrementBEARDED(int value){
         BEARDED = Math.min(BEARDED + value, MAX_BEARDED);
     }
