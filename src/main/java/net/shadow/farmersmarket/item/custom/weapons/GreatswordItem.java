@@ -19,7 +19,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.materials.Greatmat;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class GreatswordItem extends SwordItem {
     private static final int COOLDOWN_TICKS = 200;
     //  right click is fast short dash that slams into enemies (custom stun effect)
     public GreatswordItem(Item.Settings settings) {
-        super(Greatmat.INSTANCE, 3, -2.6F, settings);
+        super(WeaponMaterials.GREAT, 3, -2.6F, settings);
     }
 
 

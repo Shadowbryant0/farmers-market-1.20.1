@@ -2,8 +2,6 @@ package net.shadow.farmersmarket.item.custom.weapons;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -13,7 +11,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.HitResult;
@@ -24,7 +21,7 @@ import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingShovelItem;
-import net.shadow.farmersmarket.item.materials.ExcalatrowlMats;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class AceofSpadesItem extends SweepingShovelItem {
     private static final int COOLDOWN_TICKS = 240;
 
     public AceofSpadesItem(Settings settings) {
-        super(ExcalatrowlMats.INSTANCE, 1.5F, -2.5F, settings);
+        super(WeaponMaterials.ACE, 1.5F, -2.5F, settings);
     }
 
     final double RANGE = 10;

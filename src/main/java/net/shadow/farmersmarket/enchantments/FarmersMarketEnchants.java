@@ -46,6 +46,7 @@ public class FarmersMarketEnchants {
     public static final Enchantment Rusted = register("rusted",
             new Rusted());
 
+
     public static final Enchantment Starvation = register("starvation",
             new Starvation());
     public static final Enchantment Devouring = register("devouring",

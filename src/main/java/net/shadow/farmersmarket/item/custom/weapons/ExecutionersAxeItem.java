@@ -20,14 +20,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.materials.BloodMat;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 import java.util.List;
 
 public class ExecutionersAxeItem extends AxeItem {
 
     public ExecutionersAxeItem(Item.Settings settings) {
-        super(BloodMat.INSTANCE, 5, -3.1F, settings);
+        super(WeaponMaterials.BLOOD, 5, -3.1F, settings);
     }
 
     private static final int COOLDOWN_TICKS = 100;

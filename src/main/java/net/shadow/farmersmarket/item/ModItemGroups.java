@@ -36,8 +36,10 @@ public class ModItemGroups {
                         entries.add(ModItems.GAYSCYTHE);
                         //entries.add(ModItems.PIRATESABER);
                         entries.add(ModItems.TEST);
-                        entries.add(ModItems.KNUCKLEMAIN);
-                        entries.add(ModItems.KNUCKLEOFF);
+                        entries.add(ModItems.KNUCKLEIRONMAIN);
+                        entries.add(ModItems.KNUCKLEIRONOFF);
+                        entries.add(ModItems.KNUCKLENETHERITEMAIN);
+                        entries.add(ModItems.KNUCKLENETHERITEOFF);
 
                         entries.add(ModItems.RABBITPENDENT);
                         entries.add(ModItems.GOATPENDENT);

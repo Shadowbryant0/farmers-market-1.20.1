@@ -12,6 +12,7 @@ import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterOffhandhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.*;
+import net.shadow.farmersmarket.item.materials.KnucklesLevel;
 import net.shadow.farmersmarket.item.trinkets.*;
 import net.shadow.farmersmarket.item.trinkets.endstuff.BlazeIdolTrinket;
 import net.shadow.farmersmarket.item.trinkets.endstuff.EnderManPendent;
@@ -82,10 +83,14 @@ public class ModItems {
     public static final Item ALTSWORD = registerItem("altsword",
             new GreatswordItem(new FabricItemSettings().fireproof()));
 
-    public static final Item KNUCKLEMAIN = registerItem("knucklemain",
-            new KnuckledusterMainhandItem(new FabricItemSettings().fireproof().maxCount(1)));
-    public static final Item KNUCKLEOFF = registerItem("knuckleoff",
-            new KnuckledusterOffhandhandItem(new FabricItemSettings().fireproof().maxCount(1)));
+    public static final Item KNUCKLEIRONMAIN = registerItem("knuckleironmain",
+            new KnuckledusterMainhandItem(KnucklesLevel.IRON, 4,new FabricItemSettings().fireproof().maxCount(1)));
+    public static final Item KNUCKLEIRONOFF = registerItem("knuckleironoff",
+            new KnuckledusterOffhandhandItem(KnucklesLevel.IRON, 4, new FabricItemSettings().fireproof().maxCount(1)));
+    public static final Item KNUCKLENETHERITEMAIN = registerItem("knucklenetheritemain",
+            new KnuckledusterMainhandItem(KnucklesLevel.NETHERITE, 4,new FabricItemSettings().fireproof().maxCount(1)));
+    public static final Item KNUCKLENETHERITEOFF = registerItem("knucklenetheriteoff",
+            new KnuckledusterOffhandhandItem(KnucklesLevel.NETHERITE, 4, new FabricItemSettings().fireproof().maxCount(1)));
 
 
     public static final Item PIRATESABER = registerItem("piratesaber",

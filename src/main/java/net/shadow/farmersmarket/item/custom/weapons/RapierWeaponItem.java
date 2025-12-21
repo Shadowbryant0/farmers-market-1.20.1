@@ -29,8 +29,8 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.item.materials.RapierMat;
 import com.google.common.collect.Multimap;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 
 import java.util.List;
@@ -48,7 +48,7 @@ public class RapierWeaponItem extends SwordItem {
     protected static final UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
     public RapierWeaponItem(Settings settings) {
-        super(RapierMat.INSTANCE, 6, -2.2F, settings);
+        super(WeaponMaterials.RAPIER, 6, -2.2F, settings);
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", -2.2, Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", 6, Operation.ADDITION));

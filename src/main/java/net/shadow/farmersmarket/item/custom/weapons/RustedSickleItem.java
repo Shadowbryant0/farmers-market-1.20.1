@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingHoeItem;
-import net.shadow.farmersmarket.item.materials.SickleMat;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class RustedSickleItem extends SweepingHoeItem {
     final float SWEEP_DAMAGE = 3;
 
     public RustedSickleItem(Item.Settings settings) {
-        super(SickleMat.INSTANCE, 1, -2.4F, settings);
+        super(WeaponMaterials.SICKLE, 1, -2.4F, settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

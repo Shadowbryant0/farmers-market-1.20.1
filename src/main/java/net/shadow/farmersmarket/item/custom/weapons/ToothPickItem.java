@@ -15,7 +15,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.item.materials.ToothPickMat;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.UUID;
@@ -26,7 +26,7 @@ public class ToothPickItem extends PickaxeItem {
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     public ToothPickItem(Settings settings) {
-        super(ToothPickMat.INSTANCE, 3, -1.7f, settings);
+        super(WeaponMaterials.NETHERITE, 3, -1.7f, settings);
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", -1.9F, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", 5, EntityAttributeModifier.Operation.ADDITION));

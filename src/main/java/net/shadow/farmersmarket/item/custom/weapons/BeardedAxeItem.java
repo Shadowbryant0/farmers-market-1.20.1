@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingAxeItem;
-import net.shadow.farmersmarket.item.materials.BeardedMat;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class BeardedAxeItem extends SweepingAxeItem {
     private static final int FULL_CHARGE_TICKS = 60; // 2 seconds
 
     public BeardedAxeItem(Settings settings) {
-        super(BeardedMat.INSTANCE, 5, -3F, settings);
+        super(WeaponMaterials.BEARDED, 5, -3F, settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

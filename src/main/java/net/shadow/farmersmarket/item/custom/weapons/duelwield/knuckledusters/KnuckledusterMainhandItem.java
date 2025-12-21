@@ -15,23 +15,27 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.KnuckleDusterComponent;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.item.materials.KnucklesLevel;
 import net.shadow.farmersmarket.util.FMEnchantCheck;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.UUID;
 
-public class KnuckledusterMainhandItem extends Item {
+public class KnuckledusterMainhandItem extends KnucklesCommon {
 
+    private final float attackDamage;
+    private final float attackSpeed;
     protected static final UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
     protected static final UUID ATTACK_REACH_MODIFIER_ID = UUID.fromString("76a8dee3-3e7e-4e11-ba46-a19b0c724567");
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-    public KnuckledusterMainhandItem(Settings settings) {
+    public KnuckledusterMainhandItem(KnucklesLevel knucklesLevel, float attackDamage, Settings settings) {
         super(settings);
-
+        this.attackDamage = attackDamage + knucklesLevel.getAttackDamage();
+        this.attackSpeed = (float) (-3 + knucklesLevel.getAttackSpeed());
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", (double)7.0F, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)-2.9F, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", (double)this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)this.attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3, EntityAttributeModifier.Operation.ADDITION));
         builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
@@ -78,5 +82,8 @@ public class KnuckledusterMainhandItem extends Item {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable("tooltip.farmersmarket.knuckleduster_mainhand"));
         super.appendTooltip(stack, world, tooltip, context);
+    }
+    public boolean isDamageable() {
+        return true;
     }
 }

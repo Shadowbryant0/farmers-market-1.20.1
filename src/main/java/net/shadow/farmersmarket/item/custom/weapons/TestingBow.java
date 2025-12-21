@@ -8,13 +8,13 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.BowChargeComponent;
-import net.shadow.farmersmarket.item.materials.Greatmat;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 public class TestingBow extends SwordItem {
     public int charged;
     public int charged_max = 20;
     public TestingBow(Settings settings) {
-        super(Greatmat.INSTANCE, 3, -2.6F, settings);
+        super(WeaponMaterials.GREAT, 3, -2.6F, settings);
     }
 
     public void writeToNbt(NbtCompound nbtCompound) {

@@ -7,14 +7,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.ParryComponent;
-import net.shadow.farmersmarket.item.materials.SaberMat;
+import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 public class PirateSaberItem extends SwordItem {
 
     private static final int COOLDOWN_TICKS = 40;
     public PirateSaberItem(Settings settings) {
 
-        super(SaberMat.INSTANCE, 2, -2.3F, settings);
+        super(WeaponMaterials.SABER, 2, -2.3F, settings);
     }
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ParryComponent.ParryAction();

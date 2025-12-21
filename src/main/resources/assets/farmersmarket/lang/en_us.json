@@ -14,8 +14,10 @@
   "item.farmersmarket.greatsword": "Greatsword",
   "item.farmersmarket.altsword": "Greatsword",
 
-  "item.farmersmarket.knucklemain": "'kali' stick (mainhand)",
-  "item.farmersmarket.knuckleoff": "'kali' stick (offhand)",
+  "item.farmersmarket.knuckleironmain": "'kali' stick (mainhand)",
+  "item.farmersmarket.knuckleironoff": "'kali' stick (offhand)",
+  "item.farmersmarket.knucklenetheritemain": "flaming 'kali' stick (mainhand)",
+  "item.farmersmarket.knucklenetheriteoff": "flaming 'kali' stick (offhand)",
   "tooltip.farmersmarket.knuckleduster_offhand": "Used in your OffHand",
   "tooltip.farmersmarket.knuckleduster_mainhand": "Used in your mainhand",
 
