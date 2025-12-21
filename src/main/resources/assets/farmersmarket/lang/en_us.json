@@ -14,6 +14,11 @@
   "item.farmersmarket.greatsword": "Greatsword",
   "item.farmersmarket.altsword": "Greatsword",
 
+  "item.farmersmarket.knucklemain": "'kali' stick (mainhand)",
+  "item.farmersmarket.knuckleoff": "'kali' stick (offhand)",
+  "tooltip.farmersmarket.knuckleduster_offhand": "Used in your OffHand",
+  "tooltip.farmersmarket.knuckleduster_mainhand": "Used in your mainhand",
+
   "item.farmersmarket.mainsword": "REQUIEM",
 
   "item.farmersmarket.bloodhoundaxe": "BloodHound Axe",

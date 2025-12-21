@@ -9,6 +9,8 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
+import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
+import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterOffhandhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.*;
 import net.shadow.farmersmarket.item.trinkets.*;
 import net.shadow.farmersmarket.item.trinkets.endstuff.BlazeIdolTrinket;
@@ -80,6 +82,11 @@ public class ModItems {
     public static final Item ALTSWORD = registerItem("altsword",
             new GreatswordItem(new FabricItemSettings().fireproof()));
 
+    public static final Item KNUCKLEMAIN = registerItem("knucklemain",
+            new KnuckledusterMainhandItem(new FabricItemSettings().fireproof().maxCount(1)));
+    public static final Item KNUCKLEOFF = registerItem("knuckleoff",
+            new KnuckledusterOffhandhandItem(new FabricItemSettings().fireproof().maxCount(1)));
+
 
     public static final Item PIRATESABER = registerItem("piratesaber",
             new PirateSaberItem(new FabricItemSettings().maxCount(1).fireproof()));
@@ -117,6 +124,8 @@ public class ModItems {
             new EnderManPendent(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item BLAZEIDOL= registerItem("blaze_idol",
             new BlazeIdolTrinket(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item BLINDFOLD= registerItem("blindfold",
+            new BlindfoldOfSightItem(new FabricItemSettings().maxCount(1).fireproof()));
 
     public static final Item FBOOK = registerItem("fbook",
             new Fbook(new FabricItemSettings().maxCount(1)));

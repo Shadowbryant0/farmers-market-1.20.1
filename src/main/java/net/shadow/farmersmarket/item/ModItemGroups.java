@@ -36,6 +36,8 @@ public class ModItemGroups {
                         entries.add(ModItems.GAYSCYTHE);
                         //entries.add(ModItems.PIRATESABER);
                         entries.add(ModItems.TEST);
+                        entries.add(ModItems.KNUCKLEMAIN);
+                        entries.add(ModItems.KNUCKLEOFF);
 
                         entries.add(ModItems.RABBITPENDENT);
                         entries.add(ModItems.GOATPENDENT);
@@ -46,6 +48,7 @@ public class ModItemGroups {
                         entries.add(ModItems.PHANTOMRING);
                         entries.add(ModItems.ENDERMAN_PENDENT);
                         entries.add(ModItems.BLAZEIDOL);
+                        entries.add(ModItems.BLINDFOLD);
 
                         entries.add(ModItems.SLIVER_FLESH);
                         entries.add(ModItems.FBOOK);

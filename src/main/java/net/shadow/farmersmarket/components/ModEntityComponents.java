@@ -4,10 +4,13 @@ import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.components.Armor.AdaptabilityComponent;
 import net.shadow.farmersmarket.components.Weapons.*;
+
+import java.security.Key;
 
 public class ModEntityComponents implements EntityComponentInitializer {
     public static final ComponentKey<BowChargeComponent> BOW_CHARGE = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "arrows"), BowChargeComponent.class);
@@ -17,6 +20,8 @@ public class ModEntityComponents implements EntityComponentInitializer {
     public static final ComponentKey<RainDamageComponent> DROWN = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "drown"), RainDamageComponent.class);
     public static final ComponentKey<AdaptabilityComponent> ADAPT = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "adapt"), AdaptabilityComponent.class);
     public static final ComponentKey<WeaponChargeComponent> CHARGE = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "charge"), WeaponChargeComponent.class);
+    public static final ComponentKey<BlindfoldComponent> BLIND = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "blind"), BlindfoldComponent.class);
+    public static final ComponentKey<KnuckleDusterComponent> KNUCKLE = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "knuckle"), KnuckleDusterComponent.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
@@ -27,5 +32,7 @@ public class ModEntityComponents implements EntityComponentInitializer {
         registry.registerFor(PlayerEntity.class, DROWN, player ->  new RainDamageComponent(player));
         registry.registerFor(PlayerEntity.class, ADAPT, player ->  new AdaptabilityComponent(player));
         registry.registerFor(PlayerEntity.class, CHARGE, player ->  new WeaponChargeComponent(player));
+        registry.registerFor(PlayerEntity.class, BLIND, player ->  new BlindfoldComponent(player));
+        registry.registerFor(PlayerEntity.class, KNUCKLE, player ->  new KnuckleDusterComponent(player));
     }
 }

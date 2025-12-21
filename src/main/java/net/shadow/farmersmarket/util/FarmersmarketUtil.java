@@ -161,11 +161,11 @@ public class FarmersmarketUtil {
 //            }
 //        }
 //    }
-    public static ItemStack getTrinket(LivingEntity livingEntity) {
+    public static ItemStack getTrinket(LivingEntity livingEntity, Item item) {
         Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(livingEntity);
         if (component.isPresent()) {
             for (Pair<SlotReference, ItemStack> pair : component.get().getAllEquipped()) {
-                if (pair.getRight().getItem() instanceof piglinBruteRing) {
+                if (pair.getRight().getItem() instanceof Item) {
                     return pair.getRight();
                 }
             }
@@ -177,6 +177,7 @@ public class FarmersmarketUtil {
     //sourced by kirro
     //on the rattiest gang discord server
      //thanks!
+
 }
 
 

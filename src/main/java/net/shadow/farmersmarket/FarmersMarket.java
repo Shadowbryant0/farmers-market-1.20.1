@@ -10,6 +10,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.block.ModBlocks;
+import net.shadow.farmersmarket.effects.ModEffects;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.event.ForgingEnchantEvent;
 import net.shadow.farmersmarket.event.ScytheHarvestEvent;
@@ -27,6 +28,7 @@ public class FarmersMarket implements ModInitializer {
     public static final String MOD_ID2 = "farmersmarket";
 
     public static final EntityAttribute ENDERMAN = make("enderman", 0.0, 0, 4);
+    public static final EntityAttribute TRUESIGHT = make("truesight", 0.0, 0, 4);
     public static final EntityAttribute BLAZE = make("blaze", 0.0, 0, 4);
     public static final EntityAttribute PHANTOM = make("phantom", 0.0, 0, 4);
 
@@ -49,10 +51,11 @@ public class FarmersMarket implements ModInitializer {
 		ForgingEnchantEvent.register();
 		FarmersMarketEnchants.registerModEnchantments();
 		FuelRegistry.INSTANCE.add(ModItems.FIRE_STARTER, 7200);
-
+        ModEffects.registerEffects();
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "enderman"), ENDERMAN);
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "blaze"), BLAZE);
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "phantom"), PHANTOM);
+        Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "truesight"), TRUESIGHT);
 
 	}
 }

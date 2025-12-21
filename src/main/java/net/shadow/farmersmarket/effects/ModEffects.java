@@ -10,8 +10,10 @@ import net.shadow.farmersmarket.FarmersMarket;
 
 public class ModEffects {
     //h
-    public static final StatusEffect INTERFERENCE = registerStatusEffect("Interference",
+    public static final StatusEffect INTERFERENCE = registerStatusEffect("interference",
             new InterferenceEffect(StatusEffectCategory.HARMFUL,0xa91101));
+    public static final StatusEffect TRUESIGHT = registerStatusEffect("truesight",
+            new TrueSightEffect(StatusEffectCategory.NEUTRAL,0xa91101));
 
 
     //hh

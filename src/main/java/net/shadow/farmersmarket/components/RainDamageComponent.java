@@ -6,6 +6,7 @@ import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.shadow.farmersmarket.item.trinkets.endstuff.Ender_Crown;
 
 public class RainDamageComponent implements Component, CommonTickingComponent, AutoSyncedComponent {
     public final PlayerEntity player;
@@ -33,6 +34,9 @@ public ItemStack stack;
 
     @Override
     public void tick() {
+        if(Ender_Crown.isWearingTrinket(player)){
+            RainCounter(2);
+        }
         if(player.isWet()){
             if(RAIN>=RAIN_MAX){//when RAIN == 100
                 RAIN = Math.max(RAIN - RAIN_MAX, 0);// it goes back down to 0
