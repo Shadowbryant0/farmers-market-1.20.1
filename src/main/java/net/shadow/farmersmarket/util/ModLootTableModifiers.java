@@ -45,6 +45,8 @@ private static final Identifier PLAYER_DROPS_ID =
             new Identifier("minecraft", "archaeology/trail_ruins_rare");
     private static final Identifier BAS_TRES_ID =
             new Identifier("minecraft", "chests/bastion_treasure");
+    private static final Identifier FISHING_ID =
+            new Identifier("minecraft", "gameplay/fishing/tresure");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, lootTableSource) -> {
@@ -80,6 +82,13 @@ if(PLAYER_DROPS_ID.equals(id)) {
                         .rolls(ConstantLootNumberProvider.create(1))
 
                         .with(ItemEntry.builder(ModItems.WYRM_SPEAR).conditionally(RandomChanceLootCondition.builder(.05f)));
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(FISHING_ID.equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(ModItems.WYRM_SPEAR).conditionally(RandomChanceLootCondition.builder(.025f)));
 
                 tableBuilder.pool(poolBuilder.build());
             }

@@ -32,7 +32,7 @@ public ItemStack stack;
     public void tick() {
 
         if(PARRY>0) {
-            PARRY = Math.min(PARRY - 1, PARRY_MAX);
+            PARRY = Math.max(PARRY - 1, 0);
         }
 
     }

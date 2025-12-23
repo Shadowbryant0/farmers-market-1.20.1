@@ -5,6 +5,7 @@
   "mixins": [
     "AdaptAttackMixin",
     "AdaptPlayerMixin",
+    "DamageEntityMixin",
     "DamagePlayerMixin",
     "EnchantmentHelperMixin",
     "ExampleMixin",

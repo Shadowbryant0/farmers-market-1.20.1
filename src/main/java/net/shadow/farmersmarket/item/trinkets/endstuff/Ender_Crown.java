@@ -35,7 +35,7 @@ public class Ender_Crown extends TrinketItem {
         modifiers.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(uuid, "farmersmarket:attackrange", 0.5, EntityAttributeModifier.Operation.ADDITION));
         // +10% attack damage
         modifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(uuid, "farmersmarket:attackdmg", 0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        modifiers.put(FarmersMarket.ENDERMAN, new EntityAttributeModifier(uuid, "farmersmarket:enderman", 1, EntityAttributeModifier.Operation.ADDITION));
+        modifiers.put(FarmersMarket.ENDERMAN, new EntityAttributeModifier(uuid, "farmersmarket:enderman", 2, EntityAttributeModifier.Operation.ADDITION));
         return modifiers;
 
     }

@@ -17,7 +17,7 @@ public ItemStack stack;
     public static int MAIN_SPECIAL = 0;
     public static int OFF = 0;
     public static int OFF_SPECIAL = 0;
-    public static int MAX_OFF = 40;
+    public static int MAX_OFF = 60;
 
 
     @Override

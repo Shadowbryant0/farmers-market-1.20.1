@@ -7,7 +7,6 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 
 public class ModSounds {
-    public static final SoundEvent MADE_TO_HATE_YOU = registerSoundEvent("made_to_hate_you");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(FarmersMarket.MOD_ID, name);

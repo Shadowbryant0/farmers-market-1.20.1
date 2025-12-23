@@ -1,5 +1,7 @@
 package net.shadow.farmersmarket.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -22,18 +24,32 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class DamagePlayerMixin {
 
 
+    @Shadow
+    public abstract boolean damage(DamageSource source, float amount);
+
     @Inject(
             at = @At("HEAD"), method = "isInvulnerableTo", cancellable = true)
     private void Parry(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
-        if(ParryComponent.PARRY >0) {
-            cir.setReturnValue(true);
-        }
+//        if(ParryComponent.PARRY >0) {
+//            cir.setReturnValue(true);
+//        }
         if(BlazeIdolComponent.BLAZE>0){
             if(damageSource.isIn(DamageTypeTags.IS_FIRE)) {
                 cir.setReturnValue(true);
             }
         }
     }
+}
+    @Mixin(LivingEntity.class)
+abstract class DamageEntityMixin{
+        @Inject(
+                at = @At(value = "TAIL"), method = "modifyAppliedDamage", cancellable = true)
+        private void parryPartial(DamageSource source, float amount, CallbackInfoReturnable<Float> cir) {
+            if (ParryComponent.PARRY > 0) {
+                amount = amount/3;
+                cir.setReturnValue(amount);
+            }
+        }
 }
 @Mixin(PlayerEntity.class)
 abstract class AdaptPlayerMixin{

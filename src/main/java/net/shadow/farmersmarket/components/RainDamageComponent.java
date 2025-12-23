@@ -34,10 +34,10 @@ public ItemStack stack;
 
     @Override
     public void tick() {
-        if(Ender_Crown.isWearingTrinket(player)){
-            RainCounter(2);
-        }
         if(player.isWet()){
+            if(Ender_Crown.isWearingTrinket(player)){
+                RainCounter(2);
+            }
             if(RAIN>=RAIN_MAX){//when RAIN == 100
                 RAIN = Math.max(RAIN - RAIN_MAX, 0);// it goes back down to 0
 
