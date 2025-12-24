@@ -15,6 +15,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -33,23 +34,24 @@ public class KnuckledusterOffhandhandItem extends KnucklesCommon {
 
     protected static final UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
     protected static final UUID ATTACK_REACH_MODIFIER_ID = UUID.fromString("76a8dee3-3e7e-4e11-ba46-a19b0c724567");
-    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+    private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers = null;
 
-    private final float attackDamage;
-    private final float attackspeed;
-    public KnuckledusterOffhandhandItem(KnucklesLevel knucklesLevel,float attackDamage, Settings settings) {
-        super(settings);
-        this.attackDamage = attackDamage + knucklesLevel.getAttackDamage();
-        this.attackspeed = (float) (-3+knucklesLevel.getAttackSpeed());
+    private static  int ATTACKDAMAGE;
+
+    public KnuckledusterOffhandhandItem(KnucklesLevel toolMaterial, int attackDamage, Settings settings) {
+        super(toolMaterial, -2, -3, settings);
+        ATTACKDAMAGE = (int) (attackDamage + toolMaterial.getAttackDamage());
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", (double)this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)this.attackspeed, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", (-2.4 + toolMaterial.getAttackSpeed()), EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", (attackDamage + toolMaterial.getAttackDamage()), EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.2F, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3F, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
+
     }
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
-        return slot == EquipmentSlot.OFFHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
+
+        return slot == EquipmentSlot.OFFHAND ? this.attributeModifiers : super.getAttributeModifiers(EquipmentSlot.FEET);
     }
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!user.getWorld().isClient) {
@@ -75,7 +77,7 @@ public class KnuckledusterOffhandhandItem extends KnucklesCommon {
             if (user.isInSneakingPose()) {
                 if (KnuckleDusterComponent.OFF_SPECIAL > 0) {
                     user.swingHand(Hand.OFF_HAND, true);
-                    entity.damage(entity.getDamageSources().playerAttack(user), (this.attackDamage +1.0f + (level - 1) * 0.5f));
+                    entity.damage(entity.getDamageSources().playerAttack(user), (this.ATTACKDAMAGE +1.0f + (level - 1) * 0.5f));
                     if(EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, stack)>0) {
                         entity.setOnFireFor(1);
                     }
@@ -92,7 +94,7 @@ public class KnuckledusterOffhandhandItem extends KnucklesCommon {
                 user.swingHand(Hand.OFF_HAND, true);
                 KnuckleDusterComponent.enableMainSpecial(40);
                 KnuckleDusterComponent.resetOffhand();
-                entity.damage(entity.getDamageSources().playerAttack(user), (this.attackDamage +1.0f + (level - 1) * 0.5f));
+                entity.damage(entity.getDamageSources().playerAttack(user), (this.ATTACKDAMAGE +1.0f + (level - 1) * 0.5f));
                 if(EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, stack)>0) {
                     entity.setOnFireFor(1);
                 }

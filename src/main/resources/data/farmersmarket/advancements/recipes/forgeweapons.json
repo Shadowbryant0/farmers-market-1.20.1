@@ -31,7 +31,9 @@
       "farmersmarket:greatsword",
       "farmersmarket:altsword",
       "farmersmarket:rapier",
-      "farmersmarket:sickle"
+      "farmersmarket:sickle",
+      "farmersmarket:netheriteknucklesmain",
+      "farmersmarket:netheriteknucklesoff"
     ]
   },
   "show_notification": true

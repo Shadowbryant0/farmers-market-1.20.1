@@ -12,8 +12,8 @@ public class KnucklesLevel implements ToolMaterial {
     // Your IDE should override the interface's methods for you, or at least shout at you to do so.
 
 
-    public static final KnucklesLevel IRON = new KnucklesLevel(MiningLevels.IRON, 250, 6.0f, .1,2.0f, 14, () -> Ingredient.ofItems(Items.IRON_INGOT));
-    public static final KnucklesLevel NETHERITE = new KnucklesLevel(MiningLevels.NETHERITE, 2031, 9.0f,.3, 4.0f, 15, () -> Ingredient.ofItems(Items.IRON_INGOT));
+    public static final KnucklesLevel IRON = new KnucklesLevel(MiningLevels.IRON, 250, 6.0f, .1,2.0f, 22, () -> Ingredient.ofItems(Items.IRON_INGOT));
+    public static final KnucklesLevel NETHERITE = new KnucklesLevel(MiningLevels.NETHERITE, 2031, 9.0f,.3, 4.0f, 22, () -> Ingredient.ofItems(Items.IRON_INGOT));
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;

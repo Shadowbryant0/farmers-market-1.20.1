@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "equipment",
   "ingredients": [
     {
@@ -7,6 +7,6 @@
     }
   ],
   "result": {
-    "item": "farmersmarket:egg_shards2"
+    "item": "farmersmarket:egg_shards"
   }
 }

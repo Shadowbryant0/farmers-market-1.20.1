@@ -4,6 +4,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameOverlayRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.effect.StatusEffects;
+import net.shadow.farmersmarket.item.trinkets.endstuff.BlazeIdolTrinket;
 import net.shadow.farmersmarket.util.FMEnchantCheck;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,7 +19,7 @@ public class FireRenderMixin {
 		@Inject(method = "renderFireOverlay", at = @At("HEAD"), cancellable = true)
 		private static void renderFireOverlay(MinecraftClient client, MatrixStack matrices, CallbackInfo ci) {
             assert client.player != null;
-            if ((client.player.isInLava()&& (FMEnchantCheck.getLavaWader(client.player)>0)) || (client.player.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)&& (FMEnchantCheck.getLavaWader(client.player)>0))) {
+            if ((client.player.isInLava()&& (FMEnchantCheck.getLavaWader(client.player)>0)) || (client.player.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)&& (FMEnchantCheck.getLavaWader(client.player)>0)) || (client.player.getOffHandStack().getItem() instanceof BlazeIdolTrinket)) {
 				ci.cancel();
 			}
 		}

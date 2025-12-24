@@ -14,6 +14,9 @@ import org.spongepowered.asm.mixin.injection.Constant;
 public class SweepingEdgeMixinMixin {
     @WrapOperation(method ="attack", constant = @Constant(classValue = SwordItem.class))
     private boolean SweepItems(Object object, Operation<Boolean> original) {
+        if(object instanceof SweeplessSword){
+            return false;
+        }
         return original.call(object) || (object instanceof SweepingHoeItem) || (object instanceof SweepingPickaxelItem) || (object instanceof SweepingAxeItem) || (object instanceof SweepingShovelItem) || (object instanceof SweepingItem) || (object instanceof FarmersScytheClass);
     }
 }

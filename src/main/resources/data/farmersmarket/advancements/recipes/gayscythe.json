@@ -28,7 +28,9 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:gayscythe"
+      "farmersmarket:gayscythe",
+      "farmersmarket:knuckledustersironmainhand",
+      "farmersmarket:knuckledustersironoffhand"
     ]
   },
   "sends_telemetry_event": true

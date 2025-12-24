@@ -158,7 +158,7 @@ class StarvationkilMixin {
 
 //@Mixin(LivingEntity.class)
 //abstract class LavaWader {
-//
+//old lavawader
 //    @Shadow
 //    protected abstract boolean shouldSwimInFluids();
 //
@@ -176,7 +176,7 @@ class StarvationkilMixin {
 //            @Local(name = "bl") boolean bl     // typically "onGround" or related; keep if present in your version
 //    ) {
 //
-//
+//wait, i don't think u have seen my warcrime bow, have u seen my warcrime bow?
 //        LivingEntity self = (LivingEntity) (Object) this;
 //
 //        boolean shouldRun =

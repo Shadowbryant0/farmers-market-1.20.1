@@ -23,24 +23,23 @@ import java.util.List;
 import java.util.UUID;
 
 public class KnuckledusterMainhandItem extends KnucklesCommon {
+    private static  int ATTACKDAMAGE;
+    private static  float ATTACKSPEED = 0;
+    protected static  UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
+    protected static  UUID ATTACK_REACH_MODIFIER_ID = UUID.fromString("76a8dee3-3e7e-4e11-ba46-a19b0c724567");
+    private  Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers = null;
 
-    private final float attackDamage;
-    private final float attackSpeed;
-    protected static final UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
-    protected static final UUID ATTACK_REACH_MODIFIER_ID = UUID.fromString("76a8dee3-3e7e-4e11-ba46-a19b0c724567");
-    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-    public KnuckledusterMainhandItem(KnucklesLevel knucklesLevel, float attackDamage, Settings settings) {
-        super(settings);
-        this.attackDamage = attackDamage + knucklesLevel.getAttackDamage();
-        this.attackSpeed = (float) (-3 + knucklesLevel.getAttackSpeed());
+    public KnuckledusterMainhandItem(KnucklesLevel toolMaterial, int attackDamage, Settings settings) {
+        super(toolMaterial, ATTACKDAMAGE, ATTACKSPEED, settings);
+        ATTACKDAMAGE = (int) (attackDamage + toolMaterial.getAttackDamage());
+        ATTACKSPEED = (int) (-2.9 + toolMaterial.getAttackSpeed());
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", (double)this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)this.attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", (-2.4 + toolMaterial.getAttackSpeed()), EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", (attackDamage + toolMaterial.getAttackDamage()), EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", (double)-0.2F, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", (double)-0.3F, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
-
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (!attacker.getWorld().isClient) {
             if (attacker.isInSneakingPose()) {
