@@ -22,6 +22,7 @@ public class ModEntityComponents implements EntityComponentInitializer {
     public static final ComponentKey<WeaponChargeComponent> CHARGE = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "charge"), WeaponChargeComponent.class);
     public static final ComponentKey<BlindfoldComponent> BLIND = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "blind"), BlindfoldComponent.class);
     public static final ComponentKey<KnuckleDusterComponent> KNUCKLE = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "knuckle"), KnuckleDusterComponent.class);
+    public static final ComponentKey<LegendaryChargeComponent> LEGENDARY = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "legendary"), LegendaryChargeComponent.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
@@ -34,5 +35,6 @@ public class ModEntityComponents implements EntityComponentInitializer {
         registry.registerFor(PlayerEntity.class, CHARGE, player ->  new WeaponChargeComponent(player));
         registry.registerFor(PlayerEntity.class, BLIND, player ->  new BlindfoldComponent(player));
         registry.registerFor(PlayerEntity.class, KNUCKLE, player ->  new KnuckleDusterComponent(player));
+        registry.registerFor(PlayerEntity.class, LEGENDARY, player ->  new LegendaryChargeComponent(player));
     }
 }

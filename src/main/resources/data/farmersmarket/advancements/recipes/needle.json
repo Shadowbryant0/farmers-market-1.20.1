@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:needle"
+      "farmersmarket:needle",
+      "farmersmarket:frostbite"
     ]
   },
   "show_notification": true

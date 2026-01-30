@@ -1,0 +1,25 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:piratesaber"
+    },
+    "title": "A Refined Blade",
+    "description": "Purify your blade",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+
+  },
+  "parent": "farmersmarket:advancements/craft_crudesaber",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:pirate_saber"
+      }
+
+
+    }
+  }
+}

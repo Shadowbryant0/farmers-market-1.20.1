@@ -1,4 +1,8 @@
 {
+  "item.farmersmarket.boop": "The BOOP stick",
+  "item.farmersmarket.crystalinemirror": "Crystaline Mirror",
+
+
   "item.farmersmarket.rapier": "Rapier",
 
   "item.farmersmarket.corruptedflesh": "Corrupted flesh",
@@ -6,6 +10,7 @@
 
   "item.farmersmarket.cold_steel": "Cold Steel",
   "item.farmersmarket.needle": "Silken Needle",
+  "item.farmersmarket.frostaxe": "Axe :)",
 
   "item.farmersmarket.vampire_tear": "Vampire's tear",
   "item.farmersmarket.scarlet_rapier": "Scarlet Rapier",
@@ -35,6 +40,9 @@
 
   "item.farmersmarket.bearded_axe": "Crystaline Axe",
   "item.farmersmarket.axe_head": "Ancient Axe Head",
+
+  "item.farmersmarket.crudesaber": "Impure saber",
+  "item.farmersmarket.piratesaber": "Pirate saber",
 
   "item.farmersmarket.wyrm_spear": "Wyrm rider's spear",
 
@@ -95,6 +103,7 @@
   "enchantment.farmersmarket.riposte": "Riposte",
   "enchantment.farmersmarket.shout": "Shout",
   "enchantment.farmersmarket.inferno": "Inferno",
+  "enchantment.farmersmarket.freezerburn": "Freezer Burn",
   "enchantment.farmersmarket.rusted": "Rusted",
   "enchantment.farmersmarket.sharpen": "§5Sharpen",
   "enchantment.farmersmarket.bracing": "Bracing",
@@ -113,6 +122,7 @@
   "enchantment.farmersmarket.riposte.desc": "Exchanges the Strong dash for a Shorter dash costing half of the charge",
   "enchantment.farmersmarket.shout.desc": "Embrase the rage, overcharging your sword, changing the strengthening into an AOE debuff, while buffing you",
   "enchantment.farmersmarket.inferno.desc": "Change the Empowered pull for a wide AOE fire burst to make your enemies turn into ash",
+  "enchantment.farmersmarket.freezerburn.desc": "Change the Empowered pull for a wide AOE ice burst to make your enemies get frostbite",
   "enchantment.farmersmarket.rusted.desc": "Propel the rust as a single hitscan projectile instead of the AOE",
   "enchantment.farmersmarket.sharpen.desc": "§5Exchange your Aoe for extra damage, make sure to resharpen it!",
   "enchantment.farmersmarket.bracing.desc": "Take less damage from Colliding with walls stalagmites and the ground",
@@ -125,5 +135,7 @@
 
   "attribute.name.generic.farmersmarket.enderman":"Hydrophobic",
   "attribute.name.generic.farmersmarket.blaze":"Blaze Born",
-  "attribute.name.generic.farmersmarket.phantom":"Shroud"
+  "attribute.name.generic.farmersmarket.phantom":"Shroud",
+
+  "effect.farmersmarket.truesight":"Marked For Death"
 }

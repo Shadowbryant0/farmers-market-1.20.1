@@ -41,6 +41,9 @@ public class ModItemGroups {
                         entries.add(ModItems.KNUCKLENETHERITEMAIN);
                         entries.add(ModItems.KNUCKLENETHERITEOFF);
 
+                        entries.add(ModItems.CRUDESABER);
+                        entries.add(ModItems.PIRATESABER);
+
                         entries.add(ModItems.RABBITPENDENT);
                         entries.add(ModItems.GOATPENDENT);
                         entries.add(ModItems.HUMANPENDENT);
@@ -63,6 +66,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CLEANSING_STONE);
                         entries.add(ModItems.TIDE);
                         entries.add(ModItems.GRIEF);
+                        entries.add(ModItems.CRYSTALINEMIRROR);
 
                         entries.add(ModItems.ENDER_CROWN);
                         entries.add(ModItems.CRACKED_EGG);
@@ -91,6 +95,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.COLD_STEEL);
                         entries.add(ModItems.NEEDLE);
+                        entries.add(ModItems.FROSTBITE);
 
 
                         entries.add(ModItems.VAMPIRE_TEARS);

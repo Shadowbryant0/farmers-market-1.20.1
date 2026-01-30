@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "S": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "X": {
+      "item": "farmersmarket:goldenring"
+    }
+  },
+  "pattern": [
+    "S#S",
+    "QXQ",
+    "SQS"
+  ],
+  "result": {
+    "item": "farmersmarket:phantomring"
+  },
+  "show_notification": true
+}

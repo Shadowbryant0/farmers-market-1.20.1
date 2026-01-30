@@ -5,6 +5,7 @@
   "mixins": [
     "AdaptAttackMixin",
     "AdaptPlayerMixin",
+    "BoopstickMixin",
     "DamageEntityMixin",
     "DamagePlayerMixin",
     "EnchantmentHelperMixin",
@@ -23,6 +24,13 @@
     "StarvationkilMixin",
     "StarvationMixin",
     "SweepingEdgeMixinMixin",
+    "TrueSightGlowMixin",
+    "aquiifermixins.AntiDepthStrider",
+    "aquiifermixins.AntiRespiration",
+    "aquiifermixins.AntiWaterBreathing",
+    "aquiifermixins.DrownDamageMixin",
+    "aquiifermixins.RainDrownMixin",
+    "aquiifermixins.TouchingRainMixinDrag",
     "Crossbow.ShockwaveMixin"
   ],
   "injectors": {
@@ -31,6 +39,7 @@
   "client": [
     "BlindSightMixin",
     "LavaFogMixin",
-    "PhantomRingMixin"
+    "PhantomRingMixin",
+    "unused.RiptideTextureMixin"
   ]
 }

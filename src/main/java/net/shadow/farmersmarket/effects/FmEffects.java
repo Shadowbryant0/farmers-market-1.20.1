@@ -2,17 +2,18 @@ package net.shadow.farmersmarket.effects;
 
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 
-public class ModEffects {
+public class FmEffects {
     //h
     public static final StatusEffect INTERFERENCE = registerStatusEffect("interference",
             new InterferenceEffect(StatusEffectCategory.HARMFUL,0xa91101));
     public static final StatusEffect TRUESIGHT = registerStatusEffect("truesight",
+            new TrueSightEffect(StatusEffectCategory.NEUTRAL,0xa91101));
+    public static final StatusEffect SUFFICATION = registerStatusEffect("suffication",
             new TrueSightEffect(StatusEffectCategory.NEUTRAL,0xa91101));
 
 

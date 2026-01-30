@@ -59,7 +59,7 @@ public ItemStack stack;
         nbtCompound.putInt("sickle", SICKLE);
         nbtCompound.putInt("spade", SPADE);
         nbtCompound.putInt("rapier", RAPIER);
-        nbtCompound.putInt("great", GREAT);
+       nbtCompound.putInt("great", GREAT);
         nbtCompound.putInt("blood", BLOOD);
         nbtCompound.putInt("bearded", BEARDED);
 
@@ -77,25 +77,25 @@ public ItemStack stack;
 
     }
     public static void UseWYRM(int value){
-        WYRM = Math.min(WYRM - value, MAX_WYRM);
+        WYRM = Math.min(WYRM - value, 0);
     }
     public static void UseSPADE(int value){
-        SPADE = Math.min(SPADE - value, MAX_SPADE);
+        SPADE = Math.min(SPADE - value, 0);
     }
     public static void UseSICKLE(int value){
-        SICKLE = Math.min(SICKLE - value, MAX_SICKLE);
+        SICKLE = Math.min(SICKLE - value, 0);
     }
     public static void UseRapier(int value){
-        RAPIER = Math.min(RAPIER - value, MAX_RAPIER);
+        RAPIER = Math.min(RAPIER - value, 0);
     }
     public static void UseGREAT(int value){
-        GREAT = Math.min(GREAT - value, MAX_GREAT);
+        GREAT = Math.min(GREAT - value, 0);
     }
     public static void UseBLOOD(int value){
-        BLOOD = Math.min(BLOOD - value, MAX_BLOOD);
+        BLOOD = Math.min(BLOOD - value, 0);
     }
     public static void UseBEARDED(int value){
-        BEARDED = Math.min(BEARDED - value, MAX_BEARDED);
+        BEARDED = Math.min(BEARDED - value, 0);
     }
 
     public static void ChargeAll() {

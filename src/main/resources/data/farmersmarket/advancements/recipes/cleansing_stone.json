@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:cleansing_stone"
+      "farmersmarket:cleansing_stone",
+      "farmersmarket:pirate_saber"
     ]
   },
   "show_notification": true

@@ -6,12 +6,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Armor.AdaptabilityComponent;
 import net.shadow.farmersmarket.components.BlazeIdolComponent;
 import net.shadow.farmersmarket.components.Weapons.ParryComponent;
+import net.shadow.farmersmarket.effects.FmEffects;
 import net.shadow.farmersmarket.util.FMEnchantCheck;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -42,11 +44,21 @@ public abstract class DamagePlayerMixin {
 }
     @Mixin(LivingEntity.class)
 abstract class DamageEntityMixin{
+        @Shadow
+        public abstract boolean hasStatusEffect(StatusEffect effect);
+
         @Inject(
                 at = @At(value = "TAIL"), method = "modifyAppliedDamage", cancellable = true)
         private void parryPartial(DamageSource source, float amount, CallbackInfoReturnable<Float> cir) {
             if (ParryComponent.PARRY > 0) {
                 amount = amount/3;
+                cir.setReturnValue(amount);
+                if(ParryComponent.PARRY_ULTRA>0){
+                    cir.setReturnValue(0f);
+                }
+            }
+            if(hasStatusEffect(FmEffects.TRUESIGHT)){
+                amount = (float) (amount*1.5);
                 cir.setReturnValue(amount);
             }
         }

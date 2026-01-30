@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "farmersmarket",
-	"version": "1.03.03.002",
+	"version": "1.03.05",
 	"name": "Farmer's market",
-	"description": "Farmers Market is a small pvp orented content mod which adds four weapons to add some variaty to combat, the greatsword, the rapier, the bloodhound axe, and the hexspade, intended to be used with enchancements, but are all suitable for vanilla non the less with small changes to their stats and included right clicks to influcnce the flow of battle.",
+	"description": "Farmers Market is a small pvp oriented content mod which adds four weapons to add some variety to combat, the greatsword, the rapier, the bloodhound axe, and the hexspade, intended to be used with enchancements, but are all suitable for vanilla non the less with small changes to their stats and included right clicks to influcnce the flow of battle.",
 	"authors": [
 		"Shadow Bryant0"
 	],
@@ -46,18 +46,12 @@
       "farmersmarket:arrows",
       "farmersmarket:parry",
       "farmersmarket:enderman",
-      "farmersmarket:rapier",
-      "farmersmarket:great",
-      "farmersmarket:blood",
-      "farmersmarket:bearded",
-      "farmersmarket:spade",
-      "farmersmarket:sickle",
-      "farmersmarket:wyrm",
       "farmersmarket:blaze",
       "farmersmarket:drown",
       "farmersmarket:adapt",
       "farmersmarket:blind",
-      "farmersmarket:knuckle"
+      "farmersmarket:knuckle",
+      "farmersmarket:legendary"
     ]
   }
 }

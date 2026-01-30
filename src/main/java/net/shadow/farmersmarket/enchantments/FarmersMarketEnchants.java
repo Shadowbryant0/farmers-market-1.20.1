@@ -12,12 +12,9 @@ import net.shadow.farmersmarket.enchantments.Axe.*;
 import net.shadow.farmersmarket.enchantments.Hoe.Rusted;
 import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
 import net.shadow.farmersmarket.enchantments.Shovel.Syphon;
-import net.shadow.farmersmarket.enchantments.sword.Devouring;
+import net.shadow.farmersmarket.enchantments.sword.*;
 import net.shadow.farmersmarket.enchantments.Crossbow.ShockwaveEnchant;
 import net.shadow.farmersmarket.enchantments.Hoe.FreshFieldsEnchantment;
-import net.shadow.farmersmarket.enchantments.sword.HuntersLullabyEnchantment;
-import net.shadow.farmersmarket.enchantments.sword.Riposte;
-import net.shadow.farmersmarket.enchantments.sword.Shout;
 import net.shadow.farmersmarket.enchantments.unique.WyrmsStride;
 
 public class FarmersMarketEnchants {
@@ -41,6 +38,8 @@ public class FarmersMarketEnchants {
             new Shout());
     public static final Enchantment Inferno = register("inferno",
             new Inferno());
+    public static final Enchantment FreezerBurn = register("freezerburn",
+            new FreezerBurn());
     public static final Enchantment Sharpen = register("sharpen",
             new Sharpen());
     public static final Enchantment Rusted = register("rusted",
@@ -68,6 +67,8 @@ public class FarmersMarketEnchants {
             new WyrmsStride());
     public static final Enchantment ADAPTABILITY = register("adaptability",
             new WyrmsStride());
+    public static final Enchantment TRUESIGHT = register("truesight",
+            new TrueSight());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

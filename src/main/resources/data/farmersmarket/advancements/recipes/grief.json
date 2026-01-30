@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:grief"
+      "farmersmarket:grief",
+      "farmersmarket:crystalinemirror"
     ]
   },
   "show_notification": true

@@ -20,6 +20,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.custom.weapons.reskins.FrostSkin;
 import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 import java.util.List;
@@ -58,7 +59,11 @@ public class ExecutionersAxeItem extends AxeItem {
 
 
                         for (LivingEntity entity : nearby) {
-                            entity.setOnFireFor(20);
+                            if(stack.getItem() instanceof FrostSkin){
+                                entity.setFrozenTicks(1600);
+                            }else {
+                                entity.setOnFireFor(20);
+                            }
                             if(entity instanceof PlayerEntity player) {
                                 player.sendMessage(Text.literal("Your flesh burns"), true);
                             }
@@ -124,7 +129,11 @@ public class ExecutionersAxeItem extends AxeItem {
             if (!user.getItemCooldownManager().isCoolingDown(this)) {
             if(WeaponChargeComponent.BLOOD>= WeaponChargeComponent.MAX_BLOOD){
                 if(user.isSneaking()){
-            entity.setOnFireFor(2);
+                    if(stack.getItem() instanceof FrostSkin){
+                        entity.setFrozenTicks(400);
+                    }else {
+                        entity.setOnFireFor(2);
+                    }
             entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
             entity.velocityModified = true;
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 0));
@@ -134,7 +143,11 @@ public class ExecutionersAxeItem extends AxeItem {
             }
             }
             }else {
-                entity.setOnFireFor(2);
+                if(stack.getItem() instanceof FrostSkin){
+                    entity.setFrozenTicks(400);
+                }else {
+                    entity.setOnFireFor(2);
+                }
                 entity.setVelocity(user.getEyePos().subtract(entity.getPos()).normalize().multiply(0.8));
                 entity.velocityModified = true;
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 0));
@@ -156,7 +169,7 @@ public class ExecutionersAxeItem extends AxeItem {
 
 
         if (!attacker.getWorld().isClient) {
-            WeaponChargeComponent.IncrementBLOOD(10);
+                WeaponChargeComponent.IncrementBLOOD(10);
                 return super.postHit(stack, target, attacker);
 
         }

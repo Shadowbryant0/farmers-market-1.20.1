@@ -16,6 +16,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.Weapons.ParryComponent;
 import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
 
 public class MaxCharge extends Item {
@@ -30,7 +31,7 @@ public class MaxCharge extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         user.setCurrentHand(hand); // Begin charging
         WeaponChargeComponent.ChargeAll();
-
+        ParryComponent.Charge();
         return TypedActionResult.consume(user.getStackInHand(hand));
     }
 

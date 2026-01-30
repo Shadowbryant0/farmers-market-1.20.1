@@ -11,6 +11,7 @@ import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterOffhandhandItem;
+import net.shadow.farmersmarket.item.custom.weapons.legendaries.SpearWeapon;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.*;
 import net.shadow.farmersmarket.item.materials.KnucklesLevel;
 import net.shadow.farmersmarket.item.trinkets.*;
@@ -68,6 +69,8 @@ public class ModItems {
             new ExecutionersAxeItem(new FabricItemSettings().fireproof()));
     public static final Item DEVIL_AXE = registerItem("devil_axe",
             new DevilSkin(new FabricItemSettings().fireproof()));
+    public static final Item FROSTBITE = registerItem("frostbite",
+            new FrostSkin(new FabricItemSettings().fireproof()));
 
     public static final Item BEARDED_AXE = registerItem("bearded_axe",
             new BeardedAxeItem(new FabricItemSettings().fireproof()));
@@ -95,11 +98,15 @@ public class ModItems {
 
     public static final Item PIRATESABER = registerItem("piratesaber",
             new PirateSaberItem(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item CRUDESABER = registerItem("crudesaber",
+            new CrudeSaberItem(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item HEXSPADE = registerItem("hexspade",
             new AceofSpadesItem(new FabricItemSettings().fireproof()));
 
     public static final Item BOOP = registerItem("boop",
             new BoopStick(new FabricItemSettings().fireproof()));
+    public static final Item CRYSTALINEMIRROR = registerItem("crystalinemirror",
+            new CrystalineMirror(new FabricItemSettings().fireproof()));
 
     public static final Item TOOTHPICK = registerItem("toothpick",
             new ToothPickItem(new FabricItemSettings().fireproof()));
@@ -153,6 +160,9 @@ public class ModItems {
             new Item(new FabricItemSettings().maxCount(8).fireproof()));
     public static final Item CROWN_PARTS = registerItem("crown_parts",
             new Crown_Parts(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item SPEAR = registerItem("spear",
+            new SpearWeapon(new FabricItemSettings().fireproof()));
+
 
     public static final Item AXE_HEAD = registerItem("axe_head",
             new Item(new FabricItemSettings().maxCount(16).fireproof()));

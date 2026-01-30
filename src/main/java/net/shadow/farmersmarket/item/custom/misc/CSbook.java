@@ -14,6 +14,7 @@ import net.shadow.farmersmarket.ModConfigs;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.custom.weapons.*;
+import net.shadow.farmersmarket.item.custom.weapons.reskins.FrostSkin;
 import net.shadow.farmersmarket.util.FarmersMarketItemTags;
 
 public class CSbook extends BookItem {
@@ -83,6 +84,13 @@ public class CSbook extends BookItem {
 
 
             }else if (itemStack.getItem() instanceof ExecutionersAxeItem) {
+                if(itemStack.getItem() instanceof FrostSkin){
+                    if(EnchantmentHelper.getLevel(FarmersMarketEnchants.FreezerBurn, itemStack) == 0) {
+                        itemStack.addEnchantment(FarmersMarketEnchants.FreezerBurn, 1);
+                        player.damage(player.getDamageSources().wither(), 10);
+                        stack.decrement(1);
+                    }
+                } else
                 if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Inferno, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Inferno, 1);
                     player.damage(player.getDamageSources().wither(), 10);
@@ -117,6 +125,14 @@ public class CSbook extends BookItem {
             }else if (itemStack.getItem() instanceof WyrmSpearItem) {
                 if(EnchantmentHelper.getLevel(FarmersMarketEnchants.WyrmStride, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.WyrmStride, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
+
+
+            }else if (itemStack.getItem() instanceof PirateSaberItem) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.TRUESIGHT, itemStack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.TRUESIGHT, 1);
                     player.damage(player.getDamageSources().wither(), 10);
                     stack.decrement(1);
                 }

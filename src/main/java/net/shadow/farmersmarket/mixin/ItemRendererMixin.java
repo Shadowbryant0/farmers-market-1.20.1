@@ -63,6 +63,21 @@ public abstract class ItemRendererMixin {
         if (stack.isOf(ModItems.DAGRIONSKIN) && renderMode != ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "scarlet_rapier_3d", "inventory"));
         }
+        if (stack.isOf(ModItems.KNUCKLEIRONOFF) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "iron_knuckles_3d", "inventory"));
+        }
+        if (stack.isOf(ModItems.KNUCKLEIRONMAIN) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "iron_knuckles_3d_2", "inventory"));
+        }
+        if (stack.isOf(ModItems.PIRATESABER) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "pirate_saber_3d", "inventory"));
+        }
+        if (stack.isOf(ModItems.CRUDESABER) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "crude_saber_3d", "inventory"));
+        }
+        if (stack.isOf(ModItems.FROSTBITE) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "frostbite_3d", "inventory"));
+        }
         return value;
     }
 }

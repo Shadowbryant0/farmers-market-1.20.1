@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "minecraft:item/stick"
+    "layer0": "farmersmarket:item/brassknuckle_iron_3d"
   }
 }
