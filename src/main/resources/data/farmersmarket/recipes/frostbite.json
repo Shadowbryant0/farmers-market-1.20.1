@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:cold_steel"
+  },
+  "base": {
+    "item": "farmersmarket:bloodhoundaxe"
+  },
+  "result": {
+    "item": "farmersmarket:frostbite"
+  },
+  "template": {
+    "item": "minecraft:water_bucket"
+  }
+}

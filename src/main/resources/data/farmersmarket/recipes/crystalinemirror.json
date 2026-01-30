@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "n": {
+      "item": "minecraft:nether_star"
+    },
+    "q": {
+      "item": "minecraft:quartz"
+    },
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "aqa",
+    "qnq",
+    "qqa"
+  ],
+  "result": {
+    "item": "farmersmarket:crystalinemirror"
+  },
+  "show_notification": true
+}
