@@ -95,10 +95,10 @@ dependencies {
 
 		include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${reach_version}")
 
-    modCompileOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}:api") {
+    modCompileOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}") {
         transitive = false
     }
-    modRuntimeOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}:api") {
+    modRuntimeOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}") {
         transitive = false
     }
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.5.0")))

@@ -5,6 +5,7 @@
   "mixins": [
     "AdaptAttackMixin",
     "AdaptPlayerMixin",
+    "AppleSkinMixin",
     "BoopstickMixin",
     "DamageEntityMixin",
     "DamagePlayerMixin",
@@ -26,6 +27,7 @@
     "StarvationMixin",
     "SweepingEdgeMixinMixin",
     "TrueSightGlowMixin",
+    "WindBlessingMixin",
     "aquiifermixins.AntiDepthStrider",
     "aquiifermixins.AntiRespiration",
     "aquiifermixins.AntiWaterBreathing",
