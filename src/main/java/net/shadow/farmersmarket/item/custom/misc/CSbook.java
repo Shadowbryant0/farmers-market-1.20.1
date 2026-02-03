@@ -1,6 +1,7 @@
 package net.shadow.farmersmarket.item.custom.misc;
 
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -40,16 +41,16 @@ public class CSbook extends BookItem {
         } else {
             ItemStack itemStack = slot.getStack();
 
-            if (itemStack.getItem() instanceof ArmorItem) {
-
-                    if (ModConfigs.calciumenabled) {
-                        if (EnchantmentHelper.getLevel(Enchantments.PROTECTION, itemStack) == 0 && EnchantmentHelper.getLevel(FarmersMarketEnchants.CalciumInfused, itemStack) == 0) {
+            if (itemStack.getItem() instanceof ArmorItem armorItem) {
+                if (EnchantmentTarget.ARMOR_HEAD.isAcceptableItem(armorItem)) {
+                        if (EnchantmentHelper.getLevel(FarmersMarketEnchants.GLUTTONY, itemStack) == 0) {
                             this.playInsertSound(player);
-                            itemStack.addEnchantment(FarmersMarketEnchants.CalciumInfused, 1);
+                            itemStack.addEnchantment(FarmersMarketEnchants.GLUTTONY, 1);
                             stack.decrement(1);
                             player.damage(player.getDamageSources().wither(), 10);
                         }
-                    }
+
+                }
 
             } else if (itemStack.isEmpty()) {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 6000, 1));

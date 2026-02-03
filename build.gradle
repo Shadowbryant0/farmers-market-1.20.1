@@ -21,12 +21,16 @@ repositories {
 	maven {
 			url = "https://api.modrinth.com/maven"
 	}
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
+    maven {
+        name = "appleskin"
+        url = "https://maven.ryanliptak.com/"
+    }
 	maven {
-		name = "TerraformersMC"
-		url = "https://maven.terraformersmc.com/"
-	}
-	maven {
-		url "https://maven.jamieswhiteshirt.com/libs-release"
+		url = "https://maven.jamieswhiteshirt.com/libs-release"
 		content {
 			includeGroup "com.jamieswhiteshirt"
 		}
@@ -91,6 +95,12 @@ dependencies {
 
 		include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${reach_version}")
 
+    modCompileOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}:api") {
+        transitive = false
+    }
+    modRuntimeOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}:api") {
+        transitive = false
+    }
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.5.0")))
 
 }

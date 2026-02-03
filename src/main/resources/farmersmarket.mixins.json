@@ -12,6 +12,7 @@
     "ExampleMixin",
     "FireRenderMixin",
     "ForgingSpeedMixin",
+    "GluttonHungerMixin",
     "GreatBreakMobMixin",
     "GreatBreakPlayerMixin",
     "ItemRendererAccessor",
@@ -38,6 +39,7 @@
   },
   "client": [
     "BlindSightMixin",
+    "GluttonHudMixin",
     "LavaFogMixin",
     "PhantomRingMixin",
     "unused.RiptideTextureMixin"

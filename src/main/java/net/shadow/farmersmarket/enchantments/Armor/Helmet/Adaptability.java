@@ -9,6 +9,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.shadow.farmersmarket.components.Armor.AdaptabilityComponent;
+import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.util.FarmersMarketDamageTagsCustom;
 
 public class Adaptability extends Enchantment {
@@ -65,7 +66,7 @@ public class Adaptability extends Enchantment {
     }
 
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != Enchantments.PROTECTION;
+        return super.canAccept(other) && other != Enchantments.PROTECTION && other != FarmersMarketEnchants.GLUTTONY;
     }
 
 

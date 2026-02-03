@@ -52,7 +52,7 @@ public ItemStack stack;
             RAIN--;
 
         }
-        //to remove drown, you need to be OUT of water, taking the pendant off does NOTHING
+        //to remove drown, you need to be OUT of water, taking the pendent off does NOTHING
         if(RAIN==0 && DROWN>0) {
             RAIN = RAIN_MAX;
             DROWN = Math.max(DROWN - 1, 0);

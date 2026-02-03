@@ -6,8 +6,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.enchantments.Armor.Elytra.Bracing;
+import net.shadow.farmersmarket.enchantments.Armor.Helmet.Adaptability;
+import net.shadow.farmersmarket.enchantments.Armor.Helmet.Gluttony;
 import net.shadow.farmersmarket.enchantments.Armor.Leggings.LavaWader;
-import net.shadow.farmersmarket.enchantments.Armor.CalciumInfused;
 import net.shadow.farmersmarket.enchantments.Axe.*;
 import net.shadow.farmersmarket.enchantments.Hoe.Rusted;
 import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
@@ -56,8 +57,6 @@ public class FarmersMarketEnchants {
             new PrimalDesires());
     public static final Enchantment JagerderSchuldigen = register("jagerderschuldigen",
             new JagerderSchuldigen());
-    public static final Enchantment CalciumInfused = register("calciuminfused",
-            new CalciumInfused());
     public static final Enchantment Bracing = register("bracing",
             new Bracing());
     public static final Enchantment LavaWader = register("lavawader",
@@ -66,7 +65,9 @@ public class FarmersMarketEnchants {
     public static final Enchantment WyrmStride = register("wyrmstride",
             new WyrmsStride());
     public static final Enchantment ADAPTABILITY = register("adaptability",
-            new WyrmsStride());
+            new Adaptability());
+    public static final Enchantment GLUTTONY = register("gluttony",
+            new Gluttony());
     public static final Enchantment TRUESIGHT = register("truesight",
             new TrueSight());
 
@@ -77,8 +78,5 @@ public class FarmersMarketEnchants {
 
     public static void registerModEnchantments() {
         FarmersMarket.LOGGER.info("he will eat you... " + FarmersMarket.MOD_ID);
-    }
-
-    public static void registerModEnchants() {
     }
 }

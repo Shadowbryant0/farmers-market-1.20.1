@@ -16,9 +16,15 @@ public class FMEnchantCheck extends EnchantmentHelper {
     public static int getWyrmStride(ItemStack itemStack) {
         return getLevel(FarmersMarketEnchants.WyrmStride, itemStack);
     }
+    public static int getGluttony(LivingEntity entity) {
+        return getLevel(FarmersMarketEnchants.GLUTTONY, entity.getEquippedStack(EquipmentSlot.HEAD));
+    }
     public static int getLavaWaderCollective(LivingEntity entity){
         int boots = getLevel(FarmersMarketEnchants.LavaWader, entity.getEquippedStack(EquipmentSlot.FEET));
         int chest = getLevel(FarmersMarketEnchants.LavaWader, entity.getEquippedStack(EquipmentSlot.CHEST));
         return (boots+chest);
+    }
+    public static boolean above0(int enchantment){
+        return enchantment > 0;
     }
 }
