@@ -27,4 +27,10 @@ public class FMEnchantCheck extends EnchantmentHelper {
     public static boolean above0(int enchantment){
         return enchantment > 0;
     }
+    public static int getWind(LivingEntity entity) {
+        return getLevel(FarmersMarketEnchants.WINDBLESSING, entity.getEquippedStack(EquipmentSlot.LEGS));
+    }
+    public static int getWindItem(LivingEntity entity) {
+        return getLevel(FarmersMarketEnchants.WINDBLESSING, entity.getEquippedStack(EquipmentSlot.LEGS));
+    }
 }

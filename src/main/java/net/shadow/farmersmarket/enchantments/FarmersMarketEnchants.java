@@ -9,6 +9,7 @@ import net.shadow.farmersmarket.enchantments.Armor.Elytra.Bracing;
 import net.shadow.farmersmarket.enchantments.Armor.Helmet.Adaptability;
 import net.shadow.farmersmarket.enchantments.Armor.Helmet.Gluttony;
 import net.shadow.farmersmarket.enchantments.Armor.Leggings.LavaWader;
+import net.shadow.farmersmarket.enchantments.Armor.Leggings.WindBlessing;
 import net.shadow.farmersmarket.enchantments.Axe.*;
 import net.shadow.farmersmarket.enchantments.Hoe.Rusted;
 import net.shadow.farmersmarket.enchantments.Pickaxe.Forging;
@@ -70,6 +71,8 @@ public class FarmersMarketEnchants {
             new Gluttony());
     public static final Enchantment TRUESIGHT = register("truesight",
             new TrueSight());
+    public static final Enchantment WINDBLESSING = register("windblessing",
+            new WindBlessing());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

@@ -1,5 +1,6 @@
 package net.shadow.farmersmarket.item.custom.misc;
 
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
@@ -10,13 +11,18 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.shadow.farmersmarket.ModConfigs;
+import net.shadow.farmersmarket.enchantments.Armor.Leggings.WindBlessing;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.FrostSkin;
 import net.shadow.farmersmarket.util.FarmersMarketItemTags;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CSbook extends BookItem {
 
@@ -49,6 +55,15 @@ public class CSbook extends BookItem {
                             stack.decrement(1);
                             player.damage(player.getDamageSources().wither(), 10);
                         }
+
+                }
+                if (EnchantmentTarget.ARMOR_LEGS.isAcceptableItem(armorItem)) {
+                    if (EnchantmentHelper.getLevel(FarmersMarketEnchants.WINDBLESSING, itemStack) == 0) {
+                        this.playInsertSound(player);
+                        itemStack.addEnchantment(FarmersMarketEnchants.WINDBLESSING, 3);
+                        stack.decrement(1);
+                        player.damage(player.getDamageSources().wither(), 10);
+                    }
 
                 }
 

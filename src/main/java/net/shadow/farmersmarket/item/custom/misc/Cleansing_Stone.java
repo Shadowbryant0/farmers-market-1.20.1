@@ -38,9 +38,8 @@ public class Cleansing_Stone extends Item{
 
 
                     ItemStack newstack = itemStack.copyWithCount(itemStack.getCount());
-
-if(itemStack.hasEnchantments()) {
-    Map<Enchantment, Integer> map =  EnchantmentHelper.get(itemStack).entrySet().stream().filter((entry) -> !(entry.getKey()).isCursed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    if(itemStack.hasEnchantments()) {
+                        Map<Enchantment, Integer> map =  EnchantmentHelper.get(itemStack).entrySet().stream().filter((entry) -> !(entry.getKey()).isCursed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
                 EnchantmentHelper.set(map, newstack);
                     newstack.setRepairCost(0);
@@ -50,21 +49,18 @@ if(itemStack.hasEnchantments()) {
                 for(Map.Entry<Enchantment, Integer> entry : map.entrySet()) {
                     Enchantment enchantment = entry.getKey();
 
-
-    itemStack.decrement(1);
-    stack.decrement(1);
-    slot.insertStack(newstack, 1);
-    newstack.addEnchantment(enchantment,  entry.getValue());
-    player.heal(5);
-    player.sendMessage(Text.literal("You feel relief wash over you."), true);
+                    itemStack.decrement(1);
+                    stack.decrement(1);
+                    slot.insertStack(newstack, 1);
+                    newstack.addEnchantment(enchantment,  entry.getValue());
+                    player.heal(5);
+                    player.sendMessage(Text.literal("You feel relief wash over you."), true);
                         this.playInsertSound(player);
                         {
-        player.getItemCooldownManager().set(this, COOLDOWN_TICKS);
+                            player.getItemCooldownManager().set(this, COOLDOWN_TICKS);
                         }
-    return true;
+                        return true;
                     }
-
-
 
                     }
                 if(!itemStack.isEnchantable()){

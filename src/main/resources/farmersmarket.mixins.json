@@ -28,6 +28,7 @@
     "SweepingEdgeMixinMixin",
     "TrueSightGlowMixin",
     "WindBlessingMixin",
+    "WindBlessingPlayerMixin",
     "aquiifermixins.AntiDepthStrider",
     "aquiifermixins.AntiRespiration",
     "aquiifermixins.AntiWaterBreathing",
