@@ -5,6 +5,7 @@
   "mixins": [
     "AdaptAttackMixin",
     "AdaptPlayerMixin",
+    "ancientDebrismixin",
     "AppleSkinMixin",
     "BoopstickMixin",
     "CryingObsidianGlowIncrease",
@@ -38,7 +39,9 @@
     "aquiifermixins.TouchingRainMixinDrag",
     "Crossbow.ShockwaveMixin",
     "expressions.divinity.SecondDivinityMixin",
-    "expressions.divinity.ThirdDivinityMixin"
+    "expressions.divinity.ThirdDivinityMixin",
+    "expressions.the_void.FirstAbyssMixin",
+    "expressions.the_void.SecondAbyssMixin"
   ],
   "injectors": {
     "defaultRequire": 1

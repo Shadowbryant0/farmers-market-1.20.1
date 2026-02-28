@@ -14,7 +14,9 @@ public class FmEffects {
     public static final StatusEffect TRUESIGHT = registerStatusEffect("truesight",
             new TrueSightEffect(StatusEffectCategory.NEUTRAL,0xa91101));
     public static final StatusEffect SUFFICATION = registerStatusEffect("suffication",
-            new TrueSightEffect(StatusEffectCategory.NEUTRAL,0xa91101));
+            new SufficationEffect(StatusEffectCategory.NEUTRAL,0xa91101));
+    public static final StatusEffect Summoned = registerStatusEffect("summoned",
+            new SummonedEffect(StatusEffectCategory.NEUTRAL,0xa91101));
 
 
     //hh

@@ -1,8 +1,6 @@
 package net.shadow.farmersmarket.mixin.expressions.divinity;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,7 +19,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -29,8 +26,6 @@ import java.util.List;
 
 @Mixin(LivingEntity.class)
 public abstract class ThirdDivinityMixin extends Entity {
-    @Shadow
-    public abstract float getMaxHealth();
 
     @Shadow
     public abstract void setHealth(float health);
@@ -77,8 +72,7 @@ public abstract class ThirdDivinityMixin extends Entity {
     private static boolean guardianAura(Entity user){
         World world = user.getWorld();
         final double SWEEP_RANGE = 1;
-        final float SWEEP_DAMAGE = 3;
-        final double AOE_RADIUS = .5;
+        final double AOE_RADIUS = 5;
         Vec3d origin = user.getEyePos();
         Vec3d look   = user.getRotationVector().normalize();
         Vec3d end    = origin.add(look.multiply(SWEEP_RANGE));
@@ -97,7 +91,6 @@ public abstract class ThirdDivinityMixin extends Entity {
                     new Box(origin, end).expand(1.0),
                     e -> e == user
             );
-            double minDist = Double.MAX_VALUE;
 
 
             List<LivingEntity> nearby = serverWorld.getEntitiesByClass(

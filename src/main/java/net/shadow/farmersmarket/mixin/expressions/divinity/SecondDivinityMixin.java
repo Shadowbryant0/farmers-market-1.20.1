@@ -10,6 +10,7 @@ import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.entity.SecondAbyss;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.util.FarmersMarketEntityTags;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
-public abstract class SecondDivinityMixin extends LivingEntity {
+public abstract class SecondDivinityMixin extends LivingEntity implements SecondAbyss {
 
 
     protected SecondDivinityMixin(EntityType<? extends LivingEntity> entityType, World world) {
@@ -30,6 +31,8 @@ public abstract class SecondDivinityMixin extends LivingEntity {
     @Inject(at = @At("HEAD"), method = "setTarget", cancellable = true)
     private void init(LivingEntity target, CallbackInfo ci) {
         if(target != null && target.getOffHandStack().getItem() == ModItems.SECONDDIVINITY_RADIENT_LIGHT){
+            if(this.getSummoner() != null)
+                return;
             if(!(this.getAttacker() == target)) {
                 if(distanceTo(target)<20){
                     if(this.isUndead()) {

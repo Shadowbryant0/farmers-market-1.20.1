@@ -33,6 +33,7 @@ public class FarmersMarket implements ModInitializer {
     public static final EntityAttribute BLAZE = make("blaze", 0.0, 0, 4);
     public static final EntityAttribute PHANTOM = make("phantom", 0.0, 0, 4);
     public static final EntityAttribute DIVINITY = make("divinity", 0.0, 0, 4);
+    public static final EntityAttribute ABYSS = make("abyss", 0.0, 0, 4);
 
 
     private static EntityAttribute make(final String name, final double base, final double min, final double max) {
@@ -59,6 +60,7 @@ public class FarmersMarket implements ModInitializer {
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "phantom"), PHANTOM);
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "truesight"), TRUESIGHT);
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "divinity"), DIVINITY);
+        Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "abyss"), ABYSS);
 
         FMWorldGeneration.generateModWorldGen();
 	}

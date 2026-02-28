@@ -27,5 +27,6 @@ public class FMModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SECONDDIVINITY_RADIENT_LIGHT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ABYSS_SHARDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.THIRDIVINITY_GUARDIAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FIRSTOFTHEABYSS_SHACKLES, Models.GENERATED);
     }
 }

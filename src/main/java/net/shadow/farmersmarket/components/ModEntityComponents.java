@@ -11,6 +11,7 @@ import net.shadow.farmersmarket.components.Armor.AdaptabilityComponent;
 import net.shadow.farmersmarket.components.Weapons.*;
 import net.shadow.farmersmarket.components.expressions.divinity.Firstdivinity_flight;
 import net.shadow.farmersmarket.components.expressions.divinity.Thirddivinity_guardian;
+import net.shadow.farmersmarket.components.expressions.the_abyss.SecondAbyss_Song;
 
 import java.security.Key;
 
@@ -27,6 +28,7 @@ public class ModEntityComponents implements EntityComponentInitializer {
     public static final ComponentKey<LegendaryChargeComponent> LEGENDARY = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "legendary"), LegendaryChargeComponent.class);
     public static final ComponentKey<Firstdivinity_flight> FIRST_DIV = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "firstdivinity"), Firstdivinity_flight.class);
     public static final ComponentKey<Thirddivinity_guardian> THIRD_DIV = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "thirddivinity"), Thirddivinity_guardian.class);
+    public static final ComponentKey<SecondAbyss_Song> SECOND_ABYSS = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "secondabyss"), SecondAbyss_Song.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
@@ -42,5 +44,6 @@ public class ModEntityComponents implements EntityComponentInitializer {
         registry.registerFor(PlayerEntity.class, LEGENDARY, player ->  new LegendaryChargeComponent(player));
         registry.registerFor(PlayerEntity.class, FIRST_DIV, player ->  new Firstdivinity_flight(player));
         registry.registerFor(LivingEntity.class, THIRD_DIV, livingEntity ->  new Thirddivinity_guardian(livingEntity));
+        registry.registerFor(PlayerEntity.class, SECOND_ABYSS,  player->  new SecondAbyss_Song(player));
     }
 }

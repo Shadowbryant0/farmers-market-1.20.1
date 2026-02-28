@@ -67,6 +67,12 @@ public class ModItemGroups {
                         entries.add(ModItems.FIRSTDIVINITY_FLIGHT);
                         entries.add(ModItems.SECONDDIVINITY_RADIENT_LIGHT);
                         entries.add(ModItems.THIRDIVINITY_GUARDIAN);
+
+
+                        entries.add(ModBlocks.CRYSTALIZED_ABYSS);
+                        entries.add(ModItems.ABYSS_SHARDS);
+                        entries.add(ModItems.FIRSTOFTHEABYSS_SHACKLES);
+                        entries.add(ModItems.SECONDOFTHEABYSS_SONG);
                         //entries.add(ModItems.TYRENT);
                         // TYRENT IS DEV TEST ITEM
                         entries.add(ModItems.CRACKED_TOTEM);
