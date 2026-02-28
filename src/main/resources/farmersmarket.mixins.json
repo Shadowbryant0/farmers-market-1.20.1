@@ -7,6 +7,7 @@
     "AdaptPlayerMixin",
     "AppleSkinMixin",
     "BoopstickMixin",
+    "CryingObsidianGlowIncrease",
     "DamageEntityMixin",
     "DamagePlayerMixin",
     "EnchantmentHelperMixin",
@@ -20,9 +21,9 @@
     "ItemRendererMixin",
     "JagerDamageMixin",
     "LavaWader",
+    "MobDropsMixin",
     "ModelLoaderMixin",
     "PiglinBruteEntityMixin",
-    "PlayerDropsMixin",
     "StarvationkilMixin",
     "StarvationMixin",
     "SweepingEdgeMixinMixin",
@@ -35,7 +36,9 @@
     "aquiifermixins.DrownDamageMixin",
     "aquiifermixins.RainDrownMixin",
     "aquiifermixins.TouchingRainMixinDrag",
-    "Crossbow.ShockwaveMixin"
+    "Crossbow.ShockwaveMixin",
+    "expressions.divinity.SecondDivinityMixin",
+    "expressions.divinity.ThirdDivinityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

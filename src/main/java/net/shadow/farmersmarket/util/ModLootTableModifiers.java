@@ -52,10 +52,10 @@ private static final Identifier PLAYER_DROPS_ID =
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, lootTableSource) -> {
 if(PLAYER_DROPS_ID.equals(id)) {
     LootPool.Builder poolBuilder = LootPool.builder()
-            .rolls(ConstantLootNumberProvider.create(1))
-            .conditionally(RandomChanceLootCondition.builder(.95f))
+            .rolls(ConstantLootNumberProvider.create(2))
+            .conditionally(RandomChanceLootCondition.builder(.2f))
                     .with(ItemEntry.builder(ModItems.SLIVER_FLESH))
-            .conditionally(RandomChanceLootCondition.builder(.5f))
+            .conditionally(RandomChanceLootCondition.builder(.2f))
             .with(ItemEntry.builder(ModItems.CRACKED_SKULL))
             .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
     tableBuilder.pool(poolBuilder.build());

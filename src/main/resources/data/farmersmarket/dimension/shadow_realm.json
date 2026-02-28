@@ -1,0 +1,24 @@
+{
+  "type": "farmersmarket:shadow_realm_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "farmersmarket:shadow_realm_noise",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "farmersmarket:shadow_realm",
+          "parameters": {
+            "temperature": 0.1,
+            "humidity": -0.5,
+            "continentalness": 0,
+            "erosion": 0.5,
+            "weirdness": 0.5,
+            "depth": 0,
+            "offset": 0
+          }
+        }
+      ]
+    }
+  }
+}

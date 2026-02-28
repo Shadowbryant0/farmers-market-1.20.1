@@ -24,9 +24,15 @@ public class ModBlocks {
             "thread_weaver",
             new ThreadWeaver(FabricBlockSettings.create().collidable(true).pistonBehavior(PistonBehavior.IGNORE).strength(2.0F, 3.0F).sounds(BlockSoundGroup.ANVIL)));
 
-    public static final Block POTION_WEB = registerBlock(
-            "potion_web",
-            new CustomCobwebBlock(FabricBlockSettings.copyOf(Blocks.COBWEB)));
+    public static final Block COMPACT_IRON = registerBlock(
+            "compact_iron_ore",
+            new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)));
+    public static final Block STARRY_OBSIDIAN = registerBlock(
+            "starry_obsidian",
+            new Block(FabricBlockSettings.copyOf(Blocks.OBSIDIAN).luminance((state) -> 15)));
+    public static final Block CRYSTALIZED_ABYSS = registerBlock(
+            "crystalized_abyss",
+            new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_DIAMOND_ORE).luminance((state) -> 5)));
 
 
 

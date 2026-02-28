@@ -9,7 +9,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.shadow.farmersmarket.item.ModItems;
 
 public class HuntersLullabyEnchantment extends Enchantment {
     public HuntersLullabyEnchantment() {
@@ -49,6 +51,10 @@ public class HuntersLullabyEnchantment extends Enchantment {
 
             livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, 0));
             livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 0));
+            if(livingEntity.getHealth() == 0 && livingEntity instanceof PlayerEntity player){
+                ItemStack stack = new ItemStack(ModItems.SLIVER_FLESH);
+                player.dropItem(stack, true, false);
+            }
 
         }
     }

@@ -35,6 +35,11 @@ repositories {
 			includeGroup "com.jamieswhiteshirt"
 		}
 	}
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/'
+    }
+    maven { url = 'https://maven.minecraftforge.net/' }
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -55,7 +60,7 @@ loom {
 			name "Data Generation"
 			vmArg "-Dfabric-api.datagen"
 			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-			vmArg "-Dfabric-api.datagen.modid=tutorialmod"
+			vmArg "-Dfabric-api.datagen.modid=farmersmarket"
 
 			runDir "build/datagen"
 		}
@@ -93,6 +98,7 @@ dependencies {
 		include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
 	modImplementation "dev.emi:trinkets:${trinkets_version}"
 
+    modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.20.4-3.3.0.3'
 		include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${reach_version}")
 
     modCompileOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}") {
@@ -108,14 +114,14 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
-
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // or whatever one you want
 	filesMatching("fabric.mod.json") {
 		expand "version": inputs.properties.version
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {
@@ -124,8 +130,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {

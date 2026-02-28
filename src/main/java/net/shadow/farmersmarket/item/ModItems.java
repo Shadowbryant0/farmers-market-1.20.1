@@ -7,6 +7,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.item.custom.expressions.divinity.Thefirstdivinity_flight;
+import net.shadow.farmersmarket.item.custom.expressions.divinity.Theseconddivinity_Radiant_light;
+import net.shadow.farmersmarket.item.custom.expressions.divinity.Thethirddivinity_guardian;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
@@ -37,6 +40,21 @@ public class ModItems {
 
     public static final Item CORRUPTEDFLESH = registerItem("corruptedflesh",
             new Item(new FabricItemSettings()));
+
+
+    public static final Item SHATTERED_STARS = registerItem("shattered_stars",
+            new Item(new FabricItemSettings().maxCount(16).fireproof()));
+    public static final Item FIRSTDIVINITY_FLIGHT = registerItem("first_div",
+            new Thefirstdivinity_flight(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item SECONDDIVINITY_RADIENT_LIGHT = registerItem("second_div",
+            new Theseconddivinity_Radiant_light(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item THIRDIVINITY_GUARDIAN = registerItem("third_div",
+            new Thethirddivinity_guardian(new FabricItemSettings().maxCount(1).fireproof()));
+
+
+    public static final Item ABYSS_SHARDS = registerItem("abyss_shards",
+            new Item(new FabricItemSettings().maxCount(16).fireproof()));
+
     public static final Item COLD_STEEL = registerItem("cold_steel",
             new Item(new FabricItemSettings()));
     public static final Item VAMPIRE_TEARS = registerItem("vampire_tear",

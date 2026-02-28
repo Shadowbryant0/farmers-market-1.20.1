@@ -6,6 +6,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 
+import java.util.Collection;
+
 public class FMEnchantCheck extends EnchantmentHelper {
     public static int getLavaWader(LivingEntity entity) {
         return getEquipmentLevel(FarmersMarketEnchants.LavaWader, entity);
@@ -32,5 +34,19 @@ public class FMEnchantCheck extends EnchantmentHelper {
     }
     public static int getWindItem(LivingEntity entity) {
         return getLevel(FarmersMarketEnchants.WINDBLESSING, entity.getEquippedStack(EquipmentSlot.LEGS));
+    }
+
+    public static int getEquipmentLevel(Enchantment enchantment, LivingEntity entity) {
+        Collection<ItemStack> iterable = enchantment.getEquipment(entity).values();
+        if (iterable == null) {
+            return 0;
+        }
+        int i = 0;
+        for (ItemStack itemStack : iterable) {
+            int j = EnchantmentHelper.getLevel(enchantment, itemStack);
+            if (j <= i) continue;
+            i = j;
+        }
+        return i;
     }
 }

@@ -26,6 +26,9 @@
 		],
       "cardinal-components-entity": [
         "net.shadow.farmersmarket.components.ModEntityComponents"
+      ],
+      "terrablender": [
+        "net.shadow.farmersmarket.world.biome.FmTerrablenderAPI"
       ]
     },
 	"mixins": [
@@ -51,7 +54,9 @@
       "farmersmarket:adapt",
       "farmersmarket:blind",
       "farmersmarket:knuckle",
-      "farmersmarket:legendary"
+      "farmersmarket:legendary",
+      "farmersmarket:firstdivinity",
+      "farmersmarket:thirddivinity"
     ]
   }
 }

@@ -8,9 +8,13 @@ import net.shadow.farmersmarket.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
-public abstract class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
+public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);
     }
 
+    @Override
+    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+
+    }
 }

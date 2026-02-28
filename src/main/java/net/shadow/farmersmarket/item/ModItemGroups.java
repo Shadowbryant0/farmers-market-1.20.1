@@ -60,6 +60,13 @@ public class ModItemGroups {
 
                         entries.add(ModItems.CRACKED_SKULL);
                         entries.add(ModItems.CSBOOK);
+
+
+                        entries.add(ModBlocks.STARRY_OBSIDIAN);
+                        entries.add(ModItems.SHATTERED_STARS);
+                        entries.add(ModItems.FIRSTDIVINITY_FLIGHT);
+                        entries.add(ModItems.SECONDDIVINITY_RADIENT_LIGHT);
+                        entries.add(ModItems.THIRDIVINITY_GUARDIAN);
                         //entries.add(ModItems.TYRENT);
                         // TYRENT IS DEV TEST ITEM
                         entries.add(ModItems.CRACKED_TOTEM);
@@ -76,6 +83,7 @@ public class ModItemGroups {
                         entries.add(ModItems.EGG_BUNDLE2);
                         entries.add(ModItems.EGG_BUNDLE3);
                         entries.add(ModItems.CROWN_PARTS);
+                        entries.add(ModBlocks.COMPACT_IRON);
 
                         //entries.add(ModBlocks.POTION_WEB);
                         //.add(ModBlocks.THREAD_WEAVER);
