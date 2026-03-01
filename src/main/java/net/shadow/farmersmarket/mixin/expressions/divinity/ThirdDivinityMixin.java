@@ -38,6 +38,8 @@ public abstract class ThirdDivinityMixin extends Entity {
 
     @Unique
     private boolean shouldIncrease = false;
+    @Unique
+    private boolean shouldVoid = false;
 
 
     protected ThirdDivinityMixin(EntityType<? extends LivingEntity> entityType, World world) {
@@ -45,6 +47,10 @@ public abstract class ThirdDivinityMixin extends Entity {
     }
     @Inject(at = @At(value = "HEAD"), method = "tryUseTotem", cancellable = true)
     private void init(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
+        if(shouldVoid) {
+            cir.cancel();
+            return;
+        }
         if(!shouldIncrease) return;
         if(Thirddivinity_guardian.REVIVE>0) {
             Thirddivinity_guardian.Death();
@@ -61,11 +67,14 @@ public abstract class ThirdDivinityMixin extends Entity {
     }
     @Inject(at = @At("HEAD"), method = "tick")
     private void init(CallbackInfo ci) {
-            shouldIncrease = guardianAura(this);
+        shouldIncrease = guardianAura(this);
+        shouldVoid = Voided(this);
         // This code is injected into the start of MinecraftServer.loadWorld()V
     }
     @ModifyReturnValue(at = @At("RETURN"), method = "getMaxHealth")
     private float init(float original) {
+        if(shouldVoid)
+            return original;
         return shouldIncrease ? original + 10 : original;
     }
     @Unique
@@ -105,6 +114,45 @@ public abstract class ThirdDivinityMixin extends Entity {
                     if(user instanceof PlayerEntity){
                         return true;
                     }
+                }
+            }
+        }
+        return false;
+    }@Unique
+    private static boolean Voided(Entity user){
+        World world = user.getWorld();
+        final double SWEEP_RANGE = 1;
+        final double AOE_RADIUS = 5;
+        Vec3d origin = user.getEyePos();
+        Vec3d look   = user.getRotationVector().normalize();
+        Vec3d end    = origin.add(look.multiply(SWEEP_RANGE));
+        if (!world.isClient) {
+
+            if (!(world instanceof ServerWorld serverWorld)) {
+                return false;
+            }
+
+
+            var host = user.getPos();
+
+
+            List<LivingEntity> potential = serverWorld.getEntitiesByClass(
+                    LivingEntity.class,
+                    new Box(origin, end).expand(1.0),
+                    e -> e == user
+            );
+
+
+            List<LivingEntity> nearby = serverWorld.getEntitiesByClass(
+                    LivingEntity.class,
+                    new Box(host.subtract(AOE_RADIUS, AOE_RADIUS, AOE_RADIUS),
+                            host.add(AOE_RADIUS, AOE_RADIUS, AOE_RADIUS)),
+                    LivingEntity::isAlive
+            );
+
+            for (LivingEntity inrange : nearby) {
+                if (inrange.getOffHandStack().isOf(ModItems.THIRDOFTHEABYSS_VOID)) {
+                        return true;
                 }
             }
         }

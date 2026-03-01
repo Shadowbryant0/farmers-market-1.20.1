@@ -61,7 +61,7 @@
   "item.farmersmarket.fire_starter": "Homemade Fire Starter",
   "tooltip.farmersmarket.fire_starter.tooltip": "Don't try at home kids!",
 
-  "item.farmersmarket.cracked_skull": "CrackedSkull",
+  "item.farmersmarket.cracked_skull": "Cracked Skull",
   "item.farmersmarket.grief": "Grief",
   "item.farmersmarket.humanpendant": "Human Tooth Necklace",
   "item.farmersmarket.rabbitpendant": "Lucky Rabbit necklace",
@@ -141,5 +141,32 @@
   "attribute.name.generic.farmersmarket.blaze":"Blaze Born",
   "attribute.name.generic.farmersmarket.phantom":"Shroud",
 
-  "effect.farmersmarket.truesight":"Marked For Death"
+  "effect.farmersmarket.truesight":"Marked For Death",
+  "tooltip.farmersmarket.divinity.tooltip": "This Pure Divinity desires a catalyst to express itself.",
+  "tooltip.farmersmarket.divinity.tooltip2": "The first is a being who has wings from the heavens,",
+  "tooltip.farmersmarket.divinity.tooltip3": "the second is a vessel of holy light,",
+  "tooltip.farmersmarket.divinity.tooltip4": "and the third is a creature made of darkness, stuck in a ruined city.",
+
+
+  "item.farmersmarket.third_abyss": "Expression of the Void. Ceaseless Void",
+  "item.farmersmarket.second_abyss": "Expression of the Void. Symphony of the night",
+  "item.farmersmarket.first_abyss": "Expression of the Void. Shackles of the first sinner",
+  "item.farmersmarket.pure_abyss": "Untamed Abyss",
+  "item.farmersmarket.abyss_shards": "Shards of the Abyss",
+  "block.farmersmarket.crystalized_abyss": "Crystalised Abyss",
+
+
+  "item.farmersmarket.third_div": "Expression of Divinity. Guardian of the heart",
+  "item.farmersmarket.second_div": "Expression of Divinity. Radiant light",
+  "item.farmersmarket.first_div": "Expression of divinity. Wings of the forefather",
+  "item.farmersmarket.pure_div": "Unrefined divinity",
+  "item.farmersmarket.shattered_stars": "Shards of a fallen Star",
+  "block.farmersmarket.starry_obsidian": "Starry obsidian",
+  "attribute.name.generic.farmersmarket.divinity":"Divinity",
+
+  "tooltip.farmersmarket.abyss.tooltip": "This Shard of the Abyss Desires a form to restrict those above it",
+  "tooltip.farmersmarket.abyss.tooltip2": "The first is a being who guards those who are undeserving,",
+  "tooltip.farmersmarket.abyss.tooltip3": "the second is a witness to a pirate's adventure,",
+  "tooltip.farmersmarket.abyss.tooltip4": "and the third is a creature who has long lost it's original will, now guarding the dragon.",
+  "attribute.name.generic.farmersmarket.abyss":"Abyss"
 }

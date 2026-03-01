@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ddd",
+    "dsd",
+    "ddd"
+  ],
+  "key": {
+    "s": {
+      "item": "farmersmarket:shattered_stars"
+    },
+    "d": {
+      "item": "minecraft:obsidian"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:starry_obsidian"
+  }
+}

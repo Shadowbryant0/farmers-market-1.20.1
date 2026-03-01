@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ddd",
+    "dsd",
+    "ddd"
+  ],
+  "key": {
+    "s": {
+      "item": "farmersmarket:abyss_shards"
+    },
+    "d": {
+      "item": "minecraft:deepslate"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:crystalized_abyss"
+  }
+}

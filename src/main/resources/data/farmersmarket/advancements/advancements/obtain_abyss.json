@@ -1,0 +1,22 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:pure_abyss"
+    },
+    "title": "A Endless darkness",
+    "description": "Make a full shard of the ABYSS.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "farmersmarket:advancements/farmers_market",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:divinity_and_abyss/abyss"
+      }
+    }
+  }
+}

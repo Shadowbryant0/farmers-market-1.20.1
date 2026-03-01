@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "sss",
+    "sss",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "farmersmarket:abyss_shards"
+    }
+
+
+
+  },
+  "result": {
+    "item": "farmersmarket:pure_abyss"
+  }
+}

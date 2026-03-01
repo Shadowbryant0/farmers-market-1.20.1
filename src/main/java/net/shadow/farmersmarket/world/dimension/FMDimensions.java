@@ -18,7 +18,7 @@ public class FMDimensions {
     public static final RegistryKey<DimensionOptions> SHADOW_REALM_DIM_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
             new Identifier(FarmersMarket.MOD_ID, "shadow_realm_dim"));
     public static final RegistryKey<World> SHADOW_REALM_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(FarmersMarket.MOD_ID, "shadow_realm_key"));
+            new Identifier(FarmersMarket.MOD_ID, "shadow_realm"));
     public static final RegistryKey<DimensionType> SHADOW_REALM_DIM = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
             new Identifier(FarmersMarket.MOD_ID, "shadow_realm_type"));
     public static void bootstrapType(Registerable<DimensionType> context) {

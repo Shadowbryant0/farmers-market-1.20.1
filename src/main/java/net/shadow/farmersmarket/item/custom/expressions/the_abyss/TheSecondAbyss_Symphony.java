@@ -48,6 +48,10 @@ public class TheSecondAbyss_Symphony extends Item {
     }
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
+        if(hand == Hand.MAIN_HAND){
+            user.sendMessage(Text.literal("This hand is unsuited to using this tool, try the other").formatted(Formatting.DARK_AQUA), true);
+            return TypedActionResult.pass(itemStack);
+        }
         if(SecondAbyss_Song.SUMMON <100) {
             spawnSoul(world, user);
             spawnSoul(world, user);
@@ -64,11 +68,10 @@ public class TheSecondAbyss_Symphony extends Item {
         if (!(world instanceof ServerWorld serverWorld))
             return false;
         List<EntityType<?>> list = List.of(EntityType.HUSK, EntityType.HUSK, EntityType.ZOMBIFIED_PIGLIN, EntityType.BEE, EntityType.VINDICATOR, EntityType.SPIDER, EntityType.ZOMBIFIED_PIGLIN, EntityType.STRAY, EntityType.WITHER_SKELETON);
-        EntityType<?> type = EntityType.HUSK;
-        if (type != null) {
+        if (list != null) {
 //            Entity entity = type.create(serverWorld);
 
-            Entity entity = list.get(owner.getRandom().nextBetween(1, 9)).create(serverWorld);
+            Entity entity = list.get(owner.getRandom().nextBetween(0, 8)).create(serverWorld);
             if (entity instanceof LivingEntity living) {
                 // Restore data
 

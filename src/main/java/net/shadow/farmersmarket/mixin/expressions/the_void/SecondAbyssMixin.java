@@ -113,4 +113,54 @@ import java.util.UUID;
                 ci.cancel();
             }
         }
+        @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
+    private void death(CallbackInfo ci) {
+        if (this.summonerUuid != null) {
+            death(this);
+        }
     }
+    private boolean death(Entity user){
+        World world = user.getWorld();
+        final double SWEEP_RANGE = 1;
+        final float SWEEP_DAMAGE = 3;
+        final double AOE_RADIUS = 30;
+        Vec3d origin = user.getEyePos();
+        Vec3d look   = user.getRotationVector().normalize();
+        Vec3d end    = origin.add(look.multiply(SWEEP_RANGE));
+        if (!world.isClient) {
+
+            if (!(world instanceof ServerWorld serverWorld)) {
+                return false;
+            }
+
+
+            var host = user.getPos();
+
+
+            List<LivingEntity> potential = serverWorld.getEntitiesByClass(
+                    LivingEntity.class,
+                    new Box(origin, end).expand(1.0),
+                    e -> e == user
+            );
+
+            double minDist = Double.MAX_VALUE;
+
+
+            List<LivingEntity> nearby = serverWorld.getEntitiesByClass(
+                    LivingEntity.class,
+                    new Box(host.subtract(AOE_RADIUS, AOE_RADIUS, AOE_RADIUS),
+                            host.add(AOE_RADIUS, AOE_RADIUS, AOE_RADIUS)),
+                    LivingEntity::isAlive
+            );
+
+            for (LivingEntity inrange : nearby) {
+                if(this.summonerUuid == inrange.getUuid())
+                    if (!inrange.getOffHandStack().isOf(ModItems.SECONDOFTHEABYSS_SONG)) {
+                        this.kill();
+                        return true;
+                    }
+                }
+            }
+        return false;
+    }
+}

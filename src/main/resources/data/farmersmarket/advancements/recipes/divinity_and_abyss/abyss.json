@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_abyss": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersmarket:abyss_shards"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "farmersmarket:abyss"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_abyss",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersmarket:divinity_and_abyss/abyss",
+      "farmersmarket:divinity_and_abyss/abyss_ore"
+    ]
+  },
+  "show_notification": true
+}

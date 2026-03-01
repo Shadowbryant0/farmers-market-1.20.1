@@ -36,8 +36,12 @@ public abstract class FirstAbyssMixin extends Entity {
             return isGrounded ? -4 : original.call(instance);
     }
 
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;isOnGround()Z"), method = "tickFallFlying")
+    private boolean setGrounded(LivingEntity instance, Operation<Boolean> original) {
+        return isGrounded;
+    }
     @Inject(at = @At("HEAD"), method = "tick")
-    private void setGrounded(CallbackInfo info) {
+    private void setElytaGrounded(CallbackInfo info) {
         isGrounded = shackled(this);
     }
 

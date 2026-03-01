@@ -39,6 +39,7 @@
     "aquiifermixins.TouchingRainMixinDrag",
     "Crossbow.ShockwaveMixin",
     "expressions.divinity.SecondDivinityMixin",
+    "expressions.divinity.SecondDivinityObtainMixin",
     "expressions.divinity.ThirdDivinityMixin",
     "expressions.the_void.FirstAbyssMixin",
     "expressions.the_void.SecondAbyssMixin"

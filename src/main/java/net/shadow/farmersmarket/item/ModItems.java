@@ -10,8 +10,11 @@ import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.item.custom.expressions.divinity.Thefirstdivinity_flight;
 import net.shadow.farmersmarket.item.custom.expressions.divinity.Theseconddivinity_Radiant_light;
 import net.shadow.farmersmarket.item.custom.expressions.divinity.Thethirddivinity_guardian;
+import net.shadow.farmersmarket.item.custom.expressions.divinity.UnRefinedDivinity;
 import net.shadow.farmersmarket.item.custom.expressions.the_abyss.TheFirstAbyss_Shackles;
 import net.shadow.farmersmarket.item.custom.expressions.the_abyss.TheSecondAbyss_Symphony;
+import net.shadow.farmersmarket.item.custom.expressions.the_abyss.TheThirdAbyss_Void;
+import net.shadow.farmersmarket.item.custom.expressions.the_abyss.UnTamedAbyss;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
@@ -46,6 +49,8 @@ public class ModItems {
 
     public static final Item SHATTERED_STARS = registerItem("shattered_stars",
             new Item(new FabricItemSettings().maxCount(16).fireproof()));
+    public static final Item UNREFINED_DIVINITY = registerItem("pure_div",
+            new UnRefinedDivinity(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item FIRSTDIVINITY_FLIGHT = registerItem("first_div",
             new Thefirstdivinity_flight(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item SECONDDIVINITY_RADIENT_LIGHT = registerItem("second_div",
@@ -56,10 +61,14 @@ public class ModItems {
 
     public static final Item ABYSS_SHARDS = registerItem("abyss_shards",
             new Item(new FabricItemSettings().maxCount(16).fireproof()));
+    public static final Item UNTAMED_ABYSS = registerItem("pure_abyss",
+            new UnTamedAbyss(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item FIRSTOFTHEABYSS_SHACKLES = registerItem("first_abyss",
             new TheFirstAbyss_Shackles(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item SECONDOFTHEABYSS_SONG = registerItem("second_abyss",
             new TheSecondAbyss_Symphony(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item THIRDOFTHEABYSS_VOID = registerItem("third_abyss",
+            new TheThirdAbyss_Void(new FabricItemSettings().maxCount(1).fireproof()));
 
     public static final Item COLD_STEEL = registerItem("cold_steel",
             new Item(new FabricItemSettings()));
