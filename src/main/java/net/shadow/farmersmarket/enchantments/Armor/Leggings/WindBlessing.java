@@ -56,7 +56,7 @@ public class WindBlessing extends Enchantment {
     }
 
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != Enchantments.PROTECTION && other != Enchantments.FIRE_PROTECTION && other != Enchantments.BLAST_PROTECTION && other != Enchantments.PROJECTILE_PROTECTION;
+        return super.canAccept(other);
     }
 
     @Override

@@ -9,6 +9,8 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 
 import net.minecraft.item.*;
@@ -177,7 +179,9 @@ public class FarmersmarketUtil {
     //sourced by kirro
     //on the rattiest gang discord server
      //thanks!
-
+    public static boolean hasEffect(StatusEffect effect, LivingEntity living){
+        return living.hasStatusEffect(effect);
+    }
 }
 
 

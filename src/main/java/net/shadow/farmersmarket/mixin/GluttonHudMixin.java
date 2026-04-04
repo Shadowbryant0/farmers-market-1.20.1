@@ -111,6 +111,7 @@ public abstract class GluttonHudMixin {
                     if (i * 2 + 1 != sat) continue;
                     context.drawTexture(APPLE_SKIN_SAT, ac, z, 9, 9, 9, 9);
                 }
+                //apple skin compat, draws the second bar of hunger's saturation
             }
         }
 

@@ -26,7 +26,7 @@ public abstract class AppleSkinMixin {
 
     @Inject(at=@At("TAIL"), method = "onRender")
 	private void init(DrawContext context, CallbackInfo ci) {
-
+//oh yeahm my failed apple skin compat
 //        MinecraftClient mc = MinecraftClient.getInstance();
 //        PlayerEntity player = mc.player;
 //        assert player != null;

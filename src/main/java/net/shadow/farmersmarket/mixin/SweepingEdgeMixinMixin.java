@@ -18,5 +18,6 @@ public class SweepingEdgeMixinMixin {
             return false;
         }
         return original.call(object) || (object instanceof SweepingHoeItem) || (object instanceof SweepingPickaxelItem) || (object instanceof SweepingAxeItem) || (object instanceof SweepingShovelItem) || (object instanceof SweepingItem) || (object instanceof FarmersScytheClass);
+        // allows things i want to sweep to sweep, and swords i don't want to sweep to not sweep :D
     }
 }

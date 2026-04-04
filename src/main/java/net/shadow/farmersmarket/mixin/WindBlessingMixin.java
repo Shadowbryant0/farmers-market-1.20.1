@@ -83,6 +83,7 @@ abstract class WindBlessingPlayerMixin extends LivingEntity{
         if(FMEnchantCheck.getWind(this)>0&&(!this.abilities.invulnerable)){
             exhaustion = (float) (exhaustion+(exhaustion*(FMEnchantCheck.getWind(this)*.15)));
             this.hungerManager.addExhaustion(exhaustion);
+            // plus it makes you use food faster. 15% extra food cost per level (level 3 by default, level 1 and 2 exist for enchancement)
         }
     }
 }

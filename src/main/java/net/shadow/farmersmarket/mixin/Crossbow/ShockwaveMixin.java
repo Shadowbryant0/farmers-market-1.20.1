@@ -16,6 +16,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
+import net.shadow.farmersmarket.components.Weapons.AirDragComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.util.FarmersmarketUtil;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,7 +29,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 class ShockwaveMixin {
         @Inject(method = "shoot", at = @At("HEAD"), cancellable = true)
         private static void farmersmarket$Shockwave(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, ItemStack projectile, float soundPitch, boolean creative, float speed, float divergence, float simulated, CallbackInfo ci) {
-            double boost = 1d;
+            double boost = 1.2d;
             if (!world.isClient && FarmersmarketUtil.hasEnchantment(FarmersMarketEnchants.ShockwaveEnchant, crossbow) && projectile.isOf(Items.ARROW)) {
                 crossbow.damage(1, shooter, stackUser -> stackUser.sendToolBreakStatus(hand));
                 world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1, soundPitch);
@@ -36,9 +37,9 @@ class ShockwaveMixin {
                 Vec3d lookingDirection = shooter.getRotationVec(1.0f);
 
                 shooter.addVelocity(
-                        lookingDirection.x * -boost * 1f,
-                        lookingDirection.y * -boost * 1.2f,
-                        lookingDirection.z * -boost * 1f
+                        lookingDirection.x * -boost * 1.2f,
+                        lookingDirection.y * -boost * 1.4f,
+                        lookingDirection.z * -boost * 1.2f
                 );
                     shooter.damage(shooter.getDamageSources().flyIntoWall(),2);
 
@@ -46,7 +47,8 @@ class ShockwaveMixin {
 
                 shooter.velocityModified = true;
                 if (shooter instanceof PlayerEntity player) {
-                    player.getItemCooldownManager().set(crossbow.getItem(), 20);
+                    player.getItemCooldownManager().set(crossbow.getItem(), 10);
+                    AirDragComponent.DRAG();
                 }
                 ci.cancel();
             }
@@ -57,9 +59,9 @@ class ShockwaveMixin {
                 Vec3d lookingDirection = shooter.getRotationVec(1.0f);
 
                 shooter.addVelocity(
-                        lookingDirection.x * -boost * 2.2f,
-                        lookingDirection.y * -boost * 2.5f,
-                        lookingDirection.z * -boost * 2.2f
+                        lookingDirection.x * -boost * 2.7f,
+                        lookingDirection.y * -boost * 2.9f,
+                        lookingDirection.z * -boost * 2.7f
                 );
 
 
@@ -67,7 +69,9 @@ class ShockwaveMixin {
 
                 shooter.velocityModified = true;
                 if (shooter instanceof PlayerEntity player) {
-                    player.getItemCooldownManager().set(crossbow.getItem(), 40);
+                    player.getItemCooldownManager().set(crossbow.getItem(), 20);
+
+                    AirDragComponent.DRAG();
                 }
                 ci.cancel();
                 shooter.damage(shooter.getDamageSources().flyIntoWall(),4);

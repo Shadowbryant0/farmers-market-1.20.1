@@ -65,6 +65,13 @@ public class CSbook extends BookItem {
                         player.damage(player.getDamageSources().wither(), 10);
                     }
 
+                }if (EnchantmentTarget.ARMOR_CHEST.isAcceptableItem(armorItem)) {
+                    if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Bracing, itemStack) == 0) {
+                        itemStack.addEnchantment(FarmersMarketEnchants.Bracing, 1);
+                        player.damage(player.getDamageSources().wither(), 10);
+                        stack.decrement(1);
+                    }
+
                 }
 
             } else if (itemStack.isEmpty()) {
@@ -130,7 +137,7 @@ public class CSbook extends BookItem {
                 }
 
 
-            }else if (itemStack.getItem() instanceof ElytraItem || itemStack.isIn(FarmersMarketItemTags.BRACE_EXCEPTION_1)) {
+            }else if (itemStack.getItem() instanceof ElytraItem) {
                 if(EnchantmentHelper.getLevel(FarmersMarketEnchants.Bracing, itemStack) == 0) {
                     itemStack.addEnchantment(FarmersMarketEnchants.Bracing, 1);
                     player.damage(player.getDamageSources().wither(), 10);

@@ -168,5 +168,7 @@
   "tooltip.farmersmarket.abyss.tooltip2": "The first is a being who guards those who are undeserving,",
   "tooltip.farmersmarket.abyss.tooltip3": "the second is a witness to a pirate's adventure,",
   "tooltip.farmersmarket.abyss.tooltip4": "and the third is a creature who has long lost it's original will, now guarding the dragon.",
-  "attribute.name.generic.farmersmarket.abyss":"Abyss"
+  "attribute.name.generic.farmersmarket.abyss":"Abyss",
+  "fm.warped_shadow": "You have fallen out of the end",
+  "fm.warped_end": "you have fallen back into the end"
 }

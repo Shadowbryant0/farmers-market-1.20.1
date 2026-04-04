@@ -29,6 +29,7 @@ public class ModEntityComponents implements EntityComponentInitializer {
     public static final ComponentKey<Firstdivinity_flight> FIRST_DIV = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "firstdivinity"), Firstdivinity_flight.class);
     public static final ComponentKey<Thirddivinity_guardian> THIRD_DIV = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "thirddivinity"), Thirddivinity_guardian.class);
     public static final ComponentKey<SecondAbyss_Song> SECOND_ABYSS = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "secondabyss"), SecondAbyss_Song.class);
+    public static final ComponentKey<AirDragComponent> DRAG = ComponentRegistry.getOrCreate(Identifier.of("farmersmarket", "drag"), AirDragComponent.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
@@ -45,5 +46,6 @@ public class ModEntityComponents implements EntityComponentInitializer {
         registry.registerFor(PlayerEntity.class, FIRST_DIV, player ->  new Firstdivinity_flight(player));
         registry.registerFor(LivingEntity.class, THIRD_DIV, livingEntity ->  new Thirddivinity_guardian(livingEntity));
         registry.registerFor(PlayerEntity.class, SECOND_ABYSS,  player->  new SecondAbyss_Song(player));
+        registry.registerFor(PlayerEntity.class, DRAG,  player->  new AirDragComponent(player));
     }
 }

@@ -59,7 +59,7 @@ public class Bracing extends Enchantment {
     }
 
 
-    public boolean isAcceptableItem(ItemStack stack) {
+    public boolean isAcceptableItem(ItemStack stack){
         return stack.getItem() instanceof ElytraItem;
 
     }

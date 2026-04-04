@@ -38,7 +38,7 @@ public class ExecutionersAxeItem extends AxeItem {
 
         if (!world.isClient) {
             ItemStack stack = user.getStackInHand(hand);
-            if (EnchantmentHelper.getLevel(FarmersMarketEnchants.Inferno, stack) == 0) {
+            if ((EnchantmentHelper.getLevel(FarmersMarketEnchants.Inferno, stack) == 0) &&(EnchantmentHelper.getLevel(FarmersMarketEnchants.FreezerBurn, stack) == 0)) {
                 return super.use(world, user, hand);
             } else {
 

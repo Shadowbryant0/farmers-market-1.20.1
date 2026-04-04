@@ -48,7 +48,7 @@ public class Gluttony extends Enchantment {
     }
 
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != Enchantments.PROTECTION && other != FarmersMarketEnchants.ADAPTABILITY;
+        return super.canAccept(other);
     }
 
 

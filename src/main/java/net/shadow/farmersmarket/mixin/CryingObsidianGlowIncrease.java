@@ -39,6 +39,7 @@ public abstract class CryingObsidianGlowIncrease implements BlockStateLambda {
         if (this.getBlock() == Blocks.CRYING_OBSIDIAN || this.getBlock() == Blocks.RESPAWN_ANCHOR) {
             this.updateNeighbors(world, pos, 1);
         }
+        //needed so they glow when placed by the world, else they need an update to emit light
     }
 
 }
