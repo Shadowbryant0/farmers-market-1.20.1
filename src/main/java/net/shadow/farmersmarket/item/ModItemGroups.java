@@ -97,6 +97,8 @@ public class ModItemGroups {
                         //entries.add(ModBlocks.POTION_WEB);
                         //.add(ModBlocks.THREAD_WEAVER);
 
+                        entries.add(ModBlocks.CLOUD_BLOCK);
+                        entries.add(ModItems.CLOUD_ITEM);
 
                     }).build());
 

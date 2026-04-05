@@ -61,6 +61,7 @@
   "item.farmersmarket.fire_starter": "Homemade Fire Starter",
   "tooltip.farmersmarket.fire_starter.tooltip": "Don't try at home kids!",
 
+  "item.farmersmarket.blindfold": "a Blindfold?",
   "item.farmersmarket.cracked_skull": "Cracked Skull",
   "item.farmersmarket.grief": "Grief",
   "item.farmersmarket.humanpendant": "Human Tooth Necklace",
@@ -88,6 +89,10 @@
   "item.farmersmarket.cleansing_stone": "Restoring Whetstone",
 
   "block.farmersmarket.block_of_ruby": "Ruby Block",
+  "block.farmersmarket.compact_iron_ore": "Compressed Iron ore",
+
+  "block.farmersmarket.cloud_block": "Cloud Block",
+  "item.farmersmarket.cloud_item": "Pocket Cloud ",
 
   "enchantment.farmersmarket.hunterslullabyenchantment": "Hunters Lullaby",
   "enchantment.farmersmarket.freshfieldsenchantment": "Fresh Fields",
@@ -140,6 +145,7 @@
   "attribute.name.generic.farmersmarket.enderman":"Hydrophobic",
   "attribute.name.generic.farmersmarket.blaze":"Blaze Born",
   "attribute.name.generic.farmersmarket.phantom":"Shroud",
+  "attribute.name.generic.farmersmarket.truesight":"All seeing",
 
   "effect.farmersmarket.truesight":"Marked For Death",
   "tooltip.farmersmarket.divinity.tooltip": "This Pure Divinity desires a catalyst to express itself.",

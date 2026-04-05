@@ -14,6 +14,6 @@ public class AirdragMixin {
     }
     @ModifyExpressionValue(at = @At(value = "CONSTANT", args = "floatValue=0.02"), method = "getOffGroundSpeed")
     private float init2(float original) {
-        return AirDragComponent.DRAGBOOLIAN() ? 0.4f : original;
+        return AirDragComponent.DRAGBOOLIAN() ? 1f : original;
     }
 }

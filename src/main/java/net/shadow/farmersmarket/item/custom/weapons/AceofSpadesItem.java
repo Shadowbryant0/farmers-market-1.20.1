@@ -29,7 +29,7 @@ public class AceofSpadesItem extends SweepingShovelItem {
     private static final int COOLDOWN_TICKS = 240;
 
     public AceofSpadesItem(Settings settings) {
-        super(WeaponMaterials.ACE, 1.5F, -2.5F, settings);
+        super(WeaponMaterials.ACE, 1.5F, -2.7F, settings);
     }
 
     final double RANGE = 10;

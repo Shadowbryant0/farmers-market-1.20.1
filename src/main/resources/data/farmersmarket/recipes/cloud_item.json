@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "S": {
+      "item": "minecraft:water_bucket"
+    },
+    "C": {
+      "item": "farmersmarket:shattered_stars"
+    },
+    "E": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "pattern": [
+    "SSS",
+    " S ",
+    "ECE"
+  ],
+  "result": {
+    "item": "farmersmarket:cloud_item",
+    "count": 16
+  },
+  "show_notification": true
+}

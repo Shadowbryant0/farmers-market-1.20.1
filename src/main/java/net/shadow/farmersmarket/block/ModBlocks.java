@@ -15,6 +15,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.block.custom.CustomAngelBlock;
 import net.shadow.farmersmarket.block.custom.ThreadWeaver;
 import org.jetbrains.annotations.Nullable;
 
@@ -33,6 +34,9 @@ public class ModBlocks {
     public static final Block CRYSTALIZED_ABYSS = registerBlock(
             "crystalized_abyss",
             new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_DIAMOND_ORE).luminance((state) -> 5)));
+    public static final Block CLOUD_BLOCK = registerBlock(
+            "cloud_block",
+            new CustomAngelBlock(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).luminance((state) -> 5)));
 
 
 

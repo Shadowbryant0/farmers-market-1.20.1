@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tool",
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "C": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "E": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "SES",
+    "CCC"
+  ],
+  "result": {
+    "item": "farmersmarket:blindfold"
+  },
+  "show_notification": true
+}

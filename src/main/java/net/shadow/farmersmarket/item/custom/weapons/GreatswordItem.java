@@ -27,7 +27,7 @@ public class GreatswordItem extends SwordItem {
     private static final int COOLDOWN_TICKS = 200;
     //  right click is fast short dash that slams into enemies (custom stun effect)
     public GreatswordItem(Item.Settings settings) {
-        super(WeaponMaterials.GREAT, 3, -2.6F, settings);
+        super(WeaponMaterials.GREAT, 4, -2.6F, settings);
     }
 
 

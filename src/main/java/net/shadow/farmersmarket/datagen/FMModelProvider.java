@@ -18,6 +18,7 @@ public class FMModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COMPACT_IRON);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STARRY_OBSIDIAN);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRYSTALIZED_ABYSS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CLOUD_BLOCK);
     }
 
     @Override
@@ -32,5 +33,6 @@ public class FMModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.UNREFINED_DIVINITY, Models.GENERATED);
         itemModelGenerator.register(ModItems.UNTAMED_ABYSS, Models.GENERATED);
         itemModelGenerator.register(ModItems.THIRDOFTHEABYSS_VOID, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CLOUD_ITEM, Models.GENERATED);
     }
 }

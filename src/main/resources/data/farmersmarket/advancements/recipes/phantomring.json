@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "farmersmarket:goldenring"
+              "minecraft:phantom_membrane"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersmarket:piglinbrutering"
+        "recipe": "farmersmarket:phantomring"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:piglinbrutering",
+      "farmersmarket:blindfold",
       "farmersmarket:phantomring"
     ]
   },

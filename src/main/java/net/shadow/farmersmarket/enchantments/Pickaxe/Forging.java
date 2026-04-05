@@ -48,10 +48,10 @@ public class Forging extends Enchantment {
 
     public float getAttackDamage(int level, EntityGroup group) {
 
-            return 3F;
+            return 1F;
     }
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-    target.setFireTicks(200);
+    target.setFireTicks(40);
     }
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof PickaxeItem ||stack.getItem() instanceof ShovelItem;

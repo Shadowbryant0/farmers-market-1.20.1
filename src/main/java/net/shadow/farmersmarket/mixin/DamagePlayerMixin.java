@@ -52,15 +52,17 @@ abstract class DamageEntityMixin{
         private void parryPartial(DamageSource source, float amount, CallbackInfoReturnable<Float> cir) {
             if (ParryComponent.PARRY > 0) {
                 amount = amount/3;
-                cir.setReturnValue(amount);
                 if(ParryComponent.PARRY_ULTRA>0){
                     cir.setReturnValue(0f);
                 }
             }
             if(hasStatusEffect(FmEffects.TRUESIGHT)){
                 amount = (float) (amount*1.5);
-                cir.setReturnValue(amount);
             }
+            if(AdaptabilityComponent.adaptcheck(source)){// checks if the source can be adapted to
+                amount = AdaptabilityComponent.hasAdapt(source, amount);// modifies the damage you take
+            }
+            cir.setReturnValue(amount);
         }
 }
 @Mixin(PlayerEntity.class)
@@ -70,35 +72,8 @@ abstract class AdaptPlayerMixin{
     @Inject(
             at = @At("HEAD"), method = "damage")
     private void AdaptCharge(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        AdaptabilityComponent.Decrease(source);
-        AdaptabilityComponent.IncrementAdaptability(source);
-    }
-}
-@Mixin(PlayerEntity.class)
-abstract class AdaptAttackMixin extends LivingEntity{
-
-
-    @Shadow
-    public abstract boolean isPlayer();
-
-    protected AdaptAttackMixin(EntityType<? extends LivingEntity> entityType, World world) {
-        super(entityType, world);
-    }
-
-    @Inject(
-            at = @At("HEAD"), method = "attack")
-    private void AdaptCharge(Entity target, CallbackInfo ci) {
-        if(FMEnchantCheck.getAdapting(this)>0) {
-            if (this.isPlayer()) {
-                target.damage(target.getDamageSources().mobAttack(this), (float) (AdaptabilityComponent.PROJECTILE + AdaptabilityComponent.EXPLOSIVE));
-                if(target.getVelocity().getY()>=0) {
-                    target.setVelocity(target.getVelocity().getX(), target.getVelocity().getY() + (AdaptabilityComponent.KINETIC / 4) + (AdaptabilityComponent.EXPLOSIVE / 2), target.getVelocity().getZ());
-                }else {
-                    target.setVelocity(target.getVelocity().getX(), (AdaptabilityComponent.KINETIC / 4) + (AdaptabilityComponent.EXPLOSIVE / 2), target.getVelocity().getZ());
-                }
-                target.setFireTicks((int) (AdaptabilityComponent.FIRE * 40));
-            }
-        }
+        AdaptabilityComponent.Decrease(source);//decreases adapting to other sources than this one
+        AdaptabilityComponent.IncrementAdaptability(source);// increases adapt tothe source
     }
 }
 

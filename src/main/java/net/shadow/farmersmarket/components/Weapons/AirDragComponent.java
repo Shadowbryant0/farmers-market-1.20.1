@@ -14,7 +14,7 @@ public ItemStack stack;
         this.player = player;
     }
     public static int DRAG = 0;
-    public static int DRAGMAX = 100;
+    public static int DRAGMAX = 160;
 
     @Override
     public void readFromNbt(NbtCompound nbtCompound) {
@@ -39,7 +39,7 @@ public ItemStack stack;
 
     }
     public static void DRAG(){
-        DRAG = 100;
+        DRAG = 160;
     }
     public static Boolean DRAGBOOLIAN() {
         return DRAG>0;

@@ -29,6 +29,7 @@
   "rewards": {
     "recipes": [
       "farmersmarket:divinity_and_abyss/divinity",
+      "farmersmarket:cloud_item",
       "farmersmarket:divinity_and_abyss/divinity_ore"
     ]
   },

@@ -67,10 +67,7 @@ public class Fbook extends BookItem {
             }
 
             if (EnchantmentTarget.ARMOR_FEET.isAcceptableItem(item)||EnchantmentTarget.ARMOR_CHEST.isAcceptableItem(item)) {
-
-
-
-
+                if(EnchantmentHelper.getLevel(Enchantments.PROTECTION, itemStack) > 0 || EnchantmentHelper.getLevel(Enchantments.BLAST_PROTECTION, itemStack) > 0|| EnchantmentHelper.getLevel(Enchantments.PROJECTILE_PROTECTION, itemStack) > 0|| EnchantmentHelper.getLevel(Enchantments.FIRE_PROTECTION, itemStack) > 0|| EnchantmentHelper.getLevel(FarmersMarketEnchants.LavaWader, itemStack) > 0) return false;
                 this.playInsertSound(player);
                 itemStack.addEnchantment(FarmersMarketEnchants.LavaWader, 1);
 

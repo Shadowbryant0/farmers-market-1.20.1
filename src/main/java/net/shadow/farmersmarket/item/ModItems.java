@@ -207,6 +207,9 @@ public class ModItems {
     public static final Item TIDE = registerItem("tide",
             new Tide(new FabricItemSettings().maxCount(1).fireproof()));
 
+    public static final Item CLOUD_ITEM = registerItem("cloud_item",
+            new CloudBlockItem(new FabricItemSettings().maxCount(16)));
+
 
     public static final Item TEST = registerItem("test",
             new TestingBow(new FabricItemSettings().maxCount(1).fireproof()));

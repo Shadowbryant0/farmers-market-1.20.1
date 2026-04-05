@@ -45,9 +45,9 @@ public class Syphon extends Enchantment {
 
     public float getAttackDamage(int level, EntityGroup group) {
         if(group == EntityGroup.UNDEAD){
-            return 0f;
+            return 3f;
         }
-        return 1F;
+        return 0.5F;
     }
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof AceofSpadesItem;

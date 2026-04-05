@@ -44,12 +44,16 @@ public ItemStack stack;
 
     @Override
     public void tick() {
-        if(FMEnchantCheck.getAdapting(player)>1){
+        if(FMEnchantCheck.getAdapting(player)==0){
+            PROJECTILE = Math.max(PROJECTILE - 1, 0);
+            EXPLOSIVE = Math.max(EXPLOSIVE - 1, 0);
+            KINETIC = Math.max(KINETIC - 1, 0);
+            FIRE = Math.max(FIRE - 1, 0);
         }
     }
 
     public static void Decrease(DamageSource source){
-        if(source.isIn(DamageTypeTags.IS_FIRE)){
+        if(source.isIn(DamageTypeTags.IS_FIRE)){// if it is fire, takes away kenetic, projectile and explosive
             PROJECTILE = Math.max(PROJECTILE - 1, 0);
             EXPLOSIVE = Math.max(EXPLOSIVE - 1, 0);
             KINETIC = Math.max(KINETIC - 1, 0);
@@ -73,17 +77,49 @@ public ItemStack stack;
 
     public static void IncrementAdaptability(DamageSource source){
         if(source.isIn(DamageTypeTags.IS_FIRE)){
-            FIRE = Math.min(FIRE + 1, 2);
+            FIRE = Math.min(FIRE + 5, 20);
         }
         if(source.isIn(DamageTypeTags.IS_PROJECTILE)){
-            PROJECTILE = Math.min(PROJECTILE + 1, 2);
+            PROJECTILE = Math.min(PROJECTILE + 5, 20);
         }
         if(source.isIn(FarmersMarketDamageTagsCustom.KINETIC)){
-            KINETIC = Math.min(KINETIC + 1, 2);
+            KINETIC = Math.min(KINETIC + 5, 20);
         }
         if(source.isIn(DamageTypeTags.IS_EXPLOSION)){
-            EXPLOSIVE = Math.min(EXPLOSIVE + 1, 2);
+            EXPLOSIVE = Math.min(EXPLOSIVE + 5, 20);
         }
+    }
+
+    public static float hasAdapt(DamageSource source, float amount){
+        if(source.isIn(DamageTypeTags.IS_FIRE)){
+            return (float) (amount*(FIRE/50));
+        }
+        if(source.isIn(DamageTypeTags.IS_PROJECTILE)){
+            return (float) (amount*(PROJECTILE/50));
+        }
+        if(source.isIn(FarmersMarketDamageTagsCustom.KINETIC)){
+            return (float) (amount*(KINETIC/50));
+        }
+        if(source.isIn(DamageTypeTags.IS_EXPLOSION)){
+            return (float) (amount*(EXPLOSIVE/50));
+        }
+        return amount;
+    }
+
+    public static boolean adaptcheck(DamageSource source){
+        if(source.isIn(DamageTypeTags.IS_FIRE)){
+            return FIRE>0;
+        }
+        if(source.isIn(DamageTypeTags.IS_PROJECTILE)){
+            return PROJECTILE>0;
+        }
+        if(source.isIn(FarmersMarketDamageTagsCustom.KINETIC)){
+            return KINETIC>0;
+        }
+        if(source.isIn(DamageTypeTags.IS_EXPLOSION)){
+            return EXPLOSIVE>0;
+        }
+        return false;
     }
 
 

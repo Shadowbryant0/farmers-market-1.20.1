@@ -38,7 +38,7 @@ class ShockwaveMixin {
 
                 shooter.addVelocity(
                         lookingDirection.x * -boost * 1.2f,
-                        lookingDirection.y * -boost * 1.4f,
+                        lookingDirection.y * -boost * 1.3f,
                         lookingDirection.z * -boost * 1.2f
                 );
                     shooter.damage(shooter.getDamageSources().flyIntoWall(),2);
@@ -47,7 +47,7 @@ class ShockwaveMixin {
 
                 shooter.velocityModified = true;
                 if (shooter instanceof PlayerEntity player) {
-                    player.getItemCooldownManager().set(crossbow.getItem(), 10);
+                    player.getItemCooldownManager().set(crossbow.getItem(), 20);
                     AirDragComponent.DRAG();
                 }
                 ci.cancel();
@@ -59,9 +59,9 @@ class ShockwaveMixin {
                 Vec3d lookingDirection = shooter.getRotationVec(1.0f);
 
                 shooter.addVelocity(
-                        lookingDirection.x * -boost * 2.7f,
-                        lookingDirection.y * -boost * 2.9f,
-                        lookingDirection.z * -boost * 2.7f
+                        lookingDirection.x * -boost * 2.4f,
+                        lookingDirection.y * -boost * 2.6f,
+                        lookingDirection.z * -boost * 2.4f
                 );
 
 
@@ -69,7 +69,7 @@ class ShockwaveMixin {
 
                 shooter.velocityModified = true;
                 if (shooter instanceof PlayerEntity player) {
-                    player.getItemCooldownManager().set(crossbow.getItem(), 20);
+                    player.getItemCooldownManager().set(crossbow.getItem(), 30);
 
                     AirDragComponent.DRAG();
                 }

@@ -2,6 +2,7 @@ package net.shadow.farmersmarket.enchantments.Crossbow;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
@@ -40,13 +41,7 @@ public class ShockwaveEnchant extends Enchantment {
     }
 
     @Override
-    public boolean isAvailableForRandomSelection() {
-        return true;
+    protected boolean canAccept(Enchantment other) {
+        return super.canAccept(other) && other != Enchantments.QUICK_CHARGE && other != Enchantments.MULTISHOT;
     }
-
-
-
-
-
-
 }
