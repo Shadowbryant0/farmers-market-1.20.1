@@ -159,7 +159,11 @@ public class AceofSpadesItem extends SweepingShovelItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
+        if(WeaponChargeComponent.SPADE>0){
         return Math.round((float) WeaponChargeComponent.SPADE / WeaponChargeComponent.MAX_SPADE * 13); // full bar = max charge
+    }
+        return super.getItemBarStep(stack);
+
     }
 
     @Override

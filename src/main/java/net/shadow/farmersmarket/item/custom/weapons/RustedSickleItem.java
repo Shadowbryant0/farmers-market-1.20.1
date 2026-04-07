@@ -137,7 +137,10 @@ public class RustedSickleItem extends SweepingHoeItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
+        if(WeaponChargeComponent.SICKLE>0){
         return Math.round((float) WeaponChargeComponent.SICKLE / WeaponChargeComponent.MAX_SICKLE * 13); // full bar = max charge
+    }
+    return super.getItemBarStep(stack);
     }
 
     @Override

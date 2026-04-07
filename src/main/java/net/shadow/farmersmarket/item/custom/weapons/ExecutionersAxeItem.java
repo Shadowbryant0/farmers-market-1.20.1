@@ -187,7 +187,10 @@ public class ExecutionersAxeItem extends AxeItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
+        if(WeaponChargeComponent.BLOOD>0){
             return Math.round((float) WeaponChargeComponent.BLOOD / WeaponChargeComponent.MAX_BLOOD * 13); // full bar = max charge
+    }
+    return super.getItemBarStep(stack);
 
     }
 

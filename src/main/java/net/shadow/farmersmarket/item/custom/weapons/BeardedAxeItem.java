@@ -126,7 +126,10 @@ public class BeardedAxeItem extends SweepingAxeItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
+                    if(WeaponChargeComponent.BEARDED>0){
         return Math.round((float) WeaponChargeComponent.BEARDED / WeaponChargeComponent.MAX_BEARDED * 13); // full bar = max charge
+    }
+    return super.getItemBarStep(stack);
     }
 
     @Override

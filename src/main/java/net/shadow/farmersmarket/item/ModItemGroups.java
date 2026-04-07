@@ -34,7 +34,6 @@ public class ModItemGroups {
                         entries.add(ModItems.WYRM_SPEAR);
                         entries.add(ModItems.GAYSCYTHE);
 
-                        entries.add(ModItems.GEARSHIFT);
 
                         entries.add(ModItems.CRUDESABER);
                         entries.add(ModItems.PIRATESABER);

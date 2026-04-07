@@ -161,7 +161,6 @@ public class RapierWeaponItem extends SwordItem {
 
                             if (directTarget != null) {
                                 directTarget.damage(serverWorld.getDamageSources().mobAttack(user), MINI_DAMAGE);
-                                directTarget.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 140, 2));
                                 //impact = directTarget.getPos();
                             }
                         return super.use(world, user, hand);
@@ -199,7 +198,10 @@ public class RapierWeaponItem extends SwordItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
+        if(WeaponChargeComponent.RAPIER>0){
         return Math.round((float) WeaponChargeComponent.RAPIER / WeaponChargeComponent.MAX_RAPIER * 13); // full bar = max charge
+             }
+    return super.getItemBarStep(stack);
     }
 
     @Override

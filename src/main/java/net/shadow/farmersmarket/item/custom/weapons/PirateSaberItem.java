@@ -45,9 +45,10 @@ public class PirateSaberItem extends SwordItem {
             return Math.round((float) ParryComponent.PARRY_ULTRA / ParryComponent.PARRY_MAX * 13); // full bar = max charge
         }else if(ParryComponent.PARRY>0) {
                 return Math.round((float) ParryComponent.PARRY / ParryComponent.PARRY_MAX * 13); // full bar = max charge
-        }else{
+        }else if(ParryComponent.PARRY_CHARGE>0) {
             return Math.round((float) ParryComponent.PARRY_CHARGE / ParryComponent.PARRY_CHARGE_MAX   * 13); // full bar = max charge
         }
+        return super.getItemBarStep(stack);
     }
 
     @Override

@@ -129,8 +129,10 @@ public class GreatswordItem extends SwordItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-
+        if(WeaponChargeComponent.GREAT>0){
             return Math.round((float) WeaponChargeComponent.GREAT / WeaponChargeComponent.MAX_GREAT * 13); // full bar = max charge
+    }
+    return super.getItemBarStep(stack);
 
     }
 

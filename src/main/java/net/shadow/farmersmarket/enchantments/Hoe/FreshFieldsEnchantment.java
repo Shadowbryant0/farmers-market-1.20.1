@@ -47,11 +47,15 @@ public class FreshFieldsEnchantment extends Enchantment {
         return false;
     }
 
+    @Override
+    public boolean isCursed() {
+        return true;
+    }
+
     //.
 
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof HoeItem;
-
     }
 
 
