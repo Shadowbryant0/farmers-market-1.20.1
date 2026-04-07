@@ -34,5 +34,8 @@ public class FMModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.UNTAMED_ABYSS, Models.GENERATED);
         itemModelGenerator.register(ModItems.THIRDOFTHEABYSS_VOID, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLOUD_ITEM, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.GEARSHIFTED, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GEARSHIFT, Models.HANDHELD);
     }
 }

@@ -32,14 +32,7 @@ public class ModItemGroups {
                         entries.add(ModItems.AXE_HEAD);
                         entries.add(ModItems.BEARDED_AXE);
                         entries.add(ModItems.WYRM_SPEAR);
-                        //entries.add(ModItems.TOOTHPICK);
                         entries.add(ModItems.GAYSCYTHE);
-                        //entries.add(ModItems.PIRATESABER);
-                        entries.add(ModItems.TEST);
-                        entries.add(ModItems.KNUCKLEIRONMAIN);
-                        entries.add(ModItems.KNUCKLEIRONOFF);
-                        entries.add(ModItems.KNUCKLENETHERITEMAIN);
-                        entries.add(ModItems.KNUCKLENETHERITEOFF);
 
                         entries.add(ModItems.GEARSHIFT);
 
@@ -133,6 +126,18 @@ public class ModItemGroups {
 
 
                     }).build());
+
+    public static final ItemGroup FARMERS_WIP = Registry.register(Registries.ITEM_GROUP, new Identifier(FarmersMarket.MOD_ID, "wip"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.farmers_wip"))
+                    .icon(() -> new ItemStack(ModItems.TEST)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.TEST);
+                        entries.add(ModItems.KNUCKLEIRONMAIN);
+                        entries.add(ModItems.KNUCKLEIRONOFF);
+                        entries.add(ModItems.KNUCKLENETHERITEMAIN);
+                        entries.add(ModItems.KNUCKLENETHERITEOFF);
+                        entries.add(ModItems.GEARSHIFT);
+                    }).build());
+
     public static void registerItemGroups() {
         FarmersMarket.LOGGER.info("registering Item Groups for " + FarmersMarket.MOD_ID);
     }

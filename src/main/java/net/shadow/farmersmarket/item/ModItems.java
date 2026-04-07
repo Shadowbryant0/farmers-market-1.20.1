@@ -18,6 +18,7 @@ import net.shadow.farmersmarket.item.custom.expressions.the_abyss.UnTamedAbyss;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
 import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShift;
+import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShifted;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterOffhandhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.legendaries.SpearWeapon;
@@ -140,7 +141,7 @@ public class ModItems {
     public static final Item BOOP = registerItem("boop",
             new BoopStick(new FabricItemSettings().fireproof()));
     public static final Item CRYSTALINEMIRROR = registerItem("crystalinemirror",
-            new CrystalineMirror(new FabricItemSettings().fireproof()));
+            new CrystalineMirror(new FabricItemSettings().fireproof().maxCount(1)));
 
     public static final Item TOOTHPICK = registerItem("toothpick",
             new ToothPickItem(new FabricItemSettings().fireproof()));
@@ -212,7 +213,10 @@ public class ModItems {
             new CloudBlockItem(new FabricItemSettings().maxCount(16)));
 
     public static final Item GEARSHIFT = registerItem("gearshift",
-            new GearShift(new FabricItemSettings().maxCount(16)));
+            new GearShift(new FabricItemSettings().maxCount(1)));
+
+    public static final Item GEARSHIFTED = registerItem("gearshifted",
+            new GearShifted(new FabricItemSettings().maxCount(1)));
 
     public static final Item TEST = registerItem("test",
             new TestingBow(new FabricItemSettings().maxCount(1).fireproof()));

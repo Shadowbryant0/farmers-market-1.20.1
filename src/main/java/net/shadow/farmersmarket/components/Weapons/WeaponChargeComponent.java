@@ -40,6 +40,12 @@ public ItemStack stack;
     public static int RAPIER = 0;
     public static int MAX_RAPIER = 100;
     public static int HALF_RAPIER = 50;
+
+    public static int BLACKFLASH = 0;
+    public static int BLACKFLASH_TIMER_MAX = 1;
+    public static int DECAYTIMER = 200;
+    public static int FLASHCHAIN = 0;
+    public static int FLASHCHAIN_MAX= 8;
     @Override
     public void readFromNbt(NbtCompound nbtCompound) {
         WYRM = nbtCompound.getInt("wyrm");
@@ -50,6 +56,7 @@ public ItemStack stack;
         GREAT = nbtCompound.getInt("great");
         BLOOD = nbtCompound.getInt("blood");
         BEARDED = nbtCompound.getInt("bearded");
+        FLASHCHAIN = nbtCompound.getInt("chain");
     }
 
     @Override
@@ -62,6 +69,7 @@ public ItemStack stack;
        nbtCompound.putInt("great", GREAT);
         nbtCompound.putInt("blood", BLOOD);
         nbtCompound.putInt("bearded", BEARDED);
+        nbtCompound.putInt("chain", FLASHCHAIN);
 
     }
 
@@ -74,28 +82,51 @@ public ItemStack stack;
                 FIRE--;
             }
         }
+        if(BLACKFLASH>0){
+            BLACKFLASH--;
+        }
+        if(BLACKFLASH<0){
+            BLACKFLASH = 0;
+        }
+        if(FLASHCHAIN>0){
+            if(DECAYTIMER>0) {
+                DECAYTIMER--;
+            }else{
+                FLASHCHAIN = 0;
+                BLACKFLASH_TIMER_MAX = 1;
+                DECAYTIMER = 200;
+            }
+        }
+
 
     }
     public static void UseWYRM(int value){
-        WYRM = Math.min(WYRM - value, 0);
+        WYRM = Math.max(WYRM - value, 0);
     }
     public static void UseSPADE(int value){
-        SPADE = Math.min(SPADE - value, 0);
+        SPADE = Math.max(SPADE - value, 0);
     }
     public static void UseSICKLE(int value){
-        SICKLE = Math.min(SICKLE - value, 0);
+        SICKLE = Math.max(SICKLE - value, 0);
     }
     public static void UseRapier(int value){
-        RAPIER = Math.min(RAPIER - value, 0);
+        RAPIER = Math.max(RAPIER - value, 0);
     }
     public static void UseGREAT(int value){
-        GREAT = Math.min(GREAT - value, 0);
+        GREAT = Math.max(GREAT - value, 0);
     }
     public static void UseBLOOD(int value){
-        BLOOD = Math.min(BLOOD - value, 0);
+        BLOOD = Math.max(BLOOD - value, 0);
     }
     public static void UseBEARDED(int value){
-        BEARDED = Math.min(BEARDED - value, 0);
+        BEARDED = Math.max(BEARDED - value, 0);
+    }
+    public static void UseFLASH(){
+        BLACKFLASH = 2+(FLASHCHAIN*2);
+    }
+    public static void Chained(){
+        FLASHCHAIN = Math.min(FLASHCHAIN + 1, 8);
+        BLACKFLASH_TIMER_MAX = Math.max(FLASHCHAIN + 1, 8);
     }
 
     public static void ChargeAll() {

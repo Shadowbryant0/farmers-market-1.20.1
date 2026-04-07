@@ -176,5 +176,6 @@
   "tooltip.farmersmarket.abyss.tooltip4": "and the third is a creature who has long lost it's original will, now guarding the dragon.",
   "attribute.name.generic.farmersmarket.abyss":"Abyss",
   "fm.warped_shadow": "You have fallen out of the end",
-  "fm.warped_end": "you have fallen back into the end"
+  "fm.warped_end": "you have fallen back into the end",
+  "itemgroup.farmers_wip": "Fm W.I.P and scrapped"
 }

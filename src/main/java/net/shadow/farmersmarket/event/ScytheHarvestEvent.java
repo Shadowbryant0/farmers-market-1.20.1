@@ -42,6 +42,9 @@ public class ScytheHarvestEvent {
                                     if(targetState.getBlock() instanceof DeadBushBlock){
                                         serverWorld.breakBlock(newPos, true, player);
                                     }
+                                    if(targetState.getBlock() instanceof TallPlantBlock){
+                                        serverWorld.breakBlock(newPos, true, player);
+                                    }
                                     if(!(targetState.getBlock() instanceof CropBlock crop)) continue;
                                     if (!tool.isSuitableFor(state)) return;
                                     if(crop.getAge(targetState) == crop.getMaxAge()) {

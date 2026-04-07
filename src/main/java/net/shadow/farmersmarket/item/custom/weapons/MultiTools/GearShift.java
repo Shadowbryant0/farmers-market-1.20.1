@@ -2,18 +2,29 @@ package net.shadow.farmersmarket.item.custom.weapons.MultiTools;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.*;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
+import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.materials.WeaponMaterials;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class GearShift extends HoeItem {
     public GearShift(Settings settings) {
@@ -65,5 +76,44 @@ public class GearShift extends HoeItem {
             }
         }
     return super.useOnBlock(context);
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack) {
+        return 40;
+    }
+
+
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.CROSSBOW;
+    }
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if(user.isSneaking()){
+        user.setCurrentHand(hand); // Begin charging
+        }
+        return TypedActionResult.consume(user.getStackInHand(hand));
+    }
+
+    @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+
+        ItemStack newstack = new ItemStack(ModItems.GEARSHIFTED);
+        if(stack.hasEnchantments()) {
+            Map<Enchantment, Integer> map =  EnchantmentHelper.get(stack).entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+            EnchantmentHelper.set(map, newstack);
+
+
+
+                stack.decrement(1);
+                newstack.setDamage(stack.getDamage());
+                return newstack;
+
+        }
+
+
+        return newstack;
     }
 }

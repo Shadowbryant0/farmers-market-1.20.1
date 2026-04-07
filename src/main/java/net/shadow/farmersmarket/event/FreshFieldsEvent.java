@@ -16,7 +16,6 @@ public class FreshFieldsEvent {
             PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
                 if (!(world instanceof ServerWorld serverWorld)) return;
                 ItemStack tool = player.getMainHandStack();
-                if (!tool.isSuitableFor(state)) return;
                 if(state.getBlock() instanceof CropBlock crop) {
                     if(!(crop.getAge(state) == crop.getMaxAge())) return;
                     BlockState defaultstate = crop.getDefaultState();
