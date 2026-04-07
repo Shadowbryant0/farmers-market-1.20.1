@@ -13,6 +13,7 @@ import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.effects.FmEffects;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.event.ForgingEnchantEvent;
+import net.shadow.farmersmarket.event.FreshFieldsEvent;
 import net.shadow.farmersmarket.event.ScytheHarvestEvent;
 import net.shadow.farmersmarket.event.ShadowRealmVoidHandler;
 import net.shadow.farmersmarket.item.ModItemGroups;
@@ -63,6 +64,7 @@ public class FarmersMarket implements ModInitializer {
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "divinity"), DIVINITY);
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "abyss"), ABYSS);
 
+        FreshFieldsEvent.register();
         FMWorldGeneration.generateModWorldGen();
         ShadowRealmVoidHandler.init();
 	}

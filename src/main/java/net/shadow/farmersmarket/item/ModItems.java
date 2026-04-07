@@ -17,6 +17,7 @@ import net.shadow.farmersmarket.item.custom.expressions.the_abyss.TheThirdAbyss_
 import net.shadow.farmersmarket.item.custom.expressions.the_abyss.UnTamedAbyss;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
+import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShift;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterOffhandhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.legendaries.SpearWeapon;
@@ -210,6 +211,8 @@ public class ModItems {
     public static final Item CLOUD_ITEM = registerItem("cloud_item",
             new CloudBlockItem(new FabricItemSettings().maxCount(16)));
 
+    public static final Item GEARSHIFT = registerItem("gearshift",
+            new GearShift(new FabricItemSettings().maxCount(16)));
 
     public static final Item TEST = registerItem("test",
             new TestingBow(new FabricItemSettings().maxCount(1).fireproof()));

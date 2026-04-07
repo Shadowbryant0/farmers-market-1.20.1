@@ -20,6 +20,7 @@ public class WeaponMaterials implements ToolMaterial {
     public static final WeaponMaterials SABER = new WeaponMaterials(MiningLevels.NETHERITE, 2031, 6.0f, .1,2.0f, 22, () -> Ingredient.ofItems(Items.IRON_INGOT));
     public static final WeaponMaterials SICKLE = new WeaponMaterials(MiningLevels.NETHERITE, 2031, 6.0f, .1,2.0f, 22, () -> Ingredient.ofItems(Items.IRON_INGOT));
     public static final WeaponMaterials NETHERITE = new WeaponMaterials(MiningLevels.NETHERITE, 2031, 9.0f,.3, 4.0f, 15, () -> Ingredient.ofItems(Items.IRON_INGOT));
+    public static final WeaponMaterials GEARSHIFT = new WeaponMaterials(MiningLevels.NETHERITE, 2031, 9.0f,.3, 4.0f, 15, () -> Ingredient.ofItems(Items.COPPER_INGOT));
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;

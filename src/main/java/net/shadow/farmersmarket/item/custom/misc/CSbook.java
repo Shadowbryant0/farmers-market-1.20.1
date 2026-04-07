@@ -162,6 +162,13 @@ public class CSbook extends BookItem {
 
 
             }
+            else if (itemStack.getItem() instanceof HoeItem) {
+                if(EnchantmentHelper.getLevel(FarmersMarketEnchants.FreshFeildsEnchantment, itemStack) == 0) {
+                    itemStack.addEnchantment(FarmersMarketEnchants.FreezerBurn, 1);
+                    player.damage(player.getDamageSources().wither(), 10);
+                    stack.decrement(1);
+                }
+            }
 
 
             return true;

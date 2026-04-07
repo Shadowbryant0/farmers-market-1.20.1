@@ -41,6 +41,8 @@ public class ModItemGroups {
                         entries.add(ModItems.KNUCKLENETHERITEMAIN);
                         entries.add(ModItems.KNUCKLENETHERITEOFF);
 
+                        entries.add(ModItems.GEARSHIFT);
+
                         entries.add(ModItems.CRUDESABER);
                         entries.add(ModItems.PIRATESABER);
 
