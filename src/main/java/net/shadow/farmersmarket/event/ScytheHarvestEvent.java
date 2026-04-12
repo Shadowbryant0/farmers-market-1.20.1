@@ -20,7 +20,7 @@ public class ScytheHarvestEvent {
                 ItemStack tool = player.getMainHandStack();
 
 
-
+                if(!(tool.isOf(ModItems.GAYSCYTHE))) {return;}
 
                     Direction facing = player.getHorizontalFacing(); // To determine orientation
                     boolean isVertical = player.getPitch() < -60 || player.getPitch() > 60;
@@ -48,7 +48,7 @@ public class ScytheHarvestEvent {
                                     if(!(targetState.getBlock() instanceof CropBlock crop)) continue;
                                     if (!tool.isSuitableFor(state)) return;
                                     if(crop.getAge(targetState) == crop.getMaxAge()) {
-                                        if (tool.isOf(ModItems.GAYSCYTHE) && tool.isSuitableFor(targetState)) {
+                                        if (tool.isSuitableFor(targetState)) {
                                             serverWorld.breakBlock(newPos, true, player);
                                             world.setBlockState(newPos, crop.getDefaultState());
                                         }

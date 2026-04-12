@@ -18,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
+import java.util.Objects;
 
 @Mixin(EnchantmentHelper.class)
 public abstract class EnchantmentHelperMixin {
@@ -25,10 +26,14 @@ public abstract class EnchantmentHelperMixin {
 
 
     private static Enchantment storedEnchantment;
+    private static Enchantment weaponEnchantment;
     @WrapOperation(method = "getPossibleEntries", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/Enchantment;isAvailableForRandomSelection()Z"))
     private static boolean FarmersMarket$storeEnchants(Enchantment enchantment, Operation<Boolean> original) {
         boolean originalResult = original.call(enchantment);
 
+        if((enchantment == Enchantments.FIRE_ASPECT || enchantment == Enchantments.KNOCKBACK|| enchantment == Enchantments.LOOTING)){
+            weaponEnchantment = enchantment;
+        }
         if (originalResult) {
             storedEnchantment = enchantment;
         }
@@ -44,18 +49,21 @@ public abstract class EnchantmentHelperMixin {
             return (!(item instanceof KnucklesCommon) && item instanceof SwordItem);
         }
         if (storedEnchantment == FarmersMarketEnchants.HuntersLullabyEnchantment) {
-            return item instanceof SwordItem;
+            return (item instanceof SwordItem || item instanceof GearShift);
         }
         if (storedEnchantment == FarmersMarketEnchants.PrimalDesires) {
             return item instanceof AxeItem;
         }
 
-        if(item instanceof GearShift && original.call(enchantmentTarget, item) == false){
-            return original.call(enchantmentTarget,ModItems.GEARSHIFTED);
+//        if(storedEnchantment.isAcceptableItem(new ItemStack(ModItems.GEARSHIFT))&& original.call(enchantmentTarget, item) == false){
+//            if(item instanceof GearShifted) return true;
+//        }
+
+        if(item instanceof GearShift && (!original.call(EnchantmentTarget.WEAPON, item))){
+            return original.call(EnchantmentTarget.WEAPON, ModItems.GEARSHIFTED);
         }
-        if(item instanceof GearShifted && original.call(enchantmentTarget, item)== false){
-            return original.call(enchantmentTarget,ModItems.GEARSHIFT);
-        }
+        if(item instanceof GearShift) return storedEnchantment == Enchantments.FIRE_ASPECT;
+
 
         return original.call(enchantmentTarget, item);
     }

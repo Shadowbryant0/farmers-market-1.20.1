@@ -42,6 +42,6 @@ public class ShockwaveEnchant extends Enchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != Enchantments.QUICK_CHARGE && other != Enchantments.MULTISHOT;
+        return super.canAccept(other) && other != Enchantments.QUICK_CHARGE;
     }
 }

@@ -18,7 +18,6 @@
     "ExampleMixin",
     "FireRenderMixin",
     "ForgingSpeedMixin",
-    "GearShiftMixin",
     "GluttonHungerMixin",
     "GreatBreakMobMixin",
     "GreatBreakPlayerMixin",
