@@ -3,22 +3,13 @@ package net.shadow.farmersmarket.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.enchantment.*;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
-import net.minecraft.util.math.random.Random;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
-import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShift;
-import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShifted;
+import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShifts.GearShift;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnucklesCommon;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.List;
-import java.util.Objects;
 
 @Mixin(EnchantmentHelper.class)
 public abstract class EnchantmentHelperMixin {
@@ -31,13 +22,22 @@ public abstract class EnchantmentHelperMixin {
     private static boolean FarmersMarket$storeEnchants(Enchantment enchantment, Operation<Boolean> original) {
         boolean originalResult = original.call(enchantment);
 
-        if((enchantment == Enchantments.FIRE_ASPECT || enchantment == Enchantments.KNOCKBACK|| enchantment == Enchantments.LOOTING)){
-            weaponEnchantment = enchantment;
-        }
+
         if (originalResult) {
             storedEnchantment = enchantment;
         }
         return originalResult;
+    }
+    @WrapOperation(method = "getPossibleEntries", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/EnchantmentTarget;isAcceptableItem(Lnet/minecraft/item/Item;)Z"))
+    private static boolean FarmersMarket$listEnchantments(EnchantmentTarget instance, Item item, Operation<Boolean> original) {
+
+        if(item.asItem() == ModItems.GEARSHIFT){
+            return original.call(instance, ModItems.GEARSHIFTED) || original.call(instance, ModItems.GEARSHIFT);
+        }else
+        if (item.asItem() == ModItems.GEARSHIFTED) {
+            return original.call(instance, ModItems.GEARSHIFTED) ||original.call(instance, ModItems.GEARSHIFT);
+        }
+        return original.call(instance, item);
     }
 
     @WrapOperation(method = "getPossibleEntries", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/EnchantmentTarget;isAcceptableItem(Lnet/minecraft/item/Item;)Z"))
@@ -58,12 +58,8 @@ public abstract class EnchantmentHelperMixin {
 //        if(storedEnchantment.isAcceptableItem(new ItemStack(ModItems.GEARSHIFT))&& original.call(enchantmentTarget, item) == false){
 //            if(item instanceof GearShifted) return true;
 //        }
-
-        if(item instanceof GearShift && (!original.call(EnchantmentTarget.WEAPON, item))){
-            return original.call(EnchantmentTarget.WEAPON, ModItems.GEARSHIFTED);
-        }
-        if(item instanceof GearShift) return storedEnchantment == Enchantments.FIRE_ASPECT;
-
+        //the hoe was used in the anvil once, so 1 anvil cost
+        //if i change forms, it will show the sword was used once
 
         return original.call(enchantmentTarget, item);
     }

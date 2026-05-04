@@ -18,7 +18,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingHoeItem;
 import net.shadow.farmersmarket.item.materials.WeaponMaterials;
@@ -137,10 +137,8 @@ public class RustedSickleItem extends SweepingHoeItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        if(WeaponChargeComponent.SICKLE>0){
-        return Math.round((float) WeaponChargeComponent.SICKLE / WeaponChargeComponent.MAX_SICKLE * 13); // full bar = max charge
-    }
-    return super.getItemBarStep(stack);
+            return Math.round((float) WeaponChargeComponent.SICKLE / WeaponChargeComponent.MAX_SICKLE * 13); // full bar = max charge
+//        return super.getItemBarStep(stack);
     }
 
     @Override

@@ -8,7 +8,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
 import net.shadow.farmersmarket.FarmersMarket;
-import net.shadow.farmersmarket.components.BlazeIdolComponent;
+import net.shadow.farmersmarket.components.entity.BlazeIdolComponent;
 
 public class BlazeIdolTrinket extends TrinketItem {
 

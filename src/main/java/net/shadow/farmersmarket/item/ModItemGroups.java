@@ -94,6 +94,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CLOUD_BLOCK);
                         entries.add(ModItems.CLOUD_ITEM);
 
+                        entries.add(ModBlocks.SCRAPOLANTERN);
+
                     }).build());
 
     public static final ItemGroup FARMERS_COSMETICS = Registry.register(Registries.ITEM_GROUP, new Identifier(FarmersMarket.MOD_ID, "farmers_cosmetics"),

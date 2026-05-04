@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "farmersmarket:block/scrapolantern_down",
+    "east": "farmersmarket:block/scrapolantern_side",
+    "north": "farmersmarket:block/scrapolantern_on",
+    "particle": "farmersmarket:block/scrapolantern_side",
+    "south": "farmersmarket:block/scrapolantern_side",
+    "up": "farmersmarket:block/scrapolantern_up_on",
+    "west": "farmersmarket:block/scrapolantern_side"
+  }
+}

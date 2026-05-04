@@ -1,23 +1,14 @@
 package net.shadow.farmersmarket.item.custom.misc;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.EvokerFangsEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.ParryComponent;
-import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.ParryComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.WeaponChargeComponent;
 
 public class MaxCharge extends Item {
     private static final int FULL_CHARGE_TICKS = 60; // 2 seconds

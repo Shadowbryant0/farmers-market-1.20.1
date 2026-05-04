@@ -17,8 +17,10 @@ import net.shadow.farmersmarket.item.custom.expressions.the_abyss.TheThirdAbyss_
 import net.shadow.farmersmarket.item.custom.expressions.the_abyss.UnTamedAbyss;
 import net.shadow.farmersmarket.item.custom.misc.*;
 import net.shadow.farmersmarket.item.custom.weapons.*;
-import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShift;
-import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShifted;
+import net.shadow.farmersmarket.item.custom.weapons.MultiTools.BarknBite.BarkPickaxe;
+import net.shadow.farmersmarket.item.custom.weapons.MultiTools.BarknBite.BiteAxe;
+import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShifts.GearShift;
+import net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShifts.GearShifted;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterMainhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.duelwield.knuckledusters.KnuckledusterOffhandhandItem;
 import net.shadow.farmersmarket.item.custom.weapons.legendaries.SpearWeapon;
@@ -217,6 +219,11 @@ public class ModItems {
 
     public static final Item GEARSHIFTED = registerItem("gearshifted",
             new GearShifted(new FabricItemSettings().maxCount(1)));
+    public static final Item BARK = registerItem("bark",
+            new BarkPickaxe(new FabricItemSettings().maxCount(1)));
+
+    public static final Item BITE = registerItem("bite",
+            new BiteAxe(new FabricItemSettings().maxCount(1)));
 
     public static final Item TEST = registerItem("test",
             new TestingBow(new FabricItemSettings().maxCount(1).fireproof()));

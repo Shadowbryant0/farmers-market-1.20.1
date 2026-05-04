@@ -26,7 +26,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.shadow.farmersmarket.FarmersMarket;
-import net.shadow.farmersmarket.components.expressions.the_abyss.SecondAbyss_Song;
+import net.shadow.farmersmarket.components.entity.expressions.the_abyss.SecondAbyss_Song;
 import net.shadow.farmersmarket.effects.FmEffects;
 import net.shadow.farmersmarket.entity.SecondAbyss;
 

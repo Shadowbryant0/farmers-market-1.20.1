@@ -9,8 +9,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.ParryComponent;
-import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.ParryComponent;
 import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
 public class CrudeSaberItem extends SwordItem {
@@ -32,7 +31,9 @@ public class CrudeSaberItem extends SwordItem {
     }
     @Override
     public int getItemBarStep(ItemStack stack) {
-        return Math.round((float) ParryComponent.PARRY / ParryComponent.PARRY_MAX * 13); // full bar = max charge
+            return Math.round((float) ParryComponent.PARRY / ParryComponent.PARRY_MAX * 13); // full bar = max charge
+
+//        return super.getItemBarStep(stack);
     }
 
     @Override

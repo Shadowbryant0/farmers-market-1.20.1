@@ -6,7 +6,7 @@
       "item": "farmersmarket:flesh_stew"
     },
     "title": "Warming meal",
-    "description": "Make a stew to share with your friends!",
+    "description": "Make a stew with your friends!",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false

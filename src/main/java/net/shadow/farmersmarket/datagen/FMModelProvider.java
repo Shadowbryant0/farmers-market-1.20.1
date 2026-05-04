@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TexturedModel;
 import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.item.ModItems;
 
@@ -37,5 +38,7 @@ public class FMModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.GEARSHIFTED, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GEARSHIFT, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BARK, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BITE, Models.HANDHELD);
     }
 }

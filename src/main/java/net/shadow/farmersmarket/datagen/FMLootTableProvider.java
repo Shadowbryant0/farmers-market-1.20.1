@@ -28,6 +28,7 @@ public class FMLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.STARRY_OBSIDIAN, nonSilkTouch(ModBlocks.STARRY_OBSIDIAN, ModItems.SHATTERED_STARS));
         addDrop(ModBlocks.CRYSTALIZED_ABYSS, nonSilkTouch(ModBlocks.CRYSTALIZED_ABYSS, ModItems.ABYSS_SHARDS));
         addDrop(ModBlocks.CLOUD_BLOCK, nonSilkTouch(ModBlocks.CLOUD_BLOCK, ModItems.CLOUD_ITEM));
+        addDrop(ModBlocks.SCRAPOLANTERN, dropSelf(ModBlocks.SCRAPOLANTERN));
     }
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
         return BlockLootTableGenerator.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
@@ -42,6 +43,13 @@ public class FMLootTableProvider extends FabricBlockLootTableProvider {
         return BlockLootTableGenerator.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
                 ((LeafEntry.Builder)
                         ItemEntry.builder(item)
+                                .apply(SetCountLootFunction
+                                        .builder(UniformLootNumberProvider
+                                                .create(1.0f, 1.0f))))));
+    }public LootTable.Builder dropSelf(Block drop) {
+        return BlockLootTableGenerator.drops(drop, WITH_SILK_TOUCH_OR_SHEARS, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
+                ((LeafEntry.Builder)
+                        ItemEntry.builder(drop.asItem())
                                 .apply(SetCountLootFunction
                                         .builder(UniformLootNumberProvider
                                                 .create(1.0f, 1.0f))))));

@@ -1,25 +1,18 @@
 package net.shadow.farmersmarket.mixin;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.DamageTypeTags;
-import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Armor.AdaptabilityComponent;
-import net.shadow.farmersmarket.components.BlazeIdolComponent;
-import net.shadow.farmersmarket.components.Weapons.ParryComponent;
+import net.shadow.farmersmarket.components.entity.Armor.AdaptabilityComponent;
+import net.shadow.farmersmarket.components.entity.BlazeIdolComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.ParryComponent;
 import net.shadow.farmersmarket.effects.FmEffects;
-import net.shadow.farmersmarket.util.FMEnchantCheck;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)

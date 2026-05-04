@@ -27,7 +27,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import com.google.common.collect.Multimap;
 import net.shadow.farmersmarket.item.materials.WeaponMaterials;
@@ -198,10 +198,10 @@ public class RapierWeaponItem extends SwordItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        if(WeaponChargeComponent.RAPIER>0){
+
+
         return Math.round((float) WeaponChargeComponent.RAPIER / WeaponChargeComponent.MAX_RAPIER * 13); // full bar = max charge
-             }
-    return super.getItemBarStep(stack);
+//        return super.getItemBarStep(stack);
     }
 
     @Override

@@ -29,11 +29,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.custom.weapons.SweepingBase.SweepingItem;
 import net.shadow.farmersmarket.util.FMEnchantCheck;
-import net.shadow.farmersmarket.util.FarmersmarketUtil;
 
 import java.util.List;
 import java.util.UUID;

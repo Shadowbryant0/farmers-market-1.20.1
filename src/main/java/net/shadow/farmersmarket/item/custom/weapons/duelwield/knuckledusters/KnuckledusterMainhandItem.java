@@ -9,14 +9,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.KnuckleDusterComponent;
-import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.KnuckleDusterComponent;
 import net.shadow.farmersmarket.item.materials.KnucklesLevel;
-import net.shadow.farmersmarket.util.FMEnchantCheck;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

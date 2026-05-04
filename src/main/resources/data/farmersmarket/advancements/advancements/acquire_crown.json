@@ -1,0 +1,34 @@
+{
+  "parent": "farmersmarket:advancements/farmers_market",
+  "criteria": {
+    "crown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "farmersmarket:ender_crown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:ender_crown"
+    },
+    "title": "Lonely Throne",
+    "description": "Acquire the end king's crown.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "requirements": [
+    [
+      "crown"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

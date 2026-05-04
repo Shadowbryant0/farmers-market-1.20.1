@@ -3,9 +3,6 @@ package net.shadow.farmersmarket.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -13,11 +10,10 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
 import net.shadow.farmersmarket.FarmersMarket;
 import net.shadow.farmersmarket.block.custom.CustomAngelBlock;
 import net.shadow.farmersmarket.block.custom.ThreadWeaver;
-import org.jetbrains.annotations.Nullable;
+import net.shadow.farmersmarket.block.custom.ToggleableLightBlock;
 
 public class ModBlocks {
 
@@ -37,6 +33,10 @@ public class ModBlocks {
     public static final Block CLOUD_BLOCK = registerBlock(
             "cloud_block",
             new CustomAngelBlock(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).luminance((state) -> 5)));
+    public static final Block SCRAPOLANTERN = registerBlock(
+            "scrapolantern",
+            new ToggleableLightBlock(FabricBlockSettings.copyOf(Blocks.SEA_LANTERN).luminance(Blocks.createLightLevelFromLitBlockState(15))
+            ));
 
 
 

@@ -12,10 +12,7 @@ import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.block.ModBlocks;
 import net.shadow.farmersmarket.effects.FmEffects;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.event.ForgingEnchantEvent;
-import net.shadow.farmersmarket.event.FreshFieldsEvent;
-import net.shadow.farmersmarket.event.ScytheHarvestEvent;
-import net.shadow.farmersmarket.event.ShadowRealmVoidHandler;
+import net.shadow.farmersmarket.event.*;
 import net.shadow.farmersmarket.item.ModItemGroups;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.sound.ModSounds;
@@ -63,7 +60,7 @@ public class FarmersMarket implements ModInitializer {
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "truesight"), TRUESIGHT);
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "divinity"), DIVINITY);
         Registry.register(Registries.ATTRIBUTE, new Identifier(MOD_ID2, "abyss"), ABYSS);
-
+        BiteChopEvent.register();
         FreshFieldsEvent.register();
         FMWorldGeneration.generateModWorldGen();
         ShadowRealmVoidHandler.init();

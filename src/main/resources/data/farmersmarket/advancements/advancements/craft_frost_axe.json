@@ -1,0 +1,25 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "item": "farmersmarket:frostbite"
+    },
+    "title": "Cold Storage",
+    "description": "Craft the hidden Ice Axe",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false
+
+  },
+  "parent": "farmersmarket:advancements/obtain_brute_axe",
+  "criteria": {
+    "condition": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "farmersmarket:frostbite"
+      }
+
+
+    }
+  }
+}

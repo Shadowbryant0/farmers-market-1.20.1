@@ -10,7 +10,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.expressions.divinity.Firstdivinity_flight;
+import net.shadow.farmersmarket.components.entity.expressions.divinity.Firstdivinity_flight;
 import net.shadow.farmersmarket.item.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

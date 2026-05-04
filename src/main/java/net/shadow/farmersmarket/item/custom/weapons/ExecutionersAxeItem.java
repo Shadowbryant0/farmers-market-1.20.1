@@ -18,7 +18,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.WeaponChargeComponent;
+import net.shadow.farmersmarket.components.entity.Weapons.WeaponChargeComponent;
 import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.custom.weapons.reskins.FrostSkin;
 import net.shadow.farmersmarket.item.materials.WeaponMaterials;
@@ -187,11 +187,8 @@ public class ExecutionersAxeItem extends AxeItem {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        if(WeaponChargeComponent.BLOOD>0){
             return Math.round((float) WeaponChargeComponent.BLOOD / WeaponChargeComponent.MAX_BLOOD * 13); // full bar = max charge
-    }
-    return super.getItemBarStep(stack);
-
+//        return super.getItemBarStep(stack);
     }
 
     @Override

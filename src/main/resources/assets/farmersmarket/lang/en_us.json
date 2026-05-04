@@ -183,5 +183,8 @@
   "attribute.name.generic.farmersmarket.abyss":"Abyss",
   "fm.warped_shadow": "You have fallen out of the end",
   "fm.warped_end": "you have fallen back into the end",
-  "itemgroup.farmers_wip": "Fm W.I.P and scrapped"
+  "itemgroup.farmers_wip": "Fm W.I.P and scrapped",
+
+
+  "block.farmersmarket.scrapolantern": "Scrap o' Lantern"
 }

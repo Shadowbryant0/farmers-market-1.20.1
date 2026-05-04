@@ -2,15 +2,9 @@ package net.shadow.farmersmarket.enchantments.Armor.Helmet;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.DamageTypeTags;
-import net.shadow.farmersmarket.components.Armor.AdaptabilityComponent;
-import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
-import net.shadow.farmersmarket.util.FarmersMarketDamageTagsCustom;
 
 public class Gluttony extends Enchantment {
 

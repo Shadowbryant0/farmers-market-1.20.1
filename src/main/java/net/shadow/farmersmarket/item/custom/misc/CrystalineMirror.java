@@ -10,7 +10,6 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import net.shadow.farmersmarket.components.Weapons.ParryComponent;
 
 public class CrystalineMirror extends Item {
 
