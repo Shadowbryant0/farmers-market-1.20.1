@@ -5,6 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.mob.EndermanEntity;
 import net.minecraft.entity.mob.WardenEntity;
+import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.ParrotEntity;
@@ -27,32 +28,28 @@ public class UnTamedAbyss extends Item {
     }
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity living, Hand hand) {
-        switch (living) {
-            case IronGolemEntity ironGolem -> {
+            if(living instanceof IronGolemEntity){
                 user.getStackInHand(hand).setCount(0);
                 living.dropStack(new ItemStack(ModItems.FIRSTOFTHEABYSS_SHACKLES));
                 living.kill();
                 user.sendMessage(Text.literal("The Abyss consumes the Golem, forming shackles from it's soul.").formatted(Formatting.DARK_RED), true);
 
             }
-            case ParrotEntity parrot -> {
+            if(living instanceof ParrotEntity){
                 user.getStackInHand(hand).setCount(0);
                 living.dropStack(new ItemStack(ModItems.SECONDOFTHEABYSS_SONG));
                 living.kill();
                 user.sendMessage(Text.literal("The Abyss consumes the parrot, ripping it's songs from it's soul.").formatted(Formatting.DARK_RED), true);
 
             }
-            case EndermanEntity enderman -> {
+            if(living instanceof EndermanEntity){
                 user.getStackInHand(hand).setCount(0);
                 living.dropStack(new ItemStack(ModItems.THIRDOFTHEABYSS_VOID));
                 living.kill();
                 user.sendMessage(Text.literal("The Abyss consumes the Empty husk, Personifying it's hunger to be more than a puppet.").formatted(Formatting.DARK_RED), true);
 
             }
-            default -> {
-
-            }
-        }
+        
         return super.useOnEntity(stack, user, living, hand);
     }
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {

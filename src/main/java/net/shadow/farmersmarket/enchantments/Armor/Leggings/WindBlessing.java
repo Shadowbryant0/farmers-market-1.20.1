@@ -13,7 +13,7 @@ import net.shadow.farmersmarket.util.FarmersMarketDamageTagsCustom;
 public class WindBlessing extends Enchantment {
 
     public WindBlessing() {
-        super(Rarity.RARE, EnchantmentTarget.ARMOR_LEGS, new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET});
+        super(Rarity.RARE, EnchantmentTarget.ARMOR_LEGS, new EquipmentSlot[]{EquipmentSlot.LEGS});
     }
 
 

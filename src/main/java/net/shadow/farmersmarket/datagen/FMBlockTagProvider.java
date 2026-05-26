@@ -15,10 +15,13 @@ public class FMBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(ModBlocks.SCRAPOLANTERN);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.COMPACT_IRON)
                 .add(ModBlocks.STARRY_OBSIDIAN)
-                .add(ModBlocks.CRYSTALIZED_ABYSS);
+                .add(ModBlocks.CRYSTALIZED_ABYSS)
+                .add(ModBlocks.SCRAPOLANTERN);
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.COMPACT_IRON)
                 .add(ModBlocks.CRYSTALIZED_ABYSS)

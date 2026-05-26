@@ -35,7 +35,7 @@ public class ModBlocks {
             new CustomAngelBlock(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).luminance((state) -> 5)));
     public static final Block SCRAPOLANTERN = registerBlock(
             "scrapolantern",
-            new ToggleableLightBlock(FabricBlockSettings.copyOf(Blocks.SEA_LANTERN).luminance(Blocks.createLightLevelFromLitBlockState(15))
+            new ToggleableLightBlock(FabricBlockSettings.copyOf(Blocks.PUMPKIN).luminance(Blocks.createLightLevelFromLitBlockState(15))
             ));
 
 

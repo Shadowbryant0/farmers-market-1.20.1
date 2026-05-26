@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_star": {
+    "has_scythe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:nether_star"
+              "farmersmarket:gayscythe"
             ]
           }
         ]
@@ -15,22 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "farmersmarket:tide"
+        "recipe": "farmersmarket:scythe_head"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_star",
+      "has_scythe",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "farmersmarket:tide",
-      "farmersmarket:gearshift"
+      "farmersmarket:scythe_head"
     ]
   },
-  "show_notification": true
+  "sends_telemetry_event": true
 }

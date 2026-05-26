@@ -43,6 +43,8 @@ public abstract class ModelLoaderMixin {
         this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "pirate_saber_3d", "inventory"));
         this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "crude_saber_3d", "inventory"));
         this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "frostbite_3d", "inventory"));
+        this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "gearshift_3d", "inventory"));
+        this.addModel(new ModelIdentifier(FarmersMarket.MOD_ID, "gearshifted_3d", "inventory"));
     }
 
 }

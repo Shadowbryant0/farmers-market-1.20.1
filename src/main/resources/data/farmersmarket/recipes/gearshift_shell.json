@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:netherite_scythe_head"
+  },
+  "base": {
+    "item": "farmersmarket:copper_body"
+  },
+  "result": {
+    "item": "farmersmarket:gearshift_shell"
+  },
+  "template": {
+    "item": "farmersmarket:forge_upgrade"
+  }
+}

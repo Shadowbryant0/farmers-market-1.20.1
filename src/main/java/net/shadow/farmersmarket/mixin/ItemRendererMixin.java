@@ -78,6 +78,11 @@ public abstract class ItemRendererMixin {
         if (stack.isOf(ModItems.FROSTBITE) && renderMode != ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "frostbite_3d", "inventory"));
         }
+        if (stack.isOf(ModItems.GEARSHIFT) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "gearshift_3d", "inventory"));
+        }if (stack.isOf(ModItems.GEARSHIFTED) && renderMode != ModelTransformationMode.GUI) {
+            return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(new ModelIdentifier(FarmersMarket.MOD_ID, "gearshifted_3d", "inventory"));
+        }
         return value;
     }
 }

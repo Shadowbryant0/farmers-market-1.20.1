@@ -28,7 +28,7 @@ public class GearShifted extends SweeplessSword {
     private static int HOE_ANVIL;
     private static final int COOLDOWN_TICKS = 40;
     public GearShifted(Settings settings) {
-        super(WeaponMaterials.GEARSHIFT, 2, -2.4F, settings);
+        super(WeaponMaterials.GEARSHIFT, 3, -2.4F, settings);
     }
     @Override
     public int getMaxUseTime(ItemStack stack) {

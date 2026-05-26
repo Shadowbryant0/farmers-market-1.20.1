@@ -26,6 +26,15 @@
   "tooltip.farmersmarket.knuckleduster_offhand": "Used in your OffHand",
   "tooltip.farmersmarket.knuckleduster_mainhand": "Used in your mainhand",
 
+  "item.farmersmarket.gearshift": "Gearshift",
+  "item.farmersmarket.gearshifted": "Gearshift",
+  "item.farmersmarket.gear": "Gear",
+  "item.farmersmarket.gear_assembly": "Gear Assembly",
+  "item.farmersmarket.copper_body": "Copper Gear Body",
+  "item.farmersmarket.scythe_head": "Scythe Head",
+  "item.farmersmarket.gearshift_shell": "Empty Gearshift Shell",
+  "item.farmersmarket.netherite_scythe_head": "Netherite Scythe Head",
+
   "item.farmersmarket.mainsword": "REQUIEM",
 
   "item.farmersmarket.bloodhoundaxe": "BloodHound Axe",

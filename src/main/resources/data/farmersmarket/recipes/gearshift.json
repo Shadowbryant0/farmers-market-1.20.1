@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "farmersmarket:gearshift_shell"
+  },
+  "base": {
+    "item": "minecraft:netherite_hoe"
+  },
+  "result": {
+    "item": "farmersmarket:gearshift"
+  },
+  "template": {
+    "item": "minecraft:nether_star"
+  }
+}

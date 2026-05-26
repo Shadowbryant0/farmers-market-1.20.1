@@ -126,7 +126,7 @@ public ItemStack stack;
     }
     public static void Chained(){
         FLASHCHAIN = Math.min(FLASHCHAIN + 1, 8);
-        BLACKFLASH_TIMER_MAX = Math.max(FLASHCHAIN + 1, 8);
+        BLACKFLASH_TIMER_MAX = Math.max(8+(FLASHCHAIN*2), 8);
     }
 
     public static void ChargeAll() {

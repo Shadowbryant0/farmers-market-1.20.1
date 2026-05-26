@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,lit=false": {
+      "model": "farmersmarket:block/scrapolantern",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "farmersmarket:block/scrapolantern_on",
+      "y": 90
+    },
+    "facing=north,lit=false": {
+      "model": "farmersmarket:block/scrapolantern"
+    },
+    "facing=north,lit=true": {
+      "model": "farmersmarket:block/scrapolantern_on"
+    },
+    "facing=south,lit=false": {
+      "model": "farmersmarket:block/scrapolantern",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "farmersmarket:block/scrapolantern_on",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "farmersmarket:block/scrapolantern",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "farmersmarket:block/scrapolantern_on",
+      "y": 270
+    }
+  }
+}

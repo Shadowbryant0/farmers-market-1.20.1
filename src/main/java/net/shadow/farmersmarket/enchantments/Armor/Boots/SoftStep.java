@@ -1,4 +1,4 @@
-package net.shadow.farmersmarket.enchantments.Armor.Leggings;
+package net.shadow.farmersmarket.enchantments.Armor.Boots;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -9,22 +9,14 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 
-public class LavaWader extends Enchantment {
+public class SoftStep extends Enchantment {
 
-    public LavaWader() {
-        super(Rarity.RARE, EnchantmentTarget.ARMOR_LEGS, new EquipmentSlot[]{EquipmentSlot.CHEST, EquipmentSlot.LEGS});
+    public SoftStep() {
+        super(Rarity.RARE, EnchantmentTarget.ARMOR_FEET, new EquipmentSlot[]{EquipmentSlot.FEET});
     }
 
 
 
-    public int getProtectionAmount(int level, DamageSource source) {
-
-        if (source.isIn(DamageTypeTags.IS_FIRE)) {
-            return 17;
-        }
-        else
-        {return 0;}
-    }
     @Override
     public int getMinPower(int level) {
         return 10 + 10 * level;

@@ -35,10 +35,18 @@ public class FMModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.UNTAMED_ABYSS, Models.GENERATED);
         itemModelGenerator.register(ModItems.THIRDOFTHEABYSS_VOID, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLOUD_ITEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEARSHIFT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEARSHIFTED, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEAR_ASSEMBLY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEARSHIFT_SHELL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_GEAR_BODY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SCYTHE_HEAD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_SCYTHE_HEAD, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.GEARSHIFTED, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GEARSHIFT, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BARK, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BITE, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GEARSHIFTED, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GEARSHIFT, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.BARK, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.BITE, Models.HANDHELD);
     }
 }

@@ -2,9 +2,12 @@ package net.shadow.farmersmarket.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -35,6 +38,11 @@ public class ToggleableLightBlock extends Block {
         if(!world.isClient()) {
             world.setBlockState(pos, state.cycle(LIT));
             player.swingHand(hand);
+            if(state.get(LIT)){
+                this.playInsertSound2(world, player);
+            }else{
+                this.playInsertSound(world,player);
+            }
             return ActionResult.success(true);
         }else {
             return ActionResult.success(true);
@@ -47,5 +55,13 @@ public class ToggleableLightBlock extends Block {
     static {
         FACING = HorizontalFacingBlock.FACING;
         LIT = Properties.LIT;
+    }
+    private void playInsertSound2(World world, LivingEntity user) {
+        world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 3.0f, 1.0f);
+    }
+    private void playInsertSound(World world, LivingEntity user) {
+        world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 3.0f, 1.0f);
     }
 }

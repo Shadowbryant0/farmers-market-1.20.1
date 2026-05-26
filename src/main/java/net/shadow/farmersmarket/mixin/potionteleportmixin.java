@@ -1,86 +1,47 @@
-package net.shadow.farmersmarket.components.entity;
+package net.shadow.farmersmarket.mixin;
 
-import dev.onyxstudios.cca.api.v3.component.Component;
-import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
-import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
-import net.minecraft.entity.damage.DamageType;
-import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.item.PotionItem;
+import net.minecraft.potion.PotionUtil;
+import net.minecraft.potion.Potions;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.shadow.farmersmarket.components.entity.TeleportRandomlyComponent;
 import net.shadow.farmersmarket.item.trinkets.endstuff.EnderManPendent;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
 
-public class TeleportRandomlyComponent implements Component, CommonTickingComponent, AutoSyncedComponent {
-    public final PlayerEntity player;
-public ItemStack stack;
-    public TeleportRandomlyComponent(PlayerEntity player) {
-        this.player = player;
-    }
-    public static boolean enderman = false;
-    public static boolean bottle = false;
-
-    public static int cooldown = 40;
-    @Override
-    public void readFromNbt(NbtCompound nbtCompound) {
-        enderman = nbtCompound.getBoolean("enderman");
-        cooldown = nbtCompound.getInt("cooldown");
-        
-    }
-
-    @Override
-    public void writeToNbt(NbtCompound nbtCompound) {
-
-        nbtCompound.putBoolean("enderman", enderman);
-        nbtCompound.putInt("cooldown", cooldown);
-    }
-
-    @Override
-    public void tick() {
-        if(EnderManPendent.isWearingTrinket(player)) {
-            if(!(player.getAbilities().invulnerable)) {
-                if (player.isWet()|| bottle) {//if wearing the trinket, and is not invincible, AND in water, you tp randomly
-                    this.teleportLogically();
-                    player.damage(player.getDamageSources().drown(), 2);
+@Mixin(PotionItem.class)
+public class potionteleportmixin {
+	@Inject(at = @At("HEAD"), method = "finishUsing")
+	private void init(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir) {
+        if(!world.isClient()) {
+            if (user instanceof PlayerEntity player) {
+                if (!(player.getAbilities().invulnerable)) {
+                    if (EnderManPendent.isWearingTrinket(player)) {
+                        if (PotionUtil.getPotion(stack) == Potions.WATER) {
+                            this.teleportLogically(player);
+                        }
+                    }
                 }
             }
-            if(cooldown>=1){
-                cooldown--;
-            }
         }
-        bottle = false;
-    }
-
-    protected boolean teleportRandomly() {
+		// This code is injected into the start of MinecraftServer.loadWorld()V
+	}
+    @Unique
+    protected void teleportLogically(PlayerEntity player){
         if (player.getWorld().isClient() || !player.isAlive()) {
-            return false;
-        }
-        if(cooldown>=1){
-            return false;
-        }
-        double d = player.getX() + (player.getRandom().nextDouble() - 0.5) * 8.0;
-        double e = player.getY(); // set so you don't go into - 100 below bedrock
-        double f = player.getZ() + (player.getRandom().nextDouble() - 0.5) * 8.0;
-        player.teleport(d, e, f);
-        return true;
-    }
-
-    protected void teleportLogically(){
-        if (player.getWorld().isClient() || !player.isAlive()) {
-            return;
-        }
-        if(cooldown>=1){
             return;
         }
         BlockPos HostPos = player.getBlockPos();
@@ -104,10 +65,10 @@ public ItemStack stack;
                     BlockState possible7 = world.getBlockState(HostPos.add(dx, dy + 6,dz)); //block above+4
                     if (possible1.getBlock() == Blocks.AIR && possible2.getBlock() == Blocks.AIR && possible0.getBlock() == Blocks.AIR) {
                         if(world.isRaining()){
-                        if(possible3.getBlock() != Blocks.AIR||possible4.getBlock() != Blocks.AIR||possible5.getBlock() != Blocks.AIR||possible6.getBlock() != Blocks.AIR||possible7.getBlock() != Blocks.AIR){
-                            airrain.add(HostPos.add(dx, dy, dz));
+                            if(possible3.getBlock() != Blocks.AIR||possible4.getBlock() != Blocks.AIR||possible5.getBlock() != Blocks.AIR||possible6.getBlock() != Blocks.AIR||possible7.getBlock() != Blocks.AIR){
+                                airrain.add(HostPos.add(dx, dy, dz));
+                            }
                         }
-                    }
                         if(HostPos.add(dx,dy-1,dz).getY() <= -63){
                             continue;
                         }
@@ -134,45 +95,38 @@ public ItemStack stack;
             }
         }
 
-        bottle = false;
         if(!possiblesafe.isEmpty()) {
             if(!rainsafe.isEmpty()) {
                 int selected =player.getRandom().nextBetween(0,rainsafe.size()-1);
                 BlockPos tp = rainsafe.get(selected);
                 player.teleport(tp.getX()+.5, tp.getY(), tp.getZ()+.5);
-                cooldown=40;
                 return;
             }
             int selected =player.getRandom().nextBetween(0,possiblesafe.size()-1);
             BlockPos tp = possiblesafe.get(selected);
             player.teleport(tp.getX()+.5, tp.getY(), tp.getZ()+.5);
-            cooldown=40;
             return;
         }
 
         if(!airborn.isEmpty()) {
             if(!airrain.isEmpty()) {
-            int selected =player.getRandom().nextBetween(0,airrain.size()-1);
-            BlockPos tp = airrain.get(selected);
+                int selected =player.getRandom().nextBetween(0,airrain.size()-1);
+                BlockPos tp = airrain.get(selected);
                 player.teleport(tp.getX()+.5, tp.getY(), tp.getZ()+.5);
-            cooldown=40;
-            return;
-        }
+                return;
+            }
             int selected =player.getRandom().nextBetween(0,airborn.size()-1);
             BlockPos tp = airborn.get(selected);
             player.teleport(tp.getX()+.5, tp.getY(), tp.getZ()+.5);
-            cooldown=40;
             return;
         }
         if(!wall.isEmpty()) {
             int selected =player.getRandom().nextBetween(0,wall.size()-1);
             BlockPos tp = wall.get(selected);
             player.teleport(tp.getX()+.5, tp.getY(), tp.getZ()+.5);
-            cooldown=40;
             return;
         }
 
         player.teleport(HostPos.getX(), HostPos.getY()+5, HostPos.getZ());
-        cooldown=40;
     }
 }

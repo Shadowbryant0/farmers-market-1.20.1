@@ -204,6 +204,19 @@ public class ModItems {
     public static final Item AXE_HEAD = registerItem("axe_head",
             new Item(new FabricItemSettings().maxCount(16).fireproof()));
 
+    public static final Item GEAR = registerItem("gear",
+            new SubTextItem("use on logs with another gear in your offhand",new FabricItemSettings().maxCount(16)));
+    public static final Item GEAR_ASSEMBLY = registerItem("gear_assembly",
+            new SubTextItem("use on waxed cut copper with a gear in your mainhand",new FabricItemSettings().maxCount(16)));
+    public static final Item COPPER_GEAR_BODY = registerItem("copper_body",
+            new SubTextItem("a advanced handle for a Kogtastic weapon!",new FabricItemSettings().maxCount(16)));
+    public static final Item SCYTHE_HEAD = registerItem("scythe_head",
+            new SubTextItem("use on a magmablock with a netherite ingot in your mainhand",new FabricItemSettings().maxCount(16)));
+    public static final Item NETHERITE_SCYTHE_HEAD = registerItem("netherite_scythe_head",
+            new SubTextItem("a sturdy blade for a Kogtastic weapon!",new FabricItemSettings().maxCount(16)));
+    public static final Item GEARSHIFT_SHELL = registerItem("gearshift_shell",
+            new SubTextItem("a empty shell needing a power source",new FabricItemSettings().maxCount(16)));
+
 
     public static final Item GAYSCYTHE = registerItem("gayscythe",
             new FarmerScytheItem(new FabricItemSettings().maxCount(1)));
@@ -219,11 +232,11 @@ public class ModItems {
 
     public static final Item GEARSHIFTED = registerItem("gearshifted",
             new GearShifted(new FabricItemSettings().maxCount(1)));
-    public static final Item BARK = registerItem("bark",
-            new BarkPickaxe(new FabricItemSettings().maxCount(1)));
-
-    public static final Item BITE = registerItem("bite",
-            new BiteAxe(new FabricItemSettings().maxCount(1)));
+//    public static final Item BARK = registerItem("bark",
+//            new BarkPickaxe(new FabricItemSettings().maxCount(1)));
+//
+//    public static final Item BITE = registerItem("bite",
+//            new BiteAxe(new FabricItemSettings().maxCount(1)));
 
     public static final Item TEST = registerItem("test",
             new TestingBow(new FabricItemSettings().maxCount(1).fireproof()));

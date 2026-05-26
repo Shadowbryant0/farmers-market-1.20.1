@@ -23,22 +23,16 @@ public class UnRefinedDivinity extends Item {
     }
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity living, Hand hand) {
-        switch (living) {
-            case ChickenEntity chickenEntity -> {
+        if(living instanceof ChickenEntity){
                 user.getStackInHand(hand).setCount(0);
                 living.dropStack(new ItemStack(ModItems.FIRSTDIVINITY_FLIGHT));
                 user.sendMessage(Text.literal("The Divinity reshapes itself using the chicken's wings.").formatted(Formatting.WHITE), true);
             }
-            case WardenEntity warden -> {
+        if(living instanceof WardenEntity){
                 user.getStackInHand(hand).setCount(0);
                 living.dropStack(new ItemStack(ModItems.THIRDIVINITY_GUARDIAN));
                 living.kill();
                 user.sendMessage(Text.literal("The Divinity reshapes the warden's heart, purifying the tortured souls inside.").formatted(Formatting.WHITE), true);
-
-            }
-            default -> {
-
-            }
         }
         return super.useOnEntity(stack, user, living, hand);
     }

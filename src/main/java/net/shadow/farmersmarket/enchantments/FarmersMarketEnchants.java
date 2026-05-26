@@ -5,6 +5,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.shadow.farmersmarket.FarmersMarket;
+import net.shadow.farmersmarket.enchantments.Armor.Boots.SoftStep;
 import net.shadow.farmersmarket.enchantments.Armor.Elytra.Bracing;
 import net.shadow.farmersmarket.enchantments.Armor.Helmet.Adaptability;
 import net.shadow.farmersmarket.enchantments.Armor.Helmet.Gluttony;
@@ -73,6 +74,8 @@ public class FarmersMarketEnchants {
             new TrueSight());
     public static final Enchantment WINDBLESSING = register("windblessing",
             new WindBlessing());
+    public static final Enchantment SOFTSTEP = register("softstep",
+            new SoftStep());
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

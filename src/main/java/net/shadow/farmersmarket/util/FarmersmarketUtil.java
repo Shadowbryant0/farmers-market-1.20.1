@@ -36,7 +36,6 @@ public class FarmersmarketUtil {
 
 
     public static boolean hasEnchantment(Enchantment enchantment, ItemStack stack) {
-        System.out.println("enchant detected");
         return EnchantmentHelper.getLevel(enchantment, stack) > 0;
     }
 
@@ -50,10 +49,8 @@ public class FarmersmarketUtil {
     }
 
     public static float getBonusStarvationDamage(LivingEntity living, ItemStack stack) {
-        System.out.println("entity detected");
         if (living != null && hasEnchantment(FarmersMarketEnchants.Starvation, stack)) {
             if (living instanceof PlayerEntity player) {
-                System.out.println("player detected");
                 System.out.println(player.getHungerManager().getFoodLevel());
                 float hunger = 18;
                 float bonus = 0;
@@ -64,7 +61,6 @@ public class FarmersmarketUtil {
                 return Math.min(bonus, getMaxBonusStarvationDamage(stack));
 
             }
-            System.out.println("mob detected");
             float health = living.getMaxHealth() - 1;
             float bonus = 0;
             while (health > living.getHealth()) {

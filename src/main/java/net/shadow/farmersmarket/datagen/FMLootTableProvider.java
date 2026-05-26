@@ -47,7 +47,7 @@ public class FMLootTableProvider extends FabricBlockLootTableProvider {
                                         .builder(UniformLootNumberProvider
                                                 .create(1.0f, 1.0f))))));
     }public LootTable.Builder dropSelf(Block drop) {
-        return BlockLootTableGenerator.drops(drop, WITH_SILK_TOUCH_OR_SHEARS, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
+        return BlockLootTableGenerator.drops(drop, WITHOUT_SILK_TOUCH_NOR_SHEARS, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
                 ((LeafEntry.Builder)
                         ItemEntry.builder(drop.asItem())
                                 .apply(SetCountLootFunction

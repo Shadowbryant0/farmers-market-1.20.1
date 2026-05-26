@@ -33,6 +33,7 @@ public class ModItemGroups {
                         entries.add(ModItems.BEARDED_AXE);
                         entries.add(ModItems.WYRM_SPEAR);
                         entries.add(ModItems.GAYSCYTHE);
+                        entries.add(ModItems.GEARSHIFT);
 
 
                         entries.add(ModItems.CRUDESABER);
@@ -136,7 +137,7 @@ public class ModItemGroups {
                         entries.add(ModItems.KNUCKLEIRONOFF);
                         entries.add(ModItems.KNUCKLENETHERITEMAIN);
                         entries.add(ModItems.KNUCKLENETHERITEOFF);
-                        entries.add(ModItems.GEARSHIFT);
+//                        entries.add(ModItems.GEARSHIFT);
                     }).build());
 
     public static void registerItemGroups() {

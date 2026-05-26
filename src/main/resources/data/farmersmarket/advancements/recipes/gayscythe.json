@@ -30,7 +30,8 @@
     "recipes": [
       "farmersmarket:gayscythe",
       "farmersmarket:knuckledustersironmainhand",
-      "farmersmarket:knuckledustersironoffhand"
+      "farmersmarket:knuckledustersironoffhand",
+      "farmersmarket:gear"
     ]
   },
   "sends_telemetry_event": true

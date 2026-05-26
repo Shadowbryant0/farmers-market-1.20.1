@@ -11,6 +11,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -129,16 +130,18 @@ public class TheSecondAbyss_Symphony extends Item {
                 }
 
                 serverWorld.spawnEntity(living);
-                switch (living) {
-                    case WitherSkeletonEntity witherSkeletonEntity ->
-                            living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-                    case StrayEntity strayEntity -> living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
-                    case VindicatorEntity vindicatorEntity ->
-                            living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_AXE));
-                    case BeeEntity beeEntity -> {
+                    if(living instanceof WitherSkeletonEntity) {
+                        living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+                    }else
+                    if(living instanceof StrayEntity) {
+                        living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+                    }else
+                    if(living instanceof VindicatorEntity) {
+                        living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_AXE));
+                    }else {
+                        living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
                     }
-                    default -> living.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
-                }
+
                 living.addStatusEffect(new StatusEffectInstance(FmEffects.Summoned, 3200));
                 SecondAbyss_Song.Summon();
                 // Get name for message

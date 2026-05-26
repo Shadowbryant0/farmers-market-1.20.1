@@ -1,9 +1,13 @@
 package net.shadow.farmersmarket.item.custom.weapons.MultiTools.GearShifts;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -18,6 +22,7 @@ import net.shadow.farmersmarket.enchantments.FarmersMarketEnchants;
 import net.shadow.farmersmarket.item.ModItems;
 import net.shadow.farmersmarket.item.materials.WeaponMaterials;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -48,6 +53,7 @@ public class GearShift extends HoeItem {
                                 if (surroundingCrops.getAge(targetState) == surroundingCrops.getMaxAge()) {
                                     world.breakBlock(newPos, true, player);
                                     world.setBlockState(newPos, surroundingCrops.getDefaultState());
+                                    world.spawnEntity(bonusWheat(context));
                                     if (surroundingCrops.canGrow((ServerWorld) world, world.random, newPos, surroundingCrops.getDefaultState())) {
                                         surroundingCrops.grow((ServerWorld) world, world.random, newPos, surroundingCrops.getDefaultState());
                                         if (EnchantmentHelper.getLevel(FarmersMarketEnchants.FreshFeildsEnchantment, stack) <= 0)
@@ -63,6 +69,7 @@ public class GearShift extends HoeItem {
             if (crop.getAge(state) == crop.getMaxAge()) {
                 world.breakBlock(pos, true, player);
                 world.setBlockState(pos, crop.getDefaultState());
+                world.spawnEntity(bonusWheat(context));
                 if (crop.canGrow((ServerWorld) world, world.random, pos, crop.getDefaultState())) {
                     crop.grow((ServerWorld) world, world.random, pos, crop.getDefaultState());
                     if (EnchantmentHelper.getLevel(FarmersMarketEnchants.FreshFeildsEnchantment, stack) <= 0)
@@ -114,5 +121,28 @@ public class GearShift extends HoeItem {
 
 
         return newstack;
+    }
+
+    protected Entity bonusWheat(ItemUsageContext context){
+        ItemStack stack = context.getStack();
+        BlockPos pos =context.getBlockPos();
+        if(!(context.getWorld()instanceof ServerWorld serverWorld)){
+            return null;
+        }
+        int bonus = EnchantmentHelper.getLevel(Enchantments.FORTUNE, stack);
+        PlayerEntity player = context.getPlayer();
+        assert player != null;
+        int roll = player.getRandom().nextBetween(1,20);
+        ItemStack bonusDrop = null;
+        if(roll>= (20-bonus)) {
+            bonusDrop = new ItemStack(Items.WHEAT);
+        }else {
+            bonusDrop = new ItemStack(Items.WHEAT_SEEDS);
+        }
+            ItemEntity entity = new ItemEntity(serverWorld,
+                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                    bonusDrop);
+
+        return entity;
     }
 }
